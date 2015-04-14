@@ -64,6 +64,66 @@ pre::after {
   max-width: 40em;
 }
 
+.play-btn {
+  position: absolute;
+  top: 1.6rem;
+  z-index: 2;
+
+  color: #fff;
+}
+
+.play-btn:hover {
+  color: var(--color-brand-dark);
+  text-decoration: none;
+}
+
+.play-icon {
+  height: 80px;
+  margin-right: 0.5em;
+  width: 80px;
+}
+
+.play-icon__text {
+  display: inline-block;
+  max-width: 6em;
+  line-height: 1.2;
+}
+
+.video-embed {
+  overflow: hidden;
+  min-height: 180px;
+  width: 100%;
+
+  transition: all 200ms linear;
+  transform: translateZ(0);
+}
+
+.video-embed__item {
+  transition: all 100ms linear;
+}
+
+.video-embed__item--loading {
+  opacity: 0;
+}
+
+.tutorial-header {
+  background-color: var(--color-brand);
+}
+
+.tutorial h1 {
+  position: absolute;
+  left: 0.75rem;
+  bottom: calc(100% + 1rem);
+
+  color: #000;
+}
+
+.tutorial .is-playing {
+  position: static;
+
+  color: currentColor;
+}
+
 .tutorial h2,
 .tutorial h3,
 .tutorial h4,
@@ -72,10 +132,15 @@ pre::after {
 
 }
 
+.tutorial main p:first-child {
+  font-size: 1.2962rem;
+  line-height: 1.0030;
+}
+
 .heading-link {
   display: none;
   position: absolute;
-  margin-left: -0.6em;
+  margin-left: -0.55em;
 
   opacity: 0.4;
   color: var(--color-grey);
@@ -212,6 +277,19 @@ pre::after {
 
 @media only screen and (min-width: 38em) {
 
+  .play-btn {
+    top: 1rem;
+  }
+
+  .play-icon {
+    height: 100px;
+    width: 120px;
+  }
+
+  .tutorial h1 {
+    bottom: calc(100% + 1.5rem);
+  }
+
   .controls .btn {
     display: inline-block;
   }
@@ -244,8 +322,21 @@ pre::after {
     max-width: 50em;
   }
 
+  .play-btn {
+    top: 2.2rem;
+  }
+
+  .play-icon {
+    height: 120px;
+    width: 150px;
+  }
+
   .tutorial {
     padding-left: 1.5rem;
+  }
+
+  .tutorial h1 {
+    bottom: calc(100% + 3rem);
   }
 
   .tutorial ol {

@@ -1,5 +1,6 @@
 ---
 title: HTML semantics
+playlist: PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1
 next:
   title: Marking up a webpage
   url: marking-up-a-webpage

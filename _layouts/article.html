@@ -2,47 +2,59 @@
 layout: default
 ---
 
-<main class="grid wrapper gutter-1-2">
-  <nav class="tutorial-nav unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
-    <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
-    <label class="nav-label giga" for="nav-check">
-      <i class="icon i--nav"></i>
-      <span class="icon-text">Contents</span>
-    </label>
-  </nav>
+<main class="relative">
+  <div class="tutorial-header push">
+    <div class="wrapper gutter-1-2">
+      <a class="play-btn" href="https://www.youtube.com/watch?v=fcZ_dx1rf5U&amp;list={{page.playlist}}" data-playlist="{{page.playlist}}">
+        <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+        <strong class="giga icon-text play-icon__text">Watch the video playlist</strong>
+      </a>
+      <div class="embed embed--3by1 video-embed"></div>
+    </div>
+  </div>
 
-  <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ]">
-    <header>
-      <h1>{{page.title}}</h1>
-    </header>
+  <div class="grid wrapper relative gutter-1-2">
+    <nav class="tutorial-nav unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
+      <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
+      <label class="nav-label giga" for="nav-check">
+        <i class="icon i--nav"></i>
+        <span class="icon-text">Contents</span>
+      </label>
+    </nav>
 
-    <main>
-      {{content}}
-    </main>
+    <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ]">
+      <header class="pad-t-1-2">
+        <h1 class="yotta">{{page.title}}</h1>
+      </header>
 
-    <footer class="tutorial-footer pad-t pad-b">
-      <ul class="list-group controls push-0">
-        {% if page.prev %}
-          <li class="controls-prev push-1-4">
-            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
-              <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
-              <span class="icon-text">{{page.prev.title}}</span>
+      <main>
+        {{content}}
+      </main>
+
+      <footer class="tutorial-footer pad-t pad-b">
+        <ul class="list-group controls push-0">
+          {% if page.prev %}
+            <li class="controls-prev push-1-4">
+              <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
+                <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
+                <span class="icon-text">{{page.prev.title}}</span>
+              </a>
+            </li>
+          {% endif %}
+          <li class="controls-start push-1-4">
+            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
+              <span class="icon-text">Start</span>
             </a>
           </li>
-        {% endif %}
-        <li class="controls-start push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
-            <span class="icon-text">Start</span>
-          </a>
-        </li>
-        {% if page.next %}
-          <li class="controls-next push-1-4">
-            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.next.url}}">
-              <span class="icon-text">{{page.next.title}}</span>
-              <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
-            </a>
-          </li>
-        {% endif %}
-    </footer>
-  </article>
+          {% if page.next %}
+            <li class="controls-next push-1-4">
+              <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.next.url}}">
+                <span class="icon-text">{{page.next.title}}</span>
+                <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+              </a>
+            </li>
+          {% endif %}
+      </footer>
+    </article>
+  </div>
 </main>

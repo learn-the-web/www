@@ -1,0 +1,71 @@
+.embed {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  width: 100%;
+
+  background-size: cover;
+}
+
+.embed--1by1 {
+  /* Square */
+  padding-top: 100%;
+}
+
+.embed--4by3 {
+  /* Traditional TV/computer screens */
+  padding-top: 75%;
+}
+
+.embed--iso216 {
+  /* A-standard paper sizes */
+  padding-top: 70.92%;
+}
+
+.embed--3by2 {
+  /* Classic 35 mm film */
+  padding-top: 66.6%;
+}
+
+.embed--golden {
+  /* The Golden Ratio */
+  padding-top: 61.8%;
+}
+
+.embed--16by9 {
+  /* HD TV */
+  padding-top: 56.25%;
+}
+
+.embed--185by100 {
+  /* Common widescreen cinema */
+  padding-top: 54.05%;
+}
+
+.embed--24by10 {
+  /* Widescreen cinema: 2.4:1 */;
+  padding-top: 41.667%;
+}
+
+.embed--3by1 {
+  /* Panorama photos */
+  padding-top: 33.33333%;
+}
+
+.embed--4by1 {
+  /* Polyvision */
+  padding-top: 25%;
+}
+
+.embed__item,
+.embed iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  background-position: center center;
+  background-size: cover;
+}

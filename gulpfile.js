@@ -18,7 +18,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-  return gulp.src(['js/prism.js', 'js/main.js', 'js/article-nav.js', 'js/section-links.js'])
+  return gulp.src(['js/prism.js', 'js/main.js', 'js/article-nav.js', 'js/section-links.js', 'js/video.js'])
     .pipe(concat('main.min.js'))
     // .pipe(uglify())
     .pipe(gulp.dest('./'))
