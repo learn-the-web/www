@@ -1,0 +1,183 @@
+@viewport { width: device-width; scale: 1; }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  overflow-y: scroll;
+  padding: 0;
+  font-size: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+pre {
+  margin: 0 0 1.5em;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+q {
+  quotes: none;
+}
+
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+dd {
+  margin: 0 0 0 40px;
+}
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 40px;
+}
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+
+img {
+  border: 0;
+}
+
+.flex-img {
+  width: 100%;
+  display: block;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1.5em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.ir {
+  overflow: hidden;
+  direction: ltr;
+  text-align: left;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.visually-hidden {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  clip: auto;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
