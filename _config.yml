@@ -1,5 +1,11 @@
 exclude: [README.md]
+
+kramdown:
+  input: GFM
+
 defaults:
   -
+    scope:
+      path: ""
     values:
       layout: default
