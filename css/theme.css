@@ -120,14 +120,56 @@ pre::after {
 
 }
 
+.nav-check {
+
+}
+
+.nav-label {
+  cursor: pointer;
+  display: block;
+  padding: 0.3rem 0.5rem;
+
+  background-color: var(--color-grey-light);
+  border-radius: 4px;
+}
+
+.i--nav {
+  margin-right: 0.25em;
+  width: 20px;
+  height: 20px;
+
+  background: none no-repeat left top / 100% auto transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="500" viewBox="0 0 256 500"><path d="M8.5 27h239v35.7H8.5zm0 83.6h239v35.8H8.5zm0 83.6h239V230H8.5zM199.8 468l-169-169 25.4-25.3 169 169zm25.4-168.7l-169 169L30.8 443l169-169z"/></svg>');
+}
+
+.nav-check:checked ~ .nav-label {
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.nav-check:focus ~ .nav-label {
+  outline: 3px solid #000;
+}
+
+.nav-check:checked ~ .nav-label .i--nav {
+  background-position: left bottom;
+}
+
 .tutorial-nav ol {
   margin: 0;
   padding: 0;
 }
 
 .tutorial-nav > ol {
-  margin-left: -0.3em;
-  margin-right: -0.3em;
+  display: none;
+  padding: 0.5rem;
+
+  background-color: var(--color-grey-light);
+  border-radius: 0 0 4px 4px;
+}
+
+.tutorial-nav .nav-check:checked ~ ol {
+  display: block;
 }
 
 .tutorial-nav ol ol {
@@ -207,6 +249,21 @@ pre::after {
 
   .tutorial ol {
     padding-left: 0;
+  }
+
+  .tutorial-nav > ol {
+    display: block;
+    margin-left: -0.3em;
+    margin-right: -0.3em;
+    padding: 0;
+
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .nav-label,
+  .nav-check {
+    display: none;
   }
 
 }
