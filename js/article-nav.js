@@ -20,6 +20,9 @@
       li.appendChild(newLi);
 
       return newLi;
+    },
+    getCorrectParent = function (currentItem, diff) {
+      return currentItem.parentNode.parentNode.parentNode;
     }
   ;
 
@@ -36,7 +39,7 @@
     var
       tag = headings[i].tagName.toUpperCase(),
       level = parseInt(tag.replace('H', ''), 10),
-      tmp
+      tmp, diff
     ;
 
     if (level === currentLevel) {
@@ -50,7 +53,9 @@
     }
 
     if (level < currentLevel) {
-      currentItem = appendItem(currentItem.parentNode.parentNode, headings[i]);
+      diff = level - currentLevel;
+      // console.log(level, currentLevel, diff);
+      currentItem = appendItem(getCorrectParent(currentItem, diff), headings[i]);
     }
 
     currentLevel = level;
