@@ -18,9 +18,9 @@ gulp.task('css', function () {
 });
 
 gulp.task('js', function () {
-  return gulp.src(['js/prism.js', 'js/main.js'])
+  return gulp.src(['js/prism.js', 'js/main.js', 'js/article-nav.js', 'js/section-links.js'])
     .pipe(concat('main.min.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('./'))
   ;
 });

@@ -119,6 +119,11 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
 hr {
   display: block;
   height: 1px;

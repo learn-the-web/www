@@ -1,0 +1,36 @@
+.btn {
+  display: inline-block;
+
+  background-color: var(--color-brand);
+  border-radius: 8px;
+  border: 0;
+
+  color: #000;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: var(--color-brand-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn--ghost {
+  background-color: transparent;
+  border: 3px solid var(--color-brand);
+  color: var(--color-brand-dark);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-brand-dark);
+}
+
+.btn--dark {
+  background-color: #22382a;
+  color: #fff;
+}
+
+.btn--dull {
+  background-color: #a8a9a0;
+  color: #292929;
+}

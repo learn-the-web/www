@@ -1,7 +1,9 @@
 ---
+title: HTML semantics
+next:
+  title: Marking up a webpage
+  url: marking-up-a-webpage
 ---
-
-# HTML semantics
 
 HTML (Hypertext Markup Language) is the coding language used to describe the content of websites.
 
@@ -70,9 +72,9 @@ Whenever an element is unique and inside another element it should be indented:
 
 ```html
 <body>
-	<header>
-		<h1>All About Apatosaurus</h1>
-	</header>
+  <header>
+    <h1>All About Apatosaurus</h1>
+  </header>
 </body>
 ```
 
@@ -93,17 +95,17 @@ When referring to elements in HTML we talk about them in a parent-child relation
 <!-- <main> is the parent of <h1>, <p> and <dl> -->
 <!-- <h1>, <p> and <dl> are all descendants of <main> -->
 <main>
-	<!-- <h1> is a child of <main> -->
-	<h1>Allosaurus</h1>
-	<!-- <p> is a child of <main> and a sibling to <h1> -->
-	<p>A theropod dinosaur from the Late Jurassic period.</p>
+  <!-- <h1> is a child of <main> -->
+  <h1>Allosaurus</h1>
+  <!-- <p> is a child of <main> and a sibling to <h1> -->
+  <p>A theropod dinosaur from the Late Jurassic period.</p>
 
-	<dl>
-		<!-- <dl> is the <dt> tag's parent -->
-		<dt>Length</dt>
-		<!-- <main> is the <dd> tag's grand-parent -->
-		<dd>9.7 meters</dd>
-	</dl>
+  <dl>
+    <!-- <dl> is the <dt> tag's parent -->
+    <dt>Length</dt>
+    <!-- <main> is the <dd> tag's grand-parent -->
+    <dd>9.7 meters</dd>
+  </dl>
 </main>
 ```
 
@@ -130,22 +132,22 @@ An outline of your document with headings might look like this:
 
 ```html
 <h1>Earth</h1>
-	<h2>North America</h2>
-		<h3>Canada</h3>
-			<h4>Ontario</h4>
-				<h5>Toronto</h5>
-				<h5>Ottawa</h5>
-					<h6>Nepean</h6>
-					<h6>Kanata</h6>
-		<h3>United States</h3>
-			<h4>California</h4>
-			<h4>New York</h4>
-	<h2>Africa</h2>
-		<h3>Egypt</h3>
-			<h4>Cairo</h4>
-				<h5>Cairo</h5>
-		<h3>Nigeria</h3>
-		<h3>Kenya</h3>
+  <h2>North America</h2>
+    <h3>Canada</h3>
+      <h4>Ontario</h4>
+        <h5>Toronto</h5>
+        <h5>Ottawa</h5>
+          <h6>Nepean</h6>
+          <h6>Kanata</h6>
+    <h3>United States</h3>
+      <h4>California</h4>
+      <h4>New York</h4>
+  <h2>Africa</h2>
+    <h3>Egypt</h3>
+      <h4>Cairo</h4>
+        <h5>Cairo</h5>
+    <h3>Nigeria</h3>
+    <h3>Kenya</h3>
 ```
 
 *The indentation above is to denote the headings are sub-headings of the one above.*
@@ -162,9 +164,9 @@ When writing lists, we have to specifically tell the browser how many items are 
 
 ```html
 <ul>
-	<li>T-Rex</li>
-	<li>Stegosaurus</li>
-	<li>Apatosaurus</li>
+  <li>T-Rex</li>
+  <li>Stegosaurus</li>
+  <li>Apatosaurus</li>
 </ul>
 ```
 
@@ -175,11 +177,11 @@ The description list is a little different because it needs a tag for the “ter
 
 ```html
 <dl>
-	<dt>Length</dt>
-	<dd>12 metres</dd>
+  <dt>Length</dt>
+  <dd>12 metres</dd>
 
-	<dt>Mass</dt>
-	<dd>5.4 metric tons</dd>
+  <dt>Mass</dt>
+  <dd>5.4 metric tons</dd>
 </dl>
 ```
 
@@ -193,8 +195,8 @@ When marking up blockquotes, the recommended syntax is this:
 
 ```html
 <blockquote>
-	<p>Dinosaurs may be extinct from the face of the planet, but they are alive and well in our imaginations.</p>
-	<footer>— <cite>Steve Miller</cite></footer>
+  <p>Dinosaurs may be extinct from the face of the planet, but they are alive and well in our imaginations.</p>
+  <footer>— <cite>Steve Miller</cite></footer>
 </blockquote>
 ```
 
@@ -270,8 +272,8 @@ If an image has a caption that describes the image you can surround the image ta
 
 ```html
 <figure>
-	<img src="images/trex.jpg" alt="">
-	<figcaption>Photo of T-Rex skeleton in the Ottawa museum.</figcaption>
+  <img src="images/trex.jpg" alt="">
+  <figcaption>Photo of T-Rex skeleton in the Ottawa museum.</figcaption>
 </figure>
 ```
 
@@ -302,32 +304,32 @@ You can put `<header>` and `<footer>` and `<main>` elements inside `<article>` t
 
 ```html
 <article>
-	<!-- Denotes more important information inside the article -->
-	<header>
-		<h2>Diplodocus stuffed toy</h2>
-		<p>Super awesome introduction to the toy.</p>
-	</header>
+  <!-- Denotes more important information inside the article -->
+  <header>
+    <h2>Diplodocus stuffed toy</h2>
+    <p>Super awesome introduction to the toy.</p>
+  </header>
 
-	<!-- Denotes the main content of the article -->
-	<main>
-		<p>Lots…</p>
-		<p>Of…</p>
-		<p>Details…</p>
-	</main>
+  <!-- Denotes the main content of the article -->
+  <main>
+    <p>Lots…</p>
+    <p>Of…</p>
+    <p>Details…</p>
+  </main>
 
-	<!-- Denotes secondary, related information -->
-	<aside>
-		<h3>Other sauropods</h3>
-		<ul>
-			<li>Brachiosaurus</li>
-		</ul>
-	</aside>
+  <!-- Denotes secondary, related information -->
+  <aside>
+    <h3>Other sauropods</h3>
+    <ul>
+      <li>Brachiosaurus</li>
+    </ul>
+  </aside>
 
-	<!-- Denotes less important information in the article -->
-	<footer>
-		<p>Written by a person.</p>
-		<time datetime="1982-10-28">Published: Today</time>
-	</footer>
+  <!-- Denotes less important information in the article -->
+  <footer>
+    <p>Written by a person.</p>
+    <time datetime="1982-10-28">Published: Today</time>
+  </footer>
 </article>
 ```
 
@@ -356,9 +358,9 @@ A good example is an address. In an address, the formatting of each line is impo
 
 ```html
 <p>
-	24 Sussex Drive<br>
-	Ottawa, ON<br>
-	K1A 0A3
+  24 Sussex Drive<br>
+  Ottawa, ON<br>
+  K1A 0A3
 </p>
 ```
 

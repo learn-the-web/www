@@ -1,0 +1,73 @@
+.flex {
+  width: 100%;
+  display: block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block,
+.ib {
+  display: inline-block;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.static {
+  position: static;
+}
+
+.zindex-1 {
+  z-index: 1;
+}
+
+.zindex-2 {
+  z-index: 2;
+}
+
+.zindex-3 {
+  z-index: 3;
+}
+
+.pin-top-right {
+  top: 0;
+  right: 0;
+}
+
+.pin-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.width-half,
+.w-1-2 {
+  width: 50%;
+}
+
+.width-full,
+.w-100 {
+  width: 100%;
+}
