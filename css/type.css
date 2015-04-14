@@ -1,5 +1,6 @@
 html {
-  font: normal 100%/1.3 Georgia,serif;
+  font-size: 100%;
+  line-height: 1.3;
 }
 
 sub,
@@ -16,6 +17,10 @@ sup {
 
 sub {
   bottom: -0.25em;
+}
+
+pre, code, kbd, samp {
+  font-size: 100%;
 }
 
 .text-left {
@@ -190,7 +195,8 @@ small, .milli {
 @media only screen and (min-width: 38em) {
 
 html {
-  font-size: 100%;
+  font-size: 110%;
+  line-height: 1.4;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -201,53 +207,53 @@ fieldset, pre, table {
 }
 
 .yotta {
-  font-size: 2.2807rem;
-  line-height: 1.2277;
+  font-size: 2.5088rem;
+  line-height: 1.1161;
 }
 
 .zetta {
-  font-size: 2.0273rem;
-  line-height: 1.3812;
+  font-size: 2.2300rem;
+  line-height: 1.2556;
 }
 
 h1, .exa {
-  font-size: 1.8020rem;
-  line-height: 1.5538;
+  font-size: 1.9822rem;
+  line-height: 1.4125;
 }
 
 h2, .peta {
-  font-size: 1.6018rem;
-  line-height: 1.7480;
+  font-size: 1.7620rem;
+  line-height: 1.5891;
 }
 
 h3, .tera {
-  font-size: 1.4238rem;
-  line-height: 1.9665;
+  font-size: 1.5662rem;
+  line-height: 1.7878;
 }
 
 h4, .giga {
-  font-size: 1.2656rem;
-  line-height: 1.1062;
+  font-size: 1.3922rem;
+  line-height: 1.0056;
 }
 
 h5, .mega {
-  font-size: 1.1250rem;
-  line-height: 1.2444;
+  font-size: 1.2375rem;
+  line-height: 1.1313;
 }
 
 h6, .kilo {
-  font-size: 1.0000rem;
-  line-height: 1.4000;
+  font-size: 1.1000rem;
+  line-height: 1.2727;
 }
 
 small, .milli {
-  font-size: 0.8889rem;
-  line-height: 1.5750;
+  font-size: 0.9778rem;
+  line-height: 1.4318;
 }
 
 .micro {
-  font-size: 0.7901rem;
-  line-height: 1.7719;
+  font-size: 0.8691rem;
+  line-height: 1.6108;
 }
 
 .push {
@@ -343,7 +349,8 @@ small, .milli {
 @media only screen and (min-width: 60em) {
 
 html {
-  font-size: 100%;
+  font-size: 120%;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -354,53 +361,53 @@ fieldset, pre, table {
 }
 
 .yotta {
-  font-size: 2.2807rem;
-  line-height: 1.3154;
+  font-size: 2.7368rem;
+  line-height: 1.0962;
 }
 
 .zetta {
-  font-size: 2.0273rem;
-  line-height: 1.4798;
+  font-size: 2.4327rem;
+  line-height: 1.2332;
 }
 
 h1, .exa {
-  font-size: 1.8020rem;
-  line-height: 1.6648;
+  font-size: 2.1624rem;
+  line-height: 1.3873;
 }
 
 h2, .peta {
-  font-size: 1.6018rem;
-  line-height: 1.8729;
+  font-size: 1.9222rem;
+  line-height: 1.5607;
 }
 
 h3, .tera {
-  font-size: 1.4238rem;
-  line-height: 1.0535;
+  font-size: 1.7086rem;
+  line-height: 1.7558;
 }
 
 h4, .giga {
-  font-size: 1.2656rem;
-  line-height: 1.1852;
+  font-size: 1.5188rem;
+  line-height: 1.9753;
 }
 
 h5, .mega {
-  font-size: 1.1250rem;
-  line-height: 1.3333;
+  font-size: 1.3500rem;
+  line-height: 1.1111;
 }
 
 h6, .kilo {
-  font-size: 1.0000rem;
-  line-height: 1.5000;
+  font-size: 1.2000rem;
+  line-height: 1.2500;
 }
 
 small, .milli {
-  font-size: 0.8889rem;
-  line-height: 1.6875;
+  font-size: 1.0667rem;
+  line-height: 1.4063;
 }
 
 .micro {
-  font-size: 0.7901rem;
-  line-height: 1.8984;
+  font-size: 0.9481rem;
+  line-height: 1.5820;
 }
 
 .push {
@@ -496,7 +503,8 @@ small, .milli {
 @media only screen and (min-width: 90em) {
 
 html {
-  font-size: 110%;
+  font-size: 130%;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -507,53 +515,53 @@ fieldset, pre, table {
 }
 
 .yotta {
-  font-size: 2.5088rem;
-  line-height: 1.1958;
+  font-size: 2.9649rem;
+  line-height: 1.0118;
 }
 
 .zetta {
-  font-size: 2.2300rem;
-  line-height: 1.3453;
+  font-size: 2.6355rem;
+  line-height: 1.1383;
 }
 
 h1, .exa {
-  font-size: 1.9822rem;
-  line-height: 1.5134;
+  font-size: 2.3426rem;
+  line-height: 1.2806;
 }
 
 h2, .peta {
-  font-size: 1.7620rem;
-  line-height: 1.7026;
+  font-size: 2.0823rem;
+  line-height: 1.4407;
 }
 
 h3, .tera {
-  font-size: 1.5662rem;
-  line-height: 1.9155;
+  font-size: 1.8510rem;
+  line-height: 1.6208;
 }
 
 h4, .giga {
-  font-size: 1.3922rem;
-  line-height: 1.0774;
+  font-size: 1.6453rem;
+  line-height: 1.8234;
 }
 
 h5, .mega {
-  font-size: 1.2375rem;
-  line-height: 1.2121;
+  font-size: 1.4625rem;
+  line-height: 1.0256;
 }
 
 h6, .kilo {
-  font-size: 1.1000rem;
-  line-height: 1.3636;
+  font-size: 1.3000rem;
+  line-height: 1.1538;
 }
 
 small, .milli {
-  font-size: 0.9778rem;
-  line-height: 1.5341;
+  font-size: 1.1556rem;
+  line-height: 1.2981;
 }
 
 .micro {
-  font-size: 0.8691rem;
-  line-height: 1.7259;
+  font-size: 1.0272rem;
+  line-height: 1.4603;
 }
 
 .push {

@@ -1,4 +1,15 @@
-exclude: [README.md]
+permalink: pretty
+
+exclude:
+  - README.md
+  - gulpfile.js
+  - package.json
+  - .editorconfig
+  - .gitignore
+  - tmp
+  - node_modules
+  - css/*.css
+  - js/*.js
 
 kramdown:
   input: GFM
@@ -8,4 +19,4 @@ defaults:
     scope:
       path: ""
     values:
-      layout: default
+      layout: article

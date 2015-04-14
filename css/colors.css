@@ -2,4 +2,13 @@
   --color-brand: #00deaf;
   --color-brand-dark: #00675a;
   --color-brand-light: #d1fff5;
+
+  --color-grey: #a8a6af;
+  --color-grey-dark: #63666a;
+  --color-grey-medium: #d9d8e3;
+  --color-grey-light: #efefef;
+
+  --color-link: #4484c2;
+
+  --color-code: #f5f2f0;
 }
