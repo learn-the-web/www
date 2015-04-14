@@ -123,6 +123,25 @@ pre::after {
   padding-left: 0.6em;
 }
 
+.tutorial-nav > ol > li > ol {
+  padding-left: 0;
+}
+
+.tutorial-nav > ol > li > a {
+  font-weight: bold;
+}
+
+.tutorial-nav a {
+  display: block;
+  padding: 0.1em 0.3em;
+}
+
+.tutorial-nav a:hover {
+  border-radius: 4px;
+  background-color: var(--color-grey-light);
+  text-decoration: none;
+}
+
 .controls {
   position: relative;
 
