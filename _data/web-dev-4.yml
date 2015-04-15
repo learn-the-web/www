@@ -1,0 +1,30 @@
+- title: "Domains & DNS"
+  url: domains
+
+- title: "Writing for the Web"
+  url:
+
+- title: "Video"
+  url:
+
+- title: "Jekyll"
+  url:
+
+- title: "Search engine optimization"
+  url: search-engine-optimization
+
+- title: "Metadata & enhanced semantics"
+  url: metadata-enhanced-semantics
+
+- title: "404 pages"
+  url: 404-pages
+
+- title: "What ifs: progressive enhancement & graceful degradation"
+  url: what-ifs
+
+- title: "CSS concatenation & minification"
+  url:
+
+- title: "Analytics & monitoring"
+  url: analytics
+

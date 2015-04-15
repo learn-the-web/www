@@ -1,0 +1,71 @@
+- title: "HTML semantics"
+  url: html-semantics
+
+- title: "HTML indentation"
+  url:
+
+- title: "★ Marking up a webpage"
+  url:
+
+- title: "Using CSS"
+  url: using-css
+
+- title: "Basic typography"
+  url: basic-typography
+
+- title: "Using Google Fonts"
+  url: google-fonts
+  indent: 1
+
+- title: "Browser developer tools"
+  url: browser-developer-tools
+
+- title: "Validators"
+  url: validators
+
+- title: "Browser testing"
+  url:
+
+- title: "The box model: everything is a box"
+  url: box-model
+
+- title: "Flow & display"
+  url: flow-display
+
+- title: "★ Basic website layout"
+  url:
+
+- title: "Float & clear"
+  url: float-clear
+
+- title: "Position & z-index"
+  url: position-zindex
+
+- title: "Navigation"
+  url: navigation
+
+- title: "★ Small screen layout"
+  url: small-screen-layout
+
+- title: "Website file organization"
+  url: organization
+
+- title: "Images for the web"
+  url: image-formats
+
+- title: "Using images"
+  url: using-images
+  indent: 1
+
+- title: "Images for retina screens"
+  url: images-for-retina
+  indent: 1
+
+- title: "Before & after pseudo elements"
+  url: before-after
+
+- title: "★ From mockup to website"
+  url:
+
+- title: "Performance"
+  url: performance

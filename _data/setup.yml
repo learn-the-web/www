@@ -1,0 +1,54 @@
+- title: "Naming conventions"
+  url: naming-conventions
+
+- title: "Using paths & folders"
+  url: paths-folders
+
+- title: "Web browsers"
+  url:
+
+- title: "Using URLs"
+  url:
+  indent: 1
+
+- title: "Code editors"
+  url: code-editors
+
+- title: "Keyboard shortcut reference"
+  url: keyboard-shortcuts
+  indent: 1
+
+- title: "Sublime Text setup"
+  url: sublime-text
+  indent: 1
+
+- title: "Atom setup"
+  url: atom
+  indent: 1
+
+- title: "Version control"
+  url: version-control
+
+- title: "Installing GitHub"
+  url:
+  indent: 1
+
+- title: "Hosting with GitHub Pages"
+  url: github-pages
+  indent: 1
+
+- title: "Using & committing"
+  url:
+  indent: 1
+
+- title: "Commit message conventions"
+  url: commit-messages
+  indent: 2
+
+- title: "Branching & GitHub Flow"
+  url: branching-github-flow
+  indent: 1
+
+- title: "GitHub Issues"
+  url: github-issues
+  indent: 1

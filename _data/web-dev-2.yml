@@ -1,0 +1,32 @@
+- title: "All devices setup"
+  url: all-devices-setup
+
+- title: "Media queries"
+  url: media-queries
+
+- title: "★ Media query layout"
+  url:
+
+- title: "Grids"
+  url: grids
+
+- title: "Modular typography"
+  url: modular-typography
+
+- title: "★ Interactive wireframes & prototypes"
+  url: interactive-wireframes-and-prototypes
+
+- title: "Modules"
+  url: modules
+
+- title: "★ Modular website layout"
+  url: modular-layout
+
+- title: "Accessibility"
+  url: accessibility
+
+- title: "Tables"
+  url: tables
+
+- title: "Forms"
+  url: forms

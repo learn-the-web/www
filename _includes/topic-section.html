@@ -1,0 +1,16 @@
+<section>
+  <div class="wrapper gutter-1-2">
+    <h2>{{include.title}}</h2>
+    <ol>
+      {% for item in include.data %}
+        <li class="indent{{item.indent}}">
+          {% if item.url %}
+            <a href="/topics/{{item.url}}/">{{item.title}}</a>
+          {% else %}
+            {{item.title}}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
