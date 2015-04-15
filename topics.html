@@ -3,18 +3,20 @@ layout: topics
 title: Topics
 ---
 
+{% include icons-topics.html %}
+
 <main class="relative">
-  <div class="header push">
+  <div class="header">
     <div class="wrapper gutter-1-2 pad-b">
       <h1 class="push-0 zetta">Topics</h1>
     </div>
   </div>
 
-  {% include topic-section.html class="topic-section-1" title="Set up" data=site.data.setup %}
-  {% include topic-section.html class="topic-section-2" title="Web Dev 1" data=site.data.web-dev-1 %}
-  {% include topic-section.html class="topic-section-3" title="Web Dev 2" data=site.data.web-dev-2 %}
-  {% include topic-section.html class="topic-section-4" title="Web Dev 3" data=site.data.web-dev-3 %}
-  {% include topic-section.html class="topic-section-5" title="Web Dev 4" data=site.data.web-dev-4 %}
-  {% include topic-section.html class="topic-section-6" title="What’s next?" data=site.data.next %}
+  {% include topic-section.html class="topic-section-1" title="Set up" number="0" data=site.data.setup %}
+  {% include topic-section.html class="topic-section-2" title="Web Dev" number="1" data=site.data.web-dev-1 %}
+  {% include topic-section.html class="topic-section-3" title="Web Dev" number="2" data=site.data.web-dev-2 %}
+  {% include topic-section.html class="topic-section-4" title="Web Dev" number="3" data=site.data.web-dev-3 %}
+  {% include topic-section.html class="topic-section-5" title="Web Dev" number="4" data=site.data.web-dev-4 %}
+  {% include topic-section.html class="topic-section-6" title="What’s next?" number="infinite" data=site.data.next %}
 
 </main>

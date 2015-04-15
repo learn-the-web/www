@@ -1,3 +1,21 @@
+.topic-wrap {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.topic-heading {
+  margin-left: -1.5rem;
+
+  color: var(--color-brand-dark);
+  text-align: center;
+}
+
+.topic-heading__text {
+  display: block;
+  margin: 0 auto;
+  max-width: 3em;
+}
+
 .topics {
   margin-left: -22px;
   padding-left: 22px;
@@ -153,4 +171,21 @@
 .topic-section-6 .indent1,
 .topic-section-6 .indent2 {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="18" height="3" viewBox="0 0 18 3"><rect fill="#c0c0c0" x="0" y="0" width="18" height="3"/></svg>');
+}
+
+@media only screen and (min-width: 38em) {
+
+  .topic-wrap {
+    padding-left: 6rem;
+  }
+
+  .topic-heading {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+  }
+
 }
