@@ -1,78 +1,78 @@
-- title: "Naming conventions"
-  url: naming-conventions
+naming-conventions:
+  title: "Naming conventions"
   highlight: true
 
-- title: "Using paths & folders"
-  url: paths-folders
+paths-folders:
+  title: "Using paths & folders"
 
-- title: "HTML semantics"
-  url: html-semantics
+html-semantics:
+  title: "HTML semantics"
 
-- title: "HTML indentation"
-  url:
+html-indentation:
+  title: "HTML indentation"
 
-- title: "★ Marking up a webpage"
-  url:
+marking-up-a-webpage:
+  title: "★ Marking up a webpage"
 
-- title: "Using CSS"
-  url: using-css
+using-css:
+  title: "Using CSS"
 
-- title: "Basic typography"
-  url: basic-typography
+basic-typography:
+  title: "Basic typography"
 
-- title: "Using Google Fonts"
-  url: google-fonts
+google-fonts:
+  title: "Using Google Fonts"
   indent: 1
 
-- title: "Browser developer tools"
-  url: browser-developer-tools
+browser-developer-tools:
+  title: "Browser developer tools"
 
-- title: "Validators"
-  url: validators
+validators:
+  title: "Validators"
 
-- title: "Browser testing"
-  url:
+browser-testing:
+  title: "Browser testing"
 
-- title: "The box model: everything is a box"
-  url: box-model
+box-model:
+  title: "The box model: everything is a box"
 
-- title: "Flow & display"
-  url: flow-display
+flow-display:
+  title: "Flow & display"
 
-- title: "★ Basic website layout"
-  url:
+basic-website-layout:
+  title: "★ Basic website layout"
 
-- title: "Float & clear"
-  url: float-clear
+float-clear:
+  title: "Float & clear"
 
-- title: "Position & z-index"
-  url: position-zindex
+position-zindex:
+  title: "Position & z-index"
 
-- title: "Navigation"
-  url: navigation
+navigation:
+  title: "Navigation"
 
-- title: "★ Small screen layout"
-  url: small-screen-layout
+small-screen-layout:
+  title: "★ Small screen layout"
 
-- title: "Website file organization"
-  url: organization
+organization:
+  title: "Website file organization"
 
-- title: "Images for the web"
-  url: image-formats
+image-formats:
+  title: "Images for the web"
 
-- title: "Using images"
-  url: using-images
+using-images:
+  title: "Using images"
   indent: 1
 
-- title: "Images for retina screens"
-  url: images-for-retina
+images-for-retina:
+  title: "Images for retina screens"
   indent: 1
 
-- title: "Before & after pseudo elements"
-  url: before-after
+before-after:
+  title: "Before & after pseudo elements"
 
-- title: "★ From mockup to website"
-  url:
+from-mockup-to-website:
+  title: "★ From mockup to website"
 
-- title: "Performance"
-  url: performance
+performance:
+  title: "Performance"

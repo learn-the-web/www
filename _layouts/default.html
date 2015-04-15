@@ -1,8 +1,11 @@
+{% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
+{% assign groupdata = site.data[page.group] %}
+{% assign details = groupdata[slug] %}
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
   <meta charset="utf-8">
-  <title>{{page.title}} · Learn the Web</title>
+  <title>{% if page.title %}{{page.title}}{% else %}{{details.title}}{% endif %} · Learn the Web</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="/main.min.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Source+Code+Pro:400,700" rel="stylesheet">

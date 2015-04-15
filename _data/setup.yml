@@ -1,48 +1,48 @@
-- title: "Web browsers"
-  url:
+web-browsers:
+  title: "Web browsers"
 
-- title: "Using URLs"
-  url:
+using-urls:
+  title: "Using URLs"
   indent: 1
 
-- title: "Code editors"
-  url: code-editors
+code-editors:
+  title: "Code editors"
 
-- title: "Keyboard shortcut reference"
-  url: keyboard-shortcuts
+keyboard-shortcuts:
+  title: "Keyboard shortcut reference"
   indent: 1
 
-- title: "Sublime Text setup"
-  url: sublime-text
+sublime-text:
+  title: "Sublime Text setup"
   indent: 1
 
-- title: "Atom setup"
-  url: atom
+atom:
+  title: "Atom setup"
   indent: 1
 
-- title: "Version control"
-  url: version-control
+version-control:
+  title: "Version control"
 
-- title: "Installing GitHub"
-  url:
+installing-github:
+  title: "Installing GitHub"
   indent: 1
 
-- title: "Hosting with GitHub Pages"
-  url: github-pages
+github-pages:
+  title: "Hosting with GitHub Pages"
   indent: 1
 
-- title: "Using & committing"
-  url:
+github-use-and-committing:
+  title: "GitHub use & committing"
   indent: 1
 
-- title: "Commit message conventions"
-  url: commit-messages
+commit-messages:
+  title: "Commit message conventions"
   indent: 2
 
-- title: "Branching & GitHub Flow"
-  url: branching-github-flow
+branching-github-flow:
+  title: "Branching & GitHub Flow"
   indent: 1
 
-- title: "GitHub Issues"
-  url: github-issues
+github-issues:
+  title: "GitHub Issues"
   indent: 1

@@ -3,12 +3,13 @@
     <h2>{{include.title}}</h2>
     <ol>
       {% for item in include.data %}
-        <li class="indent{{item.indent}}">
-          {% if item.url %}<a href="/topics/{{item.url}}/">{% endif %}
-          {% if item.highlight %}<strong>{% endif %}
-            {{item.title}}
-          {% if item.highlight %}</strong>{% endif %}
-          {% if item.url %}</a>{% endif %}
+        {% assign details = item[1] %}
+        <li class="indent{{details.indent}}">
+          <a href="/topics/{{item[0]}}/">
+            {% if details.highlight %}<strong>{% endif %}
+              {{details.title}}
+            {% if details.highlight %}</strong>{% endif %}
+          </a>
         </li>
       {% endfor %}
     </ol>

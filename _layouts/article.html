@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+{% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
+{% assign groupdata = site.data[page.group] %}
+{% assign details = groupdata[slug] %}
+
 <div class="masthead-wrap pad-t-1-2 pad-b-1-2">
   <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2">
     <div class="unit [ xs-1-2 ]">
@@ -65,18 +69,37 @@ layout: default
     </div>
 
     <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ] pad-t-1-2">
-      <h1 class="yotta" id="start">{{page.title}}</h1>
+      <h1 class="yotta" id="start">{{details.title}}</h1>
       {{content}}
     </article>
   </div>
 
+  {% assign incoming = false %}
+  {% assign last = false %}
+  {% assign prev = false %}
+  {% assign next = false %}
+
+  {% for item in groupdata %}
+    {% if item[0] == slug %}
+      {% assign incoming = true %}
+    {% else %}
+      {% if incoming %}
+        {% assign prev = last %}
+        {% assign next = item %}
+        {% break %}
+      {% else %}
+        {% assign last = item %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+
   <div class="tutorial-footer wrapper gutter-1-2 pad-t pad-b">
     <ul class="list-group controls push-0">
-      {% if page.prev %}
+      {% if prev %}
         <li class="controls-prev push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{prev[0]}}/">
             <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
-            <span class="icon-text">{{page.prev.title}}</span>
+            <span class="icon-text">{{prev[1].title}}</span>
           </a>
         </li>
       {% endif %}
@@ -86,10 +109,10 @@ layout: default
           <span class="icon-text">Topics</span>
         </a>
       </li>
-      {% if page.next %}
+      {% if next %}
         <li class="controls-next push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.next.url}}">
-            <span class="icon-text">{{page.next.title}}</span>
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{next[0]}}/">
+            <span class="icon-text">{{next[1].title}}</span>
             <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
           </a>
         </li>
