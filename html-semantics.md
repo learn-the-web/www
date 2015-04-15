@@ -3,7 +3,6 @@ title: HTML semantics
 playlist: PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1
 download: https://github.com/algonquindesign/html-css/archive/gh-pages.zip
 github: https://github.com/algonquindesign/html-css
-livewebsite: things
 next:
   title: Marking up a webpage
   url: marking-up-a-webpage

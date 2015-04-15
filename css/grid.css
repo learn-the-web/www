@@ -1,8 +1,8 @@
 .grid {
   margin: 0;
   padding: 0;
-  /*letter-spacing: -0.31em;*/
-  /*text-rendering: optimizespeed;*/
+  letter-spacing: -0.31em;
+  text-rendering: optimizespeed;
   display: -webkit-flex;
   -webkit-flex-flow: row wrap;
   display: -ms-flexbox;
@@ -30,24 +30,24 @@
 }
 
 .opera-only :-o-prefocus, .grid {
-  /*word-spacing: -0.43em;*/
+  word-spacing: -0.43em;
 }
 
 .unit {
-  /*letter-spacing: normal;*/
-  /*text-rendering: auto;*/
-  /*vertical-align: top;*/
-  /*word-spacing: normal;*/
-  /*display: inline-block;*/
-  /*visibility: visible;*/
+  letter-spacing: normal;
+  text-rendering: auto;
+  vertical-align: top;
+  word-spacing: normal;
+  display: inline-block;
+  visibility: visible;
 }
 
 .grid-bottom .unit {
-  /*vertical-align: bottom;*/
+  vertical-align: bottom;
 }
 
 .grid-middle .unit {
-  /*vertical-align: middle;*/
+  vertical-align: middle;
 }
 
 [class*="unit-push-"],
