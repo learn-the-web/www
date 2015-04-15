@@ -1,6 +1,5 @@
 .masthead-wrap {
   background-color: var(--color-brand);
-  /*color: var(--color);*/
 }
 
 .masthead {
@@ -8,7 +7,14 @@
 }
 
 .logo {
+  display: inline-block;
+  margin-top: 0.25em;
   width: 100px;
+}
+
+.contents-link {
+  display: inline-block;
+  margin-top: 0.1em;
 }
 
 @media only screen and (min-width: 38em) {

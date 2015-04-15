@@ -35,6 +35,10 @@
   margin-left: -0.4em;
 }
 
+.i--push-right {
+  margin-right: 0.4em;
+}
+
 .icon svg {
   width: 100%;
   height: 100%;

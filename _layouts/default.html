@@ -8,13 +8,21 @@
   <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 </head>
 <body>
-  <div class="masthead-wrap pad-t-1-2">
-    <header class="masthead grid wrapper gutter-1-2 pad-b-1-2">
-      <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
+  {% include icons.html %}
+
+  <div class="masthead-wrap pad-t-1-2 pad-b-1-2">
+    <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2">
+      <div class="unit [ xs-1-2 ]">
+        <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
+      </div>
+      <nav class="unit [ xs-1-2 ] text-right">
+        <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
+          <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+          <span class="icon-text contents-link">Index</span>
+        </a>
+      </nav>
     </header>
   </div>
-
-  {% include icons.html %}
 
   {{content}}
 
