@@ -14,13 +14,34 @@ layout: default
   </div>
 
   <div class="grid wrapper relative gutter-1-2">
-    <nav class="tutorial-nav unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
-      <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
-      <label class="nav-label giga" for="nav-check">
-        <i class="icon i--nav"></i>
-        <span class="icon-text">Contents</span>
-      </label>
-    </nav>
+    <div class="unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
+      <ul class="downloads list-group grid push-1-2">
+        {% if page.download %}
+          <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
+            <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.download}}">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-download"/></svg></i>
+              <span class="icon-text">Download code</span>
+            </a>
+          </li>
+        {% endif %}
+        {% if page.github %}
+          <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
+            <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.github}}">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-github"/></svg></i>
+              <span class="icon-text">See code</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+
+      <nav class="tutorial-nav">
+        <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
+        <label class="nav-label giga" for="nav-check">
+          <i class="icon i--nav"></i>
+          <span class="icon-text">Contents</span>
+        </label>
+      </nav>
+    </div>
 
     <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ]">
       <header class="pad-t-1-2">
@@ -45,7 +66,8 @@ layout: default
       {% endif %}
       <li class="controls-start push-1-4">
         <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
-          <span class="icon-text">Start</span>
+          <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+          <span class="icon-text">Index</span>
         </a>
       </li>
       {% if page.next %}

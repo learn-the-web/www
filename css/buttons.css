@@ -25,12 +25,12 @@
   border-color: var(--color-brand-dark);
 }
 
-.btn--dark {
-  background-color: #22382a;
-  color: #fff;
+.btn--subtle {
+  background-color: transparent;
+  border: 3px solid var(--color-grey-light);
+  color: var(--color-grey-dark);
 }
 
-.btn--dull {
-  background-color: #a8a9a0;
-  color: #292929;
+.btn--subtle:hover {
+  border-color: var(--color-brand-dark);
 }

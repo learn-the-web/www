@@ -1,6 +1,8 @@
 ---
 title: HTML semantics
 playlist: PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1
+download: https://github.com/algonquindesign/html-css/archive/gh-pages.zip
+github: https://github.com/algonquindesign/html-css
 next:
   title: Marking up a webpage
   url: marking-up-a-webpage
@@ -402,7 +404,7 @@ Some characters cannot be written in the text content of HTML because the charac
 
 ---
 
-## Videos
+## Video list
 
 1. [HTML semantics: making an HTML file](https://www.youtube.com/watch?v=fcZ_dx1rf5U&list=PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1&index=1)
 2. [HTML semantics: setting up valid HTML](https://www.youtube.com/watch?v=8xQp6XOJeTQ&list=PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1&index=2)

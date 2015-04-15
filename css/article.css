@@ -209,6 +209,10 @@
   border-top: 3px solid var(--color-grey-light);
 }
 
+.downloads a {
+  display: block;
+}
+
 @media only screen and (min-width: 38em) {
 
   .play-btn {
