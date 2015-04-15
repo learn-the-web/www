@@ -1,0 +1,35 @@
+.topics {
+  margin-left: -22px;
+  padding-left: 22px;
+
+  background:
+    none 7px top / 10px 0.8em no-repeat,
+    none 7px bottom / 10px 0.8em no-repeat,
+    none 10px top / 3px 10px repeat-y
+  ;
+  background-image:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="10" height="12" viewBox="0 0 10 12"><rect fill="#fff" x="0" y="0" width="10" height="12"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="10" height="12" viewBox="0 0 10 12"><rect fill="#fff" x="0" y="0" width="10" height="12"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#e2e2e2" x="0" y="0" width="3" height="10"/></svg>')
+  ;
+}
+
+.topics a {
+  position: relative;
+}
+
+.topics a::before {
+  content: " ";
+  height: 22px;
+  left: -21px;
+  position: absolute;
+  top: calc(50% - 11px);
+  width: 22px;
+
+  background: none center center / cover no-repeat transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#ccc" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#FFF"/></svg>');
+}
+
+.topics a:visited::before {
+
+}

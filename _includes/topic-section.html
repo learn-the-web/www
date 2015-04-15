@@ -1,10 +1,10 @@
 <section>
   <div class="wrapper gutter-1-2">
     <h2>{{include.title}}</h2>
-    <ol>
+    <ol class="list-group topics">
       {% for item in include.data %}
         {% assign details = item[1] %}
-        <li class="indent{{details.indent}}">
+        <li class="indent{{details.indent}} {% if details.fullsite %}topic-fullsite{% endif %}">
           <a href="/topics/{{item[0]}}/">
             {% if details.highlight %}<strong>{% endif %}
               {{details.title}}
