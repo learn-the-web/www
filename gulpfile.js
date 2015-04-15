@@ -7,8 +7,28 @@ var
   uglify = require('gulp-uglify')
 ;
 
-gulp.task('css', function () {
+gulp.task('css-main', function () {
   return gulp.src('css/main.css')
+    .pipe(cssnext({ compress: true }))
+    .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
+    .pipe(gulp.dest('tmp'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./'))
+  ;
+});
+
+gulp.task('css-topics', function () {
+  return gulp.src('css/main-topics.css')
+    .pipe(cssnext({ compress: true }))
+    .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
+    .pipe(gulp.dest('tmp'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./'))
+  ;
+});
+
+gulp.task('css-article', function () {
+  return gulp.src('css/main-article.css')
     .pipe(cssnext({ compress: true }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(gulp.dest('tmp'))
@@ -25,9 +45,9 @@ gulp.task('js', function () {
   ;
 });
 
-gulp.task('default', ['css', 'js']);
+gulp.task('default', ['css-main', 'css-topics', 'css-article', 'js']);
 
 gulp.task('watch', function() {
-  gulp.watch('css/*.css', ['css']);
+  gulp.watch('css/*.css', ['css-main', 'css-topics', 'css-article']);
   gulp.watch('js/*.js', ['js']);
 });

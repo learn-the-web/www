@@ -10,5 +10,9 @@
 
   --color-link: #4484c2;
 
+  --color-code-light: #f8f6f5;
   --color-code: #f5f2f0;
+  --color-code-dark: #eeebe9;
+  --color-code-darker: #e6e3e2;
+  --color-code-darkest: #dfdcda;
 }
