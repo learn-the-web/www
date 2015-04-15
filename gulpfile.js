@@ -10,7 +10,7 @@ var
 gulp.task('css', function () {
   return gulp.src('css/main.css')
     .pipe(cssnext({ compress: true }))
-    .pipe(autoprefixer({ cascade: false }))
+    .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(gulp.dest('tmp'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./'))
