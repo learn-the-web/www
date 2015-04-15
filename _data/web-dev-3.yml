@@ -6,6 +6,7 @@ js-intro:
 
 js-debugging:
   title: "Javascript debugging"
+  disabled: true
 
 dom:
   title: "Document object model (DOM)"
@@ -22,3 +23,4 @@ js-effects:
 responsive-animated-info-graphic:
   title: "Responsive animated info graphic"
   fullsite: true
+  disabled: true

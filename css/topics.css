@@ -42,11 +42,15 @@
   top: auto;
 }
 
-.topics a {
+.topic-text {
   position: relative;
 }
 
-.topics a::before {
+.topic--disabled {
+  color: rgba(0,0,0,0.2);
+}
+
+.topic-text::before {
   content: " ";
   height: 22px;
   left: -21px;
@@ -59,10 +63,6 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#ccc" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#FFF"/></svg>');
 }
 
-.topics a:visited::before {
-
-}
-
 .topic-section-2,
 .topic-section-2 .topics::before,
 .topic-section-2 .topics::after {
@@ -73,7 +73,7 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#ddd" x="0" y="0" width="3" height="10"/></svg>');
 }
 
-.topic-section-2 .topics a::before {
+.topic-section-2 .topic-text::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#c0c0c0" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#f8f6f5"/></svg>');
 }
 
@@ -87,7 +87,7 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#d6d6d6" x="0" y="0" width="3" height="10"/></svg>');
 }
 
-.topic-section-3 .topics a::before {
+.topic-section-3 .topic-text::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#bbb" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#f5f2f0"/></svg>');
 }
 
@@ -101,7 +101,7 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#cecece" x="0" y="0" width="3" height="10"/></svg>');
 }
 
-.topic-section-4 .topics a::before {
+.topic-section-4 .topic-text::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#b2b2b2" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#eeebe9"/></svg>');
 }
 
@@ -115,7 +115,7 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#ccc" x="0" y="0" width="3" height="10"/></svg>');
 }
 
-.topic-section-5 .topics a::before {
+.topic-section-5 .topic-text::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#aaa" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#e6e3e2"/></svg>');
 }
 
@@ -129,7 +129,7 @@
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="10" viewBox="0 0 3 10"><rect fill="#c0c0c0" x="0" y="0" width="3" height="10"/></svg>');
 }
 
-.topic-section-6 .topics a::before {
+.topic-section-6 .topic-text::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><circle fill="#a0a0a0" cx="128" cy="128" r="80"/><circle cx="128" cy="128" r="50" fill="#dfdcda"/></svg>');
 }
 

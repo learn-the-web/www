@@ -1,9 +1,11 @@
 web-browsers:
   title: "Web browsers"
+  disabled: true
 
 using-urls:
   title: "Using URLs"
   indent: 1
+  disabled: true
 
 code-editors:
   title: "Code editors"
@@ -15,6 +17,7 @@ keyboard-shortcuts:
 sublime-text:
   title: "Sublime Text setup"
   indent: 1
+  highlight: true
 
 atom:
   title: "Atom setup"
@@ -26,6 +29,7 @@ version-control:
 installing-github:
   title: "Installing GitHub"
   indent: 1
+  disabled: true
 
 github-pages:
   title: "Hosting with GitHub Pages"
@@ -34,6 +38,7 @@ github-pages:
 github-use-and-committing:
   title: "GitHub use & committing"
   indent: 1
+  disabled: true
 
 commit-messages:
   title: "Commit message conventions"

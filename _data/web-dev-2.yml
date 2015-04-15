@@ -1,5 +1,6 @@
 all-devices-setup:
   title: "All devices setup"
+  highlight: true
 
 media-queries:
   title: "Media queries"
@@ -7,6 +8,7 @@ media-queries:
 media-query-layout:
   title: "Media query layout"
   fullsite: true
+  disabled: true
 
 grids:
   title: "Grids"

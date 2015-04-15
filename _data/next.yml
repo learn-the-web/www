@@ -8,6 +8,7 @@ blogs-companies-people:
 staying-up-to-date:
   title: "Staying up to date"
   indent: 1
+  highlight: true
 
 licenses-copyright:
   title: "Licenses & copyright"
@@ -26,18 +27,23 @@ history-of-the-web:
 javascript-history:
   title: "Javascript history"
   indent: 1
+  disabled: true
 
 markdown:
   title: "Markdown"
 
 launch-checklist:
   title: "Launch checklist"
+  highlight: true
 
 ajax:
   title: "AJAX"
+  disabled: true
 
 javascript-templates:
   title: "Javascript templates"
+  disabled: true
 
 efficiency-tools:
   title: "Efficiency tools"
+  disabled: true

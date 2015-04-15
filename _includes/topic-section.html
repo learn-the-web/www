@@ -11,11 +11,11 @@
         {% for item in include.data %}
           {% assign details = item[1] %}
           <li class="indent{{details.indent}} {% if details.fullsite %}topic-fullsite{% endif %}">
-            <a href="/topics/{{item[0]}}/">
+            {% if details.disabled %}<span class="topic-text topic--disabled">{% else %}<a class="topic-text" href="/topics/{{item[0]}}/">{% endif %}
               {% if details.highlight %}<strong>{% endif %}
                 {{details.title}}
               {% if details.highlight %}</strong>{% endif %}
-            </a>
+            {% if details.disabled %}</span>{% else %}</a>{% endif %}
           </li>
         {% endfor %}
       </ol>

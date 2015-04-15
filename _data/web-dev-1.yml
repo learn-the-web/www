@@ -14,6 +14,7 @@ html-indentation:
 marking-up-a-webpage:
   title: "Marking up a webpage"
   fullsite: true
+  disabled: true
 
 using-css:
   title: "Using CSS"
@@ -33,6 +34,7 @@ validators:
 
 browser-testing:
   title: "Browser testing"
+  highlight: true
 
 box-model:
   title: "The box model: everything is a box"
@@ -43,6 +45,7 @@ flow-display:
 basic-website-layout:
   title: "Basic website layout"
   fullsite: true
+  disabled: true
 
 float-clear:
   title: "Float & clear"
@@ -77,6 +80,7 @@ before-after:
 from-mockup-to-website:
   title: "From mockup to website"
   fullsite: true
+  disabled: true
 
 performance:
   title: "Performance"

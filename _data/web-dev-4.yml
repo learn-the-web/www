@@ -1,5 +1,6 @@
 domains:
   title: "Domains & DNS"
+  highlight: true
 
 writing-for-the-web:
   title: "Writing for the Web"
