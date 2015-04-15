@@ -423,7 +423,7 @@ Some characters cannot be written in the text content of HTML because the charac
 15. [HTML semantics: more specific elements](https://www.youtube.com/watch?v=cX99P2717j8&list=PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1&index=15)
 16. [HTML semantics: entities](https://www.youtube.com/watch?v=P69WuZOlY68&list=PLWjCJDeWfDdc0Sp_DinOWnodw3KnWCwc1&index=16)
 
-## Links
+## Supplemental links
 
 - **[MDN: HTML Element Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)**
 - [HTML5 Doctor: Element Index](http://html5doctor.com/element-index/)
