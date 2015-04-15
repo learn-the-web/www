@@ -22,16 +22,18 @@ layout: default
 <main class="relative">
   <div class="header push">
     <div class="wrapper gutter-1-2">
-      <a class="play-btn" href="https://www.youtube.com/watch?v=fcZ_dx1rf5U&amp;list={{page.playlist}}" data-playlist="{{page.playlist}}">
-        <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-        <strong class="giga icon-text play-icon__text">Watch the video playlist</strong>
-      </a>
+      {% if !page.playlist %}
+        <a class="play-btn" href="https://www.youtube.com/watch?v=fcZ_dx1rf5U&amp;list={{page.playlist}}" data-playlist="{{page.playlist}}">
+          <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+          <strong class="giga icon-text play-icon__text">Watch the video playlist</strong>
+        </a>
+      {% endif %}
       <div class="embed embed--3by1 video-embed"></div>
     </div>
   </div>
 
   <div class="grid wrapper relative gutter-1-2">
-    <div class="unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
+    <div class="unit [ xs-1 s-1 m-1 l-1-4 ] {% if !page.livewebsite or page.download or page.github %}pad-t-1-2{% endif %} push">
       <ul class="downloads list-group grid push-1-2">
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
