@@ -100,21 +100,21 @@ layout: default
     <ul class="list-group controls push-0">
       {% if prev %}
         <li class="controls-prev push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{prev[0]}}/">
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{prev[0]}}/" rel="prev">
             <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
             <span class="icon-text">{{prev[1].title}}</span>
           </a>
         </li>
       {% endif %}
       <li class="controls-start push-1-4">
-        <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/">
+        <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/" rel="start">
           <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
           <span class="icon-text">Topics</span>
         </a>
       </li>
       {% if next %}
         <li class="controls-next push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{next[0]}}/">
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{next[0]}}/" rel="next">
             <span class="icon-text">{{next[1].title}}</span>
             <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
           </a>
