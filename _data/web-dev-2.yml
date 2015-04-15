@@ -16,8 +16,8 @@ grids:
 modular-typography:
   title: "Modular typography"
 
-interactive-wireframes-and-prototypes:
-  title: "Interactive wireframes & prototypes"
+interactive-wireframes:
+  title: "Interactive wireframes"
   fullsite: true
 
 modules:

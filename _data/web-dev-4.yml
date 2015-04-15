@@ -25,11 +25,11 @@ metadata-enhanced-semantics:
 404-pages:
   title: "404 pages"
 
-what-ifs:
-  title: "What ifs: progressive enhancement & graceful degradation"
+progressive-enhancement:
+  title: "Progressive enhancement"
 
 css-minification:
-  title: "CSS concatenation & minification"
+  title: "CSS minification"
 
 analytics:
   title: "Analytics & monitoring"

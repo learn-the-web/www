@@ -37,7 +37,7 @@ browser-testing:
   highlight: true
 
 box-model:
-  title: "The box model: everything is a box"
+  title: "Everything is a box"
 
 flow-display:
   title: "Flow & display"
