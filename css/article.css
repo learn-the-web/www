@@ -1,0 +1,295 @@
+.play-btn {
+  position: absolute;
+  top: 1.6rem;
+  z-index: 2;
+
+  color: #fff;
+}
+
+.play-btn:hover {
+  color: var(--color-brand-dark);
+  text-decoration: none;
+}
+
+.play-icon {
+  height: 80px;
+  margin-right: 0.5em;
+  width: 80px;
+}
+
+.play-icon__text {
+  display: inline-block;
+  max-width: 6em;
+  line-height: 1.2;
+}
+
+.video-embed {
+  overflow: hidden;
+  min-height: 180px;
+  width: 100%;
+
+  transition: all 200ms linear;
+  transform: translateZ(0);
+}
+
+.video-embed__item {
+  transition: all 100ms linear;
+}
+
+.video-embed__item--loading {
+  opacity: 0;
+}
+
+.tutorial-header {
+  background-color: var(--color-brand);
+}
+
+.tutorial h1 {
+  position: absolute;
+  left: 0.75rem;
+  bottom: calc(100% + 1rem);
+
+  color: #000;
+}
+
+.tutorial .is-playing {
+  position: static;
+
+  color: currentColor;
+}
+
+.tutorial h2,
+.tutorial h3,
+.tutorial h4,
+.tutorial h5,
+.tutorial h6 {
+
+}
+
+.tutorial main p:first-child {
+  font-size: 1.2962rem;
+  line-height: 1.0030;
+}
+
+.heading-link {
+  display: none;
+  position: absolute;
+  margin-left: -0.55em;
+
+  opacity: 0.4;
+  color: var(--color-grey);
+  font-weight: normal;
+}
+
+.heading-link:hover {
+  opacity: 1;
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.tutorial ul {
+  padding: 0;
+
+  list-style: none;
+}
+
+.tutorial ul li::before {
+  content: "•";
+  margin-left: -0.35em;
+  position: absolute;
+
+  color: var(--color-grey-dark);
+  font-size: 1.5rem;
+  line-height: 0.8;
+}
+
+.tutorial .list-group > li::before {
+  content: none;
+}
+
+.tutorial ol {
+  padding-left: 1.5em;
+}
+
+.tutorial img {
+  width: 100%;
+  display: block;
+}
+
+.tutorial-nav {
+
+}
+
+.nav-check {
+
+}
+
+.nav-label {
+  cursor: pointer;
+  display: block;
+  padding: 0.3rem 0.5rem;
+
+  background-color: var(--color-grey-light);
+  border-radius: 4px;
+}
+
+.i--nav {
+  margin-right: 0.25em;
+  width: 20px;
+  height: 20px;
+
+  background: none no-repeat left top / 100% auto transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="500" viewBox="0 0 256 500"><path d="M8.5 27h239v35.7H8.5zm0 83.6h239v35.8H8.5zm0 83.6h239V230H8.5zM199.8 468l-169-169 25.4-25.3 169 169zm25.4-168.7l-169 169L30.8 443l169-169z"/></svg>');
+}
+
+.nav-check:checked ~ .nav-label {
+  border-radius: 4px 4px 0 0;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.nav-check:focus ~ .nav-label {
+  outline: 3px solid #000;
+}
+
+.nav-check:checked ~ .nav-label .i--nav {
+  background-position: left bottom;
+}
+
+.tutorial-nav ol {
+  margin: 0;
+  padding: 0;
+}
+
+.tutorial-nav > ol {
+  display: none;
+  padding: 0.5rem;
+
+  background-color: var(--color-grey-light);
+  border-radius: 0 0 4px 4px;
+}
+
+.tutorial-nav .nav-check:checked ~ ol {
+  display: block;
+}
+
+.tutorial-nav ol ol {
+  padding-left: 0.6em;
+}
+
+.tutorial-nav > ol > li > ol {
+  padding-left: 0;
+}
+
+.tutorial-nav > ol > li > a {
+  font-weight: bold;
+}
+
+.tutorial-nav a {
+  display: block;
+  padding: 0.1em 0.3em;
+}
+
+.tutorial-nav a:hover {
+  border-radius: 4px;
+  background-color: var(--color-grey-light);
+  text-decoration: none;
+}
+
+.controls {
+  position: relative;
+
+  text-align: center;
+}
+
+.controls .btn {
+  display: block;
+}
+
+.tutorial-footer {
+  border-top: 3px solid var(--color-grey-light);
+}
+
+@media only screen and (min-width: 38em) {
+
+  .play-btn {
+    top: 1rem;
+  }
+
+  .play-icon {
+    height: 100px;
+    width: 120px;
+  }
+
+  .tutorial h1 {
+    bottom: calc(100% + 1.5rem);
+  }
+
+  .controls .btn {
+    display: inline-block;
+  }
+
+  .controls-prev {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  .controls-next {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+@media only screen and (min-width: 48em) {
+
+  .heading-link {
+    display: block;
+  }
+
+}
+
+@media only screen and (min-width: 60em) {
+
+  .wrapper {
+    max-width: 50em;
+  }
+
+  .play-btn {
+    top: 2.2rem;
+  }
+
+  .play-icon {
+    height: 120px;
+    width: 150px;
+  }
+
+  .tutorial {
+    padding-left: 1.5rem;
+  }
+
+  .tutorial h1 {
+    bottom: calc(100% + 3rem);
+  }
+
+  .tutorial ol {
+    padding-left: 0;
+  }
+
+  .tutorial-nav > ol {
+    display: block;
+    margin-left: -0.3em;
+    margin-right: -0.3em;
+    padding: 0;
+
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .nav-label,
+  .nav-check {
+    display: none;
+  }
+
+}

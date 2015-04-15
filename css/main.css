@@ -8,4 +8,9 @@
 @import 'utils.css';
 @import 'theme.css';
 @import 'buttons.css';
+@import 'masthead.css';
+@import 'footer.css';
+@import 'article.css';
+@import 'code.css';
+@import 'buttons.css';
 @import 'prism.css';

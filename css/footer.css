@@ -1,0 +1,20 @@
+.footer-wrap {
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand);
+}
+
+.footer {
+  opacity: 0.7;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.copyright {
+  display: block;
+}
+
+.footer-links {
+  text-align: right;
+}

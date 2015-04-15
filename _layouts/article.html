@@ -30,31 +30,32 @@ layout: default
       <main>
         {{content}}
       </main>
-
-      <footer class="tutorial-footer pad-t pad-b">
-        <ul class="list-group controls push-0">
-          {% if page.prev %}
-            <li class="controls-prev push-1-4">
-              <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
-                <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
-                <span class="icon-text">{{page.prev.title}}</span>
-              </a>
-            </li>
-          {% endif %}
-          <li class="controls-start push-1-4">
-            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
-              <span class="icon-text">Start</span>
-            </a>
-          </li>
-          {% if page.next %}
-            <li class="controls-next push-1-4">
-              <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.next.url}}">
-                <span class="icon-text">{{page.next.title}}</span>
-                <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
-              </a>
-            </li>
-          {% endif %}
-      </footer>
     </article>
   </div>
+
+  <div class="tutorial-footer wrapper gutter-1-2 pad-t pad-b">
+    <ul class="list-group controls push-0">
+      {% if page.prev %}
+        <li class="controls-prev push-1-4">
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.prev.url}}">
+            <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
+            <span class="icon-text">{{page.prev.title}}</span>
+          </a>
+        </li>
+      {% endif %}
+      <li class="controls-start push-1-4">
+        <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
+          <span class="icon-text">Start</span>
+        </a>
+      </li>
+      {% if page.next %}
+        <li class="controls-next push-1-4">
+          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/{{page.next.url}}">
+            <span class="icon-text">{{page.next.title}}</span>
+            <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+          </a>
+        </li>
+      {% endif %}
+  </div>
+
 </main>

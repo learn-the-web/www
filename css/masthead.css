@@ -1,0 +1,20 @@
+.masthead-wrap {
+  background-color: var(--color-brand);
+  /*color: var(--color);*/
+}
+
+.masthead {
+  border-bottom: 2px solid rgba(0,103,90,0.3);
+}
+
+.logo {
+  width: 100px;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .logo {
+    width: 140px;
+  }
+
+}

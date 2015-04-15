@@ -8,9 +8,32 @@
   <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 </head>
 <body>
+  <div class="masthead-wrap pad-t-1-2">
+    <header class="masthead grid wrapper gutter-1-2 pad-b-1-2">
+      <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
+    </header>
+  </div>
+
   {% include icons.html %}
 
   {{content}}
+
+  <div class="footer-wrap pad-t-1-2 pad-b-1-2">
+    <footer class="footer grid wrapper gutter-1-2">
+      <div class="unit [ xs-1 s-1 m-3-4 l-3-4">
+        <small class="copyright micro">© Algonquin College Graphic Design — <a href="http://algonquindesign.ca/">algonquindesign.ca</a>.</small>
+        <small class="copyright micro">All code licensed under the <a href="" rel="license">MIT License</a>.</small>
+        <small class="copyright micro">All text, imagery, design, tutorials &amp; videos licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">CC BY-NC-SA License</a>.</small>
+        <small class="copyright micro">Unless otherwise noted.</small>
+      </div>
+      <div class="unit [ xs-1 s-1 m-1-4 l-1-4">
+        <ul class="list-group footer-links">
+          <li><a href="https://github.com/acgd-learn-the-web" rel="external">GitHub</a></li>
+          <li><a href="https://www.youtube.com/user/acinteractivedesign" rel="external">YouTube</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
 
   <script src="/main.min.js"></script>
 </body>

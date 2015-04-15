@@ -1,0 +1,35 @@
+code,
+pre {
+  padding: 0.1em 0.4em;
+
+  border-radius: 3px;
+  background-color: var(--color-code);
+
+  font-size: 90%;
+  font-family: "Source Code Pro",monospace;
+}
+
+code[class*="language-"] {
+  display: block;
+  overflow-x: auto;
+  padding: 0 24px 0 0;
+  width: 100%;
+}
+
+pre {
+  margin-left: -0.8em;
+  margin-right: -0.8em;
+  padding: 0.6em 0.8em;
+  position: relative;
+}
+
+pre::after {
+  bottom: 0;
+  content: " ";
+  position: absolute;
+  right: 0.8em;
+  top: 0;
+  width: 20px;
+
+  background-image: linear-gradient(to right, rgba(245,242,240,0), var(--color-code));
+}
