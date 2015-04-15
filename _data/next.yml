@@ -1,42 +1,43 @@
-- title: "Learning resources"
-  url: learning-resources
+learning-resources:
+  title: "Learning resources"
 
-- title: "Blogs, companies & people"
-  url: learning-resources/blogs-companies-people.md
+blogs-companies-people:
+  title: "Blogs, companies & people"
   indent: 1
 
-- title: "Staying up to date"
-  url: learning-resources/staying-up-to-date.md
+staying-up-to-date:
+  title: "Staying up to date"
   indent: 1
 
-- title: "The Open Web"
-  url: the-open-web
+licenses-copyright:
+  title: "Licenses & copyright"
 
-- title: "Web terminology"
-  url: the-open-web/terminology.md
+the-open-web:
+  title: "The Open Web"
+
+terminology:
+  title: "Web terminology"
   indent: 1
 
-- title: "History of the Web"
-  url: the-open-web/history.md
+history-of-the-web:
+  title: "History of the Web"
   indent: 1
 
-- title: "Licenses & copyright"
-  url: licenses-copyright
+javascript-history:
+  title: "Javascript history"
+  indent: 1
 
-- title: "Markdown"
-  url: markdown
+markdown:
+  title: "Markdown"
 
-- title: "Launch checklist"
-  url: launch-checklist
+launch-checklist:
+  title: "Launch checklist"
 
-- title: "Javascript history"
-  url:
+ajax:
+  title: "AJAX"
 
-- title: "AJAX"
-  url:
+javascript-templates:
+  title: "Javascript templates"
 
-- title: "Javascript templates"
-  url:
-
-- title: "Efficiency tools"
-  url:
+efficiency-tools:
+  title: "Efficiency tools"

@@ -12,7 +12,8 @@ html-indentation:
   title: "HTML indentation"
 
 marking-up-a-webpage:
-  title: "★ Marking up a webpage"
+  title: "Marking up a webpage"
+  fullsite: true
 
 using-css:
   title: "Using CSS"
@@ -40,7 +41,8 @@ flow-display:
   title: "Flow & display"
 
 basic-website-layout:
-  title: "★ Basic website layout"
+  title: "Basic website layout"
+  fullsite: true
 
 float-clear:
   title: "Float & clear"
@@ -52,7 +54,8 @@ navigation:
   title: "Navigation"
 
 small-screen-layout:
-  title: "★ Small screen layout"
+  title: "Small screen layout"
+  fullsite: true
 
 organization:
   title: "Website file organization"
@@ -72,7 +75,8 @@ before-after:
   title: "Before & after pseudo elements"
 
 from-mockup-to-website:
-  title: "★ From mockup to website"
+  title: "From mockup to website"
+  fullsite: true
 
 performance:
   title: "Performance"

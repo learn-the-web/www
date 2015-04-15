@@ -1,32 +1,35 @@
-- title: "All devices setup"
-  url: all-devices-setup
+all-devices-setup:
+  title: "All devices setup"
 
-- title: "Media queries"
-  url: media-queries
+media-queries:
+  title: "Media queries"
 
-- title: "★ Media query layout"
-  url:
+media-query-layout:
+  title: "Media query layout"
+  fullsite: true
 
-- title: "Grids"
-  url: grids
+grids:
+  title: "Grids"
 
-- title: "Modular typography"
-  url: modular-typography
+modular-typography:
+  title: "Modular typography"
 
-- title: "★ Interactive wireframes & prototypes"
-  url: interactive-wireframes-and-prototypes
+interactive-wireframes-and-prototypes:
+  title: "Interactive wireframes & prototypes"
+  fullsite: true
 
-- title: "Modules"
-  url: modules
+modules:
+  title: "Modules"
 
-- title: "★ Modular website layout"
-  url: modular-layout
+modular-layout:
+  title: "Modular website layout"
+  fullsite: true
 
-- title: "Accessibility"
-  url: accessibility
+accessibility:
+  title: "Accessibility"
 
-- title: "Tables"
-  url: tables
+tables:
+  title: "Tables"
 
-- title: "Forms"
-  url: forms
+forms:
+  title: "Forms"
