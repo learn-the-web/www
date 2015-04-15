@@ -33,6 +33,10 @@ hr {
   max-width: 40em;
 }
 
+.header {
+  background-color: var(--color-brand);
+}
+
 @media only screen and (min-width: 60em) {
 
   .wrapper {

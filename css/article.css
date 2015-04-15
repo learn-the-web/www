@@ -41,10 +41,6 @@
   opacity: 0;
 }
 
-.tutorial-header {
-  background-color: var(--color-brand);
-}
-
 .tutorial h1 {
   position: absolute;
   left: 0.75rem;
