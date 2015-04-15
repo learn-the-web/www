@@ -4,11 +4,11 @@
     <ol>
       {% for item in include.data %}
         <li class="indent{{item.indent}}">
-          {% if item.url %}
-            <a href="/topics/{{item.url}}/">{{item.title}}</a>
-          {% else %}
+          {% if item.url %}<a href="/topics/{{item.url}}/">{% endif %}
+          {% if item.highlight %}<strong>{% endif %}
             {{item.title}}
-          {% endif %}
+          {% if item.highlight %}</strong>{% endif %}
+          {% if item.url %}</a>{% endif %}
         </li>
       {% endfor %}
     </ol>

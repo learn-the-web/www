@@ -1,3 +1,10 @@
+- title: "Naming conventions"
+  url: naming-conventions
+  highlight: true
+
+- title: "Using paths & folders"
+  url: paths-folders
+
 - title: "HTML semantics"
   url: html-semantics
 
