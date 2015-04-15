@@ -16,6 +16,14 @@ layout: default
   <div class="grid wrapper relative gutter-1-2">
     <div class="unit [ xs-1 s-1 m-1 l-1-4 ] pad-t-1-2 push">
       <ul class="downloads list-group grid push-1-2">
+        {% if page.livewebsite %}
+          <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
+            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.livewebsite}}">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-star"/></svg></i>
+              <span class="icon-text">See website</span>
+            </a>
+          </li>
+        {% endif %}
         {% if page.download %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.download}}">
@@ -28,7 +36,7 @@ layout: default
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.github}}">
               <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-github"/></svg></i>
-              <span class="icon-text">See code</span>
+              <span class="icon-text">Browse code</span>
             </a>
           </li>
         {% endif %}
@@ -65,7 +73,7 @@ layout: default
       <li class="controls-start push-1-4">
         <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/">
           <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
-          <span class="icon-text">Index</span>
+          <span class="icon-text">Topics</span>
         </a>
       </li>
       {% if page.next %}
