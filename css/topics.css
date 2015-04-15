@@ -33,3 +33,23 @@
 .topics a:visited::before {
 
 }
+
+.topic-section-2 {
+  background-color: color(var(--color-code) tint(30%));
+}
+
+.topic-section-3 {
+  background-color: var(--color-code);
+}
+
+.topic-section-4 {
+  background-color: color(var(--color-code) shade(4%));
+}
+
+.topic-section-5 {
+  background-color: color(var(--color-code) shade(8%));
+}
+
+.topic-section-6 {
+  background-color: color(var(--color-code) shade(12%));
+}
