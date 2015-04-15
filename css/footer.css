@@ -8,6 +8,7 @@
 }
 
 .footer a {
+  transition: all 50ms linear;
   color: var(--color-brand);
 }
 

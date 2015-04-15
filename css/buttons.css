@@ -4,6 +4,7 @@
   background-color: var(--color-brand);
   border-radius: 8px;
   border: 0;
+  transition: all 50ms linear;
 
   color: #000;
   text-decoration: none;

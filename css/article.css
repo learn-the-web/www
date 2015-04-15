@@ -3,6 +3,7 @@
   top: 1.6rem;
   z-index: 2;
 
+  transition: all 50ms linear;
   color: #fff;
 }
 
@@ -187,6 +188,7 @@
 .tutorial-nav a {
   display: block;
   padding: 0.1em 0.3em;
+  transition: all 50ms linear;
 }
 
 .tutorial-nav a:hover {
