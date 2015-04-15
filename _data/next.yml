@@ -47,3 +47,9 @@ javascript-templates:
 efficiency-tools:
   title: "Efficiency tools"
   disabled: true
+
+wordpress:
+  title: "WordPress"
+
+php:
+  title: "PHP"
