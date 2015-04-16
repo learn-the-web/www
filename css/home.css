@@ -22,6 +22,28 @@
 
 }
 
+.blurb {
+  max-width: 15em;
+}
+
+.section-light {
+  background-color: var(--color-brand-light);
+}
+
+.section-muted {
+  background-color: var(--color-code);
+}
+
+.section-dark {
+  background-color: var(--color-code-darkest);
+}
+
+.algonquin {
+  background-color: #0f663f;
+
+  color: #fff;
+}
+
 @media only screen and (min-width: 25em) {
 
   .logo {

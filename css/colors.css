@@ -16,3 +16,11 @@
   --color-code-darker: #e6e3e2;
   --color-code-darkest: #dfdcda;
 }
+
+.brand {
+  color: var(--color-brand);
+}
+
+.brand-dark {
+  color: var(--color-brand-dark);
+}
