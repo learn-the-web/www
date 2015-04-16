@@ -8,11 +8,13 @@
   <title>{% if page.title %}{{page.title}}{% else %}{{details.title}}{% endif %} · Learn the Web</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="/main.min.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,700|Source+Code+Pro:400,700" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,700|Source+Code+Pro:400,700" rel="stylesheet">
   {% if page.url == "/topics/" %}
   <link href="/main-topics.min.css" rel="stylesheet">
   {% elsif page.url contains "/topics/" %}
   <link href="/main-article.min.css" rel="stylesheet">
+  {% elsif page.url == "/" %}
+  <link href="/main-home.min.css" rel="stylesheet">
   {% endif %}
 </head>
 <body>
@@ -48,6 +50,10 @@
     </footer>
   </div>
 
+  {% if page.url == "/topics/" %}
+
+  {% elsif page.url contains "/topics/" %}
   <script src="/main.min.js"></script>
+  {% endif %}
 </body>
 </html>

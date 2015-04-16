@@ -17,6 +17,16 @@ gulp.task('css-main', function () {
   ;
 });
 
+gulp.task('css-home', function () {
+  return gulp.src('css/main-home.css')
+    .pipe(cssnext({ compress: true }))
+    .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
+    .pipe(gulp.dest('tmp'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./'))
+  ;
+});
+
 gulp.task('css-topics', function () {
   return gulp.src('css/main-topics.css')
     .pipe(cssnext({ compress: true }))
@@ -45,9 +55,9 @@ gulp.task('js', function () {
   ;
 });
 
-gulp.task('default', ['css-main', 'css-topics', 'css-article', 'js']);
+gulp.task('default', ['css-main', 'css-home', 'css-topics', 'css-article', 'js']);
 
 gulp.task('watch', function() {
-  gulp.watch('css/*.css', ['css-main', 'css-topics', 'css-article']);
+  gulp.watch('css/*.css', ['css-main', 'css-home', 'css-topics', 'css-article']);
   gulp.watch('js/*.js', ['js']);
 });
