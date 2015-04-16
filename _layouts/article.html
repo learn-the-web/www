@@ -19,7 +19,7 @@ layout: default
   </header>
 </div>
 
-<main class="relative" role="main">
+<main class="relative" role="main" itemscope itemtype="http://schema.org/Article">
   <div class="header push">
     <div class="wrapper gutter-1-2">
       {% if !page.playlist %}
@@ -71,8 +71,10 @@ layout: default
     </div>
 
     <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ] pad-t-1-2">
-      <h1 class="yotta" id="start">{{details.title}}</h1>
-      {{content}}
+      <h1 class="yotta" id="start" itemprop="name">{{details.title}}</h1>
+      <div itemprop="articleBody">
+        {{content}}
+      </div>
     </article>
   </div>
 
