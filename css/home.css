@@ -40,12 +40,6 @@
   background-color: var(--color-code-darkest);
 }
 
-.algonquin {
-  background-color: #0f663f;
-
-  color: #fff;
-}
-
 .topics {
   margin-left: auto;
   margin-right: auto;
@@ -92,6 +86,21 @@
 
 .topic-heading__text {
   display: block;
+}
+
+.algonquin {
+  background-color: #0f663f;
+
+  color: #fff;
+}
+
+.acgd-logo {
+  margin-bottom: 1.5rem;
+  max-width: 200px;
+}
+
+.alg-blurb {
+
 }
 
 @media only screen and (min-width: 25em) {
@@ -145,6 +154,15 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .acgd-logo {
+    margin-bottom: 0;
+    max-width: none;
+  }
+
+  .alg-blurb {
+    padding-left: 3rem;
   }
 
 }

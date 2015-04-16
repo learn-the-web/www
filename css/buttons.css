@@ -42,3 +42,13 @@
 .btn--subtle:hover {
   border-color: var(--color-brand-dark);
 }
+
+.btn--alg {
+  background-color: #0f663f;
+  border: 3px solid #94C947;
+  color: #94C947;
+}
+
+.btn--alg:hover {
+  background-color: #94C947;
+}
