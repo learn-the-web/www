@@ -63,7 +63,7 @@
 
 }
 
-.tutorial h1 + p {
+.tutorial h1 + div > p:first-child {
   font-size: 1.2962rem;
   line-height: 1.0030;
 }
