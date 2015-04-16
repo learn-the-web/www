@@ -135,6 +135,11 @@
   text-decoration: none;
 }
 
+.photo {
+  min-height: 200px;
+  background: none right top / cover no-repeat;
+}
+
 @media only screen and (min-width: 25em) {
 
   .logo {
@@ -143,6 +148,14 @@
 
   .title {
     font-size: 3.5rem;
+  }
+
+  .bio {
+    margin-right: 1.5rem;
+  }
+
+  .photo {
+    background-position: calc(100% + 40px) top;
   }
 
 }
