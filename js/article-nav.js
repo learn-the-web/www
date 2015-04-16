@@ -1,4 +1,6 @@
 (function () {
+  "use strict";
+
   var
     nav = document.querySelector('.tutorial-nav'),
     headings,
