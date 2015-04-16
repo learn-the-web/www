@@ -30,6 +30,7 @@ progressive-enhancement:
 
 css-minification:
   title: "CSS minification"
+  disabled: true
 
-analytics:
+analytics-monitoring:
   title: "Analytics & monitoring"
