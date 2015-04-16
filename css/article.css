@@ -113,7 +113,7 @@
   margin-left: -0.8em;
   margin-right: -0.8em;
   overflow: hidden;
-  width: 100%;
+  width: calc(100% + 1.6em);
 
   border-radius: 3px;
 }
