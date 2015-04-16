@@ -1,5 +1,6 @@
 .icon {
   display: inline-block;
+  position: relative;
 
   background: transparent none no-repeat center center;
   background-size: contain;
@@ -40,8 +41,11 @@
 }
 
 .icon svg {
-  width: 100%;
+  left: 0;
   height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .icon-text {

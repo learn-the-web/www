@@ -11,7 +11,7 @@ layout: default
       <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
     </div>
     <nav class="unit [ xs-1-2 ] text-right">
-      <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/">
+      <a class="btn btn--ghost" href="/topics/">
         <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
         <span class="icon-text contents-link">Topics</span>
       </a>
@@ -37,7 +37,7 @@ layout: default
       <ul class="downloads list-group grid push-1-2">
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
-            <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.livewebsite}}">
+            <a class="btn btn--ghost" href="{{page.livewebsite}}">
               <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-star"/></svg></i>
               <span class="icon-text">See website</span>
             </a>
@@ -45,7 +45,7 @@ layout: default
         {% endif %}
         {% if page.download %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
-            <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.download}}">
+            <a class="btn btn--subtle" href="{{page.download}}">
               <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-download"/></svg></i>
               <span class="icon-text">Download code</span>
             </a>
@@ -53,7 +53,7 @@ layout: default
         {% endif %}
         {% if page.github %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
-            <a class="btn btn--subtle pad-t-1-4 pad-b-1-4 gutter-1-2" href="{{page.github}}">
+            <a class="btn btn--subtle" href="{{page.github}}">
               <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-github"/></svg></i>
               <span class="icon-text">Browse code</span>
             </a>
@@ -102,21 +102,21 @@ layout: default
     <ul class="list-group controls push-0">
       {% if prev %}
         <li class="controls-prev push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{prev[0]}}/" rel="prev">
+          <a class="btn btn--ghost" href="/topics/{{prev[0]}}/" rel="prev">
             <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
             <span class="icon-text">{{prev[1].title}}</span>
           </a>
         </li>
       {% endif %}
       <li class="controls-start push-1-4">
-        <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/" rel="start">
+        <a class="btn btn--ghost" href="/topics/" rel="start">
           <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
           <span class="icon-text">Topics</span>
         </a>
       </li>
       {% if next %}
         <li class="controls-next push-1-4">
-          <a class="btn btn--ghost pad-t-1-4 pad-b-1-4 gutter-1-2" href="/topics/{{next[0]}}/" rel="next">
+          <a class="btn btn--ghost" href="/topics/{{next[0]}}/" rel="next">
             <span class="icon-text">{{next[1].title}}</span>
             <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
           </a>
