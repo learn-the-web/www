@@ -6,11 +6,11 @@ layout: default
 {% assign details = groupdata[slug] %}
 
 <div class="masthead-wrap pad-t-1-2 pad-b-1-2">
-  <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2">
+  <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2" role="banner">
     <div class="unit [ xs-1-2 ]">
       <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
     </div>
-    <nav class="unit [ xs-1-2 ] text-right">
+    <nav class="unit [ xs-1-2 ] text-right" role="navigation">
       <a class="btn btn--ghost" href="/topics/">
         <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
         <span class="icon-text contents-link">Topics</span>
@@ -19,7 +19,7 @@ layout: default
   </header>
 </div>
 
-<main class="relative">
+<main class="relative" role="main">
   <div class="header push">
     <div class="wrapper gutter-1-2">
       {% if !page.playlist %}

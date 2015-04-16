@@ -4,7 +4,7 @@ title: Web development tutorials &amp; videos
 ---
 {% include icons-topics.html %}
 
-<header class="header header-home">
+<header class="header header-home" role="banner">
   <div class="grid grid-bottom wrapper gutter-1-2">
     <div class="unit [ xs-1 s-1 m-1-2 l-1-2 ]">
       <svg class="logo" viewBox="0 0 300 86">
@@ -16,15 +16,17 @@ title: Web development tutorials &amp; videos
     </div>
     <div class="blurb-wrap unit [ xs-1 s-1 m-1-2 l-1-2 ]">
       <p class="blurb intro peta push">Web development tutorials, videos <span title="and">&amp;</span> code samples for graphic designers.</p>
-      <a class="btn btn--light giga" href="/topics/">
-        <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
-        <span class="icon-text">Explore the topics</span>
-      </a>
+      <nav role="navigation">
+        <a class="btn btn--light giga" href="/topics/">
+          <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+          <span class="icon-text">Explore the topics</span>
+        </a>
+      </nav>
     </div>
   </div>
 </header>
 
-<main>
+<main role="main">
 
   <section>
     <div class="wrapper gutter-1-2 pad-t-2 pad-b-2 random">
