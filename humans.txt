@@ -1,0 +1,29 @@
+# humanstxt.org
+
+# TEAM
+
+Designer & Developer: Thomas J Bradley <hey@thomasjbradley.ca>
+Site: http://thomasjbradley.ca
+GitHub: https://github.com/thomasjbradley
+Twitter: @thomasjbradley
+Location: Ottawa, Canada
+
+---
+
+# THANKS
+
+“Debug” by Lemon Liu — The Noun Project — CC BY 3.0
+https://thenounproject.com/term/debug/83827/
+
+---
+
+# TECHNOLOGY
+
+## Software
+
+- Sublime Text 3 (with Vintageous)
+- Git + GitHub
+- Gulp.js
+- PostCSS
+- UglifyJS
+- Markdown
