@@ -1,0 +1,6 @@
+# robotstxt.org
+
+Sitemap: http://learn-the-web.algonquindesign.ca/sitemap.xml
+
+User-Agent: *
+Disallow:
