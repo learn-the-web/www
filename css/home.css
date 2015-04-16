@@ -167,6 +167,14 @@
 
 }
 
+@media only screen and (min-width: 48em) {
+
+  .random {
+    background: url("../images/random.svg") 93% center no-repeat;
+  }
+
+}
+
 @media only screen and (min-width: 60em) {
 
   .topics {
