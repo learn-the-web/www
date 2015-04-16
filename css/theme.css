@@ -27,6 +27,34 @@ hr {
   border-width: 3px;
 }
 
+ul {
+  padding: 0;
+
+  list-style: none;
+}
+
+ul li {
+  position: relative;
+}
+
+ul li::before {
+  content: "•";
+  margin-left: -0.35em;
+  position: absolute;
+  top: -0.25em;
+
+  color: var(--color-grey-dark);
+  font-size: 1.5em;
+}
+
+.list-group > li::before {
+  content: none;
+}
+
+ol {
+  padding-left: 1.5em;
+}
+
 .wrapper {
   margin-left: auto;
   margin-right: auto;
@@ -46,6 +74,10 @@ hr {
 
   .wrapper {
     max-width: 50em;
+  }
+
+  ol {
+    padding-left: 0;
   }
 
 }

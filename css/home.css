@@ -103,6 +103,39 @@
 
 }
 
+.open {
+  margin-bottom: 1.5rem;
+}
+
+.courses {
+  text-align: center;
+}
+
+.courses__icon {
+  display: block;
+  height: 1.2em;
+  margin: 0 auto;
+  width: 1.2em;
+}
+
+.courses__list {
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+}
+
+.link-btn {
+  display: inline-block;
+  padding: 0.3em 0.7em 0.4em 0.5em;
+  color: var(--color-link);
+}
+
+.link-btn:hover {
+  background-color: var(--color-link);
+  border-radius: 3px;
+  color: #fff;
+  text-decoration: none;
+}
+
 @media only screen and (min-width: 25em) {
 
   .logo {
@@ -163,6 +196,11 @@
 
   .alg-blurb {
     padding-left: 3rem;
+  }
+
+  .open {
+    margin-bottom: 0;
+    padding-right: 3em;
   }
 
 }

@@ -84,30 +84,6 @@
   text-decoration: none;
 }
 
-.tutorial ul {
-  padding: 0;
-
-  list-style: none;
-}
-
-.tutorial ul li::before {
-  content: "•";
-  margin-left: -0.35em;
-  position: absolute;
-
-  color: var(--color-grey-dark);
-  font-size: 1.5rem;
-  line-height: 0.8;
-}
-
-.tutorial .list-group > li::before {
-  content: none;
-}
-
-.tutorial ol {
-  padding-left: 1.5em;
-}
-
 .tutorial img {
   display: block;
   margin-left: -0.8em;
@@ -278,10 +254,6 @@
 
   .tutorial h1 {
     bottom: calc(100% + 3rem);
-  }
-
-  .tutorial ol {
-    padding-left: 0;
   }
 
   .tutorial-nav > ol {
