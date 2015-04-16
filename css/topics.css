@@ -42,6 +42,11 @@
   top: auto;
 }
 
+.topics > li:target {
+  border-radius: 3px;
+  background-color: hsla(24,7%,70%,0.3);
+}
+
 .topic-text {
   position: relative;
 }
