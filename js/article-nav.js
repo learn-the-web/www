@@ -32,6 +32,7 @@
     return;
   }
 
+  nav.removeAttribute('hidden');
   headings = document.querySelectorAll('.tutorial h2, .tutorial h3, .tutorial h4, .tutorial h5, .tutorial h6');
   total = headings.length;
   list = document.createElement('ol');
