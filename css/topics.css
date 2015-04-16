@@ -47,6 +47,22 @@
   background-color: hsla(24,7%,70%,0.3);
 }
 
+.topic--fullsite::after {
+  content: "Full website";
+  display: inline-block;
+  margin-left: 0.7em;
+  padding: 0.2em 0.4em 0.1em;
+  position: relative;
+  top: -0.1em;
+
+  border-radius: 3px;
+  background-color: hsla(24,7%,70%,0.3);
+
+  color: rgba(0,0,0,0.4);
+  font-size: 0.6em;
+  text-transform: uppercase;
+}
+
 .topic-text {
   position: relative;
 }
