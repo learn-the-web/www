@@ -98,6 +98,10 @@ layout: default
         {% assign last = item %}
       {% endif %}
     {% endif %}
+    {% if forloop.last %}
+      {% assign prev = last %}
+      {% break %}
+    {% endif %}
   {% endfor %}
 
   <div class="tutorial-footer wrapper gutter-1-2 pad-t pad-b">
