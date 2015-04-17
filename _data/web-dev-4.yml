@@ -15,6 +15,10 @@ jekyll-installation:
   title: "Jekyll installation"
   indent: 1
 
+jekyll-terminal-guide:
+  title: "Jekyll terminal guide"
+  indent: 1
+
 search-engine-optimization:
   title: "Search engine optimization"
 
