@@ -125,6 +125,7 @@
 .link-btn {
   display: inline-block;
   padding: 0.3em 0.7em 0.4em 0.5em;
+  transition: all 100ms linear;
   color: var(--color-link);
 }
 
