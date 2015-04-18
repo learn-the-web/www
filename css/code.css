@@ -9,7 +9,8 @@ pre {
   font-family: "Source Code Pro",Menlo,monospace;
 }
 
-code[class*="language-"] {
+code[class*="language-"],
+pre > code {
   display: block;
   overflow-x: auto;
   padding: 0 24px 0 0;
