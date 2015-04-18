@@ -12,6 +12,10 @@
   width: 150px;
 }
 
+.title-wrap {
+
+}
+
 .title {
   margin-bottom: 1.5rem;
   font-size: 2.8rem;
@@ -170,7 +174,11 @@
 
   .logo {
     margin-bottom: 2.25rem;
-    width: 300px;
+    width: 250px;
+  }
+
+  .title-wrap {
+    padding-right: 0.75rem;
   }
 
   .title {
@@ -232,6 +240,10 @@
 }
 
 @media only screen and (min-width: 60em) {
+
+  .logo {
+    width: 300px;
+  }
 
   .topics {
     max-width: none;
