@@ -60,7 +60,7 @@
   {% if page.url == "/topics/" %}
   <script src="/topics.min.js" async></script>
   {% elsif page.url contains "/topics/" %}
-  <script src="/article.min.js" async></script>
+  <script src="/article.min.js" defer></script>
   {% endif %}
 </body>
 </html>
