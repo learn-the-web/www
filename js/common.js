@@ -6,7 +6,15 @@
     total, i = 0,
     attachJumpEvent = function (elem) {
       elem.addEventListener('click', function () {
-        document.getElementById(elem.getAttribute('href').replace('#', '')).focus();
+        var theFocus = document.getElementById(elem.getAttribute('href').replace('#', ''));
+
+        if (!theFocus.tagName.match(/H\d/)) {
+          if (theFocus.tagName !== 'INPUT') {
+            theFocus = theFocus.querySelector('h1, h2, h3, h4, h5, h6');
+          }
+        }
+
+        theFocus.focus();
       });
     }
   ;
@@ -31,4 +39,34 @@
       }
     }
   }
+}());
+
+(function () {
+  "use strict";
+
+  var
+    navCheck = document.querySelector('.nav-check'),
+    navList,
+    toggleNavCheck = function () {
+      navCheck.checked = !navCheck.checked;
+    }
+  ;
+
+  if (!navCheck) {
+    return;
+  }
+
+  navCheck.addEventListener('keypress', function (e) {
+    switch (e.keyCode) {
+      case 13:
+        toggleNavCheck();
+        break;
+    }
+  });
+
+  navList = document.querySelector('.nav-check ~ ol');
+
+  navList.addEventListener('click', function () {
+    navCheck.checked = false;
+  });
 }());

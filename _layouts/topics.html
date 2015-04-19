@@ -4,14 +4,34 @@ layout: default
 
 <div class="masthead-wrap pad-t-1-2 pad-b-1-2">
   <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2" role="banner">
-    <div class="unit [ xs-1-2 ]">
+    <div class="unit [ xs-1 m-1-2 ]">
       <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
     </div>
-    <nav class="unit [ xs-1-2 ] text-right" role="navigation">
-      <a class="btn btn--ghost" href="/">
-        <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-left" /></svg></i>
-        <span class="icon-text contents-link">Home</span>
-      </a>
+    <nav class="top-nav unit [ xs-1 m-1-2 ] text-right" role="navigation">
+      <ul class="push-0 list-group list-group--inline">
+        <li>
+          <a class="btn btn--ghost" href="/">
+            <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-left" /></svg></i>
+            <span class="icon-text contents-link">Home</span>
+          </a>
+        </li>
+        <li class="page-nav relative">
+          <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
+          <label class="btn btn--ghost nav-label" for="nav-check">
+            <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-down" /></svg></i>
+            <span class="icon-text">On this page</span>
+          </label>
+          <ol class="list-group push-0 jumps">
+            <li><a href="#search">Search</a></li>
+            <li><a href="#set-up">Set up</a></li>
+            <li><a href="#web-dev-1">Web Dev 1</a></li>
+            <li><a href="#web-dev-2">Web Dev 2</a></li>
+            <li><a href="#web-dev-3">Web Dev 3</a></li>
+            <li><a href="#web-dev-4">Web Dev 4</a></li>
+            <li><a href="#whats-next">What’s next?</a></li>
+          </ol>
+        </li>
+      </ul>
     </nav>
   </header>
 </div>

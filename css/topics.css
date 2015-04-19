@@ -1,3 +1,7 @@
+.topic-section:focus {
+  outline: none;
+}
+
 .topic-wrap {
   position: relative;
   padding-left: 1.5rem;
@@ -14,6 +18,57 @@
   display: block;
   margin: 0 auto;
   max-width: 3em;
+}
+
+.page-nav > ol {
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  min-width: 10em;
+
+  background-color: var(--color-brand-dark);
+  border-radius: 8px 0 8px 8px;
+}
+
+.page-nav .nav-check:checked ~ ol {
+  display: block;
+}
+
+.page-nav .nav-label {
+  transition: background-color 100ms linear, color 100ms linear, border-color 100ms linear;
+}
+
+.page-nav .nav-check:checked ~ .nav-label {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+}
+
+.page-nav .nav-check:focus ~ .nav-label {
+  outline: 3px solid #000;
+}
+
+.page-nav a {
+  display: block;
+  padding: 0.4em 0.6em 0.5em;
+  transition: all 100ms linear;
+  color: #fff;
+  text-decoration: none;
+}
+
+.page-nav li:first-child a {
+  border-radius: 8px 0 0 0;
+}
+
+.page-nav li:last-child a {
+  border-radius: 0 0 8px 8px;
+}
+
+.page-nav a:hover {
+  background-color: #fff;
+  color: var(--color-brand-dark);
 }
 
 .topics {

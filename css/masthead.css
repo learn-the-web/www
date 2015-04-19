@@ -7,14 +7,24 @@
 }
 
 .logo {
-  display: inline-block;
-  margin-top: 0.25em;
+  display: block;
+  margin: 0.25em auto 0.75rem;
   width: 100px;
 }
 
 .contents-link {
   display: inline-block;
   margin-top: 0.1em;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .logo {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 }
 
 @media only screen and (min-width: 38em) {
