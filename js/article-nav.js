@@ -36,6 +36,7 @@
   headings = document.querySelectorAll('.tutorial h2, .tutorial h3, .tutorial h4, .tutorial h5, .tutorial h6');
   total = headings.length;
   list = document.createElement('ol');
+  list.classList.add('jumps');
   currentItem = appendItem(list, document.querySelector('.tutorial h1'));
 
   for (i = 0; i < total; i++) {

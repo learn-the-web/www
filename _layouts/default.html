@@ -56,10 +56,11 @@
     </footer>
   </div>
 
+  <script src="/common.min.js" async></script>
   {% if page.url == "/topics/" %}
-  <script src="/topics.min.js"></script>
+  <script src="/topics.min.js" async></script>
   {% elsif page.url contains "/topics/" %}
-  <script src="/article.min.js"></script>
+  <script src="/article.min.js" async></script>
   {% endif %}
 </body>
 </html>

@@ -47,10 +47,18 @@ gulp.task('css-article', function () {
   ;
 });
 
+gulp.task('js-common', function () {
+  return gulp.src(['js/common.js'])
+    .pipe(concat('common.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./'))
+  ;
+});
+
 gulp.task('js-topics', function () {
   return gulp.src(['js/lodash.min.js', 'js/fuzzy-match.js', 'js/topic-search.js'])
     .pipe(concat('topics.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./'))
   ;
 });
@@ -58,7 +66,7 @@ gulp.task('js-topics', function () {
 gulp.task('js-article', function () {
   return gulp.src(['js/prism.js', 'js/syntax.js', 'js/article-nav.js', 'js/section-links.js', 'js/video.js'])
     .pipe(concat('article.min.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('./'))
   ;
 });
@@ -67,5 +75,5 @@ gulp.task('default', ['css-main', 'css-home', 'css-topics', 'css-article', 'js-t
 
 gulp.task('watch', function() {
   gulp.watch('css/*.css', ['css-main', 'css-home', 'css-topics', 'css-article']);
-  gulp.watch('js/*.js', ['js-topics', 'js-article']);
+  gulp.watch('js/*.js', ['js-common', 'js-topics', 'js-article']);
 });
