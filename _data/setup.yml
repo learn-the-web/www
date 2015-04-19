@@ -1,52 +1,65 @@
 web-browsers:
   title: "Web browsers"
+  tags: "web browsers chrome safari mozilla firefox opera install"
   disabled: true
 
 using-urls:
   title: "Using URLs"
+  tags: "urls addresses web paths"
   indent: 1
   disabled: true
 
 code-editors:
   title: "Code editors"
+  tags: "code text editors atom sublime install configuration options settings"
 
 keyboard-shortcuts:
   title: "Keyboard shortcut reference"
+  tags: "keyboard shortcuts start end line word file document"
   indent: 1
 
 sublime-text:
   title: "Sublime Text setup"
+  tags: "sublime text code editors install setup configuration options settings packages plugins"
   indent: 1
   highlight: true
 
 atom:
   title: "Atom setup"
+  tags: "github atom text code editors install setup configuration options settings packages plugins"
   indent: 1
 
 version-control:
   title: "Version control"
+  tags: "github version control history undo saving"
 
 installing-github:
   title: "Installing GitHub"
+  tags: "github installing mac windows setup application"
   indent: 1
   disabled: true
 
 github-pages:
   title: "Hosting with GitHub Pages"
+  tags: "github hosting gh pages master branches"
   indent: 1
 
 github-use-and-committing:
   title: "GitHub use & committing"
+  tags: "github use committing syncing undo saving history messages descriptions"
   indent: 1
   disabled: true
 
 commit-messages:
   title: "Commit message conventions"
+  tags: "github use committing messages conventions descriptions system"
   indent: 2
 
 branching-github-flow:
   title: "Branching & GitHub Flow"
+  tags: "github hosting system branches master gh pages flow issues pull requests"
   indent: 1
 
 github-issues:
   title: "GitHub Issues"
+  tags: "github issues labels descriptions project management problems help"

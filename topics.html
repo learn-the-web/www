@@ -14,6 +14,13 @@ priority: 1
     </div>
   </div>
 
+  <div class="search">
+    <form class="wrapper gutter-1-2 pad-t pad-b" method="get" action="/topics" role="search" hidden>
+      <label class="mega push-1-2 search-label" for="search">Find a subject to learn…</label>
+      <input class="mega push-1-4 search-input" type="search" id="search">
+    </form>
+  </div>
+
   {% include topic-section.html class="topic-section-1" id="set-up" title="Set up" number="0" data=site.data.setup %}
   {% include topic-section.html class="topic-section-2" id="web-dev-1" title="Web Dev" number="1" data=site.data.web-dev-1 %}
   {% include topic-section.html class="topic-section-3" id="web-dev-2" title="Web Dev" number="2" data=site.data.web-dev-2 %}

@@ -76,7 +76,6 @@
 .tutorial table {
   width: 100%;
   border: 1px solid var(--color-grey-medium);
-  border-collapse: collapse;
 }
 
 .tutorial th {

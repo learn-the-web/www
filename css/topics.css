@@ -18,6 +18,7 @@
 
 .topics {
   margin-left: -22px;
+  min-height: 9em;
   padding-left: 22px;
   position: relative;
 
@@ -40,6 +41,11 @@
 .topics::after {
   bottom: 0;
   top: auto;
+}
+
+.topics > li {
+  position: relative;
+  z-index: 5;
 }
 
 .topics > li:target {
@@ -161,7 +167,7 @@
 
 .indent1,
 .indent2 {
-  margin-left: -18px;
+  margin-left: -19px;
   padding-left: 36px;
 
   background: none 7px center / 18px 3px no-repeat transparent;
@@ -197,6 +203,45 @@
 .topic-section-6 .indent1,
 .topic-section-6 .indent2 {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="18" height="3" viewBox="0 0 18 3"><rect fill="#c0c0c0" x="0" y="0" width="18" height="3"/></svg>');
+}
+
+.search {
+  background-color: var(--color-brand-light);
+}
+
+.search-label {
+  display: block;
+}
+
+.search-input {
+  display: block;
+  padding: 0.2em 0.4em 0.2em 1.4em;
+  width: 100%;
+
+  background: none 0.2em center / auto 70% no-repeat rgba(255,255,255,0.7);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"><path fill="#969696" d="M166.7 42C133.3 8.5 79 8.5 45.7 42s-33.6 87.7 0 121.2 87.6 33.5 121 0 33.5-87.8 0-121.2zM146 142.5c-22 22-57.7 22-79.7 0s-22-57.8 0-79.8 57.8-22 79.8 0 22 57.7 0 79.8z"/><path fill="#969696" d="M147.4 173.7l29.4-29.4 59.8 59.8-29.4 29.6z"/></svg>');
+  border: 2px solid var(--color-brand);
+  border-radius: 8px;
+
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: #fff;
+  border-color: var(--color-brand-dark);
+}
+
+::-webkit-input-placeholder {
+   color: var(--color-grey);
+}
+
+::-moz-placeholder {
+   color: var(--color-grey);
+}
+
+:-ms-input-placeholder {
+   color: var(--color-grey);
 }
 
 @media only screen and (min-width: 38em) {
