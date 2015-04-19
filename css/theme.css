@@ -18,7 +18,8 @@ a:hover {
   text-decoration: underline;
 }
 
-a:focus {
+a:focus,
+h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, h6:focus {
   outline: 3px solid #000;
 }
 
