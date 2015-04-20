@@ -28,13 +28,16 @@ google-fonts:
 
 browser-developer-tools:
   title: "Browser developer tools"
+  disabled: true
 
 validators:
   title: "Validators"
+  disabled: true
 
 browser-testing:
   title: "Browser testing"
   highlight: true
+  disabled: true
 
 box-model:
   title: "Everything is a box"
