@@ -142,8 +142,25 @@
 
 .photo {
   min-height: 200px;
+  position: relative;
   background: none right top / cover no-repeat;
   border-radius: 3px;
+}
+
+.photo-copyright {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+
+  opacity: 0.6;
+
+  color: #fff;
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+.photo:hover .photo-copyright {
+  opacity: 1;
 }
 
 @media only screen and (min-width: 25em) {
