@@ -50,6 +50,8 @@ efficiency-tools:
 
 wordpress:
   title: "WordPress"
+  disabled: true
 
 php:
   title: "PHP"
+  disabled: true
