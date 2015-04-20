@@ -28,6 +28,7 @@
   min-width: 10em;
 
   background-color: var(--color-brand-dark);
+  border: 3px solid var(--color-brand-dark);
   border-radius: 8px 0 8px 8px;
 }
 
@@ -52,7 +53,7 @@
 
 .page-nav a {
   display: block;
-  padding: 0.4em 0.6em 0.5em;
+  padding: 0.4em 0.75em 0.5em;
   transition: all 100ms linear;
   color: #fff;
   text-decoration: none;
