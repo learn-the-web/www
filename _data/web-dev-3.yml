@@ -1,23 +1,23 @@
 css-animations-effects:
   title: "CSS animations & effects"
 
-js-intro:
+javascript-intro:
   title: "Javascript: introduction"
 
-js-debugging:
+javascript-debugging:
   title: "Javascript debugging"
   disabled: true
 
 dom:
   title: "Document object model (DOM)"
 
-js-components:
+javascript-components:
   title: "Common Javascript components"
 
 advanced-svg:
   title: "Advanced SVG"
 
-js-effects:
+javascript-effects:
   title: "Javascript effects"
 
 responsive-animated-info-graphic:
