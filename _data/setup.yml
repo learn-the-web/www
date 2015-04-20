@@ -63,3 +63,4 @@ branching-github-flow:
 github-issues:
   title: "GitHub Issues"
   tags: "github issues labels descriptions project management problems help"
+  indent: 1
