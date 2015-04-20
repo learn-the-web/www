@@ -32,7 +32,6 @@ browser-developer-tools:
 
 validators:
   title: "Validators"
-  disabled: true
 
 browser-testing:
   title: "Browser testing"
