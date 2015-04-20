@@ -30,6 +30,8 @@
   background-color: var(--color-brand-dark);
   border: 3px solid var(--color-brand-dark);
   border-radius: 8px 0 8px 8px;
+
+  text-align: right;
 }
 
 .page-nav .nav-check:checked ~ ol {
