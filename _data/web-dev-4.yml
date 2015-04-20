@@ -10,6 +10,7 @@ video:
 
 jekyll:
   title: "Jekyll"
+  fullsite: true
 
 jekyll-installation:
   title: "Jekyll installation"
@@ -18,11 +19,6 @@ jekyll-installation:
 jekyll-terminal-guide:
   title: "Jekyll terminal guide"
   indent: 1
-
-jekyll-website:
-  title: "Full Jekyll website"
-  indent: 1
-  fullsite: true
 
 search-engine-optimization:
   title: "Search engine optimization"
