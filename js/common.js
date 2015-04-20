@@ -14,7 +14,9 @@
           }
         }
 
-        theFocus.focus();
+        setTimeout(function () {
+          theFocus.focus();
+        }, 10);
       });
     }
   ;
