@@ -1,3 +1,4 @@
+data_source: ./topics/_table-of-contents
 permalink: pretty
 
 exclude:
