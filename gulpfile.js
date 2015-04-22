@@ -56,7 +56,7 @@ gulp.task('js-common', function () {
 });
 
 gulp.task('js-topics', function () {
-  return gulp.src(['js/lodash.min.js', 'js/fuzzy-match.js', 'js/topic-search.js'])
+  return gulp.src(['js/fuzzy-match.js', 'js/topic-search.js'])
     .pipe(concat('topics.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
@@ -71,7 +71,7 @@ gulp.task('js-article', function () {
   ;
 });
 
-gulp.task('default', ['css-main', 'css-home', 'css-topics', 'css-article', 'js-topics', 'js-article']);
+gulp.task('default', ['css-main', 'css-home', 'css-topics', 'css-article', 'js-common', 'js-topics', 'js-article']);
 
 gulp.task('watch', function() {
   gulp.watch('css/*.css', ['css-main', 'css-home', 'css-topics', 'css-article']);
