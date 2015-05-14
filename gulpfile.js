@@ -2,6 +2,7 @@ var
   gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   cssnext = require('gulp-cssnext'),
+  replace = require('gulp-replace'),
   rename = require('gulp-rename'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify')
@@ -21,6 +22,10 @@ gulp.task('css-home', function () {
   return gulp.src('css/main-home.css')
     .pipe(cssnext({ compress: true }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
+    .pipe(replace(/svg\>/g, 'svg%3E'))
+    .pipe(replace(/\<svg/g, '%3Csvg'))
+    .pipe(replace(/\>\</g, '%3E%3C'))
+    .pipe(replace(/='#/g, "='%23"))
     .pipe(gulp.dest('tmp'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./'))
@@ -31,6 +36,10 @@ gulp.task('css-topics', function () {
   return gulp.src('css/main-topics.css')
     .pipe(cssnext({ compress: true }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
+    .pipe(replace(/svg\>/g, 'svg%3E'))
+    .pipe(replace(/\<svg/g, '%3Csvg'))
+    .pipe(replace(/\>\</g, '%3E%3C'))
+    .pipe(replace(/='#/g, "='%23"))
     .pipe(gulp.dest('tmp'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./'))
