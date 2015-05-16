@@ -10,7 +10,7 @@
       <ol class="list-group topics push-0">
         {% for item in include.data %}
           {% assign details = item[1] %}
-          <li class="indent{{details.indent}} {% if details.disabled %}topic--disabled{% endif %} {% if details.fullsite %}topic--fullsite{% endif %}" id="{{item[0]}}" data-tags="{{item[1].tags}}">
+          <li class="indent{{details.indent}} {% if details.disabled %}topic--disabled{% endif %} {% if details.fullsite %}topic--flag topic--fullsite{% endif %} {% if details.checklist %}topic--flag topic--checklist{% endif %} {% if details.cheatsheet %}topic--flag topic--cheatsheet{% endif %}" id="{{item[0]}}" data-tags="{{item[1].tags}}">
             {% if details.disabled %}<span class="topic-text">{% else %}<a class="topic-text" href="/topics/{{item[0]}}/">{% endif %}
               {% if details.highlight %}<strong>{% endif %}
                 {{details.title}}
