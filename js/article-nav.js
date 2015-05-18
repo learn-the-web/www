@@ -15,7 +15,7 @@
         a = document.createElement('a')
       ;
 
-      a.innerHTML = heading.innerHTML;
+      a.innerHTML = heading.innerText;
       a.href = '#' + heading.id;
       newLi.appendChild(a);
 
