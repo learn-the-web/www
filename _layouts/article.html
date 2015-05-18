@@ -53,6 +53,22 @@ layout: default
             </a>
           </li>
         {% endif %}
+        {% if page.cheatsheet %}
+          <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
+            <a class="btn btn--ghost" href="/topics/{{page.cheatsheet}}/">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-cheatsheet"/></svg></i>
+              <span class="icon-text">Get cheat sheet</span>
+            </a>
+          </li>
+        {% endif %}
+        {% if page.checklist %}
+          <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
+            <a class="btn btn--ghost" href="/topics/{{page.checklist}}/">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-checklist"/></svg></i>
+              <span class="icon-text">Review checklist</span>
+            </a>
+          </li>
+        {% endif %}
         {% if page.download %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--subtle" href="{{page.download}}">
