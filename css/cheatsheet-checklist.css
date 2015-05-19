@@ -49,3 +49,17 @@
 
   color: var(--color-grey-dark);
 }
+
+.checklist-details {
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.checklist-details p {
+  display: inline;
+}
+
+.check {
+  position: absolute;
+  left: 0;
+}

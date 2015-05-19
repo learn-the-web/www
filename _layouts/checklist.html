@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
+{% assign groupdata = site.data[page.group] %}
+{% assign details = groupdata[slug] %}
+
+{% include inside-nav.html %}
+
+<main class="relative" role="main">
+
+  <article class="checklist">
+    {% include simple-header.html title=details.title %}
+
+    {% include simple-nav.html groups=page.groups %}
+
+    <div class="grid">
+      {% include checks-group.html groups=page.groups %}
+    </div>
+  </article>
+
+</main>
