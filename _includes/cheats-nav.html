@@ -1,0 +1,11 @@
+<div class="cheat-nav-wrap push">
+  <nav class="wrapper gutter-1-2">
+    <ol class="cheat-nav list-group list-group--inline">
+      {% for item in include.groups %}
+        <li>
+          <a href="#{{item.title | slugify}}">{{item.title}}</a>
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+</div>

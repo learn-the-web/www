@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
+{% assign groupdata = site.data[page.group] %}
+{% assign details = groupdata[slug] %}
+
+<div class="masthead-wrap pad-t-1-2 pad-b-1-2">
+  <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2" role="banner">
+    <div class="unit [ xs-1 m-1-2 ]">
+      <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
+    </div>
+    <nav class="top-nav unit [ xs-1 m-1-2 ]" role="navigation">
+      <ul class="push-0 list-group list-group--inline">
+        <li>
+          <a class="btn btn--ghost" href="/topics/">
+            <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+            <span class="icon-text contents-link">Topics</span>
+          </a>
+        </li>
+        <li>
+          <a class="btn btn--ghost jumps" href="#start">
+            <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-down" /></svg></i>
+            <span class="icon-text contents-link">Jump to tutorial</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+<main class="relative" role="main">
+
+  <article class="cheatsheet">
+    <header class="cheatsheet-header push">
+      <div class="wrapper relative pad-t pad-b gutter-1-2">
+        <h1 class="yotta push-0" id="start" tabindex="0">{{details.title}}</h1>
+      </div>
+    </header>
+
+    {% include cheats-nav.html groups=page.cheats %}
+    {% include cheats-group.html groups=page.cheats %}
+
+  </article>
+
+</main>

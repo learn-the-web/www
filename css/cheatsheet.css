@@ -1,0 +1,51 @@
+.cheatsheet-header {
+  background-color: var(--color-brand);
+
+  color: #000;
+}
+
+.cheat-nav > li::after {
+  content: "·";
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  color: var(--color-grey);
+}
+
+.cheat-nav > li:last-child::after {
+  content: none;
+  display: none;
+}
+
+.cheat-nav-wrap,
+.cheat-list {
+  border-bottom: 3px solid var(--color-grey-light);
+}
+
+.cheat-head:focus {
+  outline: 3px solid #000;
+  position: relative;
+  z-index: 100;
+}
+
+.cheat-list:last-child {
+  border-bottom: 0;
+}
+
+.cheat-list p {
+  margin: 0;
+}
+
+.cheat-list > li > p:first-child {
+  color: #000;
+}
+
+.cheat-list > li > p:first-child code {
+  background-color: var(--color-code-dark);
+}
+
+.cheat-details {
+  margin-left: 1rem;
+
+  color: var(--color-grey-dark);
+}
