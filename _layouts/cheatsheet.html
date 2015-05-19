@@ -10,15 +10,10 @@ layout: default
 <main class="relative" role="main">
 
   <article class="cheatsheet">
-    <header class="cheatsheet-header push">
-      <div class="wrapper relative pad-t pad-b gutter-1-2">
-        <h1 class="yotta push-0" id="start" tabindex="0">{{details.title}}</h1>
-      </div>
-    </header>
+    {% include simple-header.html title=details.title %}
 
-    {% include cheats-nav.html groups=page.groups %}
+    {% include simple-nav.html groups=page.groups %}
     {% include cheats-group.html groups=page.groups %}
-
   </article>
 
 </main>

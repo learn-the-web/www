@@ -4,7 +4,7 @@
   color: #000;
 }
 
-.cheat-nav > li::after {
+.simple-nav > li::after {
   content: "·";
   display: inline-block;
   margin: 0 0.5rem;
@@ -12,12 +12,12 @@
   color: var(--color-grey);
 }
 
-.cheat-nav > li:last-child::after {
+.simple-nav > li:last-child::after {
   content: none;
   display: none;
 }
 
-.cheat-nav-wrap,
+.simple-nav-wrap,
 .cheat-list {
   border-bottom: 3px solid var(--color-grey-light);
 }
