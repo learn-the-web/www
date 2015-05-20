@@ -1,0 +1,51 @@
+<aside>
+  {% assign incoming = false %}
+  {% assign last = false %}
+  {% assign prev = false %}
+  {% assign next = false %}
+
+  {% for item in include.data %}
+    {% if item[0] == include.theslug %}
+      {% assign incoming = true %}
+    {% else %}
+      {% if incoming %}
+        {% assign prev = last %}
+        {% assign next = item %}
+        {% break %}
+      {% else %}
+        {% assign last = item %}
+      {% endif %}
+    {% endif %}
+    {% if forloop.last %}
+      {% assign prev = last %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="tutorial-footer wrapper gutter-1-2 pad-t pad-b">
+    <ul class="list-group controls push-0">
+      {% if prev %}
+        <li class="controls-prev push-1-4">
+          <a class="btn btn--ghost" href="/topics/{{prev[0]}}/" rel="prev">
+            <i class="icon i--24 i--shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
+            <span class="icon-text">{{prev[1].title}}</span>
+          </a>
+        </li>
+      {% endif %}
+      <li class="controls-start push-1-4">
+        <a class="btn btn--ghost" href="/topics/#{{slug}}" rel="start">
+          <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+          <span class="icon-text">Topics</span>
+        </a>
+      </li>
+      {% if next %}
+        <li class="controls-next push-1-4">
+          <a class="btn btn--ghost" href="/topics/{{next[0]}}/" rel="next">
+            <span class="icon-text">{{next[1].title}}</span>
+            <i class="icon i--24 i--shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</aside>
