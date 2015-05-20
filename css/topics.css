@@ -137,6 +137,10 @@
   content: "Checklist";
 }
 
+.topic--tool::after {
+  content: "Tool";
+}
+
 .topic--disabled::after {
   content: none;
   display: none;
