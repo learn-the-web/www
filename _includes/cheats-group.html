@@ -1,7 +1,7 @@
 {% for cheat in include.groups %}
-  <section>
+  <section class="cheat-section push">
     <h2 class="mega gutter-1-2" id="{{cheat.title | slugify}}" tabindex="0">{{cheat.title}}</h2>
-    <ul class="grid list-group cheat-list push">
+    <ul class="grid list-group cheat-list">
       {% for item in cheat.items %}
         <li class="unit [ xs-1 s-1 m-1-2 l-1-3 ] gutter-1-2">
           <div class="cheat-head" tabindex="0">{{item.name | markdownify}}</div>

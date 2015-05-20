@@ -18,18 +18,18 @@
 }
 
 .simple-nav-wrap,
-.cheat-list {
+.cheat-section {
   border-bottom: 3px solid var(--color-grey-light);
+}
+
+.cheat-section:last-child {
+  border-bottom: 0;
 }
 
 .cheat-head:focus {
   outline: 3px solid #000;
   position: relative;
   z-index: 100;
-}
-
-.cheat-list:last-child {
-  border-bottom: 0;
 }
 
 .cheat-list p {
