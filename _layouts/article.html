@@ -31,6 +31,14 @@ layout: default
             </a>
           </li>
         {% endif %}
+        {% if page.tool %}
+          <li class="push-1-2 unit [ xs-1 ]">
+            <a class="btn btn--ghost" href="{{page.tool.url}}">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-tool"/></svg></i>
+              <span class="icon-text">Use {{page.tool.name}}</span>
+            </a>
+          </li>
+        {% endif %}
         {% if page.cheatsheet %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--ghost" href="/topics/{{page.cheatsheet}}/">
