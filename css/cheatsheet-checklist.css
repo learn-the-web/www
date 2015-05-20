@@ -26,6 +26,13 @@
   border-bottom: 0;
 }
 
+.cheatsheet img,
+.checklist img {
+  display: block;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
 .cheat-head:focus {
   outline: 3px solid #000;
   position: relative;
