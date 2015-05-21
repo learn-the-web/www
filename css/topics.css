@@ -76,7 +76,7 @@
 .topics {
   margin-left: -22px;
   min-height: 9em;
-  padding-left: 22px;
+  padding-left: 2px;
   position: relative;
 
   background: none 10px top / 3px 10px repeat-y;
@@ -101,6 +101,7 @@
 }
 
 .topics > li {
+  padding-left: 20px;
   position: relative;
   z-index: 5;
 }
@@ -237,16 +238,15 @@
   background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'><circle fill='#a0a0a0' cx='128' cy='128' r='80'/><circle cx='128' cy='128' r='50' fill='#dfdcda'/></svg>");
 }
 
-.indent1,
-.indent2 {
-  margin-left: -19px;
-  padding-left: 36px;
+.topics .indent1,
+.topics .indent2 {
+  padding-left: 38px;
 
-  background: none 7px center / 18px 3px no-repeat transparent;
+  background: none 9px center / 18px 3px no-repeat transparent;
   background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' width='18' height='3' viewBox='0 0 18 3'><rect fill='#e2e2e2' x='0' y='0' width='18' height='3'/></svg>");
 }
 
-.indent2 {
+.topics .indent2 {
   padding-left: 54px;
 
   background-size: 36px 3px;
