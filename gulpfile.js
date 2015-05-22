@@ -65,7 +65,7 @@ gulp.task('js-common', function () {
 });
 
 gulp.task('js-topics', function () {
-  return gulp.src(['js/fuzzy-match.js', 'js/topic-search.js'])
+  return gulp.src(['js/fuzzy-match.js', 'js/topic-search.js', 'js/topics-visited.js'])
     .pipe(concat('topics.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
