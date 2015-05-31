@@ -8,7 +8,10 @@
     {% endif %}
     <ul class="list-group cheat-list push">
       {% for item in check.items %}
-        <li class="checklist-details"><span class="check">❏</span> {{item | markdownify}}</li>
+        <li class="checklist-details">
+          <input class="check-box visually-hidden" type="checkbox" id="{{check.title | slugify}}-{{forloop.index}}">
+          <label class="check-label" for="{{check.title | slugify}}-{{forloop.index}}"><span class="check">❏</span> {{item | markdownify}}</label>
+        </li>
       {% endfor %}
     </ul>
   </section>
