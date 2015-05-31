@@ -10,7 +10,7 @@
       {% for item in check.items %}
         <li class="checklist-details">
           <input class="check-box visually-hidden" type="checkbox" id="{{check.title | slugify}}-{{forloop.index}}">
-          <label class="check-label" for="{{check.title | slugify}}-{{forloop.index}}"><span class="check">❏</span> {{item | markdownify}}</label>
+          <label class="check-label" for="{{check.title | slugify}}-{{forloop.index}}">{{item | markdownify}}</label>
         </li>
       {% endfor %}
     </ul>
