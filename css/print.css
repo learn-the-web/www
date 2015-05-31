@@ -1,0 +1,39 @@
+@media print {
+
+  .masthead-wrap,
+  .simple-nav-wrap,
+  .tutorial-footer,
+  .downloads,
+  .tutorial-nav,
+  .header,
+  .play-btn,
+  .footer-wrap {
+    display: none;
+  }
+
+  .cheatsheet-header {
+    background-color: transparent;
+  }
+
+  body {
+    border-top: 0;
+  }
+
+  .wrapper {
+    max-width: none;
+  }
+
+  .tutorial h1 {
+    position: static;
+  }
+
+  .cheat-section {
+    clear: both;
+  }
+
+  .cheat-list .unit {
+    float: left;
+    width: 33.333%;
+  }
+
+}

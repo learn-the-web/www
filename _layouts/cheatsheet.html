@@ -1,5 +1,6 @@
 ---
 layout: default
+head: '<style>@page { size: landscape; }</style>'
 ---
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 {% assign groupdata = site.data[page.group] %}
