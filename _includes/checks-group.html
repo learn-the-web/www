@@ -6,7 +6,7 @@
         <a class="block push" href="/topics/{{check.full}}/"><em>Full checklist for {{check.title}}</em></a>
       {% endif %}
       {% if check.note %}
-        <em>{{check.note}}</em>
+        <em class="block push">{{check.note}}</em>
       {% endif %}
     {% else %}
       <h2 class="mega" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</h2>
