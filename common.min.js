@@ -58,6 +58,12 @@
     return;
   }
 
+  navList = document.querySelector('.nav-check ~ ol');
+
+  if (!navList) {
+    return;
+  }
+
   navCheck.addEventListener('keydown', function (e) {
     switch (e.keyCode) {
       case 13: // return
@@ -79,8 +85,6 @@
         break;
     }
   });
-
-  navList = document.querySelector('.nav-check ~ ol');
 
   navList.addEventListener('click', function () {
     navCheck.checked = false;
