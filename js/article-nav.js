@@ -9,22 +9,23 @@
     list,
     currentLevel = 1,
     currentItem,
-    appendItem = function (li, heading) {
+    appendItem = function (list, heading) {
       var
         newLi = document.createElement('li'),
-        a = document.createElement('a')
+        a = document.createElement('a'),
+        tag = heading.tagName.toUpperCase(),
+        level = parseInt(tag.replace('H', ''), 10)
       ;
+
+      newLi.setAttribute('class', 'tutorial-nav-level-' + level);
 
       a.innerHTML = heading.textContent || heading.innerText;
       a.href = '#' + heading.id;
+
       newLi.appendChild(a);
+      list.appendChild(newLi);
 
-      li.appendChild(newLi);
-
-      return newLi;
-    },
-    getCorrectParent = function (currentItem, diff) {
-      return currentItem.parentNode.parentNode.parentNode;
+      return list;
     }
   ;
 
@@ -37,32 +38,10 @@
   total = headings.length;
   list = document.createElement('ol');
   list.classList.add('jumps');
-  currentItem = appendItem(list, document.querySelector('.tutorial h1'));
+  appendItem(list, document.querySelector('.tutorial h1'));
 
   for (i = 0; i < total; i++) {
-    var
-      tag = headings[i].tagName.toUpperCase(),
-      level = parseInt(tag.replace('H', ''), 10),
-      tmp, diff
-    ;
-
-    if (level === currentLevel) {
-      currentItem = appendItem(currentItem.parentNode, headings[i]);
-    }
-
-    if (level > currentLevel) {
-      tmp = document.createElement('ol');
-      currentItem.appendChild(tmp);
-      currentItem = appendItem(tmp, headings[i]);
-    }
-
-    if (level < currentLevel) {
-      diff = level - currentLevel;
-      // console.log(level, currentLevel, diff);
-      currentItem = appendItem(getCorrectParent(currentItem, diff), headings[i]);
-    }
-
-    currentLevel = level;
+    appendItem(list, headings[i]);
   }
 
   nav.appendChild(list);
