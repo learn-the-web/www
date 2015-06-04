@@ -4,12 +4,7 @@
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
-  <meta charset="utf-8">
-  <title>{% if page.title %}{{page.title}}{% else %}{{details.title}}{% endif %} · Learn the Web</title>
-  <meta name="description" content="{% if page.desc %}{{page.desc}}{% else %}{{details.desc}}{% endif %}">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="/main.min.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,700|Source+Code+Pro:400,700" rel="stylesheet">
+  {% include head.html %}
   {% if page.url == "/topics/" %}
   <link href="/main-topics.min.css" rel="stylesheet">
   {% elsif page.url contains "/topics/" %}
@@ -17,10 +12,6 @@
   {% elsif page.url == "/" %}
   <link href="/main-home.min.css" rel="stylesheet">
   {% endif %}
-  <meta name="application-name" content="Learn the Web">
-  <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
-  <meta name="msapplication-TileImage" content="/favicon-144.png">
-  <meta name="msapplication-TileColor" content="#00deae">
   {{page.head}}
 </head>
 <body>
