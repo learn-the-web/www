@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  {% include head.html %}
+</head>
+<body class="notfound">
+
+  {% include icons.html %}
+
+  <div class="masthead-wrap pad-t-1-2 pad-b-1-2">
+    <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2" role="banner">
+      <div class="unit [ xs-1 m-1-2 ]">
+        <a class="logo" href="/"><img class="flex" src="/images/logo.svg" alt="Learn the Web"></a>
+      </div>
+      <nav class="top-nav unit [ xs-1 m-1-2 ] text-right" role="navigation">
+        <ul class="push-0 list-group list-group--inline">
+          <li>
+            <a class="btn btn--ghost" href="/">
+              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-left" /></svg></i>
+              <span class="icon-text contents-link">Home</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  {{content}}
+
+  {% include ga.html %}
+
+</body>
+</html>

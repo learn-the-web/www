@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en-ca">
-<head>
-  <meta charset="utf-8">
-  {% include head.html %}
-</head>
-<body>
+---
+permalink: /404.html
+layout: notfound
+title: Jeepers! That page is missing.
+---
 
-
-
-  {% include ga.html %}
-</body>
-</html>
+<div class="pad-t-2">
+  <div class="notfound-wrap text-center island">
+    <h1><small class="block">404 · Not Found</small> Jeepers!</h1>
+    <p class="push-0 mega"><strong>It appears that this page went missing.</strong></p>
+    <p class="push-2"><em>Try exploring the topics to see you can find what you’re looking for.</em></p>
+    <div class="push-2">
+      <a class="btn btn--light giga" href="/topics/">
+        <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-nav" /></svg></i>
+        <span class="icon-text">Explore the topics</span>
+      </a>
+    </div>
+    <small class="block micro">If you still can’t find what you’re looking for <a href="https://github.com/acgd-learn-the-web/topics/issues" rel="external">let me know</a>.</small>
+  </div>
+</div>
