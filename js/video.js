@@ -2,7 +2,7 @@
   "use strict";
 
   var
-    iframe = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1" frameborder="0" allowfullscreen></iframe>',
+    iframe = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light" frameborder="0" allowfullscreen></iframe>',
     playBtn = document.querySelector('.play-btn')
   ;
 
