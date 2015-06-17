@@ -38,7 +38,7 @@ ul li {
   position: relative;
 }
 
-ul li::before {
+ul > li::before {
   content: "•";
   margin-left: -0.35em;
   position: absolute;
@@ -54,6 +54,10 @@ ul li::before {
 
 ol {
   padding-left: 1.5em;
+}
+
+ul ol {
+  padding-left: 1.2em;
 }
 
 .wrapper {
