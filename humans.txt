@@ -23,7 +23,8 @@ https://thenounproject.com/term/debug/83827/
 
 - Sublime Text 3 (with Vintageous)
 - Git + GitHub
+- Jekyll
+- Markdown
 - Gulp.js
 - PostCSS
 - UglifyJS
-- Markdown

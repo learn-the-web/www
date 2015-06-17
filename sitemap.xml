@@ -3,7 +3,7 @@ layout: sitemap
 ---
 
 {% for page in site.pages %}
-	{% if page.layout and page.layout != "sitemap" %}
-		{% include sitemap-entry.xml entry=page %}
-	{% endif %}
+  {% if page.layout and page.layout != "sitemap" and page.layout != "notfound" %}
+    {% include sitemap-entry.xml entry=page %}
+  {% endif %}
 {% endfor %}

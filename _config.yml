@@ -3,6 +3,7 @@ permalink: pretty
 
 exclude:
   - README.md
+  - LICENSE
   - gulpfile.js
   - package.json
   - .editorconfig
