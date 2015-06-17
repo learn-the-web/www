@@ -10,7 +10,8 @@ var
 
 gulp.task('css-main', function () {
   return gulp.src('css/main.css')
-    .pipe(cssnext({ compress: true }))
+     // Disabled until cssnano works better; will rely on CloudFlare minification
+    .pipe(cssnext({ compress: false }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(gulp.dest('tmp'))
     .pipe(rename({ suffix: '.min' }))
@@ -20,7 +21,7 @@ gulp.task('css-main', function () {
 
 gulp.task('css-home', function () {
   return gulp.src('css/main-home.css')
-    .pipe(cssnext({ compress: true }))
+    .pipe(cssnext({ compress: false }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(replace(/svg\>/g, 'svg%3E'))
     .pipe(replace(/\<svg/g, '%3Csvg'))
@@ -34,7 +35,7 @@ gulp.task('css-home', function () {
 
 gulp.task('css-topics', function () {
   return gulp.src('css/main-topics.css')
-    .pipe(cssnext({ compress: true }))
+    .pipe(cssnext({ compress: false }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(replace(/svg\>/g, 'svg%3E'))
     .pipe(replace(/\<svg/g, '%3Csvg'))
@@ -48,7 +49,7 @@ gulp.task('css-topics', function () {
 
 gulp.task('css-article', function () {
   return gulp.src('css/main-article.css')
-    .pipe(cssnext({ compress: true }))
+    .pipe(cssnext({ compress: false }))
     .pipe(autoprefixer({ cascade: false, browsers: 'last 2 versions' }))
     .pipe(replace(/svg\>/g, 'svg%3E'))
     .pipe(replace(/\<svg/g, '%3Csvg'))
