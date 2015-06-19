@@ -16,7 +16,6 @@
     "gulp": "gulp",
     "gulp-watch": "gulp watch",
     "jekyll-watch": "jekyll serve",
-    "build": "gulp build",
-    "deploy": "gulp build && git push"
+    "build": "gulp build"
   }
 }
