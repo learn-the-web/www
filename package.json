@@ -1,15 +1,7 @@
 {
   "name": "learn-the-web",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": {
-    "name": "Thomas J Bradley",
-    "email": "hey@thomasjbradley.ca",
-    "url": "http://thomasjbradley.ca"
-  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -26,9 +18,5 @@
     "jekyll-watch": "jekyll serve",
     "build": "gulp build",
     "deploy": "gulp build && git push"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:acgd-learn-the-web/acgd-learn-the-web.github.io.git"
   }
 }
