@@ -102,3 +102,7 @@
   color: var(--color-grey);
   font-size: 15px;
 }
+
+.cheat-details hr {
+  margin: 0;
+}
