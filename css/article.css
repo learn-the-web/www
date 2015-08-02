@@ -309,7 +309,7 @@
   }
 
   .tutorial h1 {
-    bottom: calc(100% + 3rem);
+    bottom: calc(100% + 1.8rem);
   }
 
   .tutorial-nav > ol {

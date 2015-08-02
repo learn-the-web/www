@@ -13,7 +13,7 @@
             <div class="cheat-head" tabindex="0">{{item.name | markdownify}}</div>
           {% endif %}
           {% if item.details %}
-            <ul class="list-group micro cheat-details">
+            <ul class="list-group cheat-details">
               {% for detail in item.details %}
                 <li>{{detail | markdownify}}</li>
               {% endfor %}
