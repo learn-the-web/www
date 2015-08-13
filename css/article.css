@@ -49,6 +49,10 @@
   color: #000;
 }
 
+.no-csscalc .tutorial h1 {
+  position: static;
+}
+
 .tutorial .is-playing {
   position: static;
 
