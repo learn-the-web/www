@@ -1,4 +1,4 @@
-loadCSS('http://fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,700|Source+Code+Pro:400,700');
+// loadCSS('http://fonts.googleapis.com/css?family=Alegreya+Sans:400,400italic,700|Source+Code+Pro:400,700');
 
 var
   alegreya= new FontFaceObserver('Alegreya Sans', {
