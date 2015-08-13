@@ -2,11 +2,6 @@
 <title>{% if page.title %}{{page.title}}{% else %}{{details.title}}{% endif %} · Learn the Web</title>
 <meta name="description" content="{% if page.desc %}{{page.desc}}{% else %}{{details.desc}}{% endif %}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<script>
-  /*! modernizr 3.0.0-alpha.3 (Custom Build) | MIT *
-   * http://v3.modernizr.com/download/#-csscalc !*/
-  !function(e,n){function s(e,n){return typeof e===n}function t(){var e,n,t,o,l,r,f;for(var c in i){if(e=[],n=i[c],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=s(n.fn,"function")?n.fn():n.fn,l=0;l<e.length;l++)r=e[l],f=r.split("."),1===f.length?Modernizr[f[0]]=o:(!Modernizr[f[0]]||Modernizr[f[0]]instanceof Boolean||(Modernizr[f[0]]=new Boolean(Modernizr[f[0]])),Modernizr[f[0]][f[1]]=o),a.push((o?"":"no-")+f.join("-"))}}function o(e){var n=c.className,s=Modernizr._config.classPrefix||"";if(Modernizr._config.enableJSClass){var t=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");n=n.replace(t,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(n+=" "+s+e.join(" "+s),c.className=n)}var a=[],i=[],l={_version:"3.0.0-alpha.3",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var s=this;setTimeout(function(){n(s[e])},0)},addTest:function(e,n,s){i.push({name:e,fn:n,options:s})},addAsyncTest:function(e){i.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=l._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):[];l._prefixes=r;var f=function(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):n.createElement.apply(n,arguments)};Modernizr.addTest("csscalc",function(){var e="width:",n="calc(10px);",s=f("div");return s.style.cssText=e+r.join(n+e),!!s.style.length});var c=n.documentElement;t(),o(a),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();e.Modernizr=Modernizr}(window,document);
-</script>
 <link href="/main.min.css" rel="stylesheet">
 <meta name="application-name" content="Learn the Web">
 <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
