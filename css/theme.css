@@ -1,6 +1,10 @@
 html {
   overflow-x: hidden;
   color: #333;
+  font-family: "Trebuchet MS",Arial,sans-serif;
+}
+
+.fonts-loaded {
   font-family: "Alegreya Sans","Trebuchet MS",Arial,sans-serif;
 }
 

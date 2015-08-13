@@ -6,6 +6,11 @@ pre {
   background-color: var(--color-code);
 
   font-size: 90%;
+  font-family: Menlo,Consolas,monospace;
+}
+
+.fonts-loaded code,
+.fonts-loaded pre {
   font-family: "Source Code Pro",Menlo,Consolas,monospace;
 }
 
