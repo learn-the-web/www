@@ -6,7 +6,7 @@ pre {
   background-color: var(--color-code);
 
   font-size: 90%;
-  font-family: "Source Code Pro",Menlo,monospace;
+  font-family: "Source Code Pro",Menlo,Consolas,monospace;
 }
 
 code[class*="language-"],
