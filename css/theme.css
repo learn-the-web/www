@@ -33,11 +33,7 @@
 html {
   overflow-x: hidden;
   color: #333;
-  /*font-family: "Trebuchet MS",Arial,sans-serif;*/
   font-family: "Alegreya Sans","Trebuchet MS",Arial,sans-serif;
-}
-
-.fonts-loaded {
 }
 
 body {

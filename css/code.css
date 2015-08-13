@@ -7,11 +7,6 @@ pre {
 
   font-size: 90%;
   font-family: "Source Code Pro",Menlo,Consolas,monospace;
-  /*font-family: Menlo,Consolas,monospace;*/
-}
-
-.fonts-loaded code,
-.fonts-loaded pre {
 }
 
 code[class*="language-"],
