@@ -12,5 +12,5 @@ Disallow: /modular-layout-code/
 Disallow: /modules-code/
 Disallow: /interactive-wireframes-code/
 Disallow: /javascript-components-code/
-Disallow: /responsive-info-graphic-code/
+Disallow: /responsive-animated-dashboard-code/
 Disallow: /jekyll-code/
