@@ -1,3 +1,5 @@
+version: 1.0.1
+
 data_source: ./topics/_table-of-contents
 permalink: pretty
 

@@ -6,11 +6,11 @@
 <head>
   {% include head.html %}
   {% if page.url == "/topics/" %}
-  <link href="/main-topics.min.css" rel="stylesheet">
+  <link href="/main-topics.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url contains "/topics/" %}
-  <link href="/main-article.min.css" rel="stylesheet">
+  <link href="/main-article.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
-  <link href="/main-home.min.css" rel="stylesheet">
+  <link href="/main-home.min.css?v={{site.version}}" rel="stylesheet">
   {% endif %}
   {{page.head}}
 </head>
@@ -54,11 +54,11 @@
     </footer>
   </div>
 
-  <script src="/common.min.js" async></script>
+  <script src="/common.min.js?v={{site.version}}" async></script>
   {% if page.url == "/topics/" %}
-  <script src="/topics.min.js" async></script>
+  <script src="/topics.min.js?v={{site.version}}" async></script>
   {% elsif page.url contains "/topics/" %}
-  <script src="/article.min.js" defer></script>
+  <script src="/article.min.js?v={{site.version}}" defer></script>
   <script>
     var path = window.location.pathname.replace('/topics/', '').replace('/', '');
     localStorage.setItem('visited-' + path, true);
