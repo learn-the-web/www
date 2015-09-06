@@ -14,3 +14,4 @@ Disallow: /interactive-wireframes-code/
 Disallow: /javascript-components-code/
 Disallow: /responsive-animated-dashboard-code/
 Disallow: /jekyll-code/
+Disallow: /progressive-enhancement-code/
