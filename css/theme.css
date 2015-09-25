@@ -1,38 +1,10 @@
-@font-face {
-    font-family: 'Alegreya Sans';
-    src: url('/fonts/alegreyasans-bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Alegreya Sans';
-    src: url('/fonts/alegreyasans-italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Alegreya Sans';
-    src: url('/fonts/alegreyasans-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Source Code Pro';
-    src: url('/fonts/sourcecodepro-bold.woff') format('woff');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'Source Code Pro';
-    src: url('/fonts/sourcecodepro-regular.woff') format('woff');
-}
-
 html {
   overflow-x: hidden;
   color: #333;
+  font-family: "Trebuchet MS",Arial,sans-serif;
+}
+
+.alegreya-loaded {
   font-family: "Alegreya Sans","Trebuchet MS",Arial,sans-serif;
 }
 

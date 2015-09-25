@@ -55,11 +55,14 @@
     </footer>
   </div>
 
+  <script>{% include fontfaceobserver.js %}</script>
+  <script>{% include alegreya-observer.min.js %}</script>
   <script src="/common.min.js?v={{site.version}}" async></script>
   {% if page.url == "/topics/" %}
   <script src="/topics.min.js?v={{site.version}}" async></script>
   {% elsif page.url contains "/topics/" %}
   <script src="/article.min.js?v={{site.version}}" defer></script>
+  <script>{% include source-code-pro-observer.min.js %}</script>
   <script>
     var path = window.location.pathname.replace('/topics/', '').replace('/', '');
     localStorage.setItem('visited-' + path, true);

@@ -82,6 +82,15 @@ gulp.task('js-article', function () {
   ;
 });
 
+gulp.task('js-fonts', function () {
+  return gulp.src(['_includes/source-code-pro-observer.js', '_includes/alegreya-observer.js'])
+    .pipe(uglify())
+    .pipe(gulp.dest('tmp'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('_includes'))
+  ;
+});
+
 gulp.task('build-css', ['css-main', 'css-home', 'css-topics', 'css-article'], function () {
   return gulp.src(['main.min.css', 'main-home.min.css', 'main-topics.min.css', 'main-article.min.css'])
     .pipe(cssnano())
@@ -95,7 +104,7 @@ gulp.task('build-js', ['js-common', 'js-topics', 'js-article'], function () {
     .pipe(gulp.dest('./'))
 });
 
-gulp.task('build', ['build-css', 'build-js']);
+gulp.task('build', ['build-css', 'build-js', 'js-fonts']);
 
 gulp.task('watch', function() {
   gulp.watch('css/*.css', ['css-main', 'css-home', 'css-topics', 'css-article']);
