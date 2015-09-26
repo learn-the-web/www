@@ -1,9 +1,9 @@
 <url>
-	<loc>http://learn-the-web.algonquindesign.ca{{include.entry.url}}</loc>
-	{% if include.entry.changefreq %}
-		<changefreq>{{include.entry.changefreq}}</changefreq>
-	{% endif %}
-	{% if include.entry.priority %}
-		<priority>{{include.entry.priority}}</priority>
-	{% endif %}
+  <loc>http://learn-the-web.algonquindesign.ca{{include.entry.url}}</loc>
+  {% if include.entry.changefreq %}
+    <changefreq>{{include.entry.changefreq}}</changefreq>
+  {% endif %}
+  {% if include.entry.priority %}
+    <priority>{{include.entry.priority}}</priority>
+  {% endif %}
 </url>
