@@ -166,6 +166,8 @@
 @media only screen and (min-width: 25em) {
 
   .logo {
+    margin-left: 0;
+    margin-right: 0;
     width: 200px;
   }
 
