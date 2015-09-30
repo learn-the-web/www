@@ -242,6 +242,14 @@
   border-top: 3px solid var(--color-grey-light);
 }
 
+.downloads {
+  margin-left: -0.7rem;
+}
+
+.downloads > li {
+  padding-left: 0.7rem;
+}
+
 .downloads a {
   display: block;
 }
