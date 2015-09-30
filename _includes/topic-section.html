@@ -12,9 +12,9 @@
           {% assign details = item[1] %}
           <li class="indent{{details.indent}} {% if details.disabled %}topic--disabled{% endif %} {% if details.fullsite %}topic--flag topic--fullsite{% endif %} {% if details.checklist %}topic--flag topic--checklist{% endif %} {% if details.cheatsheet %}topic--flag topic--cheatsheet{% endif %} {% if details.tool %}topic--flag topic--tool{% endif %}" id="{{item[0]}}" data-tags="{{item[1].tags}}">
             {% if details.disabled %}<span class="topic-text">{% else %}<a class="topic-text" href="{% if details.tool %}{{details.tool}}{% else %}/topics/{{item[0]}}/{% endif %}">{% endif %}
-              {% if details.highlight %}<strong>{% endif %}
+              {% if details.highlight %}<strong class="topic-text-content">{% else %}<span class="topic-text-content">{% endif %}
                 {{details.title}}{% if details.tool %} »{% endif %}
-              {% if details.highlight %}</strong>{% endif %}
+              {% if details.highlight %}</strong>{% else %}<span>{% endif %}
             {% if details.disabled %}</span>{% else %}</a>{% endif %}
           </li>
         {% endfor %}

@@ -132,7 +132,7 @@
 }
 
 .topic--flag::after {
-  display: inline-block;
+  display: none;
   margin-left: 0.7em;
   padding: 0.2em 0.4em 0.1em;
   position: relative;
@@ -168,7 +168,17 @@
 }
 
 .topic-text {
+  display: block;
   position: relative;
+}
+
+.topic-text-content {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .topic--disabled {
@@ -354,6 +364,19 @@
   .topics a[data-visited]::after {
     height: 13px;
     width: 13px;
+  }
+
+  .topic-text {
+    display: inline;
+  }
+
+  .topic-text-content {
+    display: inline;
+    width: auto;
+  }
+
+  .topic--flag::after {
+    display: inline-block;
   }
 
 }
