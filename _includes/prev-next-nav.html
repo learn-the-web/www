@@ -10,6 +10,10 @@
       {% continue %}
     {% endif %}
 
+    {% if item[1].hidden %}
+      {% continue %}
+    {% endif %}
+
     {% if item[0] == include.theslug %}
       {% assign incoming = true %}
     {% else %}
