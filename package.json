@@ -14,8 +14,8 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "gulp-watch": "gulp watch",
-    "jekyll-watch": "jekyll serve --incremental",
+    "server-watch": "jekyll serve --incremental",
+    "build-watch": "gulp watch",
     "build": "gulp build"
   }
 }
