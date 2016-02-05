@@ -51,16 +51,24 @@ layout: default
             <p class="push-0 intro">{{week.desc}}</p>
             <ol class="week-list__tasks list-group list-group--inline micro push-0">
               {% for deck in week.slides %}
-                {% if deck.type != "blank" %}
-                  {% if deck.url contains "/" %}
-                    {% assign url_prefix="" %}
-                  {% else %}
-                    {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
-                  {% endif %}
-                  <li>
-                    <a href="{{url_prefix}}{{deck.url}}">{{deck.title}} slide deck</a>
-                  </li>
+                {% if deck.url contains "/" %}
+                  {% assign url_prefix="" %}
+                {% else %}
+                  {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% endif %}
+                <li>
+                  <a href="{{url_prefix}}{{deck.url}}">{{deck.title}} slide deck</a>
+                </li>
+              {% endfor %}
+              {% for activity in week.group_activities %}
+                {% if activity.url contains "/" %}
+                  {% assign url_prefix="" %}
+                {% else %}
+                  {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
+                {% endif %}
+                <li>
+                  <a href="{{url_prefix}}{{activity.url}}">{{activity.title}}</a>
+                </li>
               {% endfor %}
             </ol>
             <ol class="week-list__tasks list-group list-group--inline micro">
