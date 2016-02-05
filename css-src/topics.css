@@ -17,7 +17,6 @@
 .topic-heading__text {
   display: block;
   margin: 0 auto;
-  max-width: 3em;
 }
 
 .page-nav > ol {
@@ -359,6 +358,10 @@
     top: 50%;
 
     transform: translateY(-50%);
+  }
+
+  .topic-heading__text {
+    max-width: 3em;
   }
 
   .topics a[data-visited]::after {

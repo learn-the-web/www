@@ -5,7 +5,7 @@
 */
 
 (function () {
-  "use strict";
+  'use strict';
 
   if (!window.location.hash) {
     window.location.hash = '#slide-1';
@@ -39,7 +39,7 @@
 */
 
 (function () {
-  "use strict";
+  'use strict';
 
   var
     slides = document.querySelectorAll('.slide-interactive'),
@@ -89,7 +89,7 @@
 */
 
 (function () {
-  "use strict";
+  'use strict';
   var resizeTimer;
 
   var onWindowResize = function () {

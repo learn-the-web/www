@@ -1,14 +1,8 @@
 .btn {
-  display: inline-block;
-  padding: 0.375em 0.75em 0.42em;
-
   background-color: var(--color-brand);
-  border-radius: 8px;
-  border: 0;
   transition: all 50ms linear;
 
   color: #000;
-  text-decoration: none;
 }
 
 .btn:hover {

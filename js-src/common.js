@@ -1,5 +1,5 @@
 (function () {
-  "use strict";
+  'use strict';
 
   var
     jumps = document.querySelectorAll('.jumps'),
@@ -44,7 +44,7 @@
 }());
 
 (function () {
-  "use strict";
+  'use strict';
 
   var
     navCheck = document.querySelector('.nav-check'),

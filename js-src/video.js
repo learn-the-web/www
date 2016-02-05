@@ -1,5 +1,5 @@
 (function () {
-  "use strict";
+  'use strict';
 
   var
     iframeVideo = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',

@@ -1,10 +1,18 @@
+/*
+  Typografier || Code released under the UNLICENSE
+  http://typografier.web-dev.tools/#0,100,1.3,1.067,0;38,110,1.4,1.125,1;60,120,1.5,1.200,1;90,130,1.5,1.200,1
+*/
+
 html {
   font-size: 100%;
   line-height: 1.3;
 }
 
-sub,
-sup {
+a {
+  background-color: transparent;
+}
+
+sub, sup {
   font-size: 75%;
   line-height: 1px;
   position: relative;
@@ -21,6 +29,40 @@ sub {
 
 pre, code, kbd, samp {
   font-size: 100%;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn, caption {
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid;
+  height: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  border-bottom: 1px solid;
+  text-align: left;
+}
+
+thead th {
+  vertical-align: bottom;
 }
 
 .text-left {
@@ -47,6 +89,14 @@ pre, code, kbd, samp {
   font-style: italic;
 }
 
+.text-upper {
+  text-transform: uppercase;
+}
+
+.text-lower {
+  text-transform: lowercase;
+}
+
 h1, h2, h3, h4, h5, h6,
 p, ul, ol, dl, dd, figure,
 blockquote, details, hr,
@@ -56,52 +106,60 @@ fieldset, pre, table {
 
 .yotta {
   font-size: 1.5745rem;
-  line-height: 1.6513;
+  line-height: 2.2750rem;
 }
 
 .zetta {
   font-size: 1.4757rem;
-  line-height: 1.7619;
+  line-height: 1.9500rem;
 }
 
 h1, .exa {
   font-size: 1.3830rem;
-  line-height: 1.8800;
+  line-height: 1.9500rem;
 }
 
 h2, .peta {
   font-size: 1.2962rem;
-  line-height: 1.0030;
+  line-height: 1.9500rem;
 }
 
 h3, .tera {
   font-size: 1.2148rem;
-  line-height: 1.0702;
+  line-height: 1.6250rem;
 }
 
 h4, .giga {
   font-size: 1.1385rem;
-  line-height: 1.1419;
+  line-height: 1.6250rem;
 }
 
 h5, .mega {
   font-size: 1.0670rem;
-  line-height: 1.2184;
+  line-height: 1.6250rem;
 }
 
-h6, .kilo {
+h6, .kilo, input, textarea {
   font-size: 1.0000rem;
-  line-height: 1.3000;
+  line-height: 1.3000rem;
 }
 
 small, .milli {
   font-size: 0.9372rem;
-  line-height: 1.3871;
+  line-height: 1.3000rem;
 }
 
 .micro {
   font-size: 0.8784rem;
-  line-height: 1.4800;
+  line-height: 1.3000rem;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+ol {
+  padding-left: 1.6em;
 }
 
 .push {
@@ -122,6 +180,18 @@ small, .milli {
 
 .push-quarter, .push-1-4 {
   margin-bottom: 0.3250rem;
+}
+
+.push-right-quarter, .push-r-1-4 {
+  margin-right: 0.3250rem;
+}
+
+.push-right-half, .push-r-1-2 {
+  margin-right: 0.6500rem;
+}
+
+.push-right, .push-r {
+  margin-right: 1.3rem;
 }
 
 .pad-top, .pad-t {
@@ -168,7 +238,8 @@ small, .milli {
   padding: 0.6500rem;
 }
 
-.island-quarter, .island-1-4 {
+.island-quarter, .island-1-4,
+td, th, fieldset {
   padding: 0.3250rem;
 }
 
@@ -208,52 +279,63 @@ fieldset, pre, table {
 
 .yotta {
   font-size: 2.2807rem;
-  line-height: 1.2277;
+  line-height: 3.1500rem;
 }
 
 .zetta {
   font-size: 2.0273rem;
-  line-height: 1.3812;
+  line-height: 2.8000rem;
 }
 
 h1, .exa {
   font-size: 1.8020rem;
-  line-height: 1.5538;
+  line-height: 2.4500rem;
 }
 
 h2, .peta {
   font-size: 1.6018rem;
-  line-height: 1.7480;
+  line-height: 2.1000rem;
 }
 
 h3, .tera {
   font-size: 1.4238rem;
-  line-height: 1.9665;
+  line-height: 2.1000rem;
 }
 
 h4, .giga {
   font-size: 1.2656rem;
-  line-height: 1.1062;
+  line-height: 1.7500rem;
 }
 
 h5, .mega {
   font-size: 1.1250rem;
-  line-height: 1.2444;
+  line-height: 1.7500rem;
 }
 
-h6, .kilo {
+h6, .kilo, input, textarea {
   font-size: 1.0000rem;
-  line-height: 1.4000;
+  line-height: 1.4000rem;
 }
 
 small, .milli {
   font-size: 0.8889rem;
-  line-height: 1.5750;
+  line-height: 1.4000rem;
 }
 
 .micro {
   font-size: 0.7901rem;
-  line-height: 1.7719;
+  line-height: 1.4000rem;
+}
+
+ul, ol {
+  padding-left: 0;
+}
+
+.hang-punc {
+  float: left;
+  margin-left: -1.4em;
+  text-align: right;
+  width: 1.3em;
 }
 
 .push {
@@ -274,6 +356,18 @@ small, .milli {
 
 .push-quarter, .push-1-4 {
   margin-bottom: 0.3500rem;
+}
+
+.push-right-quarter, .push-r-1-4 {
+  margin-right: 0.3500rem;
+}
+
+.push-right-half, .push-r-1-2 {
+  margin-right: 0.7000rem;
+}
+
+.push-right, .push-r {
+  margin-right: 1.4rem;
 }
 
 .pad-top, .pad-t {
@@ -320,7 +414,8 @@ small, .milli {
   padding: 0.7000rem;
 }
 
-.island-quarter, .island-1-4 {
+.island-quarter, .island-1-4,
+td, th, fieldset {
   padding: 0.3500rem;
 }
 
@@ -362,52 +457,63 @@ fieldset, pre, table {
 
 .yotta {
   font-size: 3.5832rem;
-  line-height: 1.2559;
+  line-height: 4.8750rem;
 }
 
 .zetta {
   font-size: 2.9860rem;
-  line-height: 1.0047;
+  line-height: 4.1250rem;
 }
 
 h1, .exa {
   font-size: 2.4883rem;
-  line-height: 1.2056;
+  line-height: 3.3750rem;
 }
 
 h2, .peta {
   font-size: 2.0736rem;
-  line-height: 1.4468;
+  line-height: 3.0000rem;
 }
 
 h3, .tera {
   font-size: 1.7280rem;
-  line-height: 1.7361;
+  line-height: 2.2500rem;
 }
 
 h4, .giga {
   font-size: 1.4400rem;
-  line-height: 1.0417;
+  line-height: 1.8750rem;
 }
 
 h5, .mega {
   font-size: 1.2000rem;
-  line-height: 1.2500;
+  line-height: 1.8750rem;
 }
 
-h6, .kilo {
+h6, .kilo, input, textarea {
   font-size: 1.0000rem;
-  line-height: 1.5000;
+  line-height: 1.5000rem;
 }
 
 small, .milli {
   font-size: 0.8333rem;
-  line-height: 1.8000;
+  line-height: 1.5000rem;
 }
 
 .micro {
   font-size: 0.6944rem;
-  line-height: 2.1600;
+  line-height: 1.1250rem;
+}
+
+ul, ol {
+  padding-left: 0;
+}
+
+.hang-punc {
+  float: left;
+  margin-left: -1.4em;
+  text-align: right;
+  width: 1.3em;
 }
 
 .push {
@@ -428,6 +534,18 @@ small, .milli {
 
 .push-quarter, .push-1-4 {
   margin-bottom: 0.3750rem;
+}
+
+.push-right-quarter, .push-r-1-4 {
+  margin-right: 0.3750rem;
+}
+
+.push-right-half, .push-r-1-2 {
+  margin-right: 0.7500rem;
+}
+
+.push-right, .push-r {
+  margin-right: 1.5rem;
 }
 
 .pad-top, .pad-t {
@@ -474,7 +592,8 @@ small, .milli {
   padding: 0.7500rem;
 }
 
-.island-quarter, .island-1-4 {
+.island-quarter, .island-1-4,
+td, th, fieldset {
   padding: 0.3750rem;
 }
 
@@ -516,52 +635,63 @@ fieldset, pre, table {
 
 .yotta {
   font-size: 3.5832rem;
-  line-height: 1.2559;
+  line-height: 4.8750rem;
 }
 
 .zetta {
   font-size: 2.9860rem;
-  line-height: 1.0047;
+  line-height: 4.1250rem;
 }
 
 h1, .exa {
   font-size: 2.4883rem;
-  line-height: 1.2056;
+  line-height: 3.3750rem;
 }
 
 h2, .peta {
   font-size: 2.0736rem;
-  line-height: 1.4468;
+  line-height: 3.0000rem;
 }
 
 h3, .tera {
   font-size: 1.7280rem;
-  line-height: 1.7361;
+  line-height: 2.2500rem;
 }
 
 h4, .giga {
   font-size: 1.4400rem;
-  line-height: 1.0417;
+  line-height: 1.8750rem;
 }
 
 h5, .mega {
   font-size: 1.2000rem;
-  line-height: 1.2500;
+  line-height: 1.8750rem;
 }
 
-h6, .kilo {
+h6, .kilo, input, textarea {
   font-size: 1.0000rem;
-  line-height: 1.5000;
+  line-height: 1.5000rem;
 }
 
 small, .milli {
   font-size: 0.8333rem;
-  line-height: 1.8000;
+  line-height: 1.5000rem;
 }
 
 .micro {
   font-size: 0.6944rem;
-  line-height: 2.1600;
+  line-height: 1.1250rem;
+}
+
+ul, ol {
+  padding-left: 0;
+}
+
+.hang-punc {
+  float: left;
+  margin-left: -1.4em;
+  text-align: right;
+  width: 1.3em;
 }
 
 .push {
@@ -582,6 +712,18 @@ small, .milli {
 
 .push-quarter, .push-1-4 {
   margin-bottom: 0.3750rem;
+}
+
+.push-right-quarter, .push-r-1-4 {
+  margin-right: 0.3750rem;
+}
+
+.push-right-half, .push-r-1-2 {
+  margin-right: 0.7500rem;
+}
+
+.push-right, .push-r {
+  margin-right: 1.5rem;
 }
 
 .pad-top, .pad-t {
@@ -628,7 +770,8 @@ small, .milli {
   padding: 0.7500rem;
 }
 
-.island-quarter, .island-1-4 {
+.island-quarter, .island-1-4,
+td, th, fieldset {
   padding: 0.3750rem;
 }
 

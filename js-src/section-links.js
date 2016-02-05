@@ -1,5 +1,5 @@
 (function () {
-  "use strict";
+  'use strict';
 
   var
     headings,
@@ -11,10 +11,6 @@
       a = a.replace('{id}', '#' + heading.id);
       heading.innerHTML = a + heading.innerHTML;
       heading.setAttribute('tabindex', 0);
-
-      heading.addEventListener('focus', function () {
-        window.location.hash = heading.id;
-      });
     }
   ;
 

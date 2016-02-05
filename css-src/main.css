@@ -1,11 +1,7 @@
 @import 'colors.css';
-@import 'normalize.css';
+@import 'modules.css';
 @import 'grid.css';
 @import 'type.css';
-@import 'embed.css';
-@import 'list-group.css';
-@import 'icons.css';
-@import 'utils.css';
 @import 'fonts.css';
 @import 'theme.css';
 @import 'buttons.css';

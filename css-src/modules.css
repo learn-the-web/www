@@ -1,4 +1,4 @@
-/*!
+/*
  * Modulifier || Code released under the UNLICENSE
  * Code under other copyrights & licenses listed below.
  * http://modulifier.web-dev.tools/#responsive;images;list-group;embed;media-object;icons;hidden;positioning;nice-lists;buttons;accessibility;print
@@ -150,6 +150,10 @@ svg {
 
 .embed--4by1 {
   padding-top: 25%; /* Polyvision */
+}
+
+.embed--5by1 {
+  padding-top: 20%; /* Really wide... */
 }
 
 .embed__item {
@@ -398,7 +402,7 @@ ul > li::before {
 }
 
 ol {
-  counter-reset: ol-simple-numbers 0;
+  counter-reset: ol-simple-numbers;
   list-style-type: none;
 }
 
@@ -422,6 +426,7 @@ ol > li::before {
 }
 
 .btn {
+  cursor: pointer;
   display: inline-block;
   padding: 0.375em 0.75em 0.42em;
   background-color: #333;
@@ -461,7 +466,7 @@ a:hover, a:active {
 }
 
 a:focus, [tabindex="0"]:focus,
-input:focus, textarea:focus, button:focus {
+input:focus, textarea:focus, button:focus, select:focus {
   outline: 3px solid #000;
 }
 
@@ -512,7 +517,7 @@ a:focus, [tabindex="0"]:focus {
     visibility: visible;
   }
 
-  /*!
+  /*
    * (c) HTML5 Boilerplate || MIT License
    *     https://html5boilerplate.com/
    */
@@ -562,5 +567,5 @@ a:focus, [tabindex="0"]:focus {
     page-break-after: avoid;
   }
 
-  /*! End HTML5 Boilerplate code */
+  /* End HTML5 Boilerplate code */
 }

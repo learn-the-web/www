@@ -22,46 +22,9 @@ a:hover {
   text-decoration: underline;
 }
 
-a:focus,
-h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, h6:focus {
-  outline: 3px solid #000;
-}
-
 hr {
   border-color: var(--color-grey-light);
   border-width: 3px;
-}
-
-ul {
-  padding: 0;
-
-  list-style: none;
-}
-
-ul li {
-  position: relative;
-}
-
-ul > li::before {
-  content: "•";
-  margin-left: -0.35em;
-  position: absolute;
-  top: -0.25em;
-
-  color: var(--color-grey-dark);
-  font-size: 1.5em;
-}
-
-.list-group > li::before {
-  content: none;
-}
-
-ol {
-  padding-left: 1.5em;
-}
-
-ul ol {
-  padding-left: 1.2em;
 }
 
 .wrapper {
@@ -81,6 +44,19 @@ ul ol {
 
 .top-nav {
   text-align: center;
+}
+
+.i--20 {
+  height: 20px;
+  width: 20px;
+}
+
+.i--shift-right {
+  margin-right: -0.4em;
+}
+
+.i--shift-left {
+  margin-left: -0.4em;
 }
 
 @media only screen and (min-width: 38em) {

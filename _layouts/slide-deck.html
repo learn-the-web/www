@@ -33,12 +33,12 @@
           <li class="text-right gutter-1-4">
             <a class="slide-nav__prev btn btn--ghost" {% if forloop.first == false %}href="#slide-{{forloop.index | minus: 1}}"{% else %}data-state="disabled"{% endif %}>
               <i class="icon i--16"><svg><use xlink:href="#icon-left" /></svg></i>
-              <span class="icon-text">Previous</span>
+              <span class="icon-label">Previous</span>
             </a>
           </li>
           <li class="text-left gutter-1-4">
             <a class="slide-nav__next btn btn--ghost" {% if forloop.last == false %}href="#slide-{{forloop.index | plus: 1}}"{% else %}data-state="disabled"{% endif %}>
-              <span class="icon-text">Next</span>
+              <span class="icon-label">Next</span>
               <i class="icon i--16"><svg><use xlink:href="#icon-right" /></svg></i>
             </a>
           </li>
@@ -49,7 +49,7 @@
 
   <div class="slide-start unit center">
     <a class="btn yotta" href="#slide-1">
-      <span class="icon-text push-r-1-2">Start</span>
+      <span class="icon-label push-r-1-2">Start</span>
       <i class="icon i--48"><svg><use xlink:href="#icon-right" /></svg></i>
     </a>
   </div>

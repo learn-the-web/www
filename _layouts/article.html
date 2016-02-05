@@ -14,13 +14,13 @@ layout: default
       {% if !page.video %}
         <a class="play-btn" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-          <strong class="giga icon-text play-icon__text">Watch the video</strong>
+          <strong class="giga icon-label play-icon__text">Watch the video</strong>
         </a>
       {% endif %}
       {% if !page.playlist %}
         <a class="play-btn" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-          <strong class="giga icon-text play-icon__text">Watch the video playlist</strong>
+          <strong class="giga icon-label play-icon__text">Watch the video playlist</strong>
         </a>
       {% endif %}
       <div class="embed embed--3by1 video-embed"></div>
@@ -33,48 +33,48 @@ layout: default
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
             <a class="btn btn--ghost" href="{{page.livewebsite}}" rel="nofollow">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-star"/></svg></i>
-              <span class="icon-text">See website</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-star"/></svg></i>
+              <span class="icon-label">See website</span>
             </a>
           </li>
         {% endif %}
         {% if page.tool %}
           <li class="push-1-2 unit [ xs-1 ]">
             <a class="btn btn--ghost" href="{{page.tool.url}}">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-tool"/></svg></i>
-              <span class="icon-text">Use {{page.tool.name}}</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-tool"/></svg></i>
+              <span class="icon-label">Use {{page.tool.name}}</span>
             </a>
           </li>
         {% endif %}
         {% if page.cheatsheet %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--ghost" href="/topics/{{page.cheatsheet}}/">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-cheatsheet"/></svg></i>
-              <span class="icon-text">Get cheat sheet</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-cheatsheet"/></svg></i>
+              <span class="icon-label">Get cheat sheet</span>
             </a>
           </li>
         {% endif %}
         {% if page.checklist %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--ghost" href="/topics/{{page.checklist}}/">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-checklist"/></svg></i>
-              <span class="icon-text">Review checklist</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-checklist"/></svg></i>
+              <span class="icon-label">Review checklist</span>
             </a>
           </li>
         {% endif %}
         {% if page.download %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--subtle" href="{{page.download}}">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-download"/></svg></i>
-              <span class="icon-text">Download code</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-download"/></svg></i>
+              <span class="icon-label">Download code</span>
             </a>
           </li>
         {% endif %}
         {% if page.github %}
           <li class="push-1-2 unit [ xs-1 s-1-2 l-1 ]">
             <a class="btn btn--subtle" href="{{page.github}}">
-              <i class="icon i--24 i--push-right"><svg><use xlink:href="#icon-github"/></svg></i>
-              <span class="icon-text">Browse code</span>
+              <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-github"/></svg></i>
+              <span class="icon-label">Browse code</span>
             </a>
           </li>
         {% endif %}
@@ -84,7 +84,7 @@ layout: default
         <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
         <label class="nav-label giga" for="nav-check">
           <i class="icon i--nav"></i>
-          <span class="icon-text">Contents</span>
+          <span class="icon-label">Contents</span>
         </label>
       </nav>
     </div>

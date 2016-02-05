@@ -1,5 +1,5 @@
 (function () {
-  "use strict";
+  'use strict';
 
   function launchIntoFullscreen(element) {
     if(element.requestFullscreen) {
