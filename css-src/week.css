@@ -1,0 +1,19 @@
+.class {
+
+}
+
+.class__heading {
+  border-bottom: 3px solid var(--color-code-darkest);
+}
+
+.class--outside {
+  background-color: var(--color-code);
+}
+
+.class__desc {
+
+}
+
+.hours {
+  columns: 3;
+}

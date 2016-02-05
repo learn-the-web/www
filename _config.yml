@@ -1,7 +1,7 @@
-version: 3
+version: 20
 
-data_dir: ./topics/_table-of-contents
 permalink: pretty
+highlighter: none
 
 exclude:
   - README.md
@@ -12,17 +12,50 @@ exclude:
   - .gitignore
   - tmp
   - node_modules
-  - css/*.css
-  - js/*.js
+  - css-src
+  - js-src
 
-highlighter: none
+data_dir: ./topics/_table-of-contents
+
+collections:
+  web-dev-1:
+    output: true
+    permalink: /courses/web-dev-1/:path/
+    title: "Web Dev 1"
+  web-dev-2:
+    output: true
+    permalink: /courses/web-dev-2/:path/
+    title: "Web Dev 2"
+  web-dev-3:
+    output: true
+    permalink: /courses/web-dev-3/:path/
+    title: "Web Dev 3"
+  web-dev-4:
+    output: true
+    permalink: /courses/web-dev-4/:path/
+    title: "Web Dev 4"
 
 kramdown:
   input: GFM
 
 defaults:
-  -
-    scope:
-      path: ""
+  - scope:
+      path: "topics"
     values:
       layout: article
+  - scope:
+      path: "courses"
+    values:
+      layout: week
+
+########################################
+# WEBSITE SPECIFIC CONFIG
+########################################
+
+max_weeks: 15
+
+next_week:
+  title: "Preview next week"
+  submit: "Get a jump on things."
+  type: next
+  card_class: "card--subtle"

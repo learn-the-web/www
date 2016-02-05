@@ -1,0 +1,351 @@
+.lesson__desc {
+  background-color: var(--color-brand-light);
+}
+
+.lesson__intro {
+  max-width: 26em;
+}
+
+.lesson__title {
+  padding-left: calc(48px + .4rem);
+  position: relative;
+}
+
+.lesson__step-num {
+  position: absolute;
+  left: 3px;
+  top: 0;
+}
+
+.lesson__body--final {
+  background-color: var(--color-grey-medium);
+}
+
+.lesson__body-text {
+  padding-left: calc(48px + .4rem);
+  max-width: 30em;
+}
+
+.lesson__body-text img {
+  display: block;
+  margin-left: calc((48px + .4rem) * -1);
+  width: 100vw;
+}
+
+.lesson__body-code {
+  user-select: none;
+}
+
+.lesson__body-code pre,
+.lesson__body-code code {
+  margin-left: 0;
+  margin-right: 0;
+
+  border-radius: 0;
+}
+
+.lesson__body-code pre,
+.lesson__body-code pre[data-line] {
+  padding-left: 3em;
+}
+
+.lesson__body-code pre::after {
+  right: 0;
+  width: 40px;
+}
+
+.lesson__body-code pre[data-file]::before {
+  content: attr(data-file);
+  left: 3rem;
+  padding: 0 .4em;
+  position: absolute;
+  top: -.9rem;
+
+  background-color: var(--color-code-darkest);
+  border-radius: 4px;
+
+  font-size: 60%;
+  line-height: 2.1;
+}
+
+.lesson__notes {
+  background-color: var(--color-code-darker);
+  border-bottom: 3px solid var(--color-code-darkest);
+}
+
+.lesson__notes--last,
+.lesson__notes--final {
+  border: 0;
+}
+
+.lesson__notes--final {
+  background-color: var(--color-grey);
+}
+
+.lesson__note-label {
+  background-color: var(--color-brand-dark);
+  color: #fff;
+}
+
+.lesson__note-label--final {
+  background-color: var(--color-grey-dark);
+}
+
+.play-btn {
+  left: calc(48px + .4rem);;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+
+  border: 0;
+  transition: all 50ms linear;
+  transform: translateY(-50%);
+
+  color: #fff;
+}
+
+.play-btn:hover {
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+.play-icon {
+  height: 80px;
+  margin-right: 0.5em;
+  width: 80px;
+}
+
+.play-icon__text {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 6em;
+  line-height: 1.2;
+}
+
+.video-container {
+  position: relative;
+  background-color: var(--color-brand-dark);
+  border-bottom: 0;
+}
+
+.video-embed {
+  overflow: hidden;
+  min-height: 180px;
+  width: 100%;
+
+  transition: all 200ms linear;
+  transform: translateZ(0);
+}
+
+.video-embed__item {
+  transition: all 100ms linear;
+}
+
+.video-embed__item--loading {
+  opacity: 0;
+}
+
+.embed--5by1 {
+  padding-top: 20%;
+}
+
+.extra-tutorials {
+  background-color: var(--color-brand-dark);
+  border-bottom: 0;
+
+  color: #fff;
+}
+
+.extra-tutorials .lesson__body {
+  padding-left: calc(48px + .4rem);
+}
+
+.extra-tutorials a {
+  color: #fff;
+  border-color: rgba(255,255,255,.3);
+}
+
+.extra-tutorials a:hover {
+  border-color: rgba(255,255,255,1);
+}
+
+.lesson__body-image-steps {
+  /*padding-bottom: 2em;*/
+  position: relative;
+}
+
+.image-step {
+  /*position: relative;*/
+}
+
+.image-step__prev,
+.image-step__next {
+  display: none;
+  padding: 8px 0;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 32px);
+
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+
+  color: #fff;
+}
+
+.image-step:first-child .image-step__prev,
+.image-step:last-child .image-step__next {
+  display: none;
+  visibility: hidden;
+}
+
+.image-step__next {
+  left: auto;
+  right: 0;
+
+  border-radius: 6px 0 0 6px;
+}
+
+.image-step__img {
+  display: none;
+  width: 100%;
+}
+
+.image-step__btn {
+  bottom: -24px;
+  height: 16px;
+  overflow: hidden;
+  position: absolute;
+  width: 16px;
+
+  background-color: #fff;
+  border: 3px solid var(--color-grey-dark);
+  border-radius: 50%;
+  cursor: pointer;
+
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+.image-step__control {
+  position: absolute;
+  left: -10em;
+}
+
+.image-step__control:checked ~ .image-step__img {
+  display: block;
+}
+
+.image-step__control:checked ~ .image-step__btn {
+  background-color: var(--color-grey-dark);
+}
+
+.image-step__control:checked ~ .image-step__prev,
+.image-step__control:checked ~ .image-step__next {
+  display: block;
+}
+
+.image-step:nth-child(1) .image-step__btn {
+  left: calc(48px + .4rem);
+}
+
+.image-step:nth-child(2) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 1));
+}
+
+.image-step:nth-child(3) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 2));
+}
+
+.image-step:nth-child(4) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 3));
+}
+
+.image-step:nth-child(5) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 4));
+}
+
+.image-step:nth-child(6) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 5));
+}
+
+.image-step:nth-child(7) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 6));
+}
+
+.image-step:nth-child(8) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 7));
+}
+
+.image-step:nth-child(9) .image-step__btn {
+  left: calc(48px + .4rem + (22px * 8));
+}
+
+.image-steps {
+
+}
+
+.image-steps p {
+  margin: 0;
+}
+
+.image-steps__label {
+  display: block;
+  margin-left: -.2em;
+  padding: 0 .2em;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-steps__label:hover,
+.image-steps__label--active {
+  background-color: var(--color-code-darker);
+}
+
+.pair-intro {
+  position: relative;
+}
+
+.pair-intro::before {
+  content: " ";
+  height: 42px;
+  left: -48px;
+  position: absolute;
+  width: 42px;
+
+  background: transparent url("images/switch.svg") no-repeat left top / 42px auto;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .lesson__body {
+    border-bottom: 3px solid var(--color-grey-light);
+  }
+
+  .lesson__body-text img {
+    width: calc(100vw - (100vw / 3));
+  }
+
+  .lesson__body--final,
+  .lesson__body--last {
+    border: 0;
+  }
+
+  .lesson__notes {
+    padding-top: 4.1rem;
+  }
+
+  .lesson__step-num {
+    top: .25em;
+  }
+
+  .video-container {
+    border: 0;
+  }
+
+  .extra-tutorials {
+    border-bottom: 0;
+  }
+
+}

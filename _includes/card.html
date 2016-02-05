@@ -1,0 +1,77 @@
+{% assign submit_code = "Submit with Markbot." %}
+{% assign submit_show = "Show Thomas for marks." %}
+{% assign submit_canvas = "Submit to Canvas for marks." %}
+
+{% case include.data.type %}
+  {% when "lesson" %}
+    {% assign icon="steps" %}
+    {% assign submit=submit_show %}
+
+    {% if include.data.peer %}
+      {% assign button="Follow lesson" %}
+    {% else %}
+      {% assign button="Code together" %}
+    {% endif %}
+  {% when "activity" %}
+    {% assign icon="victory" %}
+    {% assign submit=submit_show %}
+    {% assign button="Do activity" %}
+  {% when "paper" %}
+    {% assign icon="pencil" %}
+    {% assign submit=submit_show %}
+    {% assign button="Print & draw" %}
+  {% when "next" %}
+    {% assign icon="infiniti" %}
+    {% assign button="See materials" %}
+  {% when "basic" %}
+    {% assign icon="star" %}
+    {% assign submit=submit_canvas %}
+    {% assign button="Submit online" %}
+  {% else %}
+    {% assign icon="code" %}
+    {% assign submit=submit_code %}
+    {% assign button="Write code" %}
+{% endcase %}
+
+{% if include.data.url contains "/" %}
+  {% assign url_prefix="" %}
+{% else %}
+  {% capture url_prefix %}/{{include.collection}}/{% endcapture %}
+{% endif %}
+
+{% if include.data.submit %}
+  {% case include.data.submit %}
+    {% when "code" %}
+      {% assign submit=submit_code %}
+    {% when "show" %}
+      {% assign submit=submit_show %}
+    {% when "canvas" %}
+      {% assign submit=submit_canvas %}
+    {% else %}
+      {% assign submit=include.data.submit %}
+  {% endcase %}
+{% endif %}
+<a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled"{% endif %}>
+  {% if include.num %}
+    <i class="card__num icon i--32">
+      <svg viewBox="0 0 256 256">
+        <circle stroke-width="25" stroke="#fff" cx="128" cy="110" r="110" />
+        <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{include.num}}</text>
+      </svg>
+    </i>
+  {% endif %}
+  <div class="text-center push-1-4">
+    <i class="icon i--24"><svg><use xlink:href="#icon-{{icon}}" /></svg></i>
+    {% if include.data.pair %}
+      <i class="icon i--24"><svg><use xlink:href="#icon-pair" /></svg></i>
+    {% endif %}
+  </div>
+  <h3 class="card__title mega content-fill push-0">{{include.data.title}}</h3>
+  {% if include.data.submit != false %}
+    <em class="micro push-1-4">{{submit}}</em>
+  {% endif %}
+  <span class="card__btn btn btn--ghost content-shrink">
+    <span class="icon-text">{{button}}</span>
+    <i class="icon i--18"><svg><use xlink:href="#icon-right" /></svg></i>
+  </span>
+</a>

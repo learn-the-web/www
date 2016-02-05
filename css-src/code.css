@@ -1,5 +1,7 @@
 code,
-pre {
+pre,
+samp,
+kbd {
   padding: 0.1em 0.4em;
 
   border-radius: 3px;
@@ -10,7 +12,9 @@ pre {
 }
 
 .source-code-pro-loaded code,
-.source-code-pro-loaded pre {
+.source-code-pro-loaded pre,
+.source-code-pro-loaded samp,
+.source-code-pro-loaded kbd {
   font-family: "Source Code Pro",Menlo,Consolas,monospace;
 }
 
@@ -38,4 +42,12 @@ pre::after {
   width: 20px;
 
   background-image: linear-gradient(to right, rgba(245,242,240,0), var(--color-code));
+}
+
+kbd {
+  background-color:  var(--color-code-darker);
+}
+
+pre[data-line] {
+  padding-left: 1.6em;
 }

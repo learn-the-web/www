@@ -1,0 +1,27 @@
+{% for collection in site.collections %}
+  {% if collection.label == page.collection %}
+    {% assign page_data = collection %}
+  {% endif %}
+{% endfor %}
+
+{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', ''}}{% endcapture %}
+
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  {% include head.html %}
+</head>
+<body>
+
+{% include icons-course.html %}
+{% include masthead-micro.html %}
+
+{{content}}
+
+<script>{% include fontfaceobserver.js %}</script>
+<script>{% include alegreya-observer.min.js %}</script>
+<script>{% include source-code-pro-observer.min.js %}</script>
+<script src="/js/course.min.js?v={{site.version}}"></script>
+
+</body>
+</html>

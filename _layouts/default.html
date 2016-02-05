@@ -6,11 +6,11 @@
 <head>
   {% include head.html %}
   {% if page.url == "/topics/" %}
-  <link href="/main-topics.min.css?v={{site.version}}" rel="stylesheet">
+  <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url contains "/topics/" %}
-  <link href="/main-article.min.css?v={{site.version}}" rel="stylesheet">
+  <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
-  <link href="/main-home.min.css?v={{site.version}}" rel="stylesheet">
+  <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
   <link href="/topics/" rel="prerender">
   {% endif %}
   {{page.head}}
@@ -58,11 +58,11 @@
 
   <script>{% include fontfaceobserver.js %}</script>
   <script>{% include alegreya-observer.min.js %}</script>
-  <script src="/common.min.js?v={{site.version}}" async></script>
+  <script src="/js/common.min.js?v={{site.version}}" async></script>
   {% if page.url == "/topics/" %}
-  <script src="/topics.min.js?v={{site.version}}" async></script>
+  <script src="/js/topics.min.js?v={{site.version}}" async></script>
   {% elsif page.url contains "/topics/" %}
-  <script src="/article.min.js?v={{site.version}}" defer></script>
+  <script src="/js/article.min.js?v={{site.version}}" defer></script>
   <script>{% include source-code-pro-observer.min.js %}</script>
   <script>
     var path = window.location.pathname.replace('/topics/', '').replace('/', '');

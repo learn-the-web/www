@@ -28,3 +28,9 @@ https://thenounproject.com/term/debug/83827/
 - Gulp.js
 - PostCSS
 - UglifyJS
+
+## Hosting
+
+- KeyCDN
+- CloudFlare
+- Let’s Encrypt

@@ -1,0 +1,57 @@
+.card {
+  position: relative;
+  min-height: 12rem;
+
+  background-color: #fff;
+  border-radius: 10px;
+  border: 3px solid var(--color-brand);
+
+  color: var(--color-brand-dark);
+  text-align: center;
+}
+
+.card:hover {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+
+  color: #fff;
+  text-decoration: none;
+}
+
+.card__num {
+  position: absolute;
+  left: 50%;
+  top: -16px;
+
+  transform: translateX(-50%);
+
+  color: var(--color-brand);
+}
+
+.card__title {
+
+}
+
+.card__btn {
+  border-color: var(--color-brand-dark);
+  color: var(--color-brand-dark);
+}
+
+.card:hover .card__btn {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+
+  color: #fff;
+}
+
+.card--subtle {
+  background-color: var(--color-code-light);
+  border-color: var(--color-code-darkest);
+
+  color: var(--color-grey-dark);
+}
+
+.card--subtle .card__btn {
+  border-color: var(--color-grey-dark);
+  color: var(--color-grey-dark);
+}

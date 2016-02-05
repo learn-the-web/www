@@ -1,0 +1,68 @@
+{% if site.collections[page.collection] %}
+  {% comment %} Work around for GitHub Pages use of Jekyll/2.4 {% endcomment %}
+  {% assign page_data = site.collections[page.collection] %}
+{% else %}
+  {% for collection in site.collections %}
+    {% if collection.label == page.collection %}
+      {% assign page_data = collection %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  {% include head.html %}
+</head>
+<body class="slide-deck">
+
+{% include icons.html %}
+
+<main class="main-fill grid grid-stretch">
+
+  {% for slide in page.slides %}
+    {% if slide.type %}
+      {% assign slide_type=slide.type %}
+    {% else %}
+      {% assign slide_type="big-text" %}
+    {% endif %}
+    <div class="slide unit center wrapper gutter-1-2" id="slide-{{forloop.index}}">
+      {% include slides/{{slide_type}}.html data=slide collection_label=page.collection %}
+      <nav class="slide-nav milli">
+        <ul class="list-group list-group--inline push-0">
+          <li class="text-right gutter-1-4">
+            <a class="slide-nav__prev btn btn--ghost" {% if forloop.first == false %}href="#slide-{{forloop.index | minus: 1}}"{% else %}data-state="disabled"{% endif %}>
+              <i class="icon i--16"><svg><use xlink:href="#icon-left" /></svg></i>
+              <span class="icon-text">Previous</span>
+            </a>
+          </li>
+          <li class="text-left gutter-1-4">
+            <a class="slide-nav__next btn btn--ghost" {% if forloop.last == false %}href="#slide-{{forloop.index | plus: 1}}"{% else %}data-state="disabled"{% endif %}>
+              <span class="icon-text">Next</span>
+              <i class="icon i--16"><svg><use xlink:href="#icon-right" /></svg></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  {% endfor %}
+
+  <div class="slide-start unit center">
+    <a class="btn yotta" href="#slide-1">
+      <span class="icon-text push-r-1-2">Start</span>
+      <i class="icon i--48"><svg><use xlink:href="#icon-right" /></svg></i>
+    </a>
+  </div>
+
+</main>
+
+{% include masthead-micro.html %}
+
+<script>{% include fontfaceobserver.js %}</script>
+<script>{% include alegreya-observer.min.js %}</script>
+<script>{% include source-code-pro-observer.min.js %}</script>
+<script src="/js/course.min.js?v={{site.version}}"></script>
+<script src="/js/slide-deck.min.js?v={{site.version}}"></script>
+
+</body>
+</html>
