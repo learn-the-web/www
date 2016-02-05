@@ -98,11 +98,6 @@
   background-color: var(--color-code-light);
 }
 
-.tutorial h1 + div > p:first-child {
-  font-size: 1.2962rem;
-  line-height: 1.0030;
-}
-
 .heading-link {
   display: none;
   position: absolute;
