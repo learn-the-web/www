@@ -76,6 +76,27 @@ hr {
   margin-left: -0.4em;
 }
 
+.algonquin {
+  background-color: #0f663f;
+
+  color: #fff;
+}
+
+.algonquin--inner {
+  background-color: var(--color-code-darkest);
+
+  color: #333;
+}
+
+.acgd-logo {
+  margin-bottom: 1.5rem;
+  max-width: 200px;
+}
+
+.alg-blurb {
+
+}
+
 @media only screen and (min-width: 38em) {
 
   .top-nav {

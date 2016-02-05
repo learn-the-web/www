@@ -51,3 +51,9 @@
   background-color: #94C947;
   border-color: #94C947;
 }
+
+.btn--alg-dark {
+  background-color: transparent;
+  border-color: #0f663f;
+  color: #0f663f;
+}

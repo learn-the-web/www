@@ -15,9 +15,9 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "site:serve": "jekyll serve --incremental",
+    "site:server": "jekyll serve --incremental",
     "site:build": "jekyll build",
-    "assets:watch": "gulp watch",
+    "assets:watcher": "gulp watch",
     "assets:build": "gulp build",
     "build": "npm run assets:build && npm run site:build",
     "deploy": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,g=rX ./_site/ keycdn:zones/learntheweb/",

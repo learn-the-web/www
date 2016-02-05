@@ -30,7 +30,7 @@ layout: default
   </div>
   <div class="header header--light">
     <div class="wrapper gutter-1-2 pad-b pad-t">
-      <p class="intro mega push-0">{{page.desc}}</p>
+      <p class="mega push-0">{{page.desc}}</p>
     </div>
   </div>
 
@@ -48,7 +48,7 @@ layout: default
               </svg>
             </i>
             <h2 class="push-1-4"><a href="{{week.url}}">{{week.topic}}</a></h2>
-            <p class="push-0 intro">{{week.desc}}</p>
+            <p class="push-0">{{week.desc}}</p>
             <ol class="week-list__tasks list-group list-group--inline micro push-0">
               {% for deck in week.slides %}
                 {% if deck.url contains "/" %}
@@ -91,3 +91,5 @@ layout: default
     </ol>
   </div>
 </main>
+
+{% include algonquin.html box_class="algonquin--inner" btn_class="btn--alg-dark" logo_fill="#0f663f" %}
