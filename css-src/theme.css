@@ -10,16 +10,20 @@ html {
 
 body {
   overflow-x: hidden;
+  min-height: 100vh;
+
   border-top: 4px solid var(--color-brand-dark);
 }
 
 a {
+  border-bottom: 0.1em solid rgba(68, 132, 194, .4);
+
   color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  border-color: var(--color-link);
 }
 
 hr {
@@ -27,10 +31,20 @@ hr {
   border-width: 3px;
 }
 
+[data-state="disabled"] {
+  opacity: .6;
+  pointer-events: none;
+}
+
 .wrapper {
   margin-left: auto;
   margin-right: auto;
   max-width: 40em;
+}
+
+.main-fill {
+  /* Viewport - masthead (logo height, border, margins) */
+  min-height: calc(100vh - 42px - 1.2rem);
 }
 
 .header {

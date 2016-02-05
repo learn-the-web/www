@@ -8,6 +8,7 @@
 
 .logo {
   display: block;
+  height: auto;
   margin-bottom: 1.5rem;
   width: 150px;
 }
@@ -152,6 +153,7 @@
   left: 10px;
   position: absolute;
 
+  border: 0;
   opacity: 0.6;
 
   color: #fff;

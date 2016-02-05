@@ -2,7 +2,7 @@
 layout: course
 ---
 
-{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', ''}}{% endcapture %}
+{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 
 <main class="main-fill grid grid-stretch">
 
@@ -20,7 +20,7 @@ layout: course
             {% for link in page.video_tutorials %}
               <li>
                 {% if link.highlight %}<strong>{% endif %}
-                  <a href="//learn-the-web.algonquindesign.ca/topics/{{link.url}}/">{{link.title}}</a>
+                  <a href="/topics/{{link.url}}/">{{link.title}}</a>
                 {% if link.highlight %}</strong>{% endif %}
               </li>
             {% endfor %}
@@ -32,7 +32,7 @@ layout: course
             <h3 class="mega push-0">Slides</h3>
             <ul class="list-group milli">
               {% for link in page.slides %}
-                {% capture url_prefix %}/{{page.collection}}/{% endcapture %}
+                {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% if link.url contains "/" %}
                   {% assign url_prefix="" %}
                 {% endif %}
@@ -120,7 +120,7 @@ layout: course
           {% include card.html data=data collection=page.collection num=5 %}
         {% else %}
           {% capture next_url %}week-{{number | plus:1}}{% endcapture %}
-          {% include card.html data=site.data.next-week collection=page.collection url=next_url %}
+          {% include card.html data=site.next_week collection=page.collection url=next_url %}
         {% endif %}
       </li>
     </ul>

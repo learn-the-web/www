@@ -1,9 +1,10 @@
 .slide-deck {
   overflow-y: hidden;
+  border-top: 0;
 }
 
-.slide-deck .masthead {
-  padding-top: 3em;
+.slide-deck .masthead-micro {
+  border-top: 4px solid var(--color-brand-dark);
 }
 
 .slide {

@@ -169,6 +169,12 @@
 .topic-text {
   display: block;
   position: relative;
+
+  border-width: 0;
+}
+
+.topic-text:hover {
+  border-width: 0.1em;
 }
 
 .topic-text-content {

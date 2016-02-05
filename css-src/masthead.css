@@ -17,6 +17,19 @@
   margin-top: 0.1em;
 }
 
+.masthead-micro {
+  padding-bottom: .6rem;
+
+  background-color: var(--color-brand);
+
+  text-align: center;
+}
+
+.masthead-micro .logo {
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+}
+
 @media only screen and (min-width: 38em) {
 
   .logo {
@@ -25,12 +38,27 @@
     margin-right: 0;
   }
 
+  .masthead-micro {
+    text-align: right;
+  }
+
 }
 
 @media only screen and (min-width: 38em) {
 
   .logo {
+    height: 38px;
     width: 140px;
+  }
+
+  .masthead-micro {
+    padding-bottom: 0;
+
+    text-align: left;
+  }
+
+  .masthead__next {
+    text-align: right;
   }
 
 }

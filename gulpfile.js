@@ -142,8 +142,8 @@ gulp.task('build-js', ['js-common', 'js-topics', 'js-article', 'js-course', 'js-
 gulp.task('build', ['build-css', 'build-js', 'js-fonts']);
 
 gulp.task('watch', function() {
-  gulp.watch('css-src/*.css', ['css-main', 'css-home', 'css-topics', 'css-article']);
-  gulp.watch('js-src/*.js', ['js-common', 'js-topics', 'js-article']);
+  gulp.watch('css-src/*.css', ['css-main', 'css-home', 'css-topics', 'css-article', 'css-course']);
+  gulp.watch('js-src/*.js', ['js-common', 'js-topics', 'js-article', 'js-course', 'js-slide-deck', 'js-lesson']);
 });
 
 gulp.task('default', ['css-main', 'css-home', 'css-topics', 'css-article', 'css-course', 'js-common', 'js-topics', 'js-article', 'js-course', 'js-slide-deck', 'js-lesson']);

@@ -30,7 +30,7 @@
 
     videoEmbed.classList.add('is-loading');
     videoEmbed.classList.add('embed--16by9');
-    videoEmbed.classList.remove('embed--3by1');
+    videoEmbed.classList.remove('embed--4by1');
     videoEmbed.innerHTML = iframe;
     embedItem = document.querySelector('.video-embed__item');
     document.querySelector('h1').classList.add('is-playing');

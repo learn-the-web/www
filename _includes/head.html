@@ -1,5 +1,6 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
 <meta charset="utf-8">
-<title>{% if page.title %}{{page.title}}{% else %}{{details.title}}{% endif %} · Learn the Web</title>
+<title>{% if page.title %}{{page.title}}{% if page.collection %} · {{page_data.title}}{% endif %}{% else %}{% if details.title %}{{details.title}}{% endif %}{% if include.title %}{{include.title}}{% endif %}{% endif %} · Learn the Web</title>
 <meta name="description" content="{% if page.desc %}{{page.desc}}{% else %}{{details.desc}}{% endif %}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="/fonts/alegreyasans-regular.woff" rel="preload" as="font">

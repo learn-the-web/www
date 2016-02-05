@@ -108,7 +108,9 @@
   position: absolute;
   margin-left: -0.55em;
 
+  border: 0;
   opacity: 0.4;
+
   color: var(--color-grey);
   font-weight: normal;
 }
@@ -189,6 +191,10 @@
   border-bottom: 1px solid var(--color-grey-light);
 }
 
+.tutorial-nav a {
+  border: 0;
+}
+
 .tutorial-nav-level-1 {
   font-weight: bold;
 }
@@ -257,7 +263,7 @@
 @media only screen and (min-width: 38em) {
 
   .play-btn {
-    top: 1rem;
+    top: .2rem;
   }
 
   .play-icon {
@@ -266,7 +272,7 @@
   }
 
   .tutorial h1 {
-    bottom: calc(100% + 1.5rem);
+    bottom: calc(100% + 1rem);
   }
 
   .controls .btn {
@@ -304,7 +310,7 @@
   }
 
   .play-btn {
-    top: 2.2rem;
+    top: .6rem;
   }
 
   .play-icon {
@@ -317,7 +323,7 @@
   }
 
   .tutorial h1 {
-    bottom: calc(100% + 1.8rem);
+    bottom: calc(100% + 1.4rem);
   }
 
   .tutorial-nav > ol {

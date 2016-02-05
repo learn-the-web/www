@@ -9,10 +9,12 @@
 
 .footer a {
   transition: all 50ms linear;
+  border-color: rgba(0, 222, 175, .4); /* --color-brand */
   color: var(--color-brand);
 }
 
 .footer a:hover {
+  border-color: #fff;
   color: #fff;
 }
 

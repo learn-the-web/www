@@ -36,7 +36,7 @@
 {% if include.data.url contains "/" %}
   {% assign url_prefix="" %}
 {% else %}
-  {% capture url_prefix %}/{{include.collection}}/{% endcapture %}
+  {% capture url_prefix %}/courses/{{include.collection}}/{% endcapture %}
 {% endif %}
 
 {% if include.data.submit %}
@@ -66,7 +66,7 @@
       <i class="icon i--24"><svg><use xlink:href="#icon-pair" /></svg></i>
     {% endif %}
   </div>
-  <h3 class="card__title mega content-fill push-0">{{include.data.title}}</h3>
+  <h3 class="card__title mega content-fill push-0 giga">{{include.data.title}}</h3>
   {% if include.data.submit != false %}
     <em class="micro push-1-4">{{submit}}</em>
   {% endif %}

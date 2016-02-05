@@ -1,18 +1,10 @@
-{% if site.collections[page.collection] %}
-  {% comment %} Work around for GitHub Pages use of Jekyll/2.4 {% endcomment %}
-  {% assign page_data = site.collections[page.collection] %}
-{% else %}
-  {% for collection in site.collections %}
-    {% if collection.label == page.collection %}
-      {% assign page_data = collection %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
-
+{% assign page_data = site.collections | where: "label", page.collection | first %}
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
   {% include head.html %}
+  <link href="/css/main-course.min.css?v={{site.version}}" rel="stylesheet">
+  {{page.head}}
 </head>
 <body class="slide-deck">
 
@@ -26,7 +18,7 @@
     {% else %}
       {% assign slide_type="big-text" %}
     {% endif %}
-    <div class="slide unit center wrapper gutter-1-2" id="slide-{{forloop.index}}">
+    <div class="slide unit xs-1 center wrapper gutter-1-2" id="slide-{{forloop.index}}">
       {% include slides/{{slide_type}}.html data=slide collection_label=page.collection %}
       <nav class="slide-nav milli">
         <ul class="list-group list-group--inline push-0">
@@ -40,6 +32,12 @@
             <a class="slide-nav__next btn btn--ghost" {% if forloop.last == false %}href="#slide-{{forloop.index | plus: 1}}"{% else %}data-state="disabled"{% endif %}>
               <span class="icon-label">Next</span>
               <i class="icon i--16"><svg><use xlink:href="#icon-right" /></svg></i>
+            </a>
+          </li>
+          <li class="text-right gutter-1-4">
+            <a class="btn btn--ghost micro" href="/courses/{{page.collection}}/">
+              <i class="icon i--16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+              <span class="icon-label">{{page_data.title}}</span>
             </a>
           </li>
         </ul>

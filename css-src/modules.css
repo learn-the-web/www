@@ -422,6 +422,7 @@ ol > li::before {
 
 .link-box {
   display: block;
+  border: 0;
   text-decoration: none;
 }
 

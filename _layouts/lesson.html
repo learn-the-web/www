@@ -188,7 +188,7 @@ layout: course
               {% if link.url contains "/" %}
                 {% assign url_prefix="" %}
               {% else %}
-                {% assign url_prefix="//learn-the-web.algonquindesign.ca/topics/" %}
+                {% assign url_prefix="/topics/" %}
               {% endif %}
               <a href="{{url_prefix}}{{link.url}}">{{link.title}}</a>
               {% if link.highlight %}</strong>{% endif %}

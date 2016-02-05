@@ -1,9 +1,10 @@
-{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', ''}}{% endcapture %}
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 
-<header class="masthead">
+<header class="masthead-micro">
   <div class="grid grid-middle wrapper gutter-1-2">
     <div class="unit [ xs-1 m-1-2 l-1-5 ]">
-      <a class="logo" href="//learn-the-web.algonquindesign.ca/">
+      <a class="logo link-box" href="/">
         <img class="img-flex" src="/images/logo.svg" alt="">
       </a>
     </div>
@@ -12,7 +13,7 @@
       {% if page.title %}
         {{page.title}}
       {% else %}
-        <span class="normal">{{page_data.title}}—</span>Week {{number}} tasks
+        <span class="normal">{{page_data.title}}—</span>Week {{number}}
       {% endif %}
       </h1>
     </div>
@@ -20,17 +21,25 @@
       {% capture prev %}{{number | minus:1}}{% endcapture %}
       {% capture next %}{{number | plus:1}}{% endcapture %}
       <nav class="masthead__next unit [ xs-1 l-2-5 ]">
-        <a class="masthead__btn btn btn--ghost micro" {% if prev != "0" %}href="/{{page.collection}}/week-{{prev}}/"{% else %}data-state="disabled"{% endif %}>
+        <a class="btn btn--ghost micro" {% if prev != "0" %}href="/courses/{{page.collection}}/week-{{prev}}/"{% else %}data-state="disabled"{% endif %}>
           <i class="icon i--18"><svg><use xlink:href="#icon-left" /></svg></i>
           <span class="icon-label">Previous</span>
         </a>
-        <a class="masthead__btn btn btn--ghost micro" href="/{{page.collection}}/">
+        <a class="btn btn--ghost micro" href="/courses/{{page.collection}}/">
           <i class="icon i--16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
           <span class="icon-label">Index</span>
         </a>
-        <a class="masthead__btn btn btn--ghost micro" {% if next != site.max_weeks %}href="/{{page.collection}}/week-{{next}}/"{% else %}data-state="disabled"{% endif %}>
+        <a class="btn btn--ghost micro" {% if next != site.max_weeks %}href="/courses/{{page.collection}}/week-{{next}}/"{% else %}data-state="disabled"{% endif %}>
           <span class="icon-label">Next</span>
           <i class="icon i--18"><svg><use xlink:href="#icon-right" /></svg></i>
+        </a>
+      </nav>
+    {% endif %}
+    {% if page.layout == "lesson" %}
+      <nav class="masthead__next unit [ xs-1 l-2-5 ]">
+        <a class="btn btn--ghost micro" href="/courses/{{page.collection}}/">
+          <i class="icon i--16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+          <span class="icon-label">{{page_data.title}}</span>
         </a>
       </nav>
     {% endif %}
