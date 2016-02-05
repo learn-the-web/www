@@ -51,9 +51,12 @@ hr {
   background-color: var(--color-brand);
 }
 
+.header--light {
+  background-color: var(--color-brand-light);
+}
+
 .intro {
   max-width: 26em;
-  line-height: 1.2;
 }
 
 .top-nav {

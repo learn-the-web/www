@@ -1,0 +1,26 @@
+.week-list {
+
+}
+
+.week-list > li {
+  padding-left: 52px;
+  position: relative;
+}
+
+.week-list__icon {
+  left: 0;
+  position: absolute;
+  top: .3em;
+}
+
+.week-list__tasks > li::after {
+  content: "·";
+  display: inline-block;
+  width: .8em;
+
+  text-align: center;
+}
+
+.week-list__tasks > li:last-child::after {
+  content: none;
+}

@@ -1,26 +1,85 @@
+---
+layout: default
+---
+
 {% assign page_data = site.collections | where: "label", page.collection | first %}
-{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
-{% capture title %}{% if page.title %}{{page.title}}{% else %}Week {{number}}{% endif %} · {{page_data.title}}{% endcapture %}
 
-<!DOCTYPE html>
-<html lang="en-ca">
-<head>
-  {% include head.html title=title %}
-  <link href="/css/main-course.min.css?v={{site.version}}" rel="stylesheet">
-  {{page.head}}
-</head>
-<body>
+<div class="masthead-wrap pad-t-1-2 pad-b-1-2">
+  <header class="masthead grid grid-middle wrapper gutter-1-2 pad-b-1-2" role="banner">
+    <div class="unit [ xs-1 m-1-2 ]">
+      <a class="logo link-box" href="/"><img class="img-flex" src="/images/logo.svg" alt="Learn the Web"></a>
+    </div>
+    <nav class="top-nav unit [ xs-1 m-1-2 ] text-right" role="navigation">
+      <ul class="push-0 list-group list-group--inline">
+        <li>
+          <a class="btn btn--ghost" href="/">
+            <i class="icon i--24 push-r-1-4"><svg><use xlink:href="#icon-left" /></svg></i>
+            <span class="icon-label contents-link">Home</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
 
-{% include icons.html %}
-{% include icons-course.html %}
-{% include masthead-micro.html %}
+<main class="relative" role="main">
+  <div class="header">
+    <div class="wrapper gutter-1-2 pad-b-1-2">
+      <h1 class="push-1-4 yotta" tabindex="0">{{page.title}}</h1>
+    </div>
+  </div>
+  <div class="header header--light">
+    <div class="wrapper gutter-1-2 pad-b pad-t">
+      <p class="intro mega push-0">{{page.desc}}</p>
+    </div>
+  </div>
 
-{{content}}
-
-<script>{% include fontfaceobserver.js %}</script>
-<script>{% include alegreya-observer.min.js %}</script>
-<script>{% include source-code-pro-observer.min.js %}</script>
-<script src="/js/course.min.js?v={{site.version}}"></script>
-
-</body>
-</html>
+  <div class="wrapper gutter-1-2 pad-t pad-b-1-2">
+    <ol class="list-group week-list push-0">
+      {% assign count = 0 %}
+      {% for week in page_data.docs %}
+        {% if week.layout == "week" %}
+          {% capture count %}{{count | plus:1 }}{% endcapture %}
+          <li class="push-1-2">
+            <i class="week-list__icon icon i--48">
+              <svg viewBox="0 0 256 256">
+                <circle cx="128" cy="110" r="110" />
+                <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{count}}</text>
+              </svg>
+            </i>
+            <h2 class="push-1-4"><a href="{{week.url}}">{{week.topic}}</a></h2>
+            <p class="push-0 intro">{{week.desc}}</p>
+            <ol class="week-list__tasks list-group list-group--inline micro push-0">
+              {% for deck in week.slides %}
+                {% if deck.type != "blank" %}
+                  {% if deck.url contains "/" %}
+                    {% assign url_prefix="" %}
+                  {% else %}
+                    {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
+                  {% endif %}
+                  <li>
+                    <a href="{{url_prefix}}{{deck.url}}">{{deck.title}} slide deck</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+            <ol class="week-list__tasks list-group list-group--inline micro">
+              {% for task in week.tasks %}
+                {% if task.type != "blank" %}
+                  {% if task.url contains "/" %}
+                    {% assign url_prefix="" %}
+                  {% else %}
+                    {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
+                  {% endif %}
+                  <li>
+                    <a href="{{url_prefix}}{{task.url}}">{{task.title}}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ol>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+</main>

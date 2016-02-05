@@ -351,6 +351,29 @@
    color: var(--color-grey);
 }
 
+.course-btn {
+  color: var(--color-grey-dark);
+}
+
+.course-btn__icon {
+  height: 48px;
+  width: 48px;
+
+  background-color: var(--color-grey);
+  border-radius: 50%;
+
+  color: #fff;
+  line-height: 48px;
+}
+
+.course-btn:hover {
+  color: #000;
+}
+
+.course-btn:hover .course-btn__icon {
+  background-color: var(--color-grey-dark);
+}
+
 @media only screen and (min-width: 38em) {
 
   .topic-wrap {
