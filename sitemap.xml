@@ -7,3 +7,9 @@ layout: sitemap
     {% include sitemap-entry.xml entry=page %}
   {% endif %}
 {% endfor %}
+
+{% for collection in site.collections %}
+  {% for doc in collection.docs %}
+    {% include sitemap-entry.xml entry=doc %}
+  {% endfor %}
+{% endfor %}
