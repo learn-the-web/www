@@ -8,12 +8,18 @@ exclude:
   - LICENSE
   - gulpfile.js
   - package.json
-  - .editorconfig
-  - .gitignore
   - tmp
   - node_modules
   - css-src
   - js-src
+  - _web-dev-1/README.md
+  - _web-dev-1/LICENSE
+  - _web-dev-2/README.md
+  - _web-dev-2/LICENSE
+  - _web-dev-3/README.md
+  - _web-dev-3/LICENSE
+  - _web-dev-4/README.md
+  - _web-dev-4/LICENSE
 
 data_dir: ./topics/_table-of-contents
 
