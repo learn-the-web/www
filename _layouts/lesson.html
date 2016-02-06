@@ -32,9 +32,13 @@ layout: course-inside
         <div class="mega gutter-1-4 lesson__body-text">
           {% if page.goal.before %}
             {{page.goal.before | markdownify}}
-            <p><em>This is what it should look like when it’s done:</em></p>
+            {% if page.goal.no_image != true %}
+              <p><em>This is what it should look like when it’s done:</em></p>
+            {% endif %}
           {% endif %}
-          <img src="goal.jpg" alt="">
+          {% if page.goal.no_image != true %}
+            <img src="goal.jpg" alt="">
+          {% endif %}
         </div>
       </div>
       <div class="lesson__notes unit [ xs-1 m-1-3 ]">
