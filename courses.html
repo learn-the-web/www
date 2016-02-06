@@ -1,0 +1,21 @@
+---
+layout: basic-inside
+title: Web dev course curriculums
+desc: "The Algonquin Design web development stream includes four core courses to develop web development skills and two culminating performance courses where students demonstrate their knowledge."
+priority: 1.0
+head: |
+  <link href="/css/main-topics.min.css" rel="stylesheet">
+---
+
+{% include icons-topics.html %}
+
+{% for collection in site.collections %}
+  {% if collection.desc %}
+    {% assign data = collection %}
+    {% assign link = false %}
+  {% else %}
+    {% assign data = collection.docs | where: "layout", "course" | first %}
+    {% assign link = true %}
+  {% endif %}
+  {% include course-section.html number=forloop.index data=data link=link %}
+{% endfor %}

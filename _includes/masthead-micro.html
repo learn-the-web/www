@@ -27,7 +27,7 @@
         </a>
         <a class="btn btn--ghost micro" href="/courses/{{page.collection}}/">
           <i class="icon i--16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
-          <span class="icon-label">Index</span>
+          <span class="icon-label">{{page_data.title}}</span>
         </a>
         <a class="btn btn--ghost micro" {% if next != site.max_weeks %}href="/courses/{{page.collection}}/week-{{next}}/"{% else %}data-state="disabled"{% endif %}>
           <span class="icon-label">Next</span>

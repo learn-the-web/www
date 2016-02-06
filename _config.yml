@@ -1,4 +1,4 @@
-version: 22
+version: 23
 
 permalink: pretty
 highlighter: none
@@ -40,6 +40,12 @@ collections:
     output: true
     permalink: /courses/web-dev-4/:path/
     title: "Web Dev 4"
+  web-dev-5:
+    title: "Web Dev 5"
+    desc: "Applies all the previous web development knowledge to develop a fully interactive portfolio website—launched live on a custom domain. Related topics like writing for the web, search engine optimization and metadata, and repeatable web layouts are explored."
+  web-dev-6:
+    title: "Web Dev 6"
+    desc: "Uses team projects to explore rich and creative web experiences with the focus on conceptualizing and building excellent interactive works by combining all the acquired knowledge and experience throughout the program."
 
 kramdown:
   input: GFM
