@@ -2,7 +2,12 @@
 
 The wrapper and templates for the website.
 
-**The tutorials are in the the [topics sub module](https://github.com/acgd-learn-the-web/topics).**
+- The tutorials are in the [topics sub module](https://github.com/acgd-learn-the-web/topics)
+- The course weekly curriculum is in their sub modules:
+  - [Web Dev 1](https://github.com/acgd-webdev-1/curriculum)
+  - [Web Dev 2](https://github.com/acgd-webdev-2/curriculum)
+  - [Web Dev 3](https://github.com/acgd-webdev-3/curriculum)
+  - [Web Dev 4](https://github.com/acgd-webdev-4/curriculum)
 
 ### [☛ Live website](http://learn-the-web.algonquindesign.ca/)
 
