@@ -7,10 +7,10 @@
     {% assign icon="steps" %}
     {% assign submit=submit_show %}
 
-    {% if include.data.peer %}
-      {% assign button="Follow lesson" %}
-    {% else %}
+    {% if include.data.pair %}
       {% assign button="Code together" %}
+    {% else %}
+      {% assign button="Follow lesson" %}
     {% endif %}
   {% when "activity" %}
     {% assign icon="victory" %}
