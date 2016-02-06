@@ -60,5 +60,6 @@ layout: basic-inside
 </ol>
 
 {% if count == 0 %}
-<p class="peta text-disabled push-1-2">We’re still working on transitioning this course to the new system.<br>Check back in a few months.</p>
+<p class="peta text-disabled">We’re still working on transitioning this course to this new system.</p>
+<p class="peta text-disabled push-1-2"><a href="https://github.com/acgd-{{page.collection | replace: 'web-dev', 'webdev')}}/curriculum"><strong>Check out the last term’s {{page_data.title}} curriculum &rarr;</strong></a></p>
 {% endif %}
