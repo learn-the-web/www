@@ -7,3 +7,9 @@
 [submodule "_web-dev-3"]
 	path = _web-dev-3
 	url = git@github.com:acgd-webdev-3/curriculum.git
+[submodule "_web-dev-4"]
+	path = _web-dev-4
+	url = git@github.com:acgd-webdev-4/curriculum.git
+[submodule "_web-dev-2"]
+	path = _web-dev-2
+	url = git@github.com:acgd-webdev-2/curriculum.git
