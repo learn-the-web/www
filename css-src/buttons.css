@@ -31,6 +31,16 @@
   border-color: var(--color-brand-dark);
 }
 
+.btn--muted {
+  background-color: transparent;
+  border-color: var(--color-grey);
+  color: var(--color-grey-dark);
+}
+
+.btn--muted:hover {
+  border-color: var(--color-brand-dark);
+}
+
 .btn--subtle {
   background-color: transparent;
   border-color: var(--color-grey-light);
