@@ -91,6 +91,10 @@
   background-color: var(--color-grey-dark);
 }
 
+.lesson__note ol {
+  padding-left: .8em;
+}
+
 .play-btn {
   left: calc(48px + .4rem);;
   position: absolute;
