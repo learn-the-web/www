@@ -42,6 +42,12 @@
   max-height: calc(100vh - 4em);
 }
 
+.slide video {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
 .big-text {
   font-size: 1.2148rem;
   line-height: 1.6250rem;
