@@ -16,6 +16,7 @@
   },
   "scripts": {
     "gulp": "gulp",
+    "start": "npm run site:server",
     "site:server": "jekyll serve --incremental",
     "site:build": "jekyll build",
     "site:minify": "html-minifier --config-file .html-minifier.json --input-dir _site --output-dir _site",
