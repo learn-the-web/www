@@ -90,6 +90,11 @@ layout: course-inside
         {% if step.before %}
           <div class="mega gutter-1-4 lesson__body-text">{{step.before | markdownify}}</div>
         {% endif %}
+        {% if step.video %}
+          <div class="embed embed--16by9">
+            <iframe class="embed__item" src="https://www.youtube.com/embed/{{step.video}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+        {% endif %}
         {% if step.code %}
           <div class="mega lesson__body-code">
             <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
