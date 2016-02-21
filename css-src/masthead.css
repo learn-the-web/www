@@ -10,6 +10,8 @@
   display: block;
   margin: 0.25em auto 0.75rem;
   width: 100px;
+
+  border-bottom: 0;
 }
 
 .contents-link {
