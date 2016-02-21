@@ -22,6 +22,9 @@ layout: course-inside
                 {% if link.highlight %}<strong>{% endif %}
                   <a href="/topics/{{link.url}}/">{{link.title}}</a>
                 {% if link.highlight %}</strong>{% endif %}
+                {% if link.notes %}
+                  <span class="italic micro block text-disabled">({{link.notes}})</span>
+                {% endif %}
               </li>
             {% endfor %}
             </ul>
