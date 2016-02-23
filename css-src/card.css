@@ -36,6 +36,7 @@
 .card__btn {
   border-color: var(--color-brand-dark);
   color: var(--color-brand-dark);
+  white-space: nowrap;
 }
 
 .card:hover .card__btn {
