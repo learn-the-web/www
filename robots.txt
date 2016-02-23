@@ -3,15 +3,4 @@
 Sitemap: http://learn-the-web.algonquindesign.ca/sitemap.xml
 
 User-Agent: *
-Disallow: /marking-up-a-webpage-code/
-Disallow: /typography-only-layout-code/
-Disallow: /small-screen-layout-code/
-Disallow: /from-wireframe-to-website-code/
-Disallow: /media-queries-layout-code/
-Disallow: /modular-layout-code/
-Disallow: /modules-code/
-Disallow: /interactive-wireframes-code/
-Disallow: /javascript-components-code/
-Disallow: /responsive-animated-dashboard-code/
-Disallow: /jekyll-code/
-Disallow: /progressive-enhancement-code/
+Disallow:
