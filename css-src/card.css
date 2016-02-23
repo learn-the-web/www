@@ -5,6 +5,7 @@
   background-color: #fff;
   border-radius: 10px;
   border: 3px solid var(--color-brand);
+  transition: all 100ms linear;
 
   color: var(--color-brand-dark);
   text-align: center;
