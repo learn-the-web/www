@@ -1,3 +1,6 @@
 <div class="big-text w-1">
-  {{include.data.content | markdownify}}
+  {% if include.data.content %}
+    {{include.data.content | markdownify}}
+  {% endif %}
+  {{include.data.raw}}
 </div>
