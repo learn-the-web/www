@@ -154,3 +154,28 @@
   });
 
 }());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   PRISM LINE NUMBERS TO LETTERS
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+(function () {
+  Prism.hooks.add('complete', function(env) {
+    var
+      pre = env.element.parentNode,
+      letters = [0, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+      lineHightlights = pre.querySelectorAll('.line-highlight'),
+      i = 0, total = lineHightlights.length
+      ;
+
+    for (i = 0; i < total; i++) {
+      if (lineHightlights[i].hasAttribute('data-start')) {
+        lineHightlights[i].setAttribute('data-start', letters[parseInt(lineHightlights[i].getAttribute('data-start'), 10)]);
+      }
+      if (lineHightlights[i].hasAttribute('data-end')) {
+        lineHightlights[i].setAttribute('data-end', letters[parseInt(lineHightlights[i].getAttribute('data-end'), 10)]);
+      }
+    }
+  });
+}());

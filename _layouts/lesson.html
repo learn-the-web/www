@@ -143,7 +143,7 @@ layout: course-inside
             {% endfor %}
             {% for line in step.lines %}
               <li class="lesson__note">
-                <h3 class="lesson__note-label kilo push-0 inline-block gutter-1-2">Line{% if line.num contains "-" %}s{% endif %} {{line.num}}</h3>
+                <h3 class="lesson__note-label kilo push-0 inline-block gutter-1-2">Line{% if line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=line.num %}</h3>
                 <div class="gutter-1-2 italic">{{line.text | markdownify}}</div>
               </li>
             {% endfor %}
