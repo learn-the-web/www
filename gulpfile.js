@@ -1,11 +1,10 @@
 const
   gulp = require('gulp'),
-  autoprefixer = require('autoprefixer'),
+  cssnext = require("postcss-cssnext"),
   postcss = require('gulp-postcss'),
   postCssProcessors = [
-    autoprefixer({ cascade: false, browsers: 'last 2 versions' }),
     require("postcss-import"),
-    require("postcss-cssnext")
+    cssnext({ browsers: ['last 2 versions'] })
   ],
   cssnano = require('gulp-cssnano'),
   replace = require('gulp-replace'),
