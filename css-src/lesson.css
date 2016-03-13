@@ -95,6 +95,10 @@
   padding-left: .8em;
 }
 
+.lesson__note hr {
+  border-color: var(--color-code-darkest);
+}
+
 .play-btn {
   left: calc(48px + .4rem);;
   position: absolute;
