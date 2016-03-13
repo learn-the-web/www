@@ -16,13 +16,13 @@
   },
   "scripts": {
     "gulp": "gulp",
-    "start": "npm run site:server",
-    "site:server": "jekyll serve --incremental",
-    "site:build": "jekyll build",
-    "site:minify": "html-minifier --config-file .html-minifier.json --input-dir _site --output-dir _site",
-    "assets:watcher": "gulp watch",
-    "assets:build": "gulp build",
-    "build": "npm run assets:build && npm run site:build",
+    "start": "npm run site-server",
+    "site-server": "jekyll serve --incremental",
+    "site-build": "jekyll build",
+    "site-minify": "html-minifier --config-file .html-minifier.json --input-dir _site --output-dir _site",
+    "assets-watcher": "gulp watch",
+    "assets-build": "gulp build",
+    "build": "npm run assets-build && npm run site-build",
     "deploy": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,g=rX ./_site/ keycdn:zones/learntheweb/",
     "build-n-deploy": "npm run build && npm run deploy"
   }
