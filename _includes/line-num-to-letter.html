@@ -1,4 +1,5 @@
-{% capture line_letter %}{{include.lines | replace: '26', 'Z'}}{% endcapture %}
+{% capture line_letter %}{{include.lines | replace: '-', '–'}}{% endcapture %}
+{% capture line_letter %}{{line_letter | replace: '26', 'Z'}}{% endcapture %}
 {% capture line_letter %}{{line_letter | replace: '25', 'Y'}}{% endcapture %}
 {% capture line_letter %}{{line_letter | replace: '24', 'X'}}{% endcapture %}
 {% capture line_letter %}{{line_letter | replace: '23', 'W'}}{% endcapture %}
