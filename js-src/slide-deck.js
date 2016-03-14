@@ -70,7 +70,7 @@
     if (iframe.contentWindow) doc = iframe.contentWindow.document;
 
     doc.open();
-    doc.write('<style>html { font-family: sans-serif; font-size: 3rem; line-height: 1.5; } a { border-bottom: 0.1em solid rgba(68, 132, 194, .4); color: #4484c2; text-decoration: none; } a:hover { border-color: #4484c2; }</style>');
+    doc.write('<style>html { font-family: sans-serif; font-size: 300%; line-height: 1.5; } a { border-bottom: 0.1em solid rgba(68, 132, 194, .4); color: #4484c2; text-decoration: none; } a:hover { border-color: #4484c2; }</style>');
 
     if (cssHidden) doc.write('<style>' + htmlDecode(cssHidden.innerHTML) + '</style>');
     if (css) doc.write('<style>' + htmlDecode(css.innerHTML) + '</style>');
