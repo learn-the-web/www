@@ -37,7 +37,7 @@ layout: course-inside
             {% endif %}
           {% endif %}
           {% if page.goal.no_image != true %}
-            <img src="goal.jpg" alt="">
+            <img src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
           {% endif %}
         </div>
       </div>
