@@ -63,6 +63,7 @@
       svg = slides[i].querySelector('code.language-xml'),
       cssHidden = slides[i].querySelector('textarea.css-hidden'),
       css = slides[i].querySelector('code.language-css'),
+      jsHidden = slides[i].querySelector('textarea.js-hidden'),
       js = slides[i].querySelector('code.language-js')
     ;
 
@@ -70,12 +71,13 @@
     if (iframe.contentWindow) doc = iframe.contentWindow.document;
 
     doc.open();
-    doc.write('<style>html { font-family: sans-serif; font-size: 300%; line-height: 1.5; } a { border-bottom: 0.1em solid rgba(68, 132, 194, .4); color: #4484c2; text-decoration: none; } a:hover { border-color: #4484c2; }</style>');
+    doc.write('<style>html { font-family: sans-serif; font-size: 300%; line-height: 1.5; } a { border-bottom: 0.1em solid rgba(68, 132, 194, .4); color: #4484c2; text-decoration: none; } a:hover { border-color: #4484c2; } input, button, select { font-size: 1rem; }</style>');
 
     if (cssHidden) doc.write('<style>' + htmlDecode(cssHidden.innerHTML) + '</style>');
     if (css) doc.write('<style>' + htmlDecode(css.innerHTML) + '</style>');
     if (html) doc.write(htmlDecode(html.innerHTML));
     if (svg) doc.write(htmlDecode(svg.innerHTML));
+    if (jsHidden) doc.write(htmlDecode(jsHidden.innerHTML));
     if (js) doc.write('<script>' + htmlDecode(js.innerHTML) + '</script>');
 
     doc.close();
