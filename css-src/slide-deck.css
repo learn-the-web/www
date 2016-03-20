@@ -4,6 +4,9 @@
 }
 
 .slide-deck .masthead-micro {
+  position: relative;
+  z-index: 1000;
+
   border-top: 4px solid var(--color-brand-dark);
 }
 
@@ -114,7 +117,7 @@ iframe {
 }
 
 .slide-resizeable {
-  padding-left: 5px;
+  padding-left: 8px;
   position: relative;
 }
 
