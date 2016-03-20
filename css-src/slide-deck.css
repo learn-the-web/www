@@ -93,6 +93,7 @@
 }
 
 .slide-preview {
+  height: 100%;
   position: relative;
 }
 
@@ -110,6 +111,28 @@ iframe {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.slide-resizeable {
+  padding-left: 5px;
+  position: relative;
+}
+
+.slide-resize-handle {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 8px;
+
+  background: none no-repeat center center / calc(100% - 2px) auto var(--color-code-darkest);
+  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 256' fill='#a8a6af'><circle cx='42' cy='52.7' r='27.7'/><circle cx='42' cy='128' r='27.7'/><circle cx='42' cy='203.3' r='27.7'/></svg>");
+  cursor: col-resize;
+}
+
+.slide--disable-highlighting {
+  pointer-events: none;
+  user-select: none;
 }
 
 @media only screen and (min-width: 38em) {

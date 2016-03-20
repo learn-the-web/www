@@ -86,6 +86,53 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
+   INTERACTIVE SLIDE RESIZEABILITY
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+  var
+    resizeHandle = document.querySelector('.slide-resize-handle'),
+    slideCode = document.querySelector('.slide-code'),
+    slideResizeable = document.querySelector('.slide-resizeable')
+    ;
+
+  var handleMouseMove = function (e) {
+    moveColumns(e.pageX);
+  };
+
+  var enableHighlighting = function () {
+    slideCode.classList.remove('slide--disable-highlighting')
+  };
+
+  var disableHighlighting = function () {
+    slideCode.classList.add('slide--disable-highlighting')
+  };
+
+  var moveColumns = function (x) {
+    if (x >= 0 && x <= document.documentElement.clientWidth) {
+      slideCode.style.width = Math.floor(x) + 'px';
+      slideResizeable.style.width = Math.floor(document.documentElement.clientWidth - x) + 'px';
+    }
+  };
+
+  if (!resizeHandle) return;
+
+  resizeHandle.addEventListener('mousedown', function (e) {
+    moveColumns(e.pageX);
+    disableHighlighting();
+    document.addEventListener('mousemove', handleMouseMove);
+  });
+
+  document.addEventListener('mouseup', function (e) {
+    enableHighlighting();
+    document.removeEventListener('mousemove', handleMouseMove);
+  });
+}());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
    PRISM WINDOW RESIZE LINE HIGHLIGHT BUG
  ++++++++++++++++++++++++++++++++++++++++++
 */
