@@ -1,5 +1,5 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
-{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
+{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 
 <header class="masthead-micro">
   <div class="grid grid-middle wrapper gutter-1-2">
