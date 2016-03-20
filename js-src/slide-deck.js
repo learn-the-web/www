@@ -58,7 +58,7 @@
   for (i; i < total; i++) {
     var
       iframe = slides[i].querySelector('iframe'),
-      doc = iframe.document,
+      doc = null,
       html = slides[i].querySelector('code.language-html'),
       svg = slides[i].querySelector('code.language-xml'),
       cssHidden = slides[i].querySelector('textarea.css-hidden'),
@@ -67,6 +67,9 @@
       js = slides[i].querySelector('code.language-js')
     ;
 
+    if (!iframe) continue;
+
+    if (iframe.document) doc = iframe.document;
     if (iframe.contentDocument) doc = iframe.contentDocument;
     if (iframe.contentWindow) doc = iframe.contentWindow.document;
 
