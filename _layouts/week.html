@@ -126,13 +126,15 @@ layout: course-inside
         {% endif %}
       </li>
       <li class="unit [ xs-1 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
-        {% if page.tasks[4] %}
-          {% assign data = page.tasks[4] %}
-          {% assign card_num=card_num | plus:1 %}
-          {% include card.html data=data collection=page.collection num=card_num %}
-        {% else %}
-          {% capture next_url %}week-{{number | plus:1}}{% endcapture %}
-          {% include card.html data=site.next_week collection=page.collection url=next_url %}
+        {% if page.tasks[4].type != "blank" %}
+          {% if page.tasks[4] %}
+            {% assign data = page.tasks[4] %}
+            {% assign card_num=card_num | plus:1 %}
+            {% include card.html data=data collection=page.collection num=card_num %}
+          {% else %}
+            {% capture next_url %}week-{{number | plus:1}}{% endcapture %}
+            {% include card.html data=site.next_week collection=page.collection url=next_url %}
+          {% endif %}
         {% endif %}
       </li>
     </ul>
