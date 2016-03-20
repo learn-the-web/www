@@ -93,9 +93,11 @@
 (function () {
   'use strict';
   var
-    resizeHandle = document.querySelector('.slide-resize-handle'),
-    slideCode = document.querySelector('.slide-code'),
-    slideResizeable = document.querySelector('.slide-resizeable')
+    resizeHandles = document.querySelectorAll('.slide-resize-handle'),
+    codeSlides = document.querySelectorAll('.slide-code'),
+    resizeableSlides = document.querySelectorAll('.slide-resizeable'),
+    codeSlide = null,
+    resizeableSlide = null
     ;
 
   var handleMouseMove = function (e) {
@@ -103,30 +105,49 @@
   };
 
   var enableHighlighting = function () {
-    slideCode.classList.remove('slide--disable-highlighting')
+    [].forEach.call(codeSlides, function (slide) {
+      slide.classList.remove('slide--disable-highlighting')
+    });
   };
 
   var disableHighlighting = function () {
-    slideCode.classList.add('slide--disable-highlighting')
+    [].forEach.call(codeSlides, function (slide) {
+      slide.classList.add('slide--disable-highlighting')
+    });
   };
 
   var moveColumns = function (x) {
     if (x >= 0 && x <= document.documentElement.clientWidth) {
-      slideCode.style.width = Math.floor(x) + 'px';
-      slideResizeable.style.width = Math.floor(document.documentElement.clientWidth - x) + 'px';
+      codeSlide.style.width = Math.floor(x) + 'px';
+      resizeableSlide.style.width = Math.floor(document.documentElement.clientWidth - x) + 'px';
     }
   };
 
-  if (!resizeHandle) return;
+  var centreColumns = function (cs, rs) {
+    cs.setAttribute('style', '');
+    rs.setAttribute('style', '');
+  };
 
-  resizeHandle.addEventListener('mousedown', function (e) {
-    moveColumns(e.pageX);
-    disableHighlighting();
-    document.addEventListener('mousemove', handleMouseMove);
+  if (!resizeHandles) return;
+
+  [].forEach.call(resizeHandles, function (handle) {
+    handle.addEventListener('mousedown', function (e) {
+      codeSlide = handle.parentNode.parentNode.querySelector('.slide-code');
+      resizeableSlide = handle.parentNode.parentNode.querySelector('.slide-resizeable');
+      moveColumns(e.pageX);
+      disableHighlighting();
+      document.addEventListener('mousemove', handleMouseMove);
+    });
+
+    handle.addEventListener('dblclick', function (e) {
+      centreColumns(handle.parentNode.parentNode.querySelector('.slide-code'), handle.parentNode.parentNode.querySelector('.slide-resizeable'));
+    });
   });
 
   document.addEventListener('mouseup', function (e) {
     enableHighlighting();
+    codeSlide = null;
+    resizeableSlide = null;
     document.removeEventListener('mousemove', handleMouseMove);
   });
 }());
