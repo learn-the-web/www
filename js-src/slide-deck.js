@@ -157,6 +157,42 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
+   TASK LISTS IN SLIDES
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+  var lists = document.querySelectorAll('.slide ul');
+
+  if (!lists) return;
+
+  [].forEach.call(lists, function (list, slideIndex) {
+    [].forEach.call(list.children, function (li, liIndex) {
+      var newLabel, newInput, id = 'slide-' + slideIndex + '-' + liIndex;
+
+      if (li.textContent.trim().match(/^\[[ x]\]/)) {
+        if (liIndex == 0) li.parentNode.classList.add('list-group');
+
+        newLabel = document.createElement('label');
+        newLabel.textContent = li.textContent.trim().replace(/^\[[ x]\]/, '');
+        newLabel.setAttribute('for', id);
+        newInput = document.createElement('input');
+        newInput.type = 'checkbox';
+        newInput.id = id;
+
+        if (li.textContent.trim().match(/^\[[x]\]/)) newInput.checked = true;
+
+        li.textContent = '';
+        li.appendChild(newInput);
+        li.appendChild(newLabel);
+      }
+    });
+  });
+}());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
    PRISM WINDOW RESIZE LINE HIGHLIGHT BUG
  ++++++++++++++++++++++++++++++++++++++++++
 */

@@ -147,6 +147,11 @@ iframe {
   user-select: none;
 }
 
+.slide input,
+.slide label {
+  vertical-align: middle;
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {
