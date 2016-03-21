@@ -62,12 +62,20 @@
   line-height: 3.75rem;
 }
 
+.slide-full,
+.slide-interactive {
+  left: calc(((100vw - 50rem) / 2) * -1);
+  position: absolute;
+  width: 100vw;
+}
+
+.slide-full {
+  transform: translateY(-50%);
+}
+
 .slide-interactive {
   bottom: 0;
-  left: calc(((100vw - 50em) / 2) * -1);
-  position: absolute;
   top: 0;
-  width: 100vw;
 }
 
 .slide-code {
