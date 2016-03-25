@@ -157,10 +157,58 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
+   PRISM CONTINUE FROM ABOVE
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+(function () {
+  'use strict'
+
+  Prism.hooks.add('before-insert', function(env) {
+    var pre = env.element.parentNode;
+
+    if (env.highlightedCode.match(/⋮/)) {
+      env.highlightedCode = env.highlightedCode.replace(/⋮/g, '<mark class="code-continue-from-above">⋮</mark>');
+    }
+  });
+}());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   PRISM FADE LINES
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+(function () {
+  'use strict';
+
+  Prism.hooks.add('complete', function(env) {
+    var
+      pre = env.element.parentNode,
+      fadeLines = []
+      ;
+
+    if (!pre.dataset.lineFade) return;
+
+    fadeLines = pre.dataset.lineFade.split(',');
+
+    fadeLines.forEach(function (lines) {
+      var lineBits = [];
+
+      if (!lines.trim()) return;
+
+      lineBits = lines.split('-');
+      document.querySelector('.line-highlight[data-start="' + lineBits[0] + '"]').classList.add('line-faded');
+    });
+  });
+}());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
    PRISM LINE NUMBERS TO LETTERS
  ++++++++++++++++++++++++++++++++++++++++++
 */
 (function () {
+  'use strict';
+
   Prism.hooks.add('complete', function(env) {
     var
       pre = env.element.parentNode,

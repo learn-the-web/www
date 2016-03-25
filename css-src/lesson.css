@@ -68,6 +68,38 @@
   line-height: 2.1;
 }
 
+.line-faded {
+  background-color: rgba(245, 242, 240, .6);
+}
+
+.line-faded::before,
+.line-faded::after {
+  display: none;
+}
+
+.code-continue-from-above {
+  position: relative;
+
+  background-color: transparent;
+}
+
+.code-continue-from-above::after {
+  content: "Continuing code from above…";
+  display: inline-block;
+  margin-left: .5rem;
+  padding: 0 .7em;
+  position: absolute;
+  top: 50%;
+
+  background-color: hsla(24, 20%, 50%, .3);
+  border-radius: 4px;
+  transform: translateY(-50%);
+
+  color: #000;
+  font-size: 70%;
+  line-height: 2.1;
+}
+
 .lesson__notes {
   background-color: var(--color-code-darker);
   border-bottom: 3px solid var(--color-code-darkest);

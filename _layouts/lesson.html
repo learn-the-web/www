@@ -97,7 +97,7 @@ layout: course-inside
         {% endif %}
         {% if step.code %}
           <div class="mega lesson__body-code">
-            <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
+            <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" data-line-fade="{% for line in step.lines %}{% if line.fade %}{{line.num}},{% endif %}{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
           </div>
         {% endif %}
         {% if step.image_steps %}
@@ -142,10 +142,12 @@ layout: course-inside
               </li>
             {% endfor %}
             {% for line in step.lines %}
-              <li class="lesson__note">
-                <h3 class="lesson__note-label kilo push-0 inline-block gutter-1-2">Line{% if line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=line.num %}</h3>
-                <div class="gutter-1-2 italic">{{line.text | markdownify}}</div>
-              </li>
+              {% if line.text %}
+                <li class="lesson__note">
+                  <h3 class="lesson__note-label kilo push-0 inline-block gutter-1-2">Line{% if line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=line.num %}</h3>
+                  <div class="gutter-1-2 italic">{{line.text | markdownify}}</div>
+                </li>
+              {% endif %}
             {% endfor %}
           </ol>
         {% endif %}
