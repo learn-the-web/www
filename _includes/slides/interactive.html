@@ -20,6 +20,9 @@
       <span class="slide-code__label">Javascript</span>
       <pre class="language-js" data-line="{{include.data.js_lines}}"><code class="language-js">{{include.data.js | xml_escape}}</code></pre>
     {% endif %}
+    {% if include.data.html_hidden %}
+      <textarea class="html-hidden" hidden>{{include.data.html_hidden | xml_escape}}</textarea>
+    {% endif %}
     {% if include.data.css_hidden %}
       <textarea class="css-hidden" hidden>{{include.data.css_hidden | xml_escape}}</textarea>
     {% endif %}

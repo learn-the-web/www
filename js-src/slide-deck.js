@@ -60,6 +60,7 @@
       iframe = slides[i].querySelector('iframe'),
       doc = null,
       html = slides[i].querySelector('code.language-html'),
+      htmlHidden = slides[i].querySelector('textarea.html-hidden'),
       svg = slides[i].querySelector('code.language-xml'),
       cssHidden = slides[i].querySelector('textarea.css-hidden'),
       css = slides[i].querySelector('code.language-css'),
@@ -76,6 +77,7 @@
     doc.open();
     doc.write('<style>html { font-family: sans-serif; font-size: 300%; line-height: 1.5; } a { border-bottom: 0.1em solid rgba(68, 132, 194, .4); color: #4484c2; text-decoration: none; } a:hover { border-color: #4484c2; } input, button, select { font-size: 1rem; }</style>');
 
+    if (htmlHidden) doc.write(htmlDecode(htmlHidden.innerHTML));
     if (cssHidden) doc.write('<style>' + htmlDecode(cssHidden.innerHTML) + '</style>');
     if (css) doc.write('<style>' + htmlDecode(css.innerHTML) + '</style>');
     if (html) doc.write(htmlDecode(html.innerHTML));
