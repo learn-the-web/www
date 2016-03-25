@@ -100,7 +100,7 @@
   line-height: 2.1;
 }
 
-.code-continue-from-above:last-of-type::after {
+.code-continue-from-above:last-of-type:not(:first-of-type)::after {
   content: "Code completed earlier in this lesson…";
 }
 
