@@ -84,20 +84,24 @@
 }
 
 .code-continue-from-above::after {
-  content: "Continuing code from above…";
+  content: "Continuing code from earlier in this lesson…";
   display: inline-block;
   margin-left: .5rem;
   padding: 0 .7em;
   position: absolute;
   top: 50%;
 
-  background-color: hsla(24, 20%, 50%, .3);
+  background-color: hsla(24, 20%, 50%, .2);
   border-radius: 4px;
   transform: translateY(-50%);
 
-  color: #000;
+  color: #555;
   font-size: 70%;
   line-height: 2.1;
+}
+
+.code-continue-from-above:last-of-type::after {
+  content: "Code completed earlier in this lesson…";
 }
 
 .lesson__notes {
