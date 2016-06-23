@@ -42,10 +42,10 @@ collections:
     title: "Web Dev 4"
   web-dev-5:
     title: "Web Dev 5"
-    desc: "Applies all the previous web development knowledge to develop a fully interactive portfolio website—launched live on a custom domain. Related topics like writing for the web, search engine optimization and metadata, and repeatable web layouts are explored."
+    desc: "Graphic designers are hired for their personality and their work quality. The first interaction potential employers have is through the designer’s online presence—most importantly a portfolio website. Leasing personal domains, configuring servers for email addresses, and peer reviews are some of the topics explored to launch a successful personal portfolio website."
   web-dev-6:
     title: "Web Dev 6"
-    desc: "Uses team projects to explore rich and creative web experiences with the focus on conceptualizing and building excellent interactive works by combining all the acquired knowledge and experience throughout the program."
+    desc: "No web projects are created by just one person—collaboration with other people is fundamental to successful websites. Teams of students organize and create large-scale websites using project management tools, version control systems, online messaging, and issue trackers."
 
 kramdown:
   input: GFM
