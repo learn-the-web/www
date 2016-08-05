@@ -138,7 +138,7 @@ iframe {
   width: 8px;
 
   background: none no-repeat center center / calc(100% - 2px) auto var(--color-code-darkest);
-  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 256' fill='#a8a6af'><circle cx='42' cy='52.7' r='27.7'/><circle cx='42' cy='128' r='27.7'/><circle cx='42' cy='203.3' r='27.7'/></svg>");
+  background-image: url("../images-embed/resize-handle.svg");
   cursor: col-resize;
 }
 

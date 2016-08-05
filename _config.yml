@@ -12,6 +12,7 @@ exclude:
   - node_modules
   - css-src
   - js-src
+  - images-embed
   - _web-dev-1/README.md
   - _web-dev-1/LICENSE
   - _web-dev-2/README.md
