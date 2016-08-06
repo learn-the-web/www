@@ -57,7 +57,33 @@ defaults:
     values:
       layout: article
   - scope:
-      path: "courses"
+      path: ""
+      type: "web-dev-1"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-dev-2"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-dev-3"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-dev-4"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-dev-5"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-dev-6"
     values:
       layout: week
 
