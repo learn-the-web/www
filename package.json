@@ -20,7 +20,8 @@
     "js_lesson": "js-src/prism.js js-src/syntax.js js-src/lesson.js"
   },
   "scripts": {
-    "start": "jekyll serve --incremental",
+    "start": "parallelshell 'npm run start-server' 'npm run watch-css' 'npm run watch-js'",
+    "start-server": "jekyll serve --incremental",
     "build-site": "jekyll build",
     "postcss": "postcss -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano",
     "build-css-main": "npm run postcss -- -o css/main.min.css css-src/main.css",
