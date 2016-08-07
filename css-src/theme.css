@@ -37,6 +37,12 @@ hr {
   border-width: 3px;
 }
 
+.hr-full {
+  left: -50vw;
+  position: relative;
+  width: 150vw;
+}
+
 [data-state="disabled"] {
   cursor: no-drop;
   opacity: .6;
