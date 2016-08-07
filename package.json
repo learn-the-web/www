@@ -12,7 +12,7 @@
     "uglify-js": "^2.7.0"
   },
   "config": {
-    "js_common": "js-src/common.js",
+    "js_common": "js-src/common.js js-src/video-home.js",
     "js_topics": "js-src/fuzzy-match.js js-src/topic-search.js js-src/topics-visited.js",
     "js_article": "js-src/prism.js js-src/syntax.js js-src/article-nav.js js-src/section-links.js js-src/video.js",
     "js_course": "js-src/fullscreen.js",

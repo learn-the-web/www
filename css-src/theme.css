@@ -55,6 +55,10 @@ hr {
   max-width: 40em;
 }
 
+.max-length {
+  max-width: 33em;
+}
+
 .main-fill {
   /* Viewport - masthead (logo height, border, margins) */
   min-height: calc(100vh - 42px - 1.2rem);
