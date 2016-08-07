@@ -1,19 +1,19 @@
 <div class="slide-interactive grid grid-stretch">
   <div class="unit [ xs-1 ] slide-code island">
     {% if include.data.url %}
-      <span class="slide-code__label">URL</span>
+      <span class="slide-code-label">URL</span>
       <pre><code>{{include.data.url}}</code></pre>
     {% endif %}
     {% if include.data.html %}
-      <span class="slide-code__label">HTML</span>
+      <span class="slide-code-label">HTML</span>
       <pre class="language-html" data-line="{{include.data.html_lines}}"><code class="language-html">{{include.data.html | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.css %}
-      <span class="slide-code__label">CSS</span>
+      <span class="slide-code-label">CSS</span>
       <pre class="language-css" data-line="{{include.data.css_lines}}"><code class="language-css">{{include.data.css | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.js %}
-      <span class="slide-code__label">Javascript</span>
+      <span class="slide-code-label">Javascript</span>
       <pre class="language-js" data-line="{{include.data.js_lines}}"><code class="language-js">{{include.data.js | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.css_hidden %}

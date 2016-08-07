@@ -53,7 +53,7 @@
   text-decoration: none;
 }
 
-.topic-heading__text {
+.topic-heading-text {
   display: block;
 }
 
@@ -65,14 +65,14 @@
   text-align: center;
 }
 
-.courses__icon {
+.courses-icon {
   display: block;
   height: 1.2em;
   margin: 0 auto;
   width: 1.2em;
 }
 
-.courses__list {
+.courses-list {
   margin-top: -0.5em;
 }
 

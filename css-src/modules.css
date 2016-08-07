@@ -468,13 +468,13 @@ ol > li::before {
   color: #fff;
 }
 
-.btn-light, .btn--light {
+.btn-light, .btn-light {
   background-color: #e2e2e2;
   border-color: #e2e2e2;
   color: #000;
 }
 
-.btn-light:hover, .btn--light:hover {
+.btn-light:hover, .btn-light:hover {
   background-color: #666;
   border-color: #666;
   color: #fff;

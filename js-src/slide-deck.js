@@ -18,13 +18,13 @@
       case 39: // right
       case 40: // down
       case 74: // j
-        btn = document.querySelector('.slide:target .slide-nav__next');
+        btn = document.querySelector('.slide:target .slide-nav-next');
         if (btn) btn.click();
         break;
       case 37: // left
       case 38: // up
       case 75: // k
-        btn = document.querySelector('.slide:target .slide-nav__prev');
+        btn = document.querySelector('.slide:target .slide-nav-prev');
         if (btn) btn.click();
         break;
     }

@@ -2,8 +2,8 @@
   'use strict';
 
   var
-    iframeVideo = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
-    iframePlaylist = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
+    iframeVideo = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
+    iframePlaylist = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
     playBtn = document.querySelector('.play-btn')
   ;
 
@@ -32,12 +32,12 @@
     videoEmbed.classList.add('embed--16by9');
     videoEmbed.classList.remove('embed--4by1');
     videoEmbed.innerHTML = iframe;
-    embedItem = document.querySelector('.video-embed__item');
+    embedItem = document.querySelector('.video-embed-item');
     document.querySelector('h1').classList.add('is-playing');
     this.parentNode.removeChild(this);
 
     videoEmbed.addEventListener('transitionend', function () {
-      embedItem.classList.remove('video-embed__item--loading');
+      embedItem.classList.remove('video-embed-item-loading');
     });
   });
 

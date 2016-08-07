@@ -20,7 +20,7 @@
   color: var(--color-brand-dark);
 }
 
-.topic-heading__text {
+.topic-heading-text {
   display: block;
   margin: 0 auto;
 }
@@ -139,7 +139,7 @@
   font-size: 15px;
 }
 
-.topic--flag::after {
+.topic-flag::after {
   display: none;
   margin-left: 0.7em;
   padding: 0.2em 0.4em 0.1em;
@@ -154,23 +154,23 @@
   text-transform: uppercase;
 }
 
-.topic--fullsite::after {
+.topic-fullsite::after {
   content: "Full website";
 }
 
-.topic--cheatsheet::after {
+.topic-cheatsheet::after {
   content: "Cheat sheet";
 }
 
-.topic--checklist::after {
+.topic-checklist::after {
   content: "Checklist";
 }
 
-.topic--tool::after {
+.topic-tool::after {
   content: "Tool";
 }
 
-.topic--disabled::after {
+.topic-disabled::after {
   content: none;
   display: none;
 }
@@ -195,7 +195,7 @@
   white-space: nowrap;
 }
 
-.topic--disabled {
+.topic-disabled {
   color: rgba(0,0,0,0.2);
 }
 
@@ -364,7 +364,7 @@
   color: var(--color-grey-dark);
 }
 
-.course-btn__icon {
+.course-btn-icon {
   height: 48px;
   width: 48px;
 
@@ -379,7 +379,7 @@
   color: #000;
 }
 
-.course-btn:hover .course-btn__icon {
+.course-btn:hover .course-btn-icon {
   background-color: var(--color-grey-dark);
 }
 
@@ -398,7 +398,7 @@
     transform: translateY(-50%);
   }
 
-  .topic-heading__text {
+  .topic-heading-text {
     max-width: 3em;
   }
 
@@ -416,7 +416,7 @@
     width: auto;
   }
 
-  .topic--flag::after {
+  .topic-flag::after {
     display: inline-block;
   }
 

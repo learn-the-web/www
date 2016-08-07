@@ -97,4 +97,4 @@ next_week:
   title: "Preview next week"
   submit: "Get a jump on things."
   type: next
-  card_class: "card--subtle"
+  card_class: "card-subtle"

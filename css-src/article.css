@@ -18,7 +18,7 @@
   width: 80px;
 }
 
-.play-icon__text {
+.play-icon-text {
   display: inline-block;
   max-width: 6em;
   line-height: 1.2;
@@ -33,11 +33,11 @@
   transform: translateZ(0);
 }
 
-.video-embed__item {
+.video-embed-item {
   transition: all 100ms linear;
 }
 
-.video-embed__item--loading {
+.video-embed-item-loading {
   opacity: 0;
 }
 
@@ -139,7 +139,7 @@
   border-radius: 4px;
 }
 
-.i--nav {
+.i-nav {
   margin-right: 0.25em;
   width: 20px;
   height: 20px;
@@ -157,7 +157,7 @@
   outline: 3px solid #000;
 }
 
-.nav-check:checked ~ .nav-label .i--nav {
+.nav-check:checked ~ .nav-label .i-nav {
   background-position: left bottom;
 }
 

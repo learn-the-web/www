@@ -2,15 +2,15 @@
 
 }
 
-.class__heading {
+.class-heading {
   border-bottom: 3px solid var(--color-code-darkest);
 }
 
-.class--outside {
+.class-outside {
   background-color: var(--color-code);
 }
 
-.class__desc {
+.class-desc {
 
 }
 

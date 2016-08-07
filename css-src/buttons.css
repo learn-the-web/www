@@ -14,58 +14,58 @@
   text-decoration: none;
 }
 
-.btn--light {
+.btn-light {
   background-color: var(--color-brand-light);
   border-color: var(--color-brand);
   color: var(--color-brand-dark);
 }
 
-.btn--light:hover {
+.btn-light:hover {
   border-color: var(--color-brand);
 }
 
-.btn--ghost {
+.btn-ghost {
   background-color: transparent;
   border-color: var(--color-brand);
   color: var(--color-brand-dark);
 }
 
-.btn--ghost:hover {
+.btn-ghost:hover {
   border-color: var(--color-brand-dark);
 }
 
-.btn--muted {
+.btn-muted {
   background-color: transparent;
   border-color: var(--color-grey);
   color: var(--color-grey-dark);
 }
 
-.btn--muted:hover {
+.btn-muted:hover {
   border-color: var(--color-brand-dark);
 }
 
-.btn--subtle {
+.btn-subtle {
   background-color: transparent;
   border-color: var(--color-grey-light);
   color: var(--color-grey-dark);
 }
 
-.btn--subtle:hover {
+.btn-subtle:hover {
   border-color: var(--color-brand-dark);
 }
 
-.btn--alg {
+.btn-alg {
   background-color: #0f663f;
   border-color: #94C947;
   color: #94C947;
 }
 
-.btn--alg:hover {
+.btn-alg:hover {
   background-color: #94C947;
   border-color: #94C947;
 }
 
-.btn--alg-dark {
+.btn-alg-dark {
   background-color: transparent;
   border-color: #0f663f;
   color: #0f663f;

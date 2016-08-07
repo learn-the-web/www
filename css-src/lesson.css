@@ -1,60 +1,60 @@
-.lesson__desc {
+.lesson-desc {
   background-color: var(--color-brand-light);
 }
 
-.lesson__intro {
+.lesson-intro {
   max-width: 26em;
 }
 
-.lesson__title {
+.lesson-title {
   padding-left: calc(48px + .4rem);
   position: relative;
 }
 
-.lesson__step-num {
+.lesson-step-num {
   position: absolute;
   left: 3px;
   top: 0;
 }
 
-.lesson__body--final {
+.lesson-body-final {
   background-color: var(--color-grey-medium);
 }
 
-.lesson__body-text {
+.lesson-body-text {
   padding-left: calc(48px + .4rem);
   max-width: 30em;
 }
 
-.lesson__body-text img {
+.lesson-body-text img {
   display: block;
   margin-left: calc((48px + .4rem) * -1);
   width: 100vw;
 }
 
-.lesson__body-code {
+.lesson-body-code {
   user-select: none;
 }
 
-.lesson__body-code pre,
-.lesson__body-code code {
+.lesson-body-code pre,
+.lesson-body-code code {
   margin-left: 0;
   margin-right: 0;
 
   border-radius: 0;
 }
 
-.lesson__body-code pre,
-.lesson__body-code pre[data-line] {
+.lesson-body-code pre,
+.lesson-body-code pre[data-line] {
   padding-left: 3em;
 }
 
-.lesson__body-code pre::after {
+.lesson-body-code pre::after {
   right: 0;
   width: 40px;
 }
 
-.lesson__body-code pre[data-file]::before {
+.lesson-body-code pre[data-file]::before {
   content: attr(data-file);
   left: 3rem;
   padding: 0 .4em;
@@ -104,34 +104,34 @@
   content: "Code completed earlier in this lesson…";
 }
 
-.lesson__notes {
+.lesson-notes {
   background-color: var(--color-code-darker);
   border-bottom: 3px solid var(--color-code-darkest);
 }
 
-.lesson__notes--last,
-.lesson__notes--final {
+.lesson-notes--last,
+.lesson-notes--final {
   border: 0;
 }
 
-.lesson__notes--final {
+.lesson-notes--final {
   background-color: var(--color-grey);
 }
 
-.lesson__note-label {
+.lesson-note-label {
   background-color: var(--color-brand-dark);
   color: #fff;
 }
 
-.lesson__note-label--final {
+.lesson-note-label-final {
   background-color: var(--color-grey-dark);
 }
 
-.lesson__note ol {
+.lesson-note ol {
   padding-left: .8em;
 }
 
-.lesson__note hr {
+.lesson-note hr {
   border-color: var(--color-code-darkest);
 }
 
@@ -159,7 +159,7 @@
   width: 80px;
 }
 
-.play-icon__text {
+.play-icon-text {
   display: inline-block;
   vertical-align: middle;
   max-width: 6em;
@@ -181,11 +181,11 @@
   transform: translateZ(0);
 }
 
-.video-embed__item {
+.video-embed-item {
   transition: all 100ms linear;
 }
 
-.video-embed__item--loading {
+.video-embed-item-loading {
   opacity: 0;
 }
 
@@ -200,7 +200,7 @@
   color: #fff;
 }
 
-.extra-tutorials .lesson__body {
+.extra-tutorials .lesson-body {
   padding-left: calc(48px + .4rem);
 }
 
@@ -213,7 +213,7 @@
   border-color: rgba(255,255,255,1);
 }
 
-.lesson__body-image-steps {
+.lesson-body-image-steps {
   /*padding-bottom: 2em;*/
   position: relative;
 }
@@ -222,8 +222,8 @@
   /*position: relative;*/
 }
 
-.image-step__prev,
-.image-step__next {
+.image-step-prev,
+.image-step-next {
   display: none;
   padding: 8px 0;
   position: absolute;
@@ -237,25 +237,25 @@
   color: #fff;
 }
 
-.image-step:first-child .image-step__prev,
-.image-step:last-child .image-step__next {
+.image-step:first-child .image-step-prev,
+.image-step:last-child .image-step-next {
   display: none;
   visibility: hidden;
 }
 
-.image-step__next {
+.image-step-next {
   left: auto;
   right: 0;
 
   border-radius: 6px 0 0 6px;
 }
 
-.image-step__img {
+.image-step-img {
   display: none;
   width: 100%;
 }
 
-.image-step__btn {
+.image-step-btn {
   bottom: -24px;
   height: 16px;
   overflow: hidden;
@@ -271,57 +271,57 @@
   white-space: nowrap;
 }
 
-.image-step__control {
+.image-step-control {
   position: absolute;
   left: -10em;
 }
 
-.image-step__control:checked ~ .image-step__img {
+.image-step-control:checked ~ .image-step-img {
   display: block;
 }
 
-.image-step__control:checked ~ .image-step__btn {
+.image-step-control:checked ~ .image-step-btn {
   background-color: var(--color-grey-dark);
 }
 
-.image-step__control:checked ~ .image-step__prev,
-.image-step__control:checked ~ .image-step__next {
+.image-step-control:checked ~ .image-step-prev,
+.image-step-control:checked ~ .image-step-next {
   display: block;
 }
 
-.image-step:nth-child(1) .image-step__btn {
+.image-step:nth-child(1) .image-step-btn {
   left: calc(48px + .4rem);
 }
 
-.image-step:nth-child(2) .image-step__btn {
+.image-step:nth-child(2) .image-step-btn {
   left: calc(48px + .4rem + (22px * 1));
 }
 
-.image-step:nth-child(3) .image-step__btn {
+.image-step:nth-child(3) .image-step-btn {
   left: calc(48px + .4rem + (22px * 2));
 }
 
-.image-step:nth-child(4) .image-step__btn {
+.image-step:nth-child(4) .image-step-btn {
   left: calc(48px + .4rem + (22px * 3));
 }
 
-.image-step:nth-child(5) .image-step__btn {
+.image-step:nth-child(5) .image-step-btn {
   left: calc(48px + .4rem + (22px * 4));
 }
 
-.image-step:nth-child(6) .image-step__btn {
+.image-step:nth-child(6) .image-step-btn {
   left: calc(48px + .4rem + (22px * 5));
 }
 
-.image-step:nth-child(7) .image-step__btn {
+.image-step:nth-child(7) .image-step-btn {
   left: calc(48px + .4rem + (22px * 6));
 }
 
-.image-step:nth-child(8) .image-step__btn {
+.image-step:nth-child(8) .image-step-btn {
   left: calc(48px + .4rem + (22px * 7));
 }
 
-.image-step:nth-child(9) .image-step__btn {
+.image-step:nth-child(9) .image-step-btn {
   left: calc(48px + .4rem + (22px * 8));
 }
 
@@ -333,7 +333,7 @@
   margin: 0;
 }
 
-.image-steps__label {
+.image-steps-label {
   display: block;
   margin-left: -.2em;
   padding: 0 .2em;
@@ -342,8 +342,8 @@
   cursor: pointer;
 }
 
-.image-steps__label:hover,
-.image-steps__label--active {
+.image-steps-label:hover,
+.image-steps-label-active {
   background-color: var(--color-code-darker);
 }
 
@@ -363,24 +363,24 @@
 
 @media only screen and (min-width: 38em) {
 
-  .lesson__body {
+  .lesson-body {
     border-bottom: 3px solid var(--color-grey-light);
   }
 
-  .lesson__body-text img {
+  .lesson-body-text img {
     width: calc(100vw - (100vw / 3));
   }
 
-  .lesson__body--final,
-  .lesson__body--last {
+  .lesson-body-final,
+  .lesson-body--last {
     border: 0;
   }
 
-  .lesson__notes {
+  .lesson-notes {
     padding-top: 4.1rem;
   }
 
-  .lesson__step-num {
+  .lesson-step-num {
     top: .25em;
   }
 

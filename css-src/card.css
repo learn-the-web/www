@@ -19,7 +19,7 @@
   text-decoration: none;
 }
 
-.card__num {
+.card-num {
   position: absolute;
   left: 50%;
   top: -16px;
@@ -29,31 +29,31 @@
   color: var(--color-brand);
 }
 
-.card__title {
+.card-title {
 
 }
 
-.card__btn {
+.card-btn {
   border-color: var(--color-brand-dark);
   color: var(--color-brand-dark);
   white-space: nowrap;
 }
 
-.card:hover .card__btn {
+.card:hover .card-btn {
   background-color: var(--color-brand);
   border-color: var(--color-brand);
 
   color: #fff;
 }
 
-.card--subtle {
+.card-subtle {
   background-color: var(--color-code-light);
   border-color: var(--color-code-darkest);
 
   color: var(--color-grey-dark);
 }
 
-.card--subtle .card__btn {
+.card-subtle .card-btn {
   border-color: var(--color-grey-dark);
   color: var(--color-grey-dark);
 }

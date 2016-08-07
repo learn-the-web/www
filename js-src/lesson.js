@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  var totalSteps = parseInt(document.querySelector('.lesson__step[data-total]').dataset.total, 10);
+  var totalSteps = parseInt(document.querySelector('.lesson-step[data-total]').dataset.total, 10);
 
   document.documentElement.addEventListener('keydown', function (e) {
     var
@@ -91,17 +91,17 @@
     imageStepsForm = document.querySelector('.image-steps-form'),
     startingActiveId,
     makeActive = function (id) {
-      document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps__label--active');
+      document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps-label-active');
     }
   ;
 
   if (!imageStepsForm) return;
 
-  startingActiveId = document.querySelector('.image-step__control:checked').id;
+  startingActiveId = document.querySelector('.image-step-control:checked').id;
   makeActive(startingActiveId);
 
   imageStepsForm.addEventListener('change', function (e) {
-    document.querySelector('.image-steps__label--active').classList.remove('image-steps__label--active');
+    document.querySelector('.image-steps-label-active').classList.remove('image-steps-label-active');
     makeActive(e.target.id);
   });
 }());
@@ -116,8 +116,8 @@
   'use strict';
 
   var
-    iframeVideo = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
-    iframePlaylist = '<iframe class="embed__item video-embed__item video-embed__item--loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
+    iframeVideo = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
+    iframePlaylist = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
     playBtn = document.querySelector('.play-btn')
   ;
 
@@ -144,12 +144,12 @@
     videoEmbed.classList.add('embed--16by9');
     videoEmbed.classList.remove('embed--3by1', 'embed--4by1', 'embed--5by1');
     videoEmbed.innerHTML = iframe;
-    embedItem = document.querySelector('.video-embed__item');
+    embedItem = document.querySelector('.video-embed-item');
     document.querySelector('h1').classList.add('is-playing');
     this.parentNode.removeChild(this);
 
     videoEmbed.addEventListener('transitionend', function () {
-      embedItem.classList.remove('video-embed__item--loading');
+      embedItem.classList.remove('video-embed-item-loading');
     });
   });
 

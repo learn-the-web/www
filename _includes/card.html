@@ -83,7 +83,7 @@
 
 <a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled"{% endif %}>
   {% if include.num %}
-    <i class="card__num icon i--32">
+    <i class="card-num icon i-32">
       <svg viewBox="0 0 256 256">
         <circle stroke-width="25" stroke="#fff" cx="128" cy="110" r="110" />
         <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{include.num}}</text>
@@ -91,17 +91,17 @@
     </i>
   {% endif %}
   <div class="text-center push-1-4">
-    <i class="icon i--24"><svg><use xlink:href="#icon-{{icon}}" /></svg></i>
+    <i class="icon i-24"><svg><use xlink:href="#icon-{{icon}}" /></svg></i>
     {% if include.data.pair %}
-      <i class="icon i--24"><svg><use xlink:href="#icon-pair" /></svg></i>
+      <i class="icon i-24"><svg><use xlink:href="#icon-pair" /></svg></i>
     {% endif %}
   </div>
-  <h3 class="card__title mega content-fill push-0 giga">{{include.data.title}}</h3>
+  <h3 class="card-title mega content-fill push-0 giga">{{include.data.title}}</h3>
   {% if include.data.submit != false %}
     <em class="micro push-1-4">{{submit}}</em>
   {% endif %}
-  <span class="card__btn btn btn--ghost content-shrink">
+  <span class="card-btn btn btn-ghost content-shrink">
     <span class="icon-label">{{button}}</span>
-    <i class="icon i--18"><svg><use xlink:href="#icon-right" /></svg></i>
+    <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
   </span>
 </a>
