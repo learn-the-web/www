@@ -1,5 +1,6 @@
 .btn {
   background-color: var(--color-brand);
+  border-color: var(--color-brand);
   transition: all 50ms linear;
 
   color: #000;
@@ -7,6 +8,8 @@
 
 .btn:hover {
   background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+
   color: #fff;
   text-decoration: none;
 }
