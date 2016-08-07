@@ -7,13 +7,16 @@
   text-align: center;
 }
 
-.footer a {
+.footer a,
+.footer .icon-link .icon-label {
   transition: all 50ms linear;
   border-color: rgba(0, 222, 175, .4); /* --color-brand */
+
   color: var(--color-brand);
 }
 
-.footer a:hover {
+.footer a:hover,
+.footer .icon-link:hover .icon-label {
   border-color: #fff;
   color: #fff;
 }

@@ -15,14 +15,20 @@ body {
   border-top: 4px solid var(--color-brand-dark);
 }
 
-a {
+svg {
+  stroke: currentColor;
+}
+
+a,
+.icon-link .icon-label {
   border-bottom: 0.1em solid rgba(68, 132, 194, .4);
 
   color: var(--color-link);
   text-decoration: none;
 }
 
-a:hover {
+a:hover,
+.icon-link:hover .icon-label {
   border-color: var(--color-link);
 }
 
@@ -100,6 +106,10 @@ hr {
 
 .text-disabled {
   color: var(--color-grey-dark);
+}
+
+.link-box-no-mark {
+  border-bottom: 0;
 }
 
 @media only screen and (min-width: 38em) {

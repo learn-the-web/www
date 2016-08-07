@@ -1,0 +1,20 @@
+---
+layout: basic-inside
+title: Web dev activities & quizzes
+desc: ""
+priority: 0.8
+head: |
+  <link href="/css/main-topics.min.css" rel="stylesheet">
+---
+
+{% include icons-topics.html %}
+
+{% for collection in site.collections %}
+  {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+  {% if collection.desc %}
+    {% assign link = false %}
+  {% else %}
+    {% assign link = true %}
+  {% endif %}
+  {% include activity-section.html number=forloop.index0 collection=collection link=link %}
+{% endfor %}

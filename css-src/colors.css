@@ -2,6 +2,7 @@
   --color-brand: #00deaf;
   --color-brand-dark: #00675a;
   --color-brand-light: #d1fff5;
+  --color-brand-lightest: #e6ffff;
 
   --color-grey: #a8a6af;
   --color-grey-dark: #63666a;
@@ -23,4 +24,20 @@
 
 .brand-dark {
   color: var(--color-brand-dark);
+}
+
+.section-lightest {
+  background-color: var(--color-brand-lightest);
+}
+
+.section-light {
+  background-color: var(--color-brand-light);
+}
+
+.section-muted {
+  background-color: var(--color-code);
+}
+
+.section-dark {
+  background-color: var(--color-code-darkest);
 }

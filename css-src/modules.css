@@ -26,18 +26,36 @@ body {
   margin: 0;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
   display: block;
 }
 
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
   vertical-align: baseline;
 }
 
 template {
   display: none;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
 img {
@@ -55,7 +73,11 @@ svg:not(:root) {
 
 svg {
   fill: currentColor;
-  stroke: currentColor;
+}
+
+svg.img-flex {
+  width: 100%;
+  height: 100%;
 }
 
 .image-replacement, .ir {
@@ -66,7 +88,7 @@ svg {
   white-space: nowrap;
 }
 
-.list-group {
+.list-group, .list-group-inline, .list-group--inline {
   padding-left: 0;
   list-style-type: none;
 }
@@ -75,26 +97,32 @@ svg {
   margin-left: 0;
 }
 
+.list-group-inline::before,
+.list-group-inline::after,
 .list-group--inline::before,
 .list-group--inline::after {
   content: "";
   display: table;
 }
 
+.list-group-inline::after,
 .list-group--inline::after {
   clear: both;
 }
 
+.list-group-inline > li,
 .list-group--inline > li {
   display: inline-block;
 }
 
+.list-group-inline > dt,
 .list-group--inline > dt {
   clear: left;
   float: left;
   width: 11em;
 }
 
+.list-group-inline > dd,
 .list-group--inline > dd {
   float: left;
   min-width: 12em;
@@ -108,56 +136,56 @@ svg {
   width: 100%;
 }
 
-.embed--1by1 {
+.embed-1by1, .embed--1by1 {
   padding-top: 100%; /* Square */
 }
 
-.embed--4by3 {
+.embed-4by3, .embed--4by3 {
   padding-top: 75%; /* Traditional TV/computer screens */
 }
 
-.embed--iso216 {
+.embed-iso216, .embed--iso216 {
   padding-top: 70.92%; /* A-standard paper sizes */
 }
 
-.embed--3by2 {
+.embed-3by2, .embed--3by2 {
   padding-top: 66.6%; /* Classic 35 mm film & most digital photos, landscape */
 }
 
-.embed--2by3 {
+.embed-2by3, .embed--2by3 {
   padding-top: 150%; /* Classic 35 mm film & most digital photos, portrait */
 }
 
-.embed--golden {
+.embed-golden, .embed--golden {
   padding-top: 61.8%; /* The Golden Ratio */
 }
 
-.embed--16by9 {
+.embed-16by9, .embed--16by9 {
   padding-top: 56.25%; /* HD TV */
 }
 
-.embed--185by100 {
+.embed-185by100, .embed--185by100 {
   padding-top: 54.05%; /* Common widescreen cinema */
 }
 
-.embed--24by10 {
-  padding-top: 41.667%; /* Widescreen cinema: 2.4:1 */;
+.embed-24by10, .embed--24by10 {
+  padding-top: 41.667%; /* Widescreen cinema: 2.4:1 */
 }
 
-.embed--3by1 {
+.embed-3by1, .embed--3by1 {
   padding-top: 33.3333%; /* Panorama photos */
 }
 
-.embed--4by1 {
+.embed-4by1, .embed--4by1 {
   padding-top: 25%; /* Polyvision */
 }
 
-.embed--5by1 {
+.embed-5by1, .embed--5by1 {
   padding-top: 20%; /* Really wide... */
 }
 
-.embed__item {
-  height: 100%;
+.embed-item, .embed__item {
+  min-height: 100%;
   left: 0;
   position: absolute;
   top: 0;
@@ -168,19 +196,19 @@ svg {
   overflow: hidden;
 }
 
-.media__img {
+.media-img, .media__img {
   float: left;
 }
 
-.media__img--reversed {
+.media-img-reversed, .media__img--reversed {
   float: right;
 }
 
-.media__img--stacked {
+.media-img-stacked, .media__img--stacked {
   float: none;
 }
 
-.media__body {
+.media-body, .media__body {
   overflow: hidden;
   min-width: 12em; /* Slightly less than 200px, responsiveness built in */
 }
@@ -193,32 +221,32 @@ svg {
   vertical-align: middle;
 }
 
-.i--16 {
+.i-16, .i--16 {
   height: 16px;
   width: 16px;
 }
 
-.i--18 {
+.i-18, .i--18 {
   height: 18px;
   width: 18px;
 }
 
-.i--24 {
+.i-24, .i--24 {
   height: 24px;
   width: 24px;
 }
 
-.i--32 {
+.i-32, .i--32 {
   height: 32px;
   width: 32px;
 }
 
-.i--48 {
+.i-48, .i--48 {
   height: 48px;
   width: 48px;
 }
 
-.i--64 {
+.i-64, .i--64 {
   height: 64px;
   width: 64px;
 }
@@ -288,12 +316,9 @@ svg {
   margin-right: auto;
 }
 
-.clearfix::before, .clearfix::after {
-  content: "";
-  display: table;
-}
-
 .clearfix::after {
+  content: " ";
+  display: block;
   clear: both;
 }
 
@@ -416,13 +441,13 @@ ol > li::before {
 }
 
 .list-group > li::before,
-.list-group-inline > li::before {
+.list-group-inline > li::before,
+.list-group--inline > li::before {
   content: none;
 }
 
 .link-box {
   display: block;
-  border: 0;
   text-decoration: none;
 }
 
@@ -432,42 +457,51 @@ ol > li::before {
   padding: 0.375em 0.75em 0.42em;
   background-color: #333;
   border-radius: 8px;
-  border: 0;
+  border: 3px solid #333;
   color: #fff;
   text-decoration: none;
 }
 
 .btn:hover {
   background-color: #000;
-  color: #fff;
-}
-
-.btn--light {
-  background-color: #e2e2e2;
-  color: #000;
-}
-
-.btn--light:hover {
-  background-color: #666;
-  color: #fff;
-}
-
-.btn--ghost {
-  background-color: transparent;
-  border: 3px solid #333;
-  color: #000;
-}
-
-.btn--ghost:hover {
   border-color: #000;
+  color: #fff;
+}
+
+.btn-light, .btn--light {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
+  color: #000;
+}
+
+.btn-light:hover, .btn--light:hover {
+  background-color: #666;
+  border-color: #666;
+  color: #fff;
+}
+
+.btn-ghost, .btn--ghost {
+  background-color: transparent;
+  border-color: #333;
+  color: #000;
+}
+
+.btn-ghost:hover, .btn--ghost:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: #000;
+  color: #000;
 }
 
 a:hover, a:active {
   outline: none;
 }
 
-a:focus, [tabindex="0"]:focus,
-input:focus, textarea:focus, button:focus, select:focus {
+a:focus,
+[tabindex="0"]:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
   outline: 3px solid #000;
 }
 
@@ -485,19 +519,23 @@ a:focus, [tabindex="0"]:focus {
   content: none; /* Remove the bullets if nice lists is selected */
 }
 
-.skip-links a {
+.skip-links a,
+.skip-links button {
   padding: 0.5em 0.75em;
   position: absolute;
   top: -10em;
   z-index: 10000; /* To make sure they're always on top */
   background-color: #000;
+  border: 0;
   color: #fff;
   font-size: 1.125rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-.skip-links a:focus {
+.skip-links a:focus,
+.skip-links button:focus {
+  outline-offset: 3px;
   top: 0;
 }
 
@@ -523,27 +561,31 @@ a:focus, [tabindex="0"]:focus {
    *     https://html5boilerplate.com/
    */
 
-  *, *:before, *:after, *:first-letter, *:first-line {
+  /* stylelint-disable declaration-no-important */
+
+  *, *::before, *::after, *::first-letter, *::first-line {
     background: none transparent !important;
     color: #000 !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
 
+  /* stylelint-enable */
+
   a, a:visited {
     text-decoration: underline;
   }
 
-  a[href]:after {
+  a[href]::after {
     content: " (" attr(href) ")";
   }
 
-  abbr[title]:after {
+  abbr[title]::after {
     content: " (" attr(title) ")";
   }
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
     content: "";
   }
 

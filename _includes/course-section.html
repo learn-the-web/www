@@ -2,18 +2,18 @@
   <div class="wrapper gutter-1-2">
     <div class="topic-wrap">
       <h2 class="topic-heading">
-        {% if link == true %}
-        <a class="link-box" href="{{include.data.url | replace: 'index.html', ''}}">
+        {% if include.link == true %}
+        <a class="link-box link-box-no-mark" href="{{include.data.url | replace: 'index.html', ''}}">
         {% endif %}
           <i class="icon i--48 push-1-4">
             <svg><use xlink:href="#icon-topic-{{include.number}}"/></svg>
           </i>
           <span class="mega topic-heading__text">{{include.data.title}}</span>
-        {% if link == true %}
+        {% if include.link == true %}
         </a>
         {% endif %}
       </h2>
-      {% if link == true %}
+      {% if include.link == true %}
       <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.data.title}}</a>
       {% else %}
       <strong class="exa text-disabled">{{include.data.title}}</strong>

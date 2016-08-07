@@ -1,0 +1,47 @@
+<section class="topic-section pad-t pad-b" tabindex="-1">
+  <div class="wrapper gutter-1-2">
+    <div class="topic-wrap">
+      <h2 class="topic-heading">
+        {% if include.link == true %}
+        <a class="link-box link-box-no-mark" href="{{include.data.url | replace: 'index.html', ''}}">
+        {% endif %}
+          <i class="icon i--48 push-1-4">
+            <svg><use xlink:href="#icon-topic-{{include.number}}"/></svg>
+          </i>
+          <span class="mega topic-heading__text">{{include.collection.title}}</span>
+        {% if include.link == true %}
+        </a>
+        {% endif %}
+      </h2>
+      <div class="push-1-2">
+        {% if include.link == true %}
+        <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.collection.title}}</a>
+        {% else %}
+        <strong class="exa text-disabled">{{include.collection.title}}</strong>
+        {% endif %}
+      </div>
+      {% assign count = 0 %}
+      <p class="push-1-2">Test your knowledge and skills with the {{include.collection.title}} activities, quizzes & games.</p>
+      <ol class="list-group-inline">
+        {% for week in include.collection.docs %}
+          {% if week.layout == "week" %}
+            {% for task in week.tasks %}
+              {% if task.type == "activity" %}
+                {% capture count %}{{count | plus:1 }}{% endcapture %}
+                <li class="push-r-1-2 push-1-4">
+                  <a class="link-box link-box-no-mark icon-link" href="{{task.url}}">
+                    <img class="icon i-32" src="{{task.url}}icon.svg" alt="">
+                    <span class="icon-label">{{task.title}}</span>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% if count == 0 %}
+          <li class="push-1-4 text-disabled"><em>Sorry, there aren’t any activities for this course yet.</em></li>
+        {% endif %}
+      </ol>
+    </div>
+  </div>
+</section>
