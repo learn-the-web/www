@@ -1,4 +1,4 @@
-version: 34
+version: 35
 
 permalink: pretty
 highlighter: none
@@ -21,6 +21,10 @@ exclude:
   - _web-dev-3/LICENSE
   - _web-dev-4/README.md
   - _web-dev-4/LICENSE
+  - _web-dev-5/README.md
+  - _web-dev-5/LICENSE
+  - _web-dev-6/README.md
+  - _web-dev-6/LICENSE
 
 data_dir: ./topics/_table-of-contents
 
