@@ -2,35 +2,43 @@
 {% assign submit_show = "Show Thomas for marks." %}
 {% assign submit_canvas = "Submit to Canvas for marks." %}
 
+{% assign button_pair = "Code together" %}
+{% assign button_lesson = "Follow lesson" %}
+{% assign button_activity = "Do activity" %}
+{% assign button_print = "Print & draw" %}
+{% assign button_materials = "See materials" %}
+{% assign button_online = "Submit online" %}
+{% assign button_code = "Write code" %}
+
 {% case include.data.type %}
   {% when "lesson" %}
     {% assign icon="steps" %}
     {% assign submit=submit_show %}
 
     {% if include.data.pair %}
-      {% assign button="Code together" %}
+      {% assign button=button_pair %}
     {% else %}
-      {% assign button="Follow lesson" %}
+      {% assign button=button_lesson %}
     {% endif %}
   {% when "activity" %}
     {% assign icon="victory" %}
     {% assign submit=submit_show %}
-    {% assign button="Do activity" %}
+    {% assign button=button_activity %}
   {% when "paper" %}
     {% assign icon="pencil" %}
     {% assign submit=submit_show %}
-    {% assign button="Print & draw" %}
+    {% assign button=button_print %}
   {% when "next" %}
     {% assign icon="infiniti" %}
-    {% assign button="See materials" %}
+    {% assign button=button_materials %}
   {% when "basic" %}
     {% assign icon="star" %}
     {% assign submit=submit_canvas %}
-    {% assign button="Submit online" %}
+    {% assign button=button_online %}
   {% else %}
     {% assign icon="code" %}
     {% assign submit=submit_code %}
-    {% assign button="Write code" %}
+    {% assign button=button_code %}
 {% endcase %}
 
 {% if include.data.url contains "/" %}
@@ -51,6 +59,28 @@
       {% assign submit=include.data.submit %}
   {% endcase %}
 {% endif %}
+
+{% if include.data.button %}
+  {% case include.data.button %}
+    {% when "pair" %}
+      {% assign button=button_pair %}
+    {% when "lesson" %}
+      {% assign button=button_lesson %}
+    {% when "activity" %}
+      {% assign button=button_activity %}
+    {% when "print" %}
+      {% assign button=button_print %}
+    {% when "materials" %}
+      {% assign button=button_materials %}
+    {% when "online" %}
+      {% assign button=button_online %}
+    {% when "code" %}
+      {% assign button=button_code %}
+    {% else %}
+      {% assign button=include.data.submit %}
+  {% endcase %}
+{% endif %}
+
 <a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled"{% endif %}>
   {% if include.num %}
     <i class="card__num icon i--32">
