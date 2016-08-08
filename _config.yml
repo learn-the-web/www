@@ -50,8 +50,10 @@ collections:
     permalink: /courses/web-dev-5/:path/
     title: "Web Dev 5"
   web-dev-6:
+    output: true
+    permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
-    desc: "No web projects are created by just one person—collaboration with other people is fundamental to successful websites. Teams of students organize and create large-scale websites using project management tools, version control systems, online messaging, and issue trackers."
+    disabled: true
 
 kramdown:
   input: GFM
