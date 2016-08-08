@@ -246,39 +246,55 @@
   background-color: var(--color-code-dark);
 }
 
-.topic-section-4 .topics {
-  background-image: inline("../images-embed/topics-vert-line-4.svg");
-}
-
-.topic-section-4 .topic-text::before {
-  background-image: inline("../images-embed/topics-circle-4.svg");
-}
-
 .topic-section-5,
 .topic-section-5 .topics::before,
 .topic-section-5 .topics::after {
-  background-color: var(--color-code-darker);
+  background-color: var(--color-code-dark-darker-mid);
 }
 
+.topic-section-4 .topics,
 .topic-section-5 .topics {
-  background-image: inline("../images-embed/topics-vert-line-5.svg");
+  background-image: inline("../images-embed/topics-vert-line-4.svg");
 }
 
+.topic-section-4 .topic-text::before,
 .topic-section-5 .topic-text::before {
-  background-image: inline("../images-embed/topics-circle-5.svg");
+  background-image: inline("../images-embed/topics-circle-4.svg");
 }
 
 .topic-section-6,
 .topic-section-6 .topics::before,
 .topic-section-6 .topics::after {
+  background-color: var(--color-code-darker);
+}
+
+.topic-section-7,
+.topic-section-7 .topics::before,
+.topic-section-7 .topics::after {
+  background-color: var(--color-code-darker-darkest-mid);
+}
+
+.topic-section-6 .topics,
+.topic-section-7 .topics {
+  background-image: inline("../images-embed/topics-vert-line-5.svg");
+}
+
+.topic-section-6 .topic-text::before,
+.topic-section-7 .topic-text::before {
+  background-image: inline("../images-embed/topics-circle-5.svg");
+}
+
+.topic-section-8,
+.topic-section-8 .topics::before,
+.topic-section-8 .topics::after {
   background-color: var(--color-code-darkest);
 }
 
-.topic-section-6 .topics {
+.topic-section-8 .topics {
   background-image: inline("../images-embed/topics-vert-line-6.svg");
 }
 
-.topic-section-6 .topic-text::before {
+.topic-section-8 .topic-text::before {
   background-image: inline("../images-embed/topics-circle-6.svg");
 }
 
@@ -307,17 +323,21 @@
 }
 
 .topic-section-4 .indent1,
-.topic-section-4 .indent2 {
+.topic-section-4 .indent2,
+.topic-section-5 .indent1,
+.topic-section-5 .indent2 {
   background-image: inline("../images-embed/topics-indent-line-4.svg");
 }
 
-.topic-section-5 .indent1,
-.topic-section-5 .indent2 {
+.topic-section-6 .indent1,
+.topic-section-6 .indent2,
+.topic-section-7 .indent1,
+.topic-section-7 .indent2 {
   background-image: inline("../images-embed/topics-indent-line-5.svg");
 }
 
-.topic-section-6 .indent1,
-.topic-section-6 .indent2 {
+.topic-section-8 .indent1,
+.topic-section-8 .indent2 {
   background-image: inline("../images-embed/topics-indent-line-6.svg");
 }
 

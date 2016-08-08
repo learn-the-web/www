@@ -46,8 +46,9 @@ collections:
     permalink: /courses/web-dev-4/:path/
     title: "Web Dev 4"
   web-dev-5:
+    output: true
+    permalink: /courses/web-dev-5/:path/
     title: "Web Dev 5"
-    desc: "Graphic designers are hired for their personality and their work quality. The first interaction potential employers have is through the designer’s online presence—most importantly a portfolio website. Leasing personal domains, configuring servers for email addresses, and peer reviews are some of the topics explored to launch a successful personal portfolio website."
   web-dev-6:
     title: "Web Dev 6"
     desc: "No web projects are created by just one person—collaboration with other people is fundamental to successful websites. Teams of students organize and create large-scale websites using project management tools, version control systems, online messaging, and issue trackers."
