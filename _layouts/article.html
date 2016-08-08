@@ -2,7 +2,23 @@
 layout: default
 ---
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
-{% assign groupdata = site.data[page.group] %}
+
+{% if site.data.setup contains slug %}
+  {% assign groupdata = site.data.setup %}
+{% elsif site.data.web-dev-1 contains slug %}
+  {% assign groupdata = site.data.web-dev-1 %}
+{% elsif site.data.web-dev-2 contains slug %}
+  {% assign groupdata = site.data.web-dev-2 %}
+{% elsif site.data.web-dev-3 contains slug %}
+  {% assign groupdata = site.data.web-dev-3 %}
+{% elsif site.data.web-dev-4 contains slug %}
+  {% assign groupdata = site.data.web-dev-4 %}
+{% elsif site.data.web-dev-5 contains slug %}
+  {% assign groupdata = site.data.web-dev-5 %}
+{% elsif site.data.web-dev-6 contains slug %}
+  {% assign groupdata = site.data.web-dev-6 %}
+{% endif %}
+
 {% assign details = groupdata[slug] %}
 
 {% include icons-article.html %}
