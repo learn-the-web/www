@@ -32,6 +32,12 @@ a:hover,
   border-color: var(--color-link);
 }
 
+.link-disabled {
+  pointer-events: none;
+
+  opacity: .5;
+}
+
 hr {
   border-color: var(--color-grey-light);
   border-width: 3px;

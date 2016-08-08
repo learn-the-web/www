@@ -11,10 +11,6 @@ head: |
 
 {% for collection in site.collections %}
   {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
-  {% if collection.desc %}
-    {% assign link = false %}
-  {% else %}
-    {% assign link = true %}
-  {% endif %}
-  {% include activity-section.html number=forloop.index0 collection=collection link=link is-last=forloop.last %}
+
+  {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last %}
 {% endfor %}

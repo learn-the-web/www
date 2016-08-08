@@ -11,12 +11,13 @@ head: |
 
 {% for collection in site.collections %}
   {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
-  {% if collection.desc %}
-    {% assign data = collection %}
+
+  {% if collection.disabled %}
     {% assign link = false %}
   {% else %}
-    {% assign data = collection.docs | where: "layout", "course" | first %}
     {% assign link = true %}
   {% endif %}
+
+  {% assign data = collection.docs | where: "layout", "course" | first %}
   {% include course-section.html number=forloop.index0 data=data link=link %}
 {% endfor %}
