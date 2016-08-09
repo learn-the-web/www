@@ -104,17 +104,8 @@ layout: course-inside
     <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4">Outside class</h2>
 
     <div class="class-desc content-fill gutter-1-4">
-      {% if page.hide_lab_hours != true %}
-        {% include lab-hours.html %}
-      {% endif %}
-
-      {% if page.hide_office_hours != true %}
-        {% include office-hours.html %}
-      {% endif %}
-
-      {% if page.hide_github_issues != true %}
-        {% include github-issues.html %}
-      {% endif %}
+      {% capture week_include %}week/{{page.collection}}.html{% endcapture %}
+      {% include {{week_include}} %}
     </div>
 
     <ul class="list-group grid grid-bottom">

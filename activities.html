@@ -9,8 +9,10 @@ head: |
 
 {% include icons-topics.html %}
 
-{% for collection in site.collections %}
-  {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+<div class="wrapper gutter-1-2 pad-t pad-b-1-2">
+  {% for collection in site.collections %}
+    {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
-  {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last %}
-{% endfor %}
+    {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last %}
+  {% endfor %}
+</div>

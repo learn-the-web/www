@@ -23,7 +23,7 @@
   {% include head.html %}
   {% if page.url == "/topics/" %}
   <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
-  {% elsif page.url contains "/topics/" %}
+  {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
   <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
   <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
@@ -77,7 +77,7 @@
   <script src="/js/common.min.js?v={{site.version}}" async></script>
   {% if page.url == "/topics/" %}
   <script src="/js/topics.min.js?v={{site.version}}" async></script>
-  {% elsif page.url contains "/topics/" %}
+  {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
   <script src="/js/article.min.js?v={{site.version}}" defer></script>
   <script>{% include source-code-pro-observer.min.js %}</script>
   <script>

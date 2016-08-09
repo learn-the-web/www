@@ -9,15 +9,17 @@ head: |
 
 {% include icons-topics.html %}
 
-{% for collection in site.collections %}
-  {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+<div class="wrapper gutter-1-2 pad-t pad-b-1-2">
+  {% for collection in site.collections %}
+    {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
-  {% if collection.disabled %}
-    {% assign link = false %}
-  {% else %}
-    {% assign link = true %}
-  {% endif %}
+    {% if collection.disabled %}
+      {% assign link = false %}
+    {% else %}
+      {% assign link = true %}
+    {% endif %}
 
-  {% assign data = collection.docs | where: "layout", "course" | first %}
-  {% include course-section.html number=forloop.index0 data=data link=link %}
-{% endfor %}
+    {% assign data = collection.docs | where: "layout", "course" | first %}
+    {% include course-section.html number=forloop.index0 data=data link=link %}
+  {% endfor %}
+</div>

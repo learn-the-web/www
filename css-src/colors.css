@@ -40,6 +40,10 @@
   background-color: var(--color-code);
 }
 
+.section-muted {
+  background-color: var(--color-code-light);
+}
+
 .section-dark {
   background-color: var(--color-code-darkest);
 }
