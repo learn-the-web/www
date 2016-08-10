@@ -20,7 +20,7 @@ layout: course-inside
             {% for link in page.video_tutorials %}
               <li>
                 {% if link.highlight %}<strong>{% endif %}
-                  <a href="/topics/{{link.url}}/">{{link.title}}</a>
+                  <a {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}>{{link.title}}</a>
                 {% if link.highlight %}</strong>{% endif %}
                 {% if link.notes %}
                   <span class="italic micro block text-disabled">({{link.notes}})</span>

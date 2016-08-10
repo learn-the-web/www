@@ -28,6 +28,10 @@
   color: var(--color-brand-dark);
 }
 
+.color-grey-dark {
+  color: var(--color-grey-dark);
+}
+
 .section-lightest {
   background-color: var(--color-brand-lightest);
 }
