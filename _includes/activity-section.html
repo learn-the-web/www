@@ -14,8 +14,8 @@
               {% if task.type == "activity" %}
                 {% capture count %}{{count | plus:1 }}{% endcapture %}
                 <li class="push-r-1-2 push-1-4">
-                  <a class="link-box link-box-no-mark icon-link" href="{{task.url}}">
-                    <img class="icon i-32" src="{{task.url}}icon.svg" alt="">
+                  <a class="link-box link-box-no-mark icon-link {% unless task.url %}link-disabled{% endunless %}" href="{{task.url}}">
+                    <img class="icon i-32" src="{% if task.url and task.url contains "activities.learn-the-web" %}{{task.url}}icon.svg{% else %}/images/activity-default.svg{% endif %}" alt="">
                     <span class="icon-label">{{task.title}}</span>
                   </a>
                 </li>
