@@ -13,6 +13,12 @@ head: |
   {% for collection in site.collections %}
     {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
-    {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last %}
+    {% if collection.disabled %}
+      {% assign link = false %}
+    {% else %}
+      {% assign link = true %}
+    {% endif %}
+
+    {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last link=link %}
   {% endfor %}
 </div>

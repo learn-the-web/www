@@ -3,14 +3,12 @@
     <div class="topic-wrap">
       <h2 class="topic-heading">
         {% if include.link == true %}
-        <a class="link-box link-box-no-mark" href="{{include.data.url | replace: 'index.html', ''}}">
+          <a class="link-box link-box-no-mark" href="{{include.data.url | replace: 'index.html', ''}}">
         {% endif %}
-          <i class="icon i-48 push-1-4">
-            <svg><use xlink:href="#icon-topic-{{include.number}}"/></svg>
-          </i>
+          <i class="icon i-48 push-1-4"><svg><use xlink:href="#icon-topic-{{include.number}}"/></svg></i>
           <span class="mega topic-heading-text">{{include.data.title}}</span>
         {% if include.link == true %}
-        </a>
+          </a>
         {% endif %}
       </h2>
       {% if include.link == true %}
