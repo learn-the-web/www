@@ -229,15 +229,6 @@
   text-decoration: none;
 }
 
-.controls {
-  position: relative;
-
-  text-align: center;
-}
-
-.controls .btn {
-  display: block;
-}
 
 .tutorial-footer {
   border-top: 3px solid var(--color-grey-light);
@@ -268,24 +259,6 @@
 
   .tutorial h1 {
     bottom: calc(100% + 1rem);
-  }
-
-  .controls .btn {
-    display: inline-block;
-  }
-
-  .controls-prev {
-    left: 0;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-  }
-
-  .controls-next {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 2;
   }
 
 }
