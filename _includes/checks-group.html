@@ -3,10 +3,14 @@
     {% if check.full or check.note %}
       <h2 class="mega push-0" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</h2>
       {% if check.full %}
-        <a class="block push" href="/topics/{{check.full}}/"><em>Full checklist for {{check.title}}</em></a>
+        <div class="block push">
+          <a href="/topics/{{check.full}}/"><em>Full checklist for {{check.title}}</em></a>
+        </div>
       {% endif %}
       {% if check.note %}
-        <em class="block push">{{check.note}}</em>
+        <div class="block push">
+          <em>{{check.note}}</em>
+        </div>
       {% endif %}
     {% else %}
       <h2 class="mega" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</h2>
