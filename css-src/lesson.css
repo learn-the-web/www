@@ -91,7 +91,7 @@
   position: absolute;
   top: 50%;
 
-  background-color: hsla(24, 20%, 50%, .2);
+  background-color: hsla(24, 20%, 50%, .15);
   border-radius: 4px;
   transform: translateY(-50%);
 
@@ -109,12 +109,12 @@
   border-bottom: 3px solid var(--color-code-darkest);
 }
 
-.lesson-notes--last,
-.lesson-notes--final {
+.lesson-notes-last,
+.lesson-notes-final {
   border: 0;
 }
 
-.lesson-notes--final {
+.lesson-notes-final {
   background-color: var(--color-grey);
 }
 
@@ -372,7 +372,7 @@
   }
 
   .lesson-body-final,
-  .lesson-body--last {
+  .lesson-body-last {
     border: 0;
   }
 
@@ -382,6 +382,10 @@
 
   .lesson-step-num {
     top: .25em;
+  }
+
+  .lesson-step-markbot {
+    top: .15em;
   }
 
   .video-container {

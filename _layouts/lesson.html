@@ -60,7 +60,7 @@ layout: course-inside
     {% assign step_count = forloop.index %}
     {% assign step_count_even = forloop.index | modulo:2 %}
     <section class="lesson-step grid grid-stretch" data-total="{{forloop.rindex | plus:1}}">
-      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last %}lesson-body--last{% endif %}">
+      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if page.hide_markbot %}lesson-body-last{% endif %}">
         <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}">
           <i class="lesson-step-num icon i-48">
             {% if page.pair %}
@@ -132,7 +132,7 @@ layout: course-inside
           <div class="mega gutter-1-4 lesson-body-text">{{step.after | markdownify}}</div>
         {% endif %}
       </div>
-      <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last %}lesson-notes--last{% endif %}">
+      <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if page.hide_markbot %}lesson-notes-last{% endif %}">
         {% if step.notes or step.lines %}
           <ol class="lesson-note-list list-group">
             {% for note in step.notes %}
@@ -154,37 +154,71 @@ layout: course-inside
       </div>
     </section>
     {% if forloop.last %}
-      {% if page.hide_show_for_marks %}
-      {% else %}
-        <aside class="lesson-step lesson-step--final grid grid-stretch">
+
+      {% unless page.hide_markbot %}
+        <section class="lesson-step grid grid-stretch">
+          <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last">
+            <h2 class="lesson-title zetta push-1-4">
+              <i class="lesson-step-num lesson-step-markbot icon i-48">
+                <svg viewBox="0 0 256 256">
+                  <defs>
+                    <clipPath id="a">
+                      <path fill="none" d="M50.6 205.4l-32-77.4 32-77.4 77.4-32 77.4 32 32 77.4-32 77.4-77.4 32-77.4-32z"/>
+                    </clipPath>
+                  </defs>
+                  <path d="M40 216L3.8 128 40 40l88-36.3L216 40l36.3 88-36.4 88-88 36.3L40 216"/>
+                  <g fill="#fff" clip-path="url(#a)">
+                    <path d="M199 195.2a12.2 12.2 0 0 0-12.2-12.2H61.2A12.2 12.2 0 0 0 49 195.2v78.6A12.2 12.2 0 0 0 61.2 286h125.6a12.2 12.2 0 0 0 12.2-12.2zM59.4 141C48 141 41 136.5 41 126V84c0-2 2-3.4 4-3.4s4 1.5 4 3.3v42c0 7 3.4 8 10.8 8a3.3 3.3 0 0 1 3.4 3.3 3.7 3.7 0 0 1-3.8 3.4zm6.3-18h7v28.7h-7z"/>
+                    <path d="M58.7 126h7v22.7h-7zm138 15c11.2 0 18.3-4.4 18.3-15V84c0-2-2-3.4-4-3.4s-4 1.5-4 3.3v42c0 7-3.4 8-10.8 8a3.3 3.3 0 0 0-3.4 3.3 3.7 3.7 0 0 0 3.8 3.4zm-6.4 10.7h-7V123h7z"/>
+                    <path d="M197.3 148.7h-7V126h7zM176.5 96H79.3c-3.6 0-6.3 5.5-6.3 9v65c0 3.6 2.7 5.2 6.3 5.2h97.2c3.6 0 6.5-2 6.5-5.6V105c0-3.7-3-8.8-6.5-8.8zm-90 30a15.3 15.3 0 1 1 15.3 15.4A15.3 15.3 0 0 1 86.5 126zm73.5 41H96v-7h64zm-6-25.6a15.3 15.3 0 1 1 15.3-15.3 15.3 15.3 0 0 1-15.3 15.6z"/>
+                  </g>
+                </svg>
+              </i>
+              Drop it in Markbot
+            </h2>
+            <div class="mega lesson-body-text">
+              <p>Drop the final, coded exercise into Markbot and fix all the errors until Markbot gives you all green.</p>
+              <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
+            </div>
+          </div>
+          <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-last">
+            <ol class="lesson-note-list list-group">
+              <li class="lesson-note">
+                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Can’t submit</h3>
+                <div class="gutter-1-2 italic">Markbot won’t let your submit this exercise because it’s to be checked by the teacher.</div>
+              </li>
+            </ol>
+          </div>
+        </section>
+      {% endunless %}
+
+      {% unless page.hide_show_for_marks %}
+        <aside class="lesson-step lesson-step-final grid grid-stretch">
           <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
             <h2 class="lesson-title zetta push-1-4">
               <i class="lesson-step-num icon i-48">
-                {% if page.pair %}
-                  <svg><use xlink:href="#icon-two-people" /></svg>
-                {% else %}
-                  <svg viewBox="0 0 256 256">
-                    <circle cx="128" cy="110" r="110" />
-                    <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{forloop.index | plus:1}}</text>
-                  </svg>
-                {% endif %}
+                <svg viewBox="0 0 256 256">
+                  <circle cx="128" cy="110" r="110" />
+                  <path fill="#fff" transform="scale(.7) translate(40, 24)" d="M95 164.8c6-12.5 13-26 21.2-41s17.5-29.8 28-44.6c10.3-14.8 18-24.6 22.6-29.5 4.8-4.8 8.8-8.7 12-11.5 3.4-2.8 9.2-5 17.6-6.2 8.4-1.3 14.7-2 19-2 3 0 5.3 1 7 2.6 2 1.8 2.8 4 2.8 7 0 2-.5 4-1.6 5.6-1 1.6-3.3 4-6.6 7-16 14.8-32.7 35.8-50 63-17.4 27.4-31.2 53.8-41.4 79.4-4.8 11.7-8 18.6-9.3 20.6-1.4 2-3.5 4-6.4 5.7-3 1.7-8.8 2.5-17.7 2.5-7 0-11.5-.4-13.4-1.3s-3.6-1.8-4.6-2.7c-1-1-4-5.2-9-12.7-5-8-12.6-17.2-22.3-28-5.5-6.2-8.3-11.4-8.3-15.5 0-6 3.2-11.3 9.6-15.8 6.4-4.5 12-6.7 17-6.7 5.3 0 11 2.2 17 6.5 6.3 4.4 11.8 10.2 16.7 17.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </i>
               Show teacher for marks
             </h2>
             <div class="mega lesson-body-text">
-              <p>Be sure to call Thomas over and show him that you’ve completed all these steps to get your mark.</p>
+              <p>Be sure to call the teacher over and show them that you’ve completed all these steps to get your mark.</p>
             </div>
           </div>
-          <div class="lesson-notes lesson-notes--final unit [ xs-1 m-1-3 ]">
+          <div class="lesson-notes lesson-notes-final unit [ xs-1 m-1-3 ]">
             <ol class="lesson-note-list list-group">
               <li class="lesson-note">
-                <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2">Red Post-It</h3>
+                <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2">Red sticky note</h3>
                 <div class="gutter-1-2 italic">This is a good use of your red sticky note.</div>
               </li>
             </ol>
           </div>
         </aside>
-      {% endif %}
+      {% endunless %}
+
     {% endif %}
   {% endfor %}
 
