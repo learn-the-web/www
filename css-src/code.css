@@ -8,14 +8,14 @@ kbd {
   background-color: var(--color-code);
 
   font-size: 90%;
-  font-family: Menlo,Consolas,monospace;
+  font-family: Menlo, Consolas, monospace;
 }
 
 .source-code-pro-loaded code,
 .source-code-pro-loaded pre,
 .source-code-pro-loaded samp,
 .source-code-pro-loaded kbd {
-  font-family: "Source Code Pro",Menlo,Consolas,monospace;
+  font-family: "Source Code Pro", Menlo, Consolas, monospace;
 }
 
 code[class*="language-"],
