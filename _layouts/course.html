@@ -78,6 +78,54 @@ layout: basic-inside
 
 </div>
 
+{% unless page.hide-marking-scheme %}
+  {% assign total_exercises=0 %}
+  {% assign total_projects=0 %}
+  {% assign found_projects="" %}
+
+  {% for doc in page_data.docs %}
+    {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+    {% for exercise in doc.tasks %}
+      {% if exercise.graded-as %}
+        {% unless found_projects contains exercise.graded-as %}
+          {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+          {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+        {% endunless %}
+      {% else %}
+        {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+        {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign total_exercises_float = total_exercises | times: 1.0 %}
+  {% assign total_projects_float = total_projects | times: 1.0 %}
+
+  <div class="section-muted pad-t pad-b gutter-1-4">
+    <div class="wrapper">
+      <h2 class="gutter-1-4 exa">Marking scheme</h2>
+      <div class="grid">
+        <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
+          <h3 class="push-0">Activies & exercises — {{page.grades.exercises}}%</h3>
+          <p class="mega"><em>{{total_exercises}} exercises @ {{page.grades.exercises | divided_by: total_exercises_float | round: 1}}% each.</em></p>
+          <ul class="push-0">
+            <li>Pass/fail — marked in class or automated.</li>
+            <li>Personal feedback given at specific intervals.</li>
+          </ul>
+        </div>
+        <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
+          <h3 class="push-0">Big project — {{page.grades.projects}}%</h3>
+          <p class="mega"><em>{{total_projects}} milestones @ {{page.grades.projects | divided_by: total_projects_float | round: 1}}% each.</em></p>
+          <ul class="push-0">
+            <li>Letter grade.</li>
+            <li>Proof you learned everything.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endunless %}
+
 {% capture id %}{{page.collection | replace: "web-dev-", ""}}{% endcapture %}
 {% unless id == "6" %}
   {% capture next %}{{id | plus: 1}}{% endcapture %}
@@ -91,7 +139,7 @@ layout: basic-inside
   {% assign prev=false %}
 {% endunless %}
 
-<div class="section-muted pad-t pad-b">
+<div class="section-muted-medium pad-t pad-b">
   <div class="wrapper gutter-1-2">
   <ul class="list-group controls push-0">
     {% if prev %}

@@ -44,6 +44,10 @@ hr {
   border-width: 3px;
 }
 
+.hr-medium {
+  border-color: var(--color-code-darker);
+}
+
 .hr-full {
   left: -50vw;
   position: relative;

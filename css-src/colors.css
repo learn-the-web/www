@@ -44,8 +44,8 @@
   background-color: var(--color-code);
 }
 
-.section-muted {
-  background-color: var(--color-code-light);
+.section-muted-medium {
+  background-color: var(--color-code-dark);
 }
 
 .section-dark {
