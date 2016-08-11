@@ -95,6 +95,22 @@ layout: course-inside
             <iframe class="embed-item" src="https://www.youtube.com/embed/{{step.video}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>
           </div>
         {% endif %}
+        {% if step.folders %}
+          <div class="mega gutter-1-4 lesson-body-text">
+            <ol class="list-group folders pad-t-1-2 pad-b-1-2 milli">
+              {% for file in step.folders %}
+                {% assign file_folder="file" %}
+                {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
+                <li>
+                  <div class="{% if file.indent %}folder-indent-{{file.indent}}{% endif %}">
+                    <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                    <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
+                  </div>
+                </li>
+              {% endfor %}
+            </ol>
+          </div>
+        {% endif %}
         {% if step.code %}
           <div class="mega lesson-body-code">
             <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" data-line-fade="{% for line in step.lines %}{% if line.fade %}{{line.num}},{% endif %}{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
