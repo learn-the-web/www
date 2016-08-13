@@ -1,0 +1,16 @@
+{% assign collection = site.collections | where: "label", page.course | first %}
+[
+  {% for doc in collection.docs %}
+    {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+    {% for exercise in doc.tasks %}
+      {% if exercise.graded-as == false or exercise.graded-as or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% if exercise.type == "lesson" or exercise.type == "activity" or exercise.type == "basic" %}{% continue %}{% endif %}
+      {% if exercise.no-solution %}{% continue %}{% endif %}
+      {% unless exercise.url contains "github.com" %}{% continue %}{% endunless %}
+      {
+        "title": "{{exercise.title}}",
+        "slug": "{{exercise.url | split: '/' | last}}"
+      },
+    {% endfor %}
+  {% endfor %}
+]
