@@ -108,7 +108,7 @@ next_week:
 
 no_activities:
   title: ""
-  submit: "No activities this week."
+  submit: "No activities or quizzes this week."
   type: activity
   card_class: "card-placeholder"
   no_button: true
