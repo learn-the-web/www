@@ -91,6 +91,12 @@ hr {
   text-align: center;
 }
 
+.top-nav a:active,
+.top-nav a:focus {
+  position: relative;
+  z-index: 10;
+}
+
 .i-20 {
   height: 20px;
   width: 20px;
