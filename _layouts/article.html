@@ -17,6 +17,8 @@ layout: default
   {% assign groupdata = site.data.web-dev-5 %}
 {% elsif site.data.web-dev-6 contains slug %}
   {% assign groupdata = site.data.web-dev-6 %}
+{% elsif site.data.whats-next contains slug %}
+  {% assign groupdata = site.data.whats-next %}
 {% endif %}
 
 {% assign details = groupdata[slug] %}
