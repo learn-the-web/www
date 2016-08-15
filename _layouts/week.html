@@ -110,6 +110,10 @@ layout: course-inside
     <div class="class-desc content-fill gutter-1-4">
       {% capture week_include %}week/{{page.collection}}.html{% endcapture %}
       {% include {{week_include}} %}
+      <a href="/get-help/" class="btn btn-muted italic">
+        <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-help" /></svg></i>
+        <span class="icon-label">I need more help!</span>
+      </a>
     </div>
 
     <ul class="list-group grid grid-bottom">
