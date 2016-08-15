@@ -100,7 +100,7 @@
   {% if include.data.submit != false %}
     <em class="micro push-1-4">{{submit}}</em>
   {% endif %}
-  <span class="card-btn btn btn-ghost content-shrink">
+  <span class="card-btn btn btn-ghost content-shrink {% if include.data.no_button %}card-btn-invisible{% endif %}">
     <span class="icon-label">{{button}}</span>
     <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
   </span>

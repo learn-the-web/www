@@ -1,4 +1,4 @@
-version: 40
+version: 41
 
 permalink: pretty
 highlighter: none
@@ -105,3 +105,24 @@ next_week:
   submit: "Get a jump on things."
   type: next
   card_class: "card-subtle"
+
+no_activities:
+  title: ""
+  submit: "No activities this week."
+  type: activity
+  card_class: "card-placeholder"
+  no_button: true
+
+no_lessons:
+  title: ""
+  submit: "No lessons this week."
+  type: lesson
+  card_class: "card-placeholder"
+  no_button: true
+
+no_exercises:
+  title: ""
+  submit: "No coding exercises this week."
+  type: code
+  card_class: "card-placeholder"
+  no_button: true

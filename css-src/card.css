@@ -39,6 +39,10 @@
   white-space: nowrap;
 }
 
+.card-btn-invisible {
+  visibility: hidden;
+}
+
 .card:hover .card-btn {
   background-color: var(--color-brand);
   border-color: var(--color-brand);
@@ -56,4 +60,9 @@
 .card-subtle .card-btn {
   border-color: var(--color-grey-dark);
   color: var(--color-grey-dark);
+}
+
+.card-placeholder {
+  border-color: var(--color-grey-medium);
+  color: var(--color-grey);
 }
