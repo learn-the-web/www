@@ -143,7 +143,12 @@ layout: course-inside
             {% assign card_num=card_num | plus:1 %}
             {% include card.html data=data collection=page.collection num=card_num %}
           {% else %}
-            {% capture next_url %}week-{{number | plus:1}}{% endcapture %}
+            {% assign next_url=number | plus:1 %}
+            {% if next_url < 9 %}
+              {% capture next_url %}week-0{{next_url}}{% endcapture %}
+            {% else %}
+              {% capture next_url %}week-{{next_url}}{% endcapture %}
+            {% endif %}
             {% include card.html data=site.next_week collection=page.collection url=next_url %}
           {% endif %}
         {% endif %}
