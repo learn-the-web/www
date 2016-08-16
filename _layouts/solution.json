@@ -8,6 +8,7 @@
       {% if exercise.no-solution %}{% continue %}{% endif %}
       {% unless exercise.url contains "github.com" %}{% continue %}{% endunless %}
       {
+        "week": "{{doc.url}}",
         "title": "{{exercise.title}}",
         "slug": "{{exercise.url | split: '/' | last}}"
       },
