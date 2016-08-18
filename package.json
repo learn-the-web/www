@@ -42,7 +42,9 @@
     "build-js": "parallelshell 'npm run build-js-common' 'npm run build-js-topics' 'npm run build-js-article' 'npm run build-js-course' 'npm run build-js-slide-deck' 'npm run build-js-lesson' 'npm run build-js-font-source-code' 'npm run build-js-font-alegreya'",
     "watch-js": "onchange 'js-src/*.js' -- npm run build-js",
     "build": "npm run build-css && npm run build-js && npm run build-site",
-    "deploy": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",
+    "deploy-site": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",
+    "deploy-solutions": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/solutions/ thomasjbradley_acltwsolutions@nfsn:/fs8c/acltwsolutions/protected/includes",
+    "deploy": "npm run deploy-site && npm run deploy-solutions",
     "build-n-deploy": "npm run build && npm run deploy"
   }
 }
