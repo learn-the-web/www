@@ -26,26 +26,63 @@
       {% capture next_link %}{% if next_size == "1" %}0{% endif %}{{next}}{% endcapture %}
       {% capture max_weeks %}{{site.max_weeks | plus:1}}{% endcapture %}
       <nav class="masthead-next unit [ xs-1 l-2-5 ]">
-        <a class="btn btn-ghost micro" {% if prev != "0" %}href="/courses/{{page.collection}}/week-{{prev_link}}/"{% else %}data-state="disabled"{% endif %}>
-          <i class="icon i-18"><svg><use xlink:href="#icon-left" /></svg></i>
-          <span class="icon-label">Previous</span>
-        </a>
-        <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
-          <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
-          <span class="icon-label">{{page_data.title}}</span>
-        </a>
-        <a class="btn btn-ghost micro" {% if next != max_weeks %}href="/courses/{{page.collection}}/week-{{next_link}}/"{% else %}data-state="disabled"{% endif %}>
-          <span class="icon-label">Next</span>
-          <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
-        </a>
+        <ul class="list-group-inline push-0">
+          <li>
+            <a class="btn btn-ghost micro" {% if prev != "0" %}href="/courses/{{page.collection}}/week-{{prev_link}}/"{% else %}data-state="disabled"{% endif %}>
+              <i class="icon i-18"><svg><use xlink:href="#icon-left" /></svg></i>
+              <span class="icon-label">Previous</span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
+              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+              <span class="icon-label">{{page_data.title}}</span>
+            </a>
+          </li>
+          <li>
+            <a class="btn btn-ghost micro" {% if next != max_weeks %}href="/courses/{{page.collection}}/week-{{next_link}}/"{% else %}data-state="disabled"{% endif %}>
+              <span class="icon-label">Next</span>
+              <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
+            </a>
+          </li>
+        </ul>
       </nav>
     {% endif %}
     {% if page.layout == "lesson" %}
+      {% assign page_data = site.collections | where: "label", page.collection | first %}
+      {% assign count = 0 %}
+      {% assign lesson_week = 0 %}
+      {% for week in page_data.docs %}
+        {% if week.layout == "week" %}
+          {% capture count %}{{count | plus:1 }}{% endcapture %}
+          {% for task in week.tasks %}
+            {% if task.url contains page.slug %}
+              {% assign lesson_week = count %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
       <nav class="masthead-next unit [ xs-1 l-2-5 ]">
-        <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
-          <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
-          <span class="icon-label">{{page_data.title}}</span>
-        </a>
+        <ol class="list-group-inline push-0">
+          <li>
+            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
+              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+              <span class="icon-label">{{page_data.title}}</span>
+            </a>
+          </li>
+          <li>
+            {% capture lesson_week_size %}{{lesson_week | size}}{% endcapture %}
+            {% if lesson_week_size == "1" %}
+              {% capture lesson_week_padded %}0{{lesson_week}}{% endcapture %}
+            {% else %}
+              {% assign lesson_week_padded = lesson_week %}
+            {% endif %}
+            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/week-{{lesson_week_padded}}/">
+              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
+              <span class="icon-label">Week {{lesson_week_padded}}</span>
+            </a>
+          </li>
+        </ol>
       </nav>
     {% endif %}
   </div>
