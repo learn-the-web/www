@@ -54,6 +54,14 @@ hr {
   width: 150vw;
 }
 
+table {
+  table-layout: fixed;
+}
+
+td, th {
+  border-color: var(--color-grey-medium);
+}
+
 [data-state="disabled"] {
   cursor: no-drop;
   opacity: .6;

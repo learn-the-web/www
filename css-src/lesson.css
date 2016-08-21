@@ -104,6 +104,10 @@
   content: "Code completed earlier in this lesson…";
 }
 
+.lesson-video {
+  background-color: var(--color-code-darker);
+}
+
 .lesson-notes {
   background-color: var(--color-code-darker);
   border-bottom: 3px solid var(--color-code-darkest);
@@ -193,11 +197,36 @@
   padding-top: 20%;
 }
 
+.lesson-video {
+  background-color: var(--color-brand-dark-lightened);
+}
+
+.lesson-notes-video {
+  padding: 0;
+
+  background-color: var(--color-brand-dark-lightened);
+  border: 0;
+
+  color: #fff;
+}
+
+.lesson-body-table {
+  padding-left: calc(48px + .4rem);
+}
+
+.lesson-body-table table :last-child {
+  margin-bottom: 0;
+}
+
 .extra-tutorials {
   background-color: var(--color-brand-dark);
   border-bottom: 0;
 
   color: #fff;
+}
+
+.extra-tutorials-sidebar {
+  background-color: var(--color-brand-dark-lightened);
 }
 
 .extra-tutorials .lesson-body {
@@ -423,6 +452,10 @@
 
   .video-container {
     border: 0;
+  }
+
+  .lesson-notes-video {
+    padding: 0;
   }
 
   .extra-tutorials {
