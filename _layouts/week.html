@@ -29,6 +29,9 @@ layout: course-inside
                 {% if link.notes %}
                   <span class="italic micro block text-disabled">({{link.notes}})</span>
                 {% endif %}
+                {% if link.videos %}
+                  <span class="color-grey week-video-checked" title="These videos will be checked." aria-label="These videos will be checked.">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i></span>
+                {% endif %}
               </li>
             {% endfor %}
             </ul>

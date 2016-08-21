@@ -139,6 +139,10 @@ hr {
   border-bottom: 0;
 }
 
+.week-video-checked {
+  cursor: help;
+}
+
 @media only screen and (min-width: 38em) {
 
   .top-nav {

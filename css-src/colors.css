@@ -28,6 +28,10 @@
   color: var(--color-brand-dark);
 }
 
+.color-grey {
+  color: var(--color-grey);
+}
+
 .color-grey-dark {
   color: var(--color-grey-dark);
 }
