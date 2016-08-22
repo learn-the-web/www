@@ -48,8 +48,8 @@
         </ul>
       </nav>
     {% endif %}
+
     {% if page.layout == "lesson" %}
-      {% assign page_data = site.collections | where: "label", page.collection | first %}
       {% assign count = 0 %}
       {% assign lesson_week = 0 %}
       {% for week in page_data.docs %}
@@ -62,6 +62,14 @@
           {% endfor %}
         {% endif %}
       {% endfor %}
+
+      {% capture lesson_week_size %}{{lesson_week | size}}{% endcapture %}
+      {% if lesson_week_size == "1" %}
+        {% capture lesson_week_padded %}0{{lesson_week}}{% endcapture %}
+      {% else %}
+        {% assign lesson_week_padded = lesson_week %}
+      {% endif %}
+
       <nav class="masthead-next unit [ xs-1 l-2-5 ]">
         <ol class="list-group-inline push-0">
           <li>
@@ -71,12 +79,6 @@
             </a>
           </li>
           <li>
-            {% capture lesson_week_size %}{{lesson_week | size}}{% endcapture %}
-            {% if lesson_week_size == "1" %}
-              {% capture lesson_week_padded %}0{{lesson_week}}{% endcapture %}
-            {% else %}
-              {% assign lesson_week_padded = lesson_week %}
-            {% endif %}
             <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/week-{{lesson_week_padded}}/">
               <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
               <span class="icon-label">Week {{lesson_week_padded}}</span>

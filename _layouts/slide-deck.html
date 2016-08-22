@@ -11,6 +11,25 @@
 {% include icons.html %}
 
 <main class="main-fill grid grid-stretch">
+  {% assign count = 0 %}
+  {% assign slide_week = 0 %}
+  {% for week in page_data.docs %}
+    {% if week.layout == "week" %}
+      {% capture count %}{{count | plus:1 }}{% endcapture %}
+      {% for slide in week.slides %}
+        {% if slide.url contains page.slug %}
+          {% assign slide_week = count %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% capture slide_week_size %}{{slide_week | size}}{% endcapture %}
+  {% if slide_week_size == "1" %}
+    {% capture slide_week_padded %}0{{slide_week}}{% endcapture %}
+  {% else %}
+    {% assign slide_week_padded = slide_week %}
+  {% endif %}
 
   {% for slide in page.slides %}
     {% if slide.type %}
@@ -38,6 +57,12 @@
             <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
               <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
               <span class="icon-label">{{page_data.title}}</span>
+            </a>
+          </li>
+          <li class="text-right gutter-1-4">
+            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/week-{{slide_week_padded}}/">
+              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
+              <span class="icon-label">Week {{slide_week_padded}}</span>
             </a>
           </li>
         </ul>
