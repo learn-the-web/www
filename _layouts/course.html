@@ -80,11 +80,17 @@ layout: basic-inside
 
 {% unless page.hide-marking-scheme %}
   {% assign total_exercises=0 %}
+  {% assign total_videos=0 %}
   {% assign total_projects=0 %}
   {% assign found_projects="" %}
 
   {% for doc in page_data.docs %}
     {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+    {% for tut in doc.video_tutorials %}
+      {% if tut.videos %}
+        {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+      {% endif %}
+    {% endfor %}
     {% for exercise in doc.tasks %}
       {% if exercise.graded-as %}
         {% unless found_projects contains exercise.graded-as %}
@@ -99,21 +105,30 @@ layout: basic-inside
   {% endfor %}
 
   {% assign total_exercises_float = total_exercises | times: 1.0 %}
+  {% assign total_videos_float = total_videos | times: 1.0 %}
   {% assign total_projects_float = total_projects | times: 1.0 %}
 
   <div class="section-muted pad-t pad-b gutter-1-4" id="marking-scheme">
     <div class="wrapper">
       <h2 class="gutter-1-4 exa">Marking scheme</h2>
       <div class="grid">
-        <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
-          <h3 class="push-0">Activies & exercises — {{page.grades.exercises}}%</h3>
+        <div class="unit [ xs-1 m-1-3 ] gutter-1-4">
+          <h3 class="push-0">Activities — {{page.grades.exercises}}%</h3>
           <p class="mega"><em>{{total_exercises}} exercises @ {{page.grades.exercises | divided_by: total_exercises_float | round: 1}}% each.</em></p>
           <ul class="push-0">
             <li>Pass/fail — marked in class or automated.</li>
             <li>Personal feedback given at specific intervals.</li>
           </ul>
         </div>
-        <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
+        <div class="unit [ xs-1 m-1-3 ] gutter-1-4">
+          <h3 class="push-0">Videos — {{page.grades.videos}}%</h3>
+          <p class="mega"><em>{{total_videos}} video playlists @ {{page.grades.videos | divided_by: total_videos_float | round: 1}}% each.</em></p>
+          <ul class="push-0">
+            <li>Pass/fail — checked in lab time.</li>
+            <li>Must reach 75% of playlist duration to receive pass.</li>
+          </ul>
+        </div>
+        <div class="unit [ xs-1 m-1-4 ] gutter-1-4">
           <h3 class="push-0">Big project — {{page.grades.projects}}%</h3>
           <p class="mega"><em>{{total_projects}} milestones @ {{page.grades.projects | divided_by: total_projects_float | round: 1}}% each.</em></p>
           <ul class="push-0">
