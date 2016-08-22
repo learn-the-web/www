@@ -13,30 +13,32 @@ layout: course-inside
       <p>{{page.desc}}</p>
 
       <div class="grid">
-        {% if page.video_tutorials %}
-          <div class="unit [ xs-1 m-1-2 ]">
-            <h3 class="mega push-0">Videos & tutorials</h3>
-            <ul class="list-group milli">
-            {% for link in page.video_tutorials %}
-              <li>
-                {% if link.highlight %}<strong>{% endif %}
-                  {% if link.url contains "http://" or link.url contains "https://" %}
-                    <a href="{{link.url}}">{{link.title}}</a>
-                  {% else %}
-                    <a {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}>{{link.title}}</a>
+        <div class="unit [ xs-1 m-1-2 ]">
+          <h3 class="mega push-0">Videos & tutorials</h3>
+          <ul class="list-group milli">
+            {% if page.video_tutorials %}
+              {% for link in page.video_tutorials %}
+                <li>
+                  {% if link.highlight %}<strong>{% endif %}
+                    {% if link.url contains "http://" or link.url contains "https://" %}
+                      <a href="{{link.url}}">{{link.title}}</a>
+                    {% else %}
+                      <a {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}>{{link.title}}</a>
+                    {% endif %}
+                  {% if link.highlight %}</strong>{% endif %}
+                  {% if link.videos %}
+                    <span class="color-grey week-video-checked" title="These videos will be checked." aria-label="These videos will be checked.">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i></span>
                   {% endif %}
-                {% if link.highlight %}</strong>{% endif %}
-                {% if link.videos %}
-                  <span class="color-grey week-video-checked" title="These videos will be checked." aria-label="These videos will be checked.">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i></span>
-                {% endif %}
-                {% if link.notes %}
-                  <span class="italic micro block text-disabled">({{link.notes}})</span>
-                {% endif %}
-              </li>
-            {% endfor %}
-            </ul>
-          </div>
-        {% endif %}
+                  {% if link.notes %}
+                    <span class="italic micro block text-disabled">({{link.notes}})</span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            {% else %}
+              <li><span class="italic micro block text-disabled">(Not videos or tutorials to learn this week.)</span></li>
+            {% endif %}
+          </ul>
+        </div>
         <div class="unit [ xs-1 m-1-2 ]">
           {% if page.slides %}
             <h3 class="mega push-0">Slides</h3>
