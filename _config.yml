@@ -1,4 +1,4 @@
-version: 45
+version: 46
 
 permalink: pretty
 highlighter: none
@@ -12,6 +12,7 @@ exclude:
   - node_modules
   - css-src
   - js-src
+  - vendor
   - images-embed
   - _web-dev-1/README.md
   - _web-dev-1/LICENSE

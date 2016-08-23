@@ -84,14 +84,14 @@
   <script>{% include alegreya-observer.min.js %}</script>
   <script src="/js/common.min.js?v={{site.version}}" async></script>
   {% if page.url == "/topics/" %}
-  <script src="/js/topics.min.js?v={{site.version}}" async></script>
+    <script src="/js/topics.min.js?v={{site.version}}" async></script>
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
-  <script src="/js/article.min.js?v={{site.version}}" defer></script>
-  <script>{% include source-code-pro-observer.min.js %}</script>
-  <script>
-    var path = window.location.pathname.replace('/topics/', '').replace('/', '');
-    localStorage.setItem('visited-' + path, true);
-  </script>
+    <script src="/js/article.min.js?v={{site.version}}" defer></script>
+    <script>{% include source-code-pro-observer.min.js %}</script>
+    <script>
+      var path = window.location.pathname.replace('/topics/', '').replace('/', '');
+      localStorage.setItem('visited-' + path, true);
+    </script>
   {% endif %}
 </body>
 </html>

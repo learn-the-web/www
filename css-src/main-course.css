@@ -2,6 +2,7 @@
 @import "code.css";
 @import "week.css";
 @import "card.css";
-@import "prism.css";
+@import "../vendor/prism.css";
 @import "slide-deck.css";
 @import "lesson.css";
+@import "assignment-viewer.css";

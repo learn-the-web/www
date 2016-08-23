@@ -14,10 +14,11 @@
   "config": {
     "js_common": "js-src/common.js js-src/video-home.js",
     "js_topics": "js-src/fuzzy-match.js js-src/topic-search.js js-src/topics-visited.js",
-    "js_article": "js-src/prism.js js-src/syntax.js js-src/article-nav.js js-src/section-links.js js-src/video.js",
+    "js_article": "vendor/prism.js js-src/syntax.js js-src/article-nav.js js-src/section-links.js js-src/video.js",
     "js_course": "js-src/fullscreen.js",
-    "js_slide-deck": "js-src/prism.js js-src/syntax.js js-src/slide-deck.js",
-    "js_lesson": "js-src/prism.js js-src/syntax.js js-src/lesson.js"
+    "js_slide-deck": "vendor/prism.js js-src/syntax.js js-src/slide-deck.js",
+    "js_lesson": "vendor/prism.js js-src/syntax.js js-src/lesson.js",
+    "js_assignment_viewer": "vendor/fetch.js vendor/js-yaml.min.js vendor/marked.min.js js-src/assignment-viewer.js"
   },
   "scripts": {
     "start": "parallelshell 'npm run start-server' 'npm run watch-css' 'npm run watch-js'",
@@ -37,9 +38,10 @@
     "build-js-course": "uglifyjs $npm_package_config_js_course -c -m --lint -o js/course.min.js",
     "build-js-slide-deck": "uglifyjs $npm_package_config_js_slide_deck -c -m --lint -o js/slide-deck.min.js",
     "build-js-lesson": "uglifyjs $npm_package_config_js_lesson -c -m --lint -o js/lesson.min.js",
+    "build-js-assignment-viewer": "uglifyjs $npm_package_config_js_assignment_viewer -c -m --lint -o js/assignment-viewer.min.js",
     "build-js-font-source-code": "uglifyjs _includes/source-code-pro-observer.js -c -m --lint -o _includes/source-code-pro-observer.min.js",
     "build-js-font-alegreya": "uglifyjs _includes/alegreya-observer.js -c -m --lint -o _includes/alegreya-observer.min.js",
-    "build-js": "parallelshell 'npm run build-js-common' 'npm run build-js-topics' 'npm run build-js-article' 'npm run build-js-course' 'npm run build-js-slide-deck' 'npm run build-js-lesson' 'npm run build-js-font-source-code' 'npm run build-js-font-alegreya'",
+    "build-js": "parallelshell 'npm run build-js-common' 'npm run build-js-topics' 'npm run build-js-article' 'npm run build-js-course' 'npm run build-js-slide-deck' 'npm run build-js-lesson' 'npm run build-js-assignment-viewer' 'npm run build-js-font-source-code' 'npm run build-js-font-alegreya'",
     "watch-js": "onchange 'js-src/*.js' -- npm run build-js",
     "build": "npm run build-css && npm run build-js && npm run build-site",
     "deploy-site": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",

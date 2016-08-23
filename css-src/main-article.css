@@ -2,5 +2,5 @@
 @import "article.css";
 @import "cheatsheet-checklist.css";
 @import "code.css";
-@import "prism.css";
+@import "../vendor/prism.css";
 @import "print.css";
