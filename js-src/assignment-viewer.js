@@ -64,14 +64,14 @@
     return text.trim().split('---').filter(Boolean).slice(1).join('---');
   };
 
-  var formatMarkdown = function (markdown) {
+  var formatMarkdown = function (href, markdown) {
     markdown = markdown.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
-    markdown = markdown.replace('<img src="', '<img class="img-flex" src="https://github.com/acgd-webdev-1/submit-github-account/raw/gh-pages/');
+    markdown = markdown.replace('<img src="', '<img class="img-flex" src="' + href + '/raw/gh-pages/');
 
     return markdown;
   };
 
-  var parseReadme = function (text) {
+  var parseReadme = function (href, text) {
     var yamlRaw, markdownRaw, yaml, markdown;
 
     if (text.trim().match(/^---/)) { // Has YAML
@@ -84,7 +84,7 @@
     }
 
     markdown = marked(markdownRaw, { gfm: true, tables: true, breaks: true, smartLists: true });
-    yaml.html = formatMarkdown(markdown);
+    yaml.html = formatMarkdown(href, markdown);
 
     return yaml;
   };
@@ -199,7 +199,7 @@
       }
     ).then(function(response) {
       response.text().then(function (text) {
-        var readme = parseReadme(text);
+        var readme = parseReadme(href, text);
         cacheContent(href, readme);
         populateViewer(readme);
       });
