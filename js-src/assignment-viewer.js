@@ -133,7 +133,11 @@
   }
 
   var showContent = function (text) {
-    $content.innerHTML = text.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
+    var content = text.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
+
+    content = content.replace('<img src="', '<img class="img-flex" src="https://github.com/acgd-webdev-1/submit-github-account/raw/gh-pages/');
+
+    $content.innerHTML = content;
   };
 
   var defaultContent = function () {
