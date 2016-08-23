@@ -64,6 +64,13 @@
     return text.trim().split('---').filter(Boolean).slice(1).join('---');
   };
 
+  var formatMarkdown = function (markdown) {
+    markdown = markdown.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
+    markdown = markdown.replace('<img src="', '<img class="img-flex" src="https://github.com/acgd-webdev-1/submit-github-account/raw/gh-pages/');
+
+    return markdown;
+  };
+
   var parseReadme = function (text) {
     var yamlRaw, markdownRaw, yaml, markdown;
 
@@ -77,7 +84,7 @@
     }
 
     markdown = marked(markdownRaw, { gfm: true, tables: true, breaks: true, smartLists: true });
-    yaml.html = markdown;
+    yaml.html = formatMarkdown(markdown);
 
     return yaml;
   };
@@ -133,11 +140,7 @@
   }
 
   var showContent = function (text) {
-    var content = text.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
-
-    content = content.replace('<img src="', '<img class="img-flex" src="https://github.com/acgd-webdev-1/submit-github-account/raw/gh-pages/');
-
-    $content.innerHTML = content;
+    $content.innerHTML = text;
   };
 
   var defaultContent = function () {
@@ -160,6 +163,7 @@
     if (readme.submit) $btn.href = readme.submit;
 
     showContent(readme.html);
+    hideLoaders();
   };
 
   var resetViewer = function () {
@@ -186,7 +190,7 @@
     $viewer.setAttribute('aria-hidden', 'false');
   };
 
-  var getViewerContent = function (href) {
+  var downloadContent = function (href) {
     fetch(getReadmeUrl(href), {
         headers: {
           'Accept': 'application/vnd.github.v3.raw',
@@ -195,12 +199,29 @@
       }
     ).then(function(response) {
       response.text().then(function (text) {
-        hideLoaders();
-        populateViewer(parseReadme(text));
+        var readme = parseReadme(text);
+        cacheContent(href, readme);
+        populateViewer(readme);
       });
     }, function() {
       window.location(href);
     });
+  };
+
+  var cacheContent = function (href, readme) {
+    sessionStorage.setItem(href, JSON.stringify(readme));
+  };
+
+  var displayCachedContent = function (href) {
+    populateViewer(JSON.parse(sessionStorage.getItem(href)));
+  };
+
+  var getViewerContent = function (href) {
+    if (sessionStorage.getItem(href)) {
+      displayCachedContent(href);
+    } else {
+      downloadContent(href);
+    }
   };
 
   [].forEach.call(document.querySelectorAll('a[data-assignment-viewer="true"]'), function (elem) {
