@@ -14,6 +14,20 @@
   text-decoration: none;
 }
 
+.btn-dark {
+  background-color: var(--color-brand-dark);
+  border-color: var(--color-brand-dark);
+
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: var(--color-brand);
+  border-color: var(--color-brand);
+
+  color: #000;
+}
+
 .btn-light {
   background-color: var(--color-brand-light);
   border-color: var(--color-brand);
