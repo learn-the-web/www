@@ -193,8 +193,7 @@
   var downloadContent = function (href) {
     fetch(getReadmeUrl(href), {
         headers: {
-          'Accept': 'application/vnd.github.v3.raw',
-          'Authorization': 'token 866490779148131c14e31f1df829cccb5f6e7320',
+          'Accept': 'application/vnd.github.v3.raw'
         }
       }
     ).then(function(response) {
