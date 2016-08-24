@@ -246,6 +246,39 @@
   display: block;
 }
 
+.video-stats {
+  color:  var(--color-brand-dark);
+}
+
+.video-stats-default {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+
+  color: var(--color-brand-dark-lightened);
+}
+
+.video-stats-default > dt,
+.video-stats-default > dd {
+  line-height: 1;
+}
+
+.video-stats > dt {
+  position: absolute;
+}
+
+.video-stats > dt:nth-of-type(2) {
+  left: 9.5rem;
+}
+
+.video-stats > dd {
+  width: 9.5rem;
+}
+
+.video-stats > dt:last-of-type {
+  right: 0;
+}
+
 @media only screen and (min-width: 38em) {
 
   .play-btn {
