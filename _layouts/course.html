@@ -60,7 +60,7 @@ layout: basic-inside
                 {% else %}
                   {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% endif %}
-                <li>
+                <li{% if forloop.index == 3 %} class="week-list-tasks-outside"{% endif %}>
                   <a {% if task.url %}href="{{url_prefix}}{{task.url}}"{% else %}data-state="disabled"{% endif %}>{{task.title}}</a>
                 </li>
               {% endif %}
