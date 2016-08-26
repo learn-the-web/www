@@ -17,8 +17,9 @@
     {% if week.layout == "week" %}
       {% capture count %}{{count | plus:1 }}{% endcapture %}
       {% for slide in week.slides %}
-        {% if slide.url contains page.slug %}
+        {% if slide.url == page.slug %}
           {% assign slide_week = count %}
+          {% break %}
         {% endif %}
       {% endfor %}
     {% endif %}
