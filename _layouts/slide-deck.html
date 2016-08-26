@@ -16,12 +16,23 @@
   {% for week in page_data.docs %}
     {% if week.layout == "week" %}
       {% capture count %}{{count | plus:1 }}{% endcapture %}
+
       {% for slide in week.slides %}
         {% if slide.url == page.slug %}
           {% assign slide_week = count %}
           {% break %}
         {% endif %}
       {% endfor %}
+
+      {% if slide_week == 0 %}
+        {% for slide in week.group_activities %}
+          {% if slide.url == page.slug %}
+            {% assign slide_week = count %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
     {% endif %}
   {% endfor %}
 
