@@ -177,6 +177,10 @@
     $scrollDown.removeAttribute('hidden');
   };
 
+  var triggerViewerClose = function () {
+    window.location.hash = '';
+  };
+
   var closeViewer = function () {
     $viewer.classList.add('assignment-viewer-hidden');
     $viewer.setAttribute('hidden', 'true');
@@ -223,30 +227,49 @@
     }
   };
 
+  var tiggerViewerOpen = function () {
+    var elem, url, submissionType;
+
+    if (window.location.hash == '' || window.location.hash == '#') {
+      closeViewer();
+      return;
+    }
+
+    elem = document.getElementById(window.location.hash.replace(/#/g, ''));
+
+    if (!elem) return;
+
+    url = elem.href;
+    submissionType = elem.getAttribute('data-assignment-submission');
+
+    populateTitle(elem.querySelector('.card-title').innerHTML, elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'));
+    populateButton(submissionType, url);
+    openViewer();
+    getViewerContent(url);
+  };
+
+  window.addEventListener('hashchange', function (e) {
+    e.preventDefault();
+    tiggerViewerOpen();
+  });
+
   [].forEach.call(document.querySelectorAll('a[data-assignment-viewer="true"]'), function (elem) {
     elem.addEventListener('click', function (e) {
-      var url = elem.href;
-      var submissionType = elem.getAttribute('data-assignment-submission');
-
       e.preventDefault();
-
-      populateTitle(this.querySelector('.card-title').innerHTML, this.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'));
-      populateButton(submissionType, url);
-      openViewer();
-      getViewerContent(url);
+      window.location.hash = this.id;
     });
   });
 
   document.getElementById('assignment-close-btn').addEventListener('click', function (e) {
-    closeViewer();
+    triggerViewerClose();
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.keyCode == 27) closeViewer();
+    if (e.keyCode == 27) triggerViewerClose();
   });
 
   $viewer.addEventListener('click', function (e) {
-    if (e.target == $viewer) closeViewer();
+    if (e.target == $viewer) triggerViewerClose();
   });
 
   $wrapper.addEventListener('scroll', function (e) {
@@ -256,4 +279,6 @@
       $scrollDown.removeAttribute('hidden');
     }
   });
+
+  tiggerViewerOpen();
 }());
