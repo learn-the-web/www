@@ -143,7 +143,6 @@
   left: calc(48px + .4rem);;
   position: absolute;
   top: 50%;
-  width: 15em;
   z-index: 2;
 
   border: 0;
