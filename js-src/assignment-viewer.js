@@ -186,12 +186,15 @@
     $viewer.setAttribute('hidden', 'true');
     $viewer.setAttribute('aria-hidden', 'true');
     resetViewer();
+    document.querySelector('html').style.overflow = 'initial';
   };
 
   var openViewer = function () {
     $viewer.classList.remove('assignment-viewer-hidden');
     $viewer.removeAttribute('hidden', 'true');
     $viewer.setAttribute('aria-hidden', 'false');
+    document.querySelector('html').style.overflow = 'hidden';
+    window.scrollTo(0, 0);
   };
 
   var downloadContent = function (href) {
