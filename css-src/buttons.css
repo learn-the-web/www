@@ -4,8 +4,10 @@
   transition: all 50ms linear;
 
   color: #000;
+  font-family: inherit;
 }
 
+.btn:focus,
 .btn:hover {
   background-color: var(--color-brand-dark);
   border-color: var(--color-brand-dark);
@@ -21,6 +23,7 @@
   color: #fff;
 }
 
+.btn-dark:focus,
 .btn-dark:hover {
   background-color: var(--color-brand);
   border-color: var(--color-brand);
@@ -34,6 +37,7 @@
   color: var(--color-brand-dark);
 }
 
+.btn-light:focus,
 .btn-light:hover {
   border-color: var(--color-brand);
 }
@@ -44,6 +48,7 @@
   color: var(--color-brand-dark);
 }
 
+.btn-ghost:focus,
 .btn-ghost:hover {
   border-color: var(--color-brand-dark);
 }
@@ -54,6 +59,7 @@
   color: var(--color-grey-dark);
 }
 
+.btn-muted:focus,
 .btn-muted:hover {
   border-color: var(--color-brand-dark);
 }
@@ -64,6 +70,7 @@
   color: var(--color-grey-dark);
 }
 
+.btn-subtle:focus,
 .btn-subtle:hover {
   border-color: var(--color-brand-dark);
 }
@@ -75,8 +82,11 @@
   background-color: transparent;
   border: 0;
   border-radius: 0;
+
+  color: currentColor;
 }
 
+.btn-invisible:focus,
 .btn-invisible:hover {
   background-color: transparent;
 
@@ -89,6 +99,7 @@
   color: #94C947;
 }
 
+.btn-alg:focus,
 .btn-alg:hover {
   background-color: #94C947;
   border-color: #94C947;

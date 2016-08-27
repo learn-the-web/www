@@ -15,6 +15,10 @@ body {
   border-top: 4px solid var(--color-brand-dark);
 }
 
+.font-os {
+  font-family: sans-serif !important;
+}
+
 svg {
   stroke: currentColor;
 }
@@ -162,6 +166,10 @@ nav a:focus {
 
 .week-video-checked {
   cursor: help;
+}
+
+[role="tablist"][hidden] + hr {
+  display: none;
 }
 
 @media only screen and (min-width: 38em) {
