@@ -55,13 +55,15 @@ layout: basic-inside
           <ol class="week-list-tasks list-group-inline micro">
             {% for task in week.tasks %}
               {% if task.type != "blank" %}
-                {% if task.url and task.url contains "/" %}
-                  {% assign url_prefix="" %}
+                {% if task.url contains "github.com" %}
+                  {% capture url %}{{week.url}}#{{task.url | split: "/" | unique | last}}{% endcapture %}
+                {% elsif task.url and task.url contains "/" %}
+                  {% assign url = task.url %}
                 {% else %}
-                  {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
+                  {% capture url %}/courses/{{page.collection}}/{{task.url}}/{% endcapture %}
                 {% endif %}
                 <li{% if forloop.index == 3 %} class="week-list-tasks-outside"{% endif %}>
-                  <a {% if task.url %}href="{{url_prefix}}{{task.url}}"{% else %}data-state="disabled"{% endif %}>{{task.title}}</a>
+                  <a {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %}>{{task.title}}</a>
                 </li>
               {% endif %}
             {% endfor %}

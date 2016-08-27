@@ -17,3 +17,7 @@
 .hours {
   columns: 3;
 }
+
+.card:target {
+  outline: 3px solid #000;
+}
