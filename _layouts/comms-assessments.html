@@ -71,7 +71,7 @@
           {% endunless %}
         {% else %}
           {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
-          {% include comms/assessments-row.html prefix="Activity" title=exercise.title value=exercises_per clrs="" %}
+          {% include comms/assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs="" %}
         {% endif %}
       {% endfor %}
     {% endfor %}

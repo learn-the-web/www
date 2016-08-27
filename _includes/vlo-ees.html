@@ -1,0 +1,38 @@
+<table>
+  <thead>
+    <tr>
+      <th scope="col" colspan="15">Description</th>
+      <th scope="col" colspan="3">Taught</th>
+      <th scope="col" colspan="3">Assessed</th>
+      <th scope="col" colspan="3">Culminating performance</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in include.data %}
+      <tr>
+        <th class="normal" scope="row" colspan="15">{{forloop.index}} — {{item}}</span></th>
+        <td scope="col" colspan="3">
+          {% if include.values[forloop.index0] contains "t" %}
+            <i class="icon i-24" aria-labe="Yes">
+              <svg><use xlink:href="#icon-victory" /></svg>
+            </i>
+          {% endif %}
+        </td>
+        <td scope="col" colspan="3">
+          {% if include.values[forloop.index0] contains "a" %}
+            <i class="icon i-24" aria-labe="Yes">
+              <svg><use xlink:href="#icon-victory" /></svg>
+            </i>
+          {% endif %}
+        </td>
+        <td scope="col" colspan="3">
+          {% if include.values[forloop.index0] contains "cp" %}
+            <i class="icon i-24" aria-labe="Yes">
+              <svg><use xlink:href="#icon-victory" /></svg>
+            </i>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

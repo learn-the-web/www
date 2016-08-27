@@ -68,6 +68,21 @@
   border-color: var(--color-brand-dark);
 }
 
+.btn-invisible {
+  margin: 0;
+  padding: 0 .5em;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.btn-invisible:hover {
+  background-color: transparent;
+
+  color: #000;
+}
+
 .btn-alg {
   background-color: #0f663f;
   border-color: #94C947;
