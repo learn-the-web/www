@@ -1,0 +1,79 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+
+{% assign weight_exercises=0 %}
+{% assign weight_videos=0 %}
+{% assign weight_projects=0 %}
+
+{% for doc in page_data.docs %}
+  {% if doc.slug == "index" %}
+    {% assign weight_exercises = doc.grades.exercises %}
+    {% assign weight_videos = doc.grades.videos %}
+    {% assign weight_projects = doc.grades.projects %}
+    {% endif %}
+{% endfor %}
+
+{% assign total_exercises = 0 %}
+{% assign total_videos = 0 %}
+{% assign total_projects = 0 %}
+{% assign found_projects = "" %}
+
+{% for doc in page_data.docs %}
+  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% for tut in doc.video_tutorials %}
+    {% if tut.videos %}
+      {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+  {% for exercise in doc.tasks %}
+    {% if exercise.graded-as %}
+      {% unless found_projects contains exercise.graded-as %}
+        {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+        {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+      {% endunless %}
+    {% else %}
+      {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign total_exercises_float = total_exercises | times: 1.0 %}
+{% assign total_videos_float = total_videos | times: 1.0 %}
+{% assign total_projects_float = total_projects | times: 1.0 %}
+
+{% assign exercises_per = weight_exercises | divided_by: total_exercises_float | round: 1 %}
+{% assign videos_per = weight_videos | divided_by: total_videos_float | round: 1 %}
+{% assign projects_per = weight_projects | divided_by: total_projects_float | round: 1 %}
+
+{% assign found_projects = "" %}
+
+<table border="1" cellpadding="0" cellspacing="0">
+  <thead valign="top" align="left" style="font: normal 12px Arial">
+    <tr>
+      <th scope="col">Assessment</th>
+      <th scope="col">Value</th>
+      <th scope="col">CLRs</th>
+    </tr>
+  </thead>
+  <tbody valign="top" align="left" style="font: normal 11px Arial">
+    {% for doc in page_data.docs %}
+      {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+      {% for tut in doc.video_tutorials %}
+        {% if tut.videos %}
+          {% include comms/assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs="" %}
+        {% endif %}
+      {% endfor %}
+      {% for exercise in doc.tasks %}
+        {% if exercise.graded-as %}
+          {% unless found_projects contains exercise.graded-as %}
+            {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+            {% include comms/assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs="" %}
+          {% endunless %}
+        {% else %}
+          {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+          {% include comms/assessments-row.html prefix="Activity" title=exercise.title value=exercises_per clrs="" %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>

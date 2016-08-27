@@ -1,0 +1,69 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+
+{% assign weight_exercises=0 %}
+{% assign weight_videos=0 %}
+{% assign weight_projects=0 %}
+
+{% for doc in page_data.docs %}
+  {% if doc.slug == "index" %}
+    {% assign weight_exercises = doc.grades.exercises %}
+    {% assign weight_videos = doc.grades.videos %}
+    {% assign weight_projects = doc.grades.projects %}
+    {% endif %}
+{% endfor %}
+
+{% assign total_exercises = 0 %}
+{% assign total_videos = 0 %}
+{% assign total_projects = 0 %}
+{% assign found_projects = "" %}
+
+{% for doc in page_data.docs %}
+  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% for tut in doc.video_tutorials %}
+    {% if tut.videos %}
+      {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+  {% for exercise in doc.tasks %}
+    {% if exercise.graded-as %}
+      {% unless found_projects contains exercise.graded-as %}
+        {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+        {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+      {% endunless %}
+    {% else %}
+      {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% assign total_exercises_float = total_exercises | times: 1.0 %}
+{% assign total_videos_float = total_videos | times: 1.0 %}
+{% assign total_projects_float = total_projects | times: 1.0 %}
+
+{% assign exercises_per = weight_exercises | divided_by: total_exercises_float | round: 1 %}
+{% assign videos_per = weight_videos | divided_by: total_videos_float | round: 1 %}
+{% assign projects_per = weight_projects | divided_by: total_projects_float | round: 1 %}
+
+{% assign found_projects = "" %}
+
+<table border="1" cellpadding="0" cellspacing="0">
+  <thead valign="top" align="left" style="font: normal 12px Arial">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Weekly theme & learning outcomes</th>
+      <th scope="col">Learning activities</th>
+      <th scope="col">Assessments (%)</th>
+      <th scope="col">Resources</th>
+      <th scope="col">CLRs</th>
+    </tr>
+  </thead>
+  <tbody valign="top" align="left" style="font: normal 11px Arial">
+    {% assign count = 0 %}
+    {% for doc in page_data.docs %}
+      {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+      {% capture count %}{{count | plus:1 }}{% endcapture %}
+      {% include comms/schedule-row.html course_name=page_data.title course=page.collection week=count doc=doc exercises_per=exercises_per videos_per=videos_per project_per=projects_per %}
+    {% endfor %}
+  </tbody>
+</table>

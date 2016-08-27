@@ -1,0 +1,37 @@
+<tr>
+  <th scope="row">{{doc.title}}</th>
+  <td><b>{{doc.topic}}</b><br>{{doc.desc}}</td>
+  <td>
+    {% for activity in doc.slides %}
+      {% include comms/schedule-activity.html prefix="Slides" title=activity.title %}
+    {% endfor %}
+    {% for activity in doc.group_activities %}
+      {% include comms/schedule-activity.html prefix="Group activity" title=activity.title %}
+    {% endfor %}
+    {% for activity in doc.tasks %}
+      {% if activity.graded-as == false %}
+        {% include comms/schedule-activity.html prefix="Activity" title=activity.title %}
+      {% endif %}
+    {% endfor %}
+  </td>
+  <td>
+    {% for tut in doc.video_tutorials %}
+      {% if tut.videos %}
+        {% include comms/schedule-assessment.html prefix="Videos" title=tut.title value=videos_per %}
+      {% endif %}
+    {% endfor %}
+    {% for exercise in doc.tasks %}
+      {% if exercise.graded-as %}
+        {% unless found_projects contains exercise.graded-as %}
+          {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+          {% include comms/schedule-assessment.html prefix="Project" title=exercise.title value=projects_per %}
+        {% endunless %}
+      {% else %}
+        {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+        {% include comms/schedule-assessment.html prefix="Activity" title=exercise.title value=exercises_per %}
+      {% endif %}
+    {% endfor %}
+  </td>
+  <td><a href="https://learn-the-web.algonquindesign.ca{{doc.url}}">Learn the Web, {{include.course_name}}: {{doc.title}}</a></td>
+  <td></td>
+</tr>
