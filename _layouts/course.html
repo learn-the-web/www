@@ -110,9 +110,9 @@ layout: basic-inside
   {% assign total_videos_float = total_videos | times: 1.0 %}
   {% assign total_projects_float = total_projects | times: 1.0 %}
 
-  {% assign exercises_per = weight_exercises | divided_by: total_exercises_float | round: 1 %}
-  {% assign videos_per = weight_videos | divided_by: total_videos_float | round: 1 %}
-  {% assign projects_per = weight_projects | divided_by: total_projects_float | round: 1 %}
+  {% assign exercises_per = page.grades.exercises | divided_by: total_exercises_float | round: 1 %}
+  {% assign videos_per = page.grades.videos | divided_by: total_videos_float | round: 1 %}
+  {% assign projects_per = page.grades.projects | divided_by: total_projects_float | round: 1 %}
 
   <div class="section-muted pad-t pad-b-1-2 gutter-1-4" id="marking-scheme">
     <div class="wrapper">

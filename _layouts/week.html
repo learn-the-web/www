@@ -5,6 +5,18 @@ layout: course-inside
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 
+{% assign weight_exercises=0 %}
+{% assign weight_videos=0 %}
+{% assign weight_projects=0 %}
+
+{% for doc in page_data.docs %}
+  {% if doc.slug == "index" %}
+    {% assign weight_exercises = doc.grades.exercises %}
+    {% assign weight_videos = doc.grades.videos %}
+    {% assign weight_projects = doc.grades.projects %}
+    {% endif %}
+{% endfor %}
+
 {% assign total_exercises=0 %}
 {% assign total_videos=0 %}
 {% assign total_projects=0 %}
@@ -118,7 +130,7 @@ layout: course-inside
           {% if page.tasks[0].type != "blank" %}
             {% assign data = page.tasks[0] %}
             {% assign card_num=1 %}
-            {% include card.html data=data collection=page.collection num=card_num %}
+            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
           {% else %}
             {% include card.html data=site.no_activities collection=page.collection %}
           {% endif %}
@@ -131,7 +143,7 @@ layout: course-inside
           {% if page.tasks[1].type != "blank" %}
             {% assign data = page.tasks[1] %}
             {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num %}
+            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
           {% else %}
             {% include card.html data=site.no_lessons collection=page.collection %}
           {% endif %}
@@ -144,7 +156,7 @@ layout: course-inside
           {% if page.tasks[2].type != "blank" %}
             {% assign data = page.tasks[2] %}
             {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num %}
+            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
           {% else %}
             {% include card.html data=site.no_exercises collection=page.collection %}
           {% endif %}
@@ -172,7 +184,7 @@ layout: course-inside
         {% if page.tasks[3] %}
           {% assign data = page.tasks[3] %}
           {% assign card_num=card_num | plus:1 %}
-          {% include card.html data=data collection=page.collection num=card_num %}
+          {% include card.html data=data collection=page.collection num=card_num due="Before before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
         {% endif %}
       </li>
       <li class="unit [ xs-1 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
@@ -180,7 +192,7 @@ layout: course-inside
           {% if page.tasks[4] %}
             {% assign data = page.tasks[4] %}
             {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num %}
+            {% include card.html data=data collection=page.collection num=card_num due="Before before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
           {% else %}
             {% assign next_url=number | plus:1 %}
             {% if next_url < 9 %}
@@ -217,10 +229,16 @@ layout: course-inside
       </div>
       <footer class="assignment-footer island-1-2">
         <dl class="list-group-inline push-0">
-          <dt>Approx. completion time</dt>
+          <dt>Due</dt>
+          <dd class="assignment-due push-0 bold"></dd>
+          <dt>Worth</dt>
+          <dd class="push-0 bold"><span class="assignment-worth"></span>%</dd>
+          <dt>Satisfies</dt>
+          <dd class="push-0 bold"><a class="assignment-satisfies link-subtle" href="/courses/{{page.collection}}/#vlo-ees-clr"></a></dd>
+          <dt class="assignment-time-heading">Approx. completion time</dt>
           <dd class="assignment-time push-0 bold" hidden></dd>
           <dd class="assignment-time-default push-0 bold" aria-label="Loading…"><span class="default-state">Lorem ipsum</span></dd>
-          <dt>Deliverables</dt>
+          <dt class="assignment-deliverables-heading">Deliverables</dt>
           <dd class="assignment-deliverables push-0 bold" hidden></dd>
           <dd class="assignment-deliverables-default push-0 bold" aria-label="Loading…"><span class="default-state">Lorem ipsum dolor sit amet.</span></dd>
         </dl>

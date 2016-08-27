@@ -15,38 +15,38 @@
 
 {% case include.data.type %}
   {% when "lesson" %}
-    {% assign icon="steps" %}
-    {% assign submit=submit_show %}
+    {% assign icon = "steps" %}
+    {% assign submit = submit_show %}
     {% assign submission_type = "show" %}
 
     {% if include.data.pair %}
-      {% assign button=button_pair %}
+      {% assign button = button_pair %}
     {% else %}
-      {% assign button=button_lesson %}
+      {% assign button = button_lesson %}
     {% endif %}
   {% when "activity" %}
-    {% assign icon="victory" %}
-    {% assign submit=submit_show %}
+    {% assign icon = "victory" %}
+    {% assign submit = submit_show %}
     {% assign submission_type = "show" %}
-    {% assign button=button_activity %}
+    {% assign button = button_activity %}
   {% when "paper" %}
-    {% assign icon="pencil" %}
-    {% assign submit=submit_show %}
+    {% assign icon = "pencil" %}
+    {% assign submit = submit_show %}
     {% assign submission_type = "show" %}
-    {% assign button=button_print %}
+    {% assign button = button_print %}
   {% when "next" %}
-    {% assign icon="infiniti" %}
-    {% assign button=button_materials %}
+    {% assign icon = "infiniti" %}
+    {% assign button = button_materials %}
   {% when "basic" %}
-    {% assign icon="star" %}
-    {% assign submit=submit_online %}
+    {% assign icon = "star" %}
+    {% assign submit = submit_online %}
     {% assign submission_type = "online" %}
-    {% assign button=button_online %}
+    {% assign button = button_online %}
   {% else %}
-    {% assign icon="code" %}
-    {% assign submit=submit_code %}
+    {% assign icon = "code" %}
+    {% assign submit = submit_code %}
     {% assign submission_type = "code" %}
-    {% assign button=button_code %}
+    {% assign button = button_code %}
 {% endcase %}
 
 {% if include.data.url contains "/" %}
@@ -58,42 +58,50 @@
 {% if include.data.submit %}
   {% case include.data.submit %}
     {% when "code" %}
-      {% assign submit=submit_code %}
+      {% assign submit = submit_code %}
       {% assign submission_type = "code" %}
     {% when "show" %}
-      {% assign submit=submit_show %}
+      {% assign submit = submit_show %}
       {% assign submission_type = "show" %}
     {% when "canvas" or "online" %}
-      {% assign submit=submit_online %}
+      {% assign submit = submit_online %}
       {% assign submission_type = "online" %}
     {% else %}
-      {% assign submit=include.data.submit %}
+      {% assign submit = include.data.submit %}
   {% endcase %}
 {% endif %}
 
 {% if include.data.button %}
   {% case include.data.button %}
     {% when "pair" %}
-      {% assign button=button_pair %}
+      {% assign button = button_pair %}
     {% when "lesson" %}
-      {% assign button=button_lesson %}
+      {% assign button = button_lesson %}
     {% when "activity" %}
-      {% assign button=button_activity %}
+      {% assign button = button_activity %}
     {% when "print" %}
-      {% assign button=button_print %}
+      {% assign button = button_print %}
     {% when "materials" %}
-      {% assign button=button_materials %}
+      {% assign button = button_materials %}
     {% when "online" %}
-      {% assign button=button_online %}
+      {% assign button = button_online %}
     {% when "code" %}
-      {% assign button=button_code %}
+      {% assign button = button_code %}
     {% else %}
-      {% assign button=include.data.submit %}
+      {% assign button = include.data.submit %}
   {% endcase %}
 {% endif %}
 
+{% if include.data.graded-as %}
+  {% assign worth = include.projects_per %}
+{% elsif include.data.graded-as == false %}
+    {% assign worth = 0 %}
+{% else %}
+  {% assign worth = include.exercises_per %}
+{% endif %}
+
 {% if include.data.url contains "github.com" %}
-  {% capture assignment_viewer %}id="{{include.data.url | split: "/" | unique | last}}" data-assignment-viewer="true" data-assignment-submission="{{submission_type}}"{% endcapture %}
+  {% capture assignment_viewer %}id="{{include.data.url | split: "/" | unique | last}}" data-control="assignment-viewer"{% endcapture %}
 {% endif %}
 
 <a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled"{% endif %} {{assignment_viewer}}>
@@ -105,18 +113,27 @@
       </svg>
     </i>
   {% endif %}
+
   <div class="text-center push-1-4">
     <i class="icon i-24"><svg xmlns:xlink="http://www.w3.org/1999/xlink"><use class="card-icon" xlink:href="#icon-{{icon}}" /></svg></i>
     {% if include.data.pair %}
       <i class="icon i-24"><svg><use xlink:href="#icon-pair" /></svg></i>
     {% endif %}
   </div>
+
   <h3 class="card-title mega content-fill push-0 giga">{{include.data.title}}</h3>
+
   {% if include.data.submit != false %}
     <em class="micro push-1-4">{{submit}}</em>
   {% endif %}
+
   <span class="card-btn btn btn-ghost content-shrink {% if include.data.no_button %}card-btn-invisible{% endif %}">
     <span class="icon-label">{{button}}</span>
     <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
   </span>
+
+  <meta property="submission-type" content="{{submission_type}}">
+  <meta property="worth" content="{{worth}}">
+  <meta property="due" content="{% if include.data.due %}{{include.data.due}}{% else %}{{include.due}}{% endif %}">
+  <meta property="clr" content="{% if include.data.clr %}{{include.data.clr}}{% else %}{{include.clr}}{% endif %}">
 </a>

@@ -28,7 +28,9 @@ a,
 }
 
 a:hover,
-.icon-link:hover .icon-label {
+a:focus,
+.icon-link:hover .icon-label,
+.icon-link:focus .icon-label {
   border-color: var(--color-link);
 }
 
@@ -37,6 +39,17 @@ a:not([href]),
   pointer-events: none;
 
   opacity: .5;
+}
+
+.link-subtle {
+  border-bottom: 0.1em solid rgba(99, 102, 106, .4);
+
+  color: currentColor;
+}
+
+.link-subtle:hover,
+.link-subtle:focus {
+  border-color: var(--color-grey-dark);
 }
 
 hr {

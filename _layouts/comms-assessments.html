@@ -60,18 +60,18 @@
       {% unless doc.layout == "week" %}{% continue %}{% endunless %}
       {% for tut in doc.video_tutorials %}
         {% if tut.videos %}
-          {% include comms/assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs="" %}
+          {% include comms/assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr %}
         {% endif %}
       {% endfor %}
       {% for exercise in doc.tasks %}
         {% if exercise.graded-as %}
           {% unless found_projects contains exercise.graded-as %}
             {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
-            {% include comms/assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs="" %}
+            {% include comms/assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr %}
           {% endunless %}
         {% else %}
           {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
-          {% include comms/assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs="" %}
+          {% include comms/assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr %}
         {% endif %}
       {% endfor %}
     {% endfor %}

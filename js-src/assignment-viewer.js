@@ -6,14 +6,18 @@
   var $loader = document.getElementById('assignment-loader');
   var $title = document.querySelector('.assignment-name');
   var $icon = document.getElementById('assignment-icon');
+  var $due = document.querySelector('.assignment-due');
+  var $worth = document.querySelector('.assignment-worth');
+  var $satisfies = document.querySelector('.assignment-satisfies');
   var $btn = document.querySelector('.assignment-btn');
   var $subHeader = document.querySelector('.assignment-sub-header');
   var $summaryDefault = document.querySelector('.assignment-summary-default');
   var $summary = document.querySelector('.assignment-summary');
-  var $footer = document.querySelector('.assignment-footer');
   var $timeDefault = document.querySelector('.assignment-time-default');
+  var $timeHeading = document.querySelector('.assignment-time-heading');
   var $time = document.querySelector('.assignment-time');
   var $deliverablesDefault = document.querySelector('.assignment-deliverables-default');
+  var $deliverablesHeading = document.querySelector('.assignment-deliverables-heading');
   var $deliverables = document.querySelector('.assignment-deliverables');
   var $content = document.querySelector('.assignment-content');
   var $scrollDown = document.querySelector('.assignment-scroll-down');
@@ -28,9 +32,12 @@
     return labels[type];
   };
 
-  var populateTitle = function (title, icon) {
-    $title.innerHTML = title;
-    $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', icon);
+  var populateInitialDetails = function (details) {
+    $title.innerHTML = details.title;
+    $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', details.icon);
+    $due.innerHTML = details.due;
+    $worth.innerHTML = details.worth;
+    $satisfies.innerHTML = details.satisfies;
   };
 
   var enableButton = function () {
@@ -116,24 +123,32 @@
     $subHeader.removeAttribute('hidden');
   };
 
-  var showFooter = function (time, deliverables) {
-    $time.innerHTML = time;
+  var showFooterExtras = function (time, deliverables) {
+    $timeHeading.removeAttribute('hidden');
     $time.removeAttribute('hidden');
+    $time.innerHTML = time;
     $timeDefault.setAttribute('hidden', true);
+    $deliverablesHeading.removeAttribute('hidden');
     $deliverables.innerHTML = deliverables;
     $deliverables.removeAttribute('hidden');
     $deliverablesDefault.setAttribute('hidden', true);
   };
 
-  var hideFooter = function () {
-    $footer.setAttribute('hidden', true);
+  var hideFooterExtras = function () {
+    $timeDefault.setAttribute('hidden', true);
+    $timeHeading.setAttribute('hidden', true);
+    $time.setAttribute('hidden', true);
+    $deliverablesDefault.setAttribute('hidden', true);
+    $deliverablesHeading.setAttribute('hidden', true);
+    $deliverables.setAttribute('hidden', true);
   };
 
   var defaultFooter = function () {
-    $footer.removeAttribute('hidden');
+    $timeHeading.removeAttribute('hidden');
     $time.innerHTML = '';
     $time.setAttribute('hidden', true);
     $timeDefault.removeAttribute('hidden');
+    $deliverablesHeading.removeAttribute('hidden');
     $deliverables.innerHTML = '';
     $deliverables.setAttribute('hidden', true);
     $deliverablesDefault.removeAttribute('hidden');
@@ -155,9 +170,9 @@
     }
 
     if (readme.time && readme.deliverables) {
-      showFooter(readme.time, readme.deliverables);
+      showFooterExtras(readme.time, readme.deliverables);
     } else {
-      hideFooter();
+      hideFooterExtras();
     }
 
     if (readme.submit) $btn.href = readme.submit;
@@ -171,7 +186,13 @@
     defaultSummary();
     defaultFooter();
     defaultContent();
-    populateTitle('', '');
+    populateInitialDetails({
+      title: '',
+      icon: '',
+      worth: '',
+      due: '',
+      satisfies: '',
+    });
     populateButton('', '');
     enableButton();
     $scrollDown.removeAttribute('hidden');
@@ -243,9 +264,15 @@
     if (!elem) return;
 
     url = elem.href;
-    submissionType = elem.getAttribute('data-assignment-submission');
+    submissionType = elem.querySelector('meta[property="submission-type"]').getAttribute('content');
 
-    populateTitle(elem.querySelector('.card-title').innerHTML, elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'));
+    populateInitialDetails({
+      title: elem.querySelector('.card-title').innerHTML,
+      icon: elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
+      due: elem.querySelector('meta[property="due"]').getAttribute('content'),
+      worth: elem.querySelector('meta[property="worth"]').getAttribute('content'),
+      satisfies: 'CLRs ' + elem.querySelector('meta[property="clr"]').getAttribute('content'),
+    });
     populateButton(submissionType, url);
     openViewer();
     getViewerContent(url);
@@ -256,7 +283,7 @@
     tiggerViewerOpen();
   });
 
-  [].forEach.call(document.querySelectorAll('a[data-assignment-viewer="true"]'), function (elem) {
+  [].forEach.call(document.querySelectorAll('a[data-control="assignment-viewer"]'), function (elem) {
     elem.addEventListener('click', function (e) {
       e.preventDefault();
       window.location.hash = this.id;
