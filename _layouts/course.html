@@ -79,7 +79,9 @@ layout: basic-inside
                 {% capture count %}{{count | plus: 1}}{% endcapture %}
                 {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
                 {% assign slug = exercise.url | split: "/" | unique | last %}
-                {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug %}
+                {% assign disabled = true %}
+                {% if exercise.url %}{% assign disabled = false %}{% endif %}
+                {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug disabled=disabled %}
               {% endunless %}
             {% else %}
               {% capture count %}{{count | plus: 1}}{% endcapture %}
@@ -93,7 +95,9 @@ layout: basic-inside
               {% else %}
                 {% assign slug = "" %}
               {% endif %}
-              {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug %}
+              {% assign disabled = true %}
+              {% if exercise.url %}{% assign disabled = false %}{% endif %}
+              {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
             {% endif %}
           {% endfor %}
         {% endfor %}
