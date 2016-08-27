@@ -8,10 +8,16 @@
       elem.setAttribute('aria-hidden', false);
       elem.removeAttribute('hidden');
       btn.setAttribute('aria-selected', true);
+      btn.innerHTML = '-';
+      btn.setAttribute('title', 'Collapse details');
+      btn.setAttribute('aria-label', 'Collapse details');
     } else {
       elem.setAttribute('aria-hidden', true);
       elem.setAttribute('hidden', true);
       btn.setAttribute('aria-selected', false);
+      btn.innerHTML = '+';
+      btn.setAttribute('title', 'Expand details');
+      btn.setAttribute('aria-label', 'Expand details');
     }
   };
 
