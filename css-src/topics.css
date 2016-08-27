@@ -76,6 +76,7 @@
   border-radius: 0 0 8px 8px;
 }
 
+.page-nav a:focus,
 .page-nav a:hover {
   background-color: #fff;
   color: var(--color-brand-dark);
@@ -182,6 +183,7 @@
   border-width: 0;
 }
 
+.topic-text:focus,
 .topic-text:hover {
   border-width: 0.1em;
 }
@@ -395,10 +397,12 @@
   line-height: 48px;
 }
 
+.course-btn:focus,
 .course-btn:hover {
   color: #000;
 }
 
+.course-btn:focus .course-btn-icon,
 .course-btn:hover .course-btn-icon {
   background-color: var(--color-grey-dark);
 }

@@ -15,7 +15,9 @@
   color: var(--color-brand);
 }
 
+.footer a:focus,
 .footer a:hover,
+.footer .icon-link:focus .icon-label,
 .footer .icon-link:hover .icon-label {
   border-color: #fff;
   color: #fff;

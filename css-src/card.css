@@ -11,6 +11,7 @@
   text-align: center;
 }
 
+.card:focus,
 .card:hover {
   background-color: var(--color-brand-dark);
   border-color: var(--color-brand-dark);
@@ -43,6 +44,7 @@
   visibility: hidden;
 }
 
+.card:focus .card-btn,
 .card:hover .card-btn {
   background-color: var(--color-brand);
   border-color: var(--color-brand);

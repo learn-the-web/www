@@ -152,6 +152,7 @@
   color: #fff;
 }
 
+.play-btn:focus,
 .play-btn:hover {
   color: var(--color-brand);
   text-decoration: none;
@@ -238,6 +239,7 @@
   border-color: rgba(255,255,255,.3);
 }
 
+.extra-tutorials a:focus,
 .extra-tutorials a:hover {
   border-color: rgba(255,255,255,1);
 }
@@ -371,6 +373,7 @@
   cursor: pointer;
 }
 
+.image-steps-label:focus,
 .image-steps-label:hover,
 .image-steps-label-active {
   background-color: var(--color-code-darker);

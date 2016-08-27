@@ -48,6 +48,7 @@
   color: var(--color-brand-dark);
 }
 
+.topic-heading:focus,
 .topic-heading:hover {
   background-color: var(--color-brand);
   text-decoration: none;
@@ -83,6 +84,7 @@
   color: var(--color-link);
 }
 
+.link-btn:focus,
 .link-btn:hover {
   background-color: var(--color-link);
   border-radius: 3px;
@@ -110,6 +112,7 @@
   line-height: 1;
 }
 
+.photo:focus .photo-copyright,
 .photo:hover .photo-copyright {
   opacity: 1;
 }

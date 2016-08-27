@@ -7,6 +7,7 @@
   color: #fff;
 }
 
+.play-btn:focus,
 .play-btn:hover {
   color: var(--color-brand-dark);
   text-decoration: none;
@@ -110,6 +111,7 @@
   font-weight: normal;
 }
 
+.heading-link:focus,
 .heading-link:hover {
   opacity: 1;
   color: var(--color-link);
@@ -223,6 +225,7 @@
   transition: all 50ms linear;
 }
 
+.tutorial-nav a:focus,
 .tutorial-nav a:hover {
   border-radius: 4px;
   background-color: var(--color-grey-light);

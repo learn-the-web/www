@@ -263,7 +263,9 @@ svg.img-flex {
   vertical-align: middle;
 }
 
-.icon-link, .icon-link:hover {
+.icon-link,
+.icon-link:focus,
+.icon-link:hover {
   text-decoration: none;
 }
 
@@ -462,31 +464,39 @@ ol > li::before {
   text-decoration: none;
 }
 
+.btn:focus,
 .btn:hover {
   background-color: #000;
   border-color: #000;
   color: #fff;
 }
 
-.btn-light, .btn-light {
+.btn-light, .btn--light {
   background-color: #e2e2e2;
   border-color: #e2e2e2;
   color: #000;
 }
 
-.btn-light:hover, .btn-light:hover {
+.btn-light:focus,
+.btn-light:hover,
+.btn--light:focus,
+.btn--light:hover {
   background-color: #666;
   border-color: #666;
   color: #fff;
 }
 
-.btn-ghost, .btn--ghost {
+.btn-ghost,
+.btn--ghost {
   background-color: transparent;
   border-color: #333;
   color: #000;
 }
 
-.btn-ghost:hover, .btn--ghost:hover {
+.btn-ghost:focus,
+.btn-ghost:hover,
+.btn--ghost:focus,
+.btn--ghost:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border-color: #000;
   color: #000;
