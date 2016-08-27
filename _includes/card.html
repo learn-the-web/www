@@ -94,10 +94,13 @@
 
 {% if include.data.graded-as %}
   {% assign worth = include.projects_per %}
+  {% assign grading_type = "Letter grade" %}
 {% elsif include.data.graded-as == false %}
-    {% assign worth = 0 %}
+  {% assign worth = 0 %}
+  {% assign grading_type = "" %}
 {% else %}
   {% assign worth = include.exercises_per %}
+  {% assign grading_type = "Pass/fail" %}
 {% endif %}
 
 {% if include.data.url contains "github.com" %}
@@ -134,6 +137,7 @@
 
   <meta property="submission-type" content="{{submission_type}}">
   <meta property="worth" content="{{worth}}">
+  <meta property="grading-type" content="{{grading_type}}">
   <meta property="due" content="{% if include.data.due %}{{include.data.due}}{% else %}{{include.due}}{% endif %}">
   <meta property="clr" content="{% if include.data.clr %}{{include.data.clr}}{% else %}{{include.clr}}{% endif %}">
 </a>

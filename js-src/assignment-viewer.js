@@ -8,6 +8,7 @@
   var $icon = document.getElementById('assignment-icon');
   var $due = document.querySelector('.assignment-due');
   var $worth = document.querySelector('.assignment-worth');
+  var $gradingType = document.querySelector('.assignment-grading-type');
   var $satisfies = document.querySelector('.assignment-satisfies');
   var $btn = document.querySelector('.assignment-btn');
   var $subHeader = document.querySelector('.assignment-sub-header');
@@ -37,6 +38,7 @@
     $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', details.icon);
     $due.innerHTML = details.due;
     $worth.innerHTML = details.worth;
+    $gradingType.innerHTML = details.gradingType;
     $satisfies.innerHTML = details.satisfies;
   };
 
@@ -190,6 +192,7 @@
       title: '',
       icon: '',
       worth: '',
+      gradingType: '',
       due: '',
       satisfies: '',
     });
@@ -215,7 +218,7 @@
     $viewer.removeAttribute('hidden', 'true');
     $viewer.setAttribute('aria-hidden', 'false');
     document.querySelector('html').style.overflow = 'hidden';
-    window.scrollTo(0, 0);
+    $btn.focus();
   };
 
   var downloadContent = function (href) {
@@ -271,6 +274,7 @@
       icon: elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
       due: elem.querySelector('meta[property="due"]').getAttribute('content'),
       worth: elem.querySelector('meta[property="worth"]').getAttribute('content'),
+      gradingType: elem.querySelector('meta[property="grading-type"]').getAttribute('content'),
       satisfies: 'CLRs ' + elem.querySelector('meta[property="clr"]').getAttribute('content'),
     });
     populateButton(submissionType, url);
