@@ -78,12 +78,22 @@ layout: basic-inside
               {% unless found_projects contains exercise.graded-as %}
                 {% capture count %}{{count | plus: 1}}{% endcapture %}
                 {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
-                {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=exercise.url %}
+                {% assign slug = exercise.url | split: "/" | unique | last %}
+                {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug %}
               {% endunless %}
             {% else %}
               {% capture count %}{{count | plus: 1}}{% endcapture %}
               {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
-              {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=doc.url slug=exercise.url %}
+              {% assign url = doc.url %}
+              {% if exercise.url contains "github.com" %}
+                {% assign slug = exercise.url | split: "/" | unique | last %}
+              {% elsif exercise.url contains "http" %}
+                {% assign slug = "" %}
+                {% assign url = exercise.url %}
+              {% else %}
+                {% assign slug = "" %}
+              {% endif %}
+              {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug %}
             {% endif %}
           {% endfor %}
         {% endfor %}
