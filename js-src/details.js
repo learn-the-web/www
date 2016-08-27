@@ -34,14 +34,16 @@
     btn.classList.add('btn');
     btn.classList.add('btn-invisible');
     btn.classList.add('tera');
+    btn.classList.add('font-os');
     btn.innerHTML = '+';
     btn.setAttribute('title', 'Expand details');
     btn.setAttribute('aria-label', 'Expand details');
     btn.setAttribute('aria-controls', id);
     btn.setAttribute('aria-selected', false);
+    elem.innerHTML += '&nbsp;';
     elem.appendChild(btn);
 
-    btn.addEventListener('mousedown', function (e) {
+    btn.addEventListener('click', function (e) {
       toggleContent(e.target);
     });
   });
