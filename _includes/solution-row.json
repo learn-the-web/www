@@ -1,0 +1,5 @@
+{
+  "week": "{{include.week}}",
+  "title": "{{include.title}}",
+  "slug": "{{include.slug}}"
+},

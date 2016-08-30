@@ -2,16 +2,19 @@
 [
   {% for doc in collection.docs %}
     {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+    {% for activity in doc.group_activities %}
+      {% if activity.no-solution %}{% continue %}{% endif %}
+      {% if activity.url contains "/" %}{% continue %}{% endif %}
+      {% unless activity.url %}{% continue %}{% endunless %}
+      {% include solution-row.json week=doc.url title=activity.title slug=activity.url %}
+    {% endfor %}
     {% for exercise in doc.tasks %}
       {% if exercise.graded-as == false or exercise.graded-as or exercise.type == "blank" %}{% continue %}{% endif %}
-      {% if exercise.type == "lesson" or exercise.type == "activity" or exercise.type == "basic" %}{% continue %}{% endif %}
+      {% if exercise.type == "activity" or exercise.type == "basic" %}{% continue %}{% endif %}
       {% if exercise.no-solution %}{% continue %}{% endif %}
       {% unless exercise.url contains "github.com" %}{% continue %}{% endunless %}
-      {
-        "week": "{{doc.url}}",
-        "title": "{{exercise.title}}",
-        "slug": "{{exercise.url | split: '/' | last}}"
-      },
+      {% capture slug %}{{exercise.url | split: '/' | last}}{% endcapture %}
+      {% include solution-row.json week=doc.url title=exercise.title slug=slug %}
     {% endfor %}
   {% endfor %}
 ]
