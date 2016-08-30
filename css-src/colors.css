@@ -45,6 +45,10 @@
   background-color: var(--color-brand-light);
 }
 
+.section-brand {
+  background-color: var(--color-brand);
+}
+
 .section-muted {
   background-color: var(--color-code);
 }
