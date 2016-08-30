@@ -1,0 +1,16 @@
+{% assign url_prefix = "" %}
+{% unless include.url contains "http" %}
+  {% assign url_prefix = "https://learn-the-web.algonquindesign.ca" %}
+{% endunless %}
+
+{% capture url %}{{url_prefix}}{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}{% endcapture %}
+{
+  "name": "{{include.title}}",
+  "description": "<h2><a href=\"{{url}}\">{{url}}</a></h2>",
+  "assignment_group_id": "{{include.group}}",
+  "grading_type": "{{include.grading_type}}",
+  "points_possible": {{include.points}},
+  "submission_types": "none",
+  "published": true,
+  "muted": true
+},

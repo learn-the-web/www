@@ -1,0 +1,43 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+{% assign found_projects = "" %}
+
+[
+{% for doc in page_data.docs %}
+  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% for tut in doc.video_tutorials %}
+    {% if tut.videos %}
+      {% capture count %}{{count | plus: 1}}{% endcapture %}
+      {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+      {% include canvas-row.json title=tut.title group="videos" grading_type="pass_fail" points=1 url=url %}
+    {% endif %}
+  {% endfor %}
+  {% for exercise in doc.tasks %}
+    {% if exercise.graded-as %}
+      {% unless found_projects contains exercise.graded-as %}
+        {% capture count %}{{count | plus: 1}}{% endcapture %}
+        {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+        {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign disabled = true %}
+        {% if exercise.url %}{% assign disabled = false %}{% endif %}
+        {% include canvas-row.json title=exercise.title group="project" grading_type="letter_grade" points=100 url=doc.url slug=slug %}
+      {% endunless %}
+    {% else %}
+      {% capture count %}{{count | plus: 1}}{% endcapture %}
+      {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% if exercise.url contains "github.com" %}
+        {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign url = doc.url %}
+      {% elsif exercise.url contains "http" %}
+        {% assign slug = "" %}
+        {% assign url = exercise.url %}
+      {% else %}
+        {% assign slug = "" %}
+        {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
+      {% endif %}
+      {% assign disabled = true %}
+      {% if exercise.url %}{% assign disabled = false %}{% endif %}
+      {% include canvas-row.json title=exercise.title group="exercises" grading_type="pass_fail" points=1 url=url slug=slug %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+]
