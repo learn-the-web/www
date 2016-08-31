@@ -17,26 +17,30 @@
         {% capture count %}{{count | plus: 1}}{% endcapture %}
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
         {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign markbot_slug = slug %}
         {% assign disabled = true %}
         {% if exercise.url %}{% assign disabled = false %}{% endif %}
-        {% include canvas-row.json title=exercise.title group="project" grading_type="letter_grade" points=100 url=doc.url slug=slug %}
+        {% include canvas-row.json title=exercise.title group="project" grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug %}
       {% endunless %}
     {% else %}
       {% capture count %}{{count | plus: 1}}{% endcapture %}
       {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
       {% if exercise.url contains "github.com" %}
         {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign markbot_slug = slug %}
         {% assign url = doc.url %}
       {% elsif exercise.url contains "http" %}
         {% assign slug = "" %}
+        {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
         {% assign url = exercise.url %}
       {% else %}
         {% assign slug = "" %}
+        {% assign markbot_slug = exercise.url %}
         {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
       {% endif %}
       {% assign disabled = true %}
       {% if exercise.url %}{% assign disabled = false %}{% endif %}
-      {% include canvas-row.json title=exercise.title group="exercises" grading_type="pass_fail" points=1 url=url slug=slug %}
+      {% include canvas-row.json title=exercise.title group="exercises" grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug %}
     {% endif %}
   {% endfor %}
 {% endfor %}
