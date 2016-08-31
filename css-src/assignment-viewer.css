@@ -70,10 +70,10 @@
   background-color: var(--color-code-darkest);
 }
 
-.assignment-btn {
+.assignment-btn-wrap {
   position: absolute;
-  right: .75rem;
-  top: .75rem;
+  right: 0;
+  top: 0;
 }
 
 .assignment-footer {
