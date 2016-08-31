@@ -1,3 +1,25 @@
+.full-screen-shortcut {
+  top: 2em;
+  left: 50%;
+  position: absolute;
+
+  animation: btn-fade-out .5s linear 3s forwards;
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 8px;
+  transform: translateX(-50%);
+
+  color: #fff;
+}
+
+@keyframes btn-fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .slide-deck {
   overflow-y: hidden;
   border-top: 0;
