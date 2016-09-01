@@ -2,6 +2,7 @@
   top: 2em;
   left: 50%;
   position: absolute;
+  z-index: 3000;
 
   animation: btn-fade-out .5s linear 3s forwards;
   background-color: rgba(0, 0, 0, .6);
