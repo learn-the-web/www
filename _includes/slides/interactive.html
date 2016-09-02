@@ -30,10 +30,10 @@
       <textarea class="js-hidden" hidden>{{include.data.js_hidden | xml_escape}}</textarea>
     {% endif %}
   </div>
-  <div class="unit [ xs-1 m-1-2 ] {% if include.data.resizeable %}slide-resizeable{% else %}slide-preview{% endif %}">
-    {% if include.data.resizeable %}<div class="slide-resize-handle"></div>{% endif %}
-    {% if include.data.resizeable %}<div class="slide-preview">{% endif %}
+  <div class="unit [ xs-1 m-1-2 ] {% if include.data.resizable %}slide-resizable{% else %}slide-preview{% endif %}">
+    {% if include.data.resizable %}<div class="slide-resize-handle"></div>{% endif %}
+    {% if include.data.resizable %}<div class="slide-preview">{% endif %}
       <iframe></iframe>
-    {% if include.data.resizeable %}</div>{% endif %}
+    {% if include.data.resizable %}</div>{% endif %}
   </div>
 </div>

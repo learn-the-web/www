@@ -148,7 +148,7 @@ iframe {
   transform: translate(-50%, -50%);
 }
 
-.slide-resizeable {
+.slide-resizable {
   padding-left: 8px;
   position: relative;
 }
@@ -161,7 +161,7 @@ iframe {
   width: 8px;
 
   background: none no-repeat center center / calc(100% - 2px) auto var(--color-code-darkest);
-  background-image: url("../images-embed/resize-handle.svg");
+  background-image: inline("../images-embed/resize-handle.svg");
   cursor: col-resize;
 }
 
