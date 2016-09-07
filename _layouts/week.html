@@ -120,6 +120,15 @@ layout: course-inside
               {% endfor %}
             </ul>
           {% endif %}
+
+          {% if page.next_week_notes %}
+            <h3 class="mega push-1-4">Notes for next week</h3>
+            <ul class="italic milli">
+              {% for note in page.next_week_notes %}
+                <li>{{note}}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div>
       </div>
     </div>
