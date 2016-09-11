@@ -430,6 +430,10 @@
   padding-left: 64px;
 }
 
+.red-sticky {
+  background-color: #fb3a64;
+}
+
 @media only screen and (min-width: 38em) {
 
   .lesson-body {
