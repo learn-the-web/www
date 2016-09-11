@@ -131,7 +131,11 @@
   background-color: var(--color-grey-dark);
 }
 
-.lesson-note ol {
+.lesson-note > div > ul {
+  padding-left: 0;
+}
+
+.lesson-note > div > ol {
   padding-left: .8em;
 }
 
