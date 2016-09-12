@@ -32,7 +32,7 @@
   width: 100vw;
 }
 
-.lesson-body-code {
+.lesson-body-code:not(.code-can-copy) {
   user-select: none;
 }
 
