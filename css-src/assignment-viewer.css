@@ -59,6 +59,10 @@
   position: relative;
 }
 
+.assignment-content-wrapper table {
+  font-size: 85%;
+}
+
 .assignment-header {
   flex-shrink: 0;
   position: relative;
