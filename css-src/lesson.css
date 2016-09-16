@@ -32,6 +32,12 @@
   width: 100vw;
 }
 
+.lesson-body-text code {
+  overflow-x: visible;
+
+  white-space: pre-wrap;
+}
+
 .lesson-body-code:not(.code-can-copy) {
   user-select: none;
 }
