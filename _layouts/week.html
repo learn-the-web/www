@@ -101,13 +101,13 @@ layout: course-inside
 
           {% if page.group_activities %}
             <h3 class="mega push-1-4">Class activities</h3>
-            <ul class="list-group milli">
+            <ul class="push-1-2 list-group milli">
               {% for link in page.group_activities %}
                 {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% if link.url contains "/" %}
                   {% assign url_prefix="" %}
                 {% endif %}
-                <li>
+                <li class="push-1-4">
                   <a class="btn btn-ghost" {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %}>
                     <i class="icon i-18 push-r-1-4"><svg><use xlink:href="#icon-{{link.type}}" /></svg></i>
                     {% if link.pair %}
