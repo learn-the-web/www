@@ -9,6 +9,7 @@ kbd {
 
   font-size: 90%;
   font-family: Menlo, Consolas, monospace;
+  white-space: pre;
 }
 
 .source-code-pro-loaded code,
