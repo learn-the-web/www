@@ -194,7 +194,7 @@ layout: course-inside
         {% if page.tasks[3] %}
           {% assign data = page.tasks[3] %}
           {% assign card_num=card_num | plus:1 %}
-          {% include card.html data=data collection=page.collection num=card_num due="Before before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+          {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
         {% endif %}
       </li>
       <li class="unit [ xs-1 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
@@ -202,7 +202,7 @@ layout: course-inside
           {% if page.tasks[4] %}
             {% assign data = page.tasks[4] %}
             {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num due="Before before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+            {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
           {% else %}
             {% assign next_url=number | plus:1 %}
             {% if next_url < 9 %}
