@@ -152,6 +152,9 @@ layout: course-inside
             </table>
           </div>
         {% endif %}
+        {% if step.code_before %}
+          <div class="mega gutter-1-4 lesson-body-text">{{step.code_before | markdownify}}</div>
+        {% endif %}
         {% if step.code %}
           <div class="mega lesson-body-code {% if step.code_can_copy %}code-can-copy{% endif %}">
             <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" data-line-fade="{% for line in step.lines %}{% if line.fade %}{{line.num}},{% endif %}{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
