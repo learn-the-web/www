@@ -420,6 +420,10 @@
   background-color: var(--color-code-dark);
 }
 
+.folder-fade {
+  opacity: .4;
+}
+
 .folder-indent-1 {
   padding-left: 16px;
 }

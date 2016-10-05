@@ -89,6 +89,15 @@ thead th {
 
 .normal {
   font-weight: normal;
+  font-style: normal;
+}
+
+.not-bold {
+  font-weight: normal;
+}
+
+.not-italic {
+  font-style: normal;
 }
 
 .bold {
@@ -105,6 +114,18 @@ thead th {
 
 .text-lower {
   text-transform: lowercase;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 52em;
+}
+
+.max-length {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 36em;
 }
 
 h1,
@@ -417,8 +438,7 @@ fieldset {
   }
 
   ol ol,
-  ul ol
-   {
+  ul ol {
     padding-left: 1.6em;
   }
 
@@ -659,8 +679,7 @@ fieldset {
   }
 
   ol ol,
-  ul ol
-   {
+  ul ol {
     padding-left: 1.6em;
   }
 
@@ -901,8 +920,7 @@ fieldset {
   }
 
   ol ol,
-  ul ol
-   {
+  ul ol {
     padding-left: 1.6em;
   }
 

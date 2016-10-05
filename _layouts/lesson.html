@@ -118,12 +118,16 @@ layout: course-inside
               {% for file in step.folders %}
                 {% assign file_folder="file" %}
                 {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
-                <li>
-                  <div class="{% if file.indent %}folder-indent-{{file.indent}}{% endif %}">
-                    <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
-                    <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
-                  </div>
-                </li>
+                {% unless file.continue %}
+                  <li>
+                    <div class="{% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
+                      <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                      <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
+                    </div>
+                  </li>
+                {% else %}
+                  <li><i class="icon i-18 not-italic text-center">⋮</i></li>
+                {% endunless %}
               {% endfor %}
             </ol>
           </div>
