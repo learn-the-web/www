@@ -1,0 +1,16 @@
+<ol class="list-group folders pad-t-1-2 pad-b-1-2 tera w-1">
+  {% for file in include.data.folders %}
+    {% assign file_folder="file" %}
+    {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
+    {% unless file.continue %}
+      <li>
+        <div class="{% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
+          <i class="icon i-24"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+          <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">&nbsp;{{file.label}}</span>
+        </div>
+      </li>
+    {% else %}
+      <li><i class="icon i-24 not-italic text-center">⋮</i></li>
+    {% endunless %}
+  {% endfor %}
+</ol>

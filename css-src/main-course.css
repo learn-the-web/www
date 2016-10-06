@@ -5,4 +5,5 @@
 @import "../vendor/prism.css";
 @import "slide-deck.css";
 @import "lesson.css";
+@import "folders.css";
 @import "assignment-viewer.css";

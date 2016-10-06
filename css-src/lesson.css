@@ -403,43 +403,6 @@
   background: transparent url("images/switch.svg") no-repeat left top / 42px auto;
 }
 
-.folders {
-  margin-left: -12px;
-  margin-right: -12px;
-
-  background-color: var(--color-code);
-  border-radius: 4px;
-}
-
-.folders li {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.folders li:nth-child(even) {
-  background-color: var(--color-code-dark);
-}
-
-.folder-fade {
-  opacity: .4;
-}
-
-.folder-indent-1 {
-  padding-left: 16px;
-}
-
-.folder-indent-2 {
-  padding-left: 32px;
-}
-
-.folder-indent-3 {
-  padding-left: 48px;
-}
-
-.folder-indent-4 {
-  padding-left: 64px;
-}
-
 .red-sticky {
   background-color: #fb3a64;
 }
