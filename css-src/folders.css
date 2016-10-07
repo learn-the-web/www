@@ -34,3 +34,10 @@
 .folder-indent-4 {
   padding-left: 64px;
 }
+
+.folder-notes {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
