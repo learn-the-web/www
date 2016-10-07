@@ -92,6 +92,8 @@ td, th {
 }
 
 .max-length {
+  margin-left: 0;
+  margin-right: 0;
   max-width: 33em;
 }
 
