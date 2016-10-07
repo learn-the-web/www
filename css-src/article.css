@@ -147,7 +147,7 @@
   height: 20px;
 
   background: none no-repeat left top / 100% auto transparent;
-  background-image: url("../images-embed/nav-icon.svg");
+  background-image: inline("../images-embed/nav-icon.svg");
 }
 
 .nav-check:checked ~ .nav-label {
