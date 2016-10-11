@@ -1,0 +1,7 @@
+{% if include.code_before %}
+  <div class="mega gutter-1-4 lesson-body-text">{{include.code_before | markdownify}}</div>
+{% endif %}
+
+<div class="mega lesson-body-code {% if include.code_can_copy %}code-can-copy{% endif %}">
+  <pre class="language-{{include.code_lang}}" data-line="{% for line in include.lines %}{{line.num}},{% endfor %}" data-line-fade="{% for line in include.lines %}{% if line.fade %}{{line.num}},{% endif %}{% endfor %}" {% if include.code_file %}data-file="{{include.code_file}}"{% endif %}><code class="language-{{include.code_lang}}">{{include.code | xml_escape}}</code></pre>
+</div>

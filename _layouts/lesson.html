@@ -93,7 +93,7 @@ layout: course-inside
               </svg>
             {% endif %}
           </i>
-          {{step.title}}
+          {{step.title | escape}}
         </h2>
         {% if page.pair %}
           <div class="mega gutter-1-4 lesson-body-text">
@@ -120,9 +120,15 @@ layout: course-inside
                 {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
                 {% unless file.continue %}
                   <li>
-                    <div class="{% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
+                    <div class="relative {% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
                       <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
                       <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
+                      {% if file.rename %}
+                        <span class="icon-label color-grey folder-rename" title="Rename the file to" aria-label="Rename the file to">&nbsp;&nbsp; ➔ &nbsp;&nbsp;</span>
+                        <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                        <span class="icon-label bold">{{file.rename}}</span>
+                      {% endif %}
+                      {% if file.notes %}<span class="icon-label kilo folder-notes italic">{{file.notes}}</span>{% endif %}
                     </div>
                   </li>
                 {% else %}
@@ -152,13 +158,13 @@ layout: course-inside
             </table>
           </div>
         {% endif %}
-        {% if step.code_before %}
-          <div class="mega gutter-1-4 lesson-body-text">{{step.code_before | markdownify}}</div>
+        {% if step.multi_code %}
+          {% for code in step.multi_code %}
+            {% include lesson/code.html code=code.code code_file=code.code_file code_lang=code.code_lang code_before=code.code_before code_can_copy=code.code_can_copy lines=code.lines %}
+          {% endfor %}
         {% endif %}
         {% if step.code %}
-          <div class="mega lesson-body-code {% if step.code_can_copy %}code-can-copy{% endif %}">
-            <pre class="language-{{step.code_lang}}" data-line="{% for line in step.lines %}{{line.num}},{% endfor %}" data-line-fade="{% for line in step.lines %}{% if line.fade %}{{line.num}},{% endif %}{% endfor %}" {% if step.code_file %}data-file="{{step.code_file}}"{% endif %}><code class="language-{{step.code_lang}}">{{step.code | xml_escape}}</code></pre>
-          </div>
+          {% include lesson/code.html code=step.code code_file=step.code_file code_lang=step.code_lang code_before=step.code_before code_can_copy=step.code_can_copy lines=step.lines %}
         {% endif %}
         {% if step.image_steps %}
           <div class="lesson-body-image-steps push-2">
@@ -193,7 +199,7 @@ layout: course-inside
         {% endif %}
       </div>
       <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %}">
-        {% if step.notes or step.lines %}
+        {% if step.notes or step.lines or step.multi_code[0].lines %}
           <ol class="lesson-note-list list-group">
             {% for note in step.notes %}
               <li class="lesson-note">
@@ -201,14 +207,24 @@ layout: course-inside
                 <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
               </li>
             {% endfor %}
-            {% for line in step.lines %}
-              {% if line.text %}
-                <li class="lesson-note">
-                  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Line{% if line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=line.num %}</h3>
-                  <div class="gutter-1-2 italic">{{line.text | markdownify}}</div>
-                </li>
-              {% endif %}
-            {% endfor %}
+            {% if step.lines %}
+              {% for line in step.lines %}
+                {% if line.text %}
+                  {% include lesson/code-line.html line=line %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            {% if step.multi_code %}
+              {% for block in step.multi_code %}
+                {% if block.lines %}
+                  {% for line in block.lines %}
+                    {% if line.text %}
+                      {% include lesson/code-line.html line=line prefix=block.code_file %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
           </ol>
         {% endif %}
       </div>
