@@ -2,7 +2,7 @@
   var tablist = document.querySelector('[role="tablist"]');
   var tabs = document.querySelectorAll('[role="tab"]');
 
-  if (!tablist && !tabs) return;
+  if (!tablist || !tabs) return;
 
   tablist.removeAttribute('hidden');
   tablist.removeAttribute('aria-hidden');
