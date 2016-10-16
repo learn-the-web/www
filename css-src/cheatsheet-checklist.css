@@ -43,12 +43,16 @@
   margin: 0;
 }
 
-.cheat-list > li > p:first-child {
+.cheat-head {
   color: #000;
 }
 
-.cheat-list > li > p:first-child code {
+.cheat-head code {
   background-color: var(--color-code-dark);
+}
+
+.cheat-list p code {
+  white-space: normal;
 }
 
 .cheat-details {
