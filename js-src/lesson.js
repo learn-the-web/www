@@ -57,17 +57,31 @@
 
 (function () {
   'use strict';
+
   var resizeTimer;
+  var entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+  };
+
+  var escapeHtml = function (string) {
+    return String(string).replace(/[&<>]/g, function (s) {
+      return entityMap[s];
+    });
+  };
 
   var onWindowResize = function () {
-    var
-      lineHightlights = document.querySelectorAll('pre .line-highlight'),
-      i=0, total = lineHightlights.length
-    ;
+    var lineHightlights = document.querySelectorAll('pre .line-highlight');
+    var codeBlocks = document.querySelectorAll('pre[class*="language-"] code');
 
-    for (i; i<total; i++) {
-      lineHightlights[i].parentNode.removeChild(lineHightlights[i]);
-    }
+    [].forEach.call(lineHightlights, function (lineHightlight) {
+      lineHightlight.parentNode.removeChild(lineHightlight);
+    });
+
+    [].forEach.call(codeBlocks, function (tag) {
+      tag.innerHTML = escapeHtml(tag.textContent);
+    });
 
     Prism.highlightAll();
   };
