@@ -254,6 +254,7 @@ layout: course-inside
             </h2>
             <div class="mega lesson-body-text">
               <p>Drop the final, coded exercise into Markbot and fix all the errors until Markbot gives you all green.</p>
+              {% if page.markbot_notes %}{{page.markbot_notes | markdownify}}{% endif %}
               <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
             </div>
           </div>
