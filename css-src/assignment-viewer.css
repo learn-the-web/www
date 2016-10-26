@@ -6,6 +6,7 @@
   right: 0;
   top: 0;
   width: 100vw;
+  z-index: 5000;
 
   background-color: rgba(0, 0, 0, .5);
   overflow: hidden;
@@ -30,6 +31,11 @@
   border-bottom: 0;
   border-radius: 8px 8px 0 0;
   overflow: hidden;
+}
+
+.assignment-wrapper:focus {
+  outline: 0;
+  box-shadow: 0 0 8px #00deaf;
 }
 
 .assignment-close-btn {

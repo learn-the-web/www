@@ -2,6 +2,7 @@
   'use strict';
 
   var $viewer = document.getElementById('assignment-viewer');
+  var $assignmentWrapper = document.querySelector('.assignment-wrapper');
   var $wrapper = document.querySelector('.assignment-content-wrapper');
   var $loader = document.getElementById('assignment-loader');
   var $title = document.querySelector('.assignment-name');
@@ -218,7 +219,7 @@
     $viewer.removeAttribute('hidden', 'true');
     $viewer.setAttribute('aria-hidden', 'false');
     document.querySelector('html').style.overflow = 'hidden';
-    $btn.focus();
+    $assignmentWrapper.focus();
   };
 
   var downloadContent = function (href) {
