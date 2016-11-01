@@ -53,6 +53,10 @@ template {
   display: none;
 }
 
+details {
+  cursor: pointer;
+}
+
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -510,6 +514,8 @@ a:focus,
 [tabindex="0"]:focus,
 input:focus,
 textarea:focus,
+details:focus,
+summary:focus,
 button:focus,
 select:focus {
   outline: 3px solid #000;
