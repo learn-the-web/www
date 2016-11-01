@@ -175,6 +175,11 @@ iframe {
   vertical-align: middle;
 }
 
+.slide-checkerboard {
+  background: none repeat left top / 32px 32px #e2e2e2;
+  background-image: inline("../images-embed/checkerboard.svg");
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {

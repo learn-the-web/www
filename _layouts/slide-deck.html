@@ -51,7 +51,7 @@
     {% else %}
       {% assign slide_type="big-text" %}
     {% endif %}
-    <div class="slide unit xs-1 center wrapper gutter-1-2" id="slide-{{forloop.index}}">
+    <div class="slide unit xs-1 center wrapper gutter-1-2 {% if slide.checkerboard %}slide-checkerboard{% endif %}" id="slide-{{forloop.index}}">
       {% include slides/{{slide_type}}.html data=slide collection_label=page.collection %}
       <nav class="slide-nav milli">
         <ul class="list-group-inline push-0">
