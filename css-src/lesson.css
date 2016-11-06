@@ -370,6 +370,8 @@
 
 }
 
+.image-steps ul,
+.image-steps ol,
 .image-steps p {
   margin: 0;
 }
