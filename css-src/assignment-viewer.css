@@ -76,6 +76,10 @@
   background-color: var(--color-code-darkest);
 }
 
+.assignment-header h2 {
+  padding-right: 3.6em;
+}
+
 .assignment-sub-header {
   background-color: var(--color-code-darkest);
 }

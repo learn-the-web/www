@@ -28,6 +28,7 @@
     code: document.querySelector('[property="assignment-code"]').getAttribute('content'),
     online: document.querySelector('[property="assignment-online"]').getAttribute('content'),
     show: document.querySelector('[property="assignment-show"]').getAttribute('content'),
+    download: document.querySelector('[property="assignment-download"]').getAttribute('content'),
   }
 
   var getButtonLabel = function (type) {
@@ -53,11 +54,21 @@
     $btn.classList.remove('btn-dark');
     $btn.classList.add('btn-subtle');
     $btn.classList.add('assignment-btn-disabled');
+    $btn.removeAttribute('download');
   };
 
   var populateButton = function (type, href) {
+    enableButton();
+
     $btn.innerHTML = getButtonLabel(type);
-    $btn.href = href + '/fork';
+    $btn.removeAttribute('download');
+
+    if (type === 'download') {
+      $btn.href = href;
+      $btn.setAttribute('download', true);
+    } else {
+      $btn.href = href + '/fork';
+    }
 
     if (type == 'show') disableButton();
   };
@@ -179,6 +190,10 @@
     }
 
     if (readme.submit) $btn.href = readme.submit;
+
+    if (readme.download) {
+      populateButton('download', readme.download);
+    }
 
     showContent(readme.html);
     hideLoaders();
