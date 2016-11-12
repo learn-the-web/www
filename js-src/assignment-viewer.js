@@ -12,6 +12,9 @@
   var $gradingType = document.querySelector('.assignment-grading-type');
   var $satisfies = document.querySelector('.assignment-satisfies');
   var $btn = document.querySelector('.assignment-btn');
+  var $btnDownload = document.querySelector('.assignment-download-btn');
+  var $btnDownloadWrap = document.querySelector('.assignment-download-btn-wrap');
+  var $btnDownloadPlus = document.querySelector('.assignment-download-plus');
   var $subHeader = document.querySelector('.assignment-sub-header');
   var $summaryDefault = document.querySelector('.assignment-summary-default');
   var $summary = document.querySelector('.assignment-summary');
@@ -28,7 +31,6 @@
     code: document.querySelector('[property="assignment-code"]').getAttribute('content'),
     online: document.querySelector('[property="assignment-online"]').getAttribute('content'),
     show: document.querySelector('[property="assignment-show"]').getAttribute('content'),
-    download: document.querySelector('[property="assignment-download"]').getAttribute('content'),
   }
 
   var getButtonLabel = function (type) {
@@ -54,23 +56,26 @@
     $btn.classList.remove('btn-dark');
     $btn.classList.add('btn-subtle');
     $btn.classList.add('assignment-btn-disabled');
-    $btn.removeAttribute('download');
   };
 
   var populateButton = function (type, href) {
     enableButton();
 
     $btn.innerHTML = getButtonLabel(type);
-    $btn.removeAttribute('download');
-
-    if (type === 'download') {
-      $btn.href = href;
-      $btn.setAttribute('download', true);
-    } else {
-      $btn.href = href + '/fork';
-    }
+    $btn.href = href + '/fork';
 
     if (type == 'show') disableButton();
+  };
+
+  var hideDownloadButton = function () {
+    $btnDownloadWrap.setAttribute('hidden', true);
+    $btnDownloadPlus.setAttribute('hidden', true);
+  };
+
+  var showDownloadButton = function (href) {
+    $btnDownloadWrap.removeAttribute('hidden');
+    $btnDownloadPlus.removeAttribute('hidden');
+    $btnDownload.setAttribute('href', href);
   };
 
   var getReadmeUrl = function (href) {
@@ -190,10 +195,7 @@
     }
 
     if (readme.submit) $btn.href = readme.submit;
-
-    if (readme.download) {
-      populateButton('download', readme.download);
-    }
+    if (readme.download) showDownloadButton(readme.download);
 
     showContent(readme.html);
     hideLoaders();
@@ -214,6 +216,7 @@
     });
     populateButton('', '');
     enableButton();
+    hideDownloadButton();
     $scrollDown.removeAttribute('hidden');
   };
 

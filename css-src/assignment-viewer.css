@@ -58,6 +58,37 @@
   pointer-events: none;
 }
 
+.assignment-download-btn-wrap {
+  line-height: 1px;
+}
+
+.assignment-download-btn {
+  height: 2.5em;
+  margin-right: -.2em;
+  padding: 0;
+  position: relative;
+  width: 2.5em;
+
+  border-radius: 50%;
+
+  text-align: center;
+}
+
+.assignment-download-btn i {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.assignment-download-plus {
+  width: .8em;
+
+  line-height: 1px;
+  text-align: center;
+}
+
 .assignment-content-wrapper {
   flex-grow: 1;
   overflow-y: auto;
