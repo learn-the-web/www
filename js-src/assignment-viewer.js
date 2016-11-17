@@ -177,6 +177,35 @@
     $content.innerHTML = text;
   };
 
+  var convertTaskLists = function () {
+    var lists = document.querySelectorAll('.assignment-content ul');
+
+    if (!lists) return;
+
+    [].forEach.call(lists, function (list, listIndex) {
+      [].forEach.call(list.children, function (li, liIndex) {
+        var newLabel, newInput, id = 'assignment-' + listIndex + '-' + liIndex;
+
+        if (li.textContent.trim().match(/^\[[ x]\]/)) {
+          if (liIndex == 0) li.parentNode.classList.add('list-group');
+
+          newLabel = document.createElement('label');
+          newLabel.textContent = li.textContent.trim().replace(/^\[[ x]\]/, '');
+          newLabel.setAttribute('for', id);
+          newInput = document.createElement('input');
+          newInput.type = 'checkbox';
+          newInput.id = id;
+
+          if (li.textContent.trim().match(/^\[[x]\]/)) newInput.checked = true;
+
+          li.textContent = '';
+          li.appendChild(newInput);
+          li.appendChild(newLabel);
+        }
+      });
+    });
+  };
+
   var defaultContent = function () {
     $content.innerHTML = '';
   }
@@ -198,6 +227,7 @@
     if (readme.download) showDownloadButton(readme.download);
 
     showContent(readme.html);
+    convertTaskLists()
     hideLoaders();
   };
 
