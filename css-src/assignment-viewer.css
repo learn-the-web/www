@@ -121,6 +121,13 @@
   top: 0;
 }
 
+.assignment-content ol ol,
+.assignment-content ol ul,
+.assignment-content ul ol,
+.assignment-content ul ul {
+  margin-bottom: 0;
+}
+
 .assignment-footer {
   flex-shrink: 0;
   background-color: var(--color-code-dark);
