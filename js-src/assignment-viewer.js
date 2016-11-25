@@ -9,6 +9,7 @@
   var $icon = document.getElementById('assignment-icon');
   var $due = document.querySelector('.assignment-due');
   var $worth = document.querySelector('.assignment-worth');
+  var $gradingTypeWrap = document.querySelector('.assignment-grading-type-wrap');
   var $gradingType = document.querySelector('.assignment-grading-type');
   var $satisfies = document.querySelector('.assignment-satisfies');
   var $btn = document.querySelector('.assignment-btn');
@@ -42,6 +43,13 @@
     $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', details.icon);
     $due.innerHTML = details.due;
     $worth.innerHTML = details.worth;
+
+    if (details.worth <= 0) {
+      $gradingTypeWrap.setAttribute('hidden', true);
+    } else {
+      $gradingTypeWrap.removeAttribute('hidden');
+    }
+
     $gradingType.innerHTML = details.gradingType;
     $satisfies.innerHTML = details.satisfies;
   };
