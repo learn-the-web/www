@@ -15,6 +15,10 @@ body {
   border-top: 4px solid var(--color-brand-dark);
 }
 
+.body-no-border {
+  border-top: 0;
+}
+
 .font-os {
   font-family: sans-serif !important;
 }

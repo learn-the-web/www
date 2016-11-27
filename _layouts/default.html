@@ -33,7 +33,7 @@
   {% endif %}
   {{page.head}}
 </head>
-<body>
+<body {% if page.hasCourseNav %}class="body-no-border"{% endif %}>
 
   {% include icons.html %}
 
