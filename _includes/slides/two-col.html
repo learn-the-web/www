@@ -1,0 +1,21 @@
+<div class="slide-full gutter">
+  {% if include.data.heading %}<h2 {% if include.data.intro %}class="push-0"{% endif %}>{{include.data.heading}}</h2>{% endif %}
+  <div class="peta">
+    {% if include.data.intro %}{{include.data.intro | markdownify}}{% endif %}
+  </div>
+  <div class="grid grid-stretch giga">
+    <div class="unit [ xs-1 s-1 m-1-2 ] gutter">
+      {% if include.data.col1 %}
+        {{include.data.col1 | markdownify}}
+      {% endif %}
+    </div>
+    <div class="unit [ xs-1 s-1 m-1-2 ] gutter">
+      {% if include.data.col2 %}
+        {{include.data.col2 | markdownify}}
+      {% endif %}
+    </div>
+  </div>
+  <div class="peta">
+    {% if include.data.outro %}{{include.data.outro | markdownify}}{% endif %}
+  </div>
+</div>
