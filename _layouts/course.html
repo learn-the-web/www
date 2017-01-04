@@ -12,7 +12,7 @@ layout: basic-inside
 {% for doc in page_data.docs %}
   {% unless doc.layout == "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
-    {% if tut.videos %}
+    {% if tut.videos and page.grades.videos %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
     {% endif %}
   {% endfor %}
@@ -23,7 +23,7 @@ layout: basic-inside
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
       {% endunless %}
     {% else %}
-      {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
       {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
     {% endif %}
   {% endfor %}
@@ -68,7 +68,7 @@ layout: basic-inside
         {% for doc in page_data.docs %}
           {% unless doc.layout == "week" %}{% continue %}{% endunless %}
           {% for tut in doc.video_tutorials %}
-            {% if tut.videos %}
+            {% if tut.videos and page.grades.videos %}
               {% capture count %}{{count | plus: 1}}{% endcapture %}
               {% capture url %}/topics/{{tut.url}}/{% endcapture %}
               {% include assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr week=doc.title url=url %}
@@ -85,8 +85,8 @@ layout: basic-inside
                 {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug disabled=disabled %}
               {% endunless %}
             {% else %}
+              {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
               {% capture count %}{{count | plus: 1}}{% endcapture %}
-              {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
               {% if exercise.url contains "github.com" %}
                 {% assign slug = exercise.url | split: "/" | unique | last %}
                 {% assign url = doc.url %}
@@ -164,7 +164,7 @@ layout: basic-inside
             </ol>
             <ol class="week-list-tasks list-group-inline micro">
               {% for task in week.tasks %}
-                {% if task.type != "blank" %}
+                {% if task.type != "blank" and task.type != "watch-videos" %}
                   {% if task.url contains "github.com" %}
                     {% capture url %}{{week.url}}#{{task.url | split: "/" | unique | last}}{% endcapture %}
                   {% elsif task.url and task.url contains "/" %}
@@ -193,10 +193,15 @@ layout: basic-inside
 
 {% unless page.hide-marking-scheme %}
   <div class="section-muted pad-t pad-b-1-2 gutter-1-4" id="marking-scheme">
+    {% if page.grades.videos %}
+      {% assign column_width = "1-3" %}
+    {% else %}
+      {% assign column_width = "1-2" %}
+    {% endif %}
     <div class="wrapper">
       <h2 class="gutter-1-4 exa">Marking scheme</h2>
       <div class="grid">
-        <div class="unit [ xs-1 m-1-3 ] gutter-1-4">
+        <div class="unit [ xs-1 m-{{column_width}} ] gutter-1-4">
           <h3 class="push-0">Exercises — {{page.grades.exercises}}%</h3>
           <p class="mega"><em>{{total_exercises}} exercises @ {{exercises_per}}% each.</em></p>
           <ul class="push-0">
@@ -204,6 +209,7 @@ layout: basic-inside
             <li>Personal feedback given at specific intervals.</li>
           </ul>
         </div>
+        {% if page.grades.videos %}
         <div class="unit [ xs-1 m-1-3 ] gutter-1-4">
           <h3 class="push-0">Videos — {{page.grades.videos}}%</h3>
           <p class="mega"><em>{{total_videos}} video playlists @ {{videos_per}}% each.</em></p>
@@ -212,7 +218,8 @@ layout: basic-inside
             <li>Must reach 80% of playlist duration to receive pass.</li>
           </ul>
         </div>
-        <div class="unit [ xs-1 m-1-4 ] gutter-1-4">
+        {% endif %}
+        <div class="unit [ xs-1 m-{{column_width}} ] gutter-1-4">
           <h3 class="push-0">Big project — {{page.grades.projects}}%</h3>
           <p class="mega"><em>{{total_projects}} milestones @ {{projects_per}}% each.</em></p>
           <ul class="push-0">

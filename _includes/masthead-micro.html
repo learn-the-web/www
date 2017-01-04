@@ -2,7 +2,7 @@
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 
 <header class="masthead-micro">
-  <div class="grid grid-middle wrapper gutter-1-2">
+  <div class="grid grid-middle gutter-1-2 {% unless include.no_wrapper %}wrapper{% endunless %}">
     <div class="unit [ xs-1 m-1-2 l-1-5 ]">
       <a class="logo link-box" href="/">
         <img class="img-flex" src="/images/logo.svg" alt="">
@@ -10,7 +10,9 @@
     </div>
     <div class="unit [ xs-1 m-1-2 l-2-5 ]">
       <h1 class="giga push-0">
-      {% if page.title %}
+      {% if page.topic %}
+        {{page.topic}}
+      {% elsif page.title %}
         {{page.title}}
       {% else %}
         <span class="normal">{{page_data.title}}—</span>Week {{number}}

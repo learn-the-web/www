@@ -1,10 +1,11 @@
 ---
 layout: course-inside
+no_wrapper: true
 ---
 
 <div class="lesson-desc">
-  <div class="wrapper gutter-1-2 pad-t-1-2 pad-b-1-2">
-    <p class="lesson-intro push-0 giga">{{page.desc}}</p>
+  <div class="grid gutter-1-2 pad-t-1-2 pad-b-1-2 {% unless layout.no_wrapper %}wrapper{% endunless %}">
+    <p class="unit [ xs-1 ] unit-push-m-1-5 lesson-intro push-0 giga">{{page.desc}}</p>
   </div>
 </div>
 

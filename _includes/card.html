@@ -10,6 +10,7 @@
 {% assign button_activity = "Do activity" %}
 {% assign button_print = "Print & draw" %}
 {% assign button_materials = "See materials" %}
+{% assign button_videos = "Watch videos" %}
 {% assign button_online = "Submit online" %}
 {% assign button_code = "Write code" %}
 
@@ -42,6 +43,9 @@
     {% assign submit = submit_online %}
     {% assign submission_type = "online" %}
     {% assign button = button_online %}
+  {% when "videos" %}
+    {% assign icon = "play-reversed" %}
+    {% assign button = button_videos %}
   {% else %}
     {% assign icon = "code" %}
     {% assign submit = submit_code %}

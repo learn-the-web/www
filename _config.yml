@@ -107,6 +107,12 @@ next_week:
   type: next
   card_class: "card-subtle"
 
+watch_videos:
+  title: "Watch videos"
+  submit: "Watch next week’s videos."
+  type: videos
+  card_class: "card-subtle"
+
 no_activities:
   title: ""
   submit: "No activities or quizzes this week."
