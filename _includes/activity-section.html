@@ -13,7 +13,7 @@
       </h2>
       {% assign count = 0 %}
       <!-- <p class="push-1-2">Test your knowledge and skills with the {{include.collection.title}} activities, quizzes & games.</p> -->
-      <ol class="list-group-inline push-0">
+      <ol class="activity-list list-group-inline push-0">
         {% for week in include.collection.docs %}
           {% if week.layout == "week" %}
             {% for task in week.tasks %}

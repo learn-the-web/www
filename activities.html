@@ -5,12 +5,30 @@ desc: "There are lots of activities, quizzes, exercises & games to test the know
 priority: 0.8
 head: |
   <link href="/css/main-topics.min.css" rel="stylesheet">
+
+# A hacky way to put unused activities on this page
+# Should probably move this to `data`
+unused_activities:
+  title: "Fun & games"
+  docs:
+    - layout: week
+      tasks:
+        - title: "Acronym Annihilator"
+          url: https://activities.learn-the-web.algonquindesign.ca/acronym-annihilator/
+          type: activity
+        - title: "Specificity Spy"
+          url: "https://activities.learn-the-web.algonquindesign.ca/specificity-spy/"
+          type: activity
+        - title: "URL Explorer"
+          url: "https://activities.learn-the-web.algonquindesign.ca/url-explorer/"
+          type: activity
 ---
 
 {% include icons-topics.html %}
 
 <div class="wrapper gutter-1-2 pad-t pad-b-1-2">
-  {% for collection in site.collections %}
+  {% for collection_id in site.collections_courses %}
+    {% assign collection = site.collections | where: "label", collection_id | first %}
     {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
     {% if collection.disabled %}
@@ -19,6 +37,8 @@ head: |
       {% assign link = true %}
     {% endif %}
 
-    {% include activity-section.html number=forloop.index0 collection=collection is-last=forloop.last link=link %}
+    {% include activity-section.html number=forloop.index collection=collection is-last=false link=link %}
   {% endfor %}
+
+  {% include activity-section.html number="infinite" collection=page.unused_activities is-last=true link=false %}
 </div>
