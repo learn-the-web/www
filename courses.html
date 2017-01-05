@@ -9,8 +9,10 @@ head: |
 
 {% include icons-topics.html %}
 
-<div class="wrapper gutter-1-2 pad-t pad-b-1-2">
-  {% for collection in site.collections %}
+<div class="wrapper gutter-1-2 pad-t pad-b-1-2 push">
+  {% for collection_id in site.collections_courses %}
+    {% assign collection = site.collections | where: "label", collection_id | first %}
+
     {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
     {% if collection.disabled %}
@@ -20,6 +22,25 @@ head: |
     {% endif %}
 
     {% assign data = collection.docs | where: "layout", "course" | first %}
-    {% include course-section.html number=forloop.index0 data=data link=link %}
+    {% include course-section.html number=forloop.index data=data link=link %}
+  {% endfor %}
+</div>
+
+<hr class="push-0">
+
+<div class="wrapper gutter-1-2 pad-t pad-b">
+  {% for collection_id in site.collections_workshops %}
+    {% assign collection = site.collections | where: "label", collection_id | first %}
+
+    {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+
+    {% if collection.disabled %}
+      {% assign link = false %}
+    {% else %}
+      {% assign link = true %}
+    {% endif %}
+
+    {% assign data = collection.docs | where: "layout", "course" | first %}
+    {% include course-section.html number="infinite" data=data link=link %}
   {% endfor %}
 </div>

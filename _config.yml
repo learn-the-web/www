@@ -1,4 +1,4 @@
-version: 72
+version: 73
 
 permalink: pretty
 highlighter: none
@@ -55,6 +55,16 @@ collections:
     permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
     disabled: true
+  javascript:
+    output: true
+    permalink: /courses/javascript/:path/
+    title: "Javascript"
+    disabled: true
+  jekyll:
+    output: true
+    permalink: /courses/jekyll/:path/
+    title: "Jekyll"
+    disabled: true
 
 kramdown:
   input: GFM
@@ -98,6 +108,18 @@ defaults:
 ########################################
 # WEBSITE SPECIFIC CONFIG
 ########################################
+
+collections_courses:
+  - web-dev-1
+  - web-dev-2
+  - web-dev-3
+  - web-dev-4
+  - web-dev-5
+  - web-dev-6
+
+collections_workshops:
+  - javascript
+  - jekyll
 
 max_weeks: 15
 

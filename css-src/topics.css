@@ -418,12 +418,13 @@
     position: absolute;
     left: 0;
     top: 50%;
+    width: 2.4em;
 
     transform: translateY(-50%);
   }
 
   .topic-heading-text {
-    max-width: 3em;
+    width: 100%;
   }
 
   .topics a[data-visited]::after {
