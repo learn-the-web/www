@@ -81,7 +81,7 @@ layout: basic-inside
                 {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
                 {% assign slug = exercise.url | split: "/" | unique | last %}
                 {% assign disabled = true %}
-                {% if exercise.url %}{% assign disabled = false %}{% endif %}
+                {% if exercise.url %}{% unless exercise.disabled %}{% assign disabled = false %}{% endunless %}{% endif %}
                 {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug disabled=disabled %}
               {% endunless %}
             {% else %}
@@ -98,7 +98,7 @@ layout: basic-inside
                 {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
               {% endif %}
               {% assign disabled = true %}
-              {% if exercise.url %}{% assign disabled = false %}{% endif %}
+              {% if exercise.url %}{% unless exercise.disabled %}{% assign disabled = false %}{% endunless %}{% endif %}
               {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
             {% endif %}
           {% endfor %}
