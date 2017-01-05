@@ -26,21 +26,26 @@ head: |
   {% endfor %}
 </div>
 
-<hr class="push-0">
+<div class="section-muted pad-t-1-2">
+  <div class="wrapper gutter-1-2 pad-t pad-b">
+    <h2 class="zetta">Workshops</h2>
+    <p class="mega max-length">Outside the core Web Dev courses, Algonquin Graphic Design offers workshops for enthusiastic students to explore more complex and in-depth materials with guidance on their own time.</p>
 
-<div class="wrapper gutter-1-2 pad-t pad-b">
-  {% for collection_id in site.collections_workshops %}
-    {% assign collection = site.collections | where: "label", collection_id | first %}
+    <hr class="hr-medium">
 
-    {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+    {% for collection_id in site.collections_workshops %}
+      {% assign collection = site.collections | where: "label", collection_id | first %}
 
-    {% if collection.disabled %}
-      {% assign link = false %}
-    {% else %}
-      {% assign link = true %}
-    {% endif %}
+      {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
 
-    {% assign data = collection.docs | where: "layout", "course" | first %}
-    {% include course-section.html number="infinite" data=data link=link %}
-  {% endfor %}
+      {% if collection.disabled %}
+        {% assign link = false %}
+      {% else %}
+        {% assign link = true %}
+      {% endif %}
+
+      {% assign data = collection.docs | where: "layout", "course" | first %}
+      {% include course-section.html number="infinite" data=data link=link %}
+    {% endfor %}
+  </div>
 </div>
