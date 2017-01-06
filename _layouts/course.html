@@ -148,7 +148,7 @@ layout: basic-inside
                   {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% endif %}
                 <li>
-                  <a {% if deck.url %}href="{{url_prefix}}{{deck.url}}"{% else %}data-state="disabled"{% endif %}>{{deck.title}} slide deck</a>
+                  <a {% if deck.url %}href="{{url_prefix}}{{deck.url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{deck.title}} slide deck</a>
                 </li>
               {% endfor %}
               {% for activity in week.group_activities %}
@@ -158,7 +158,7 @@ layout: basic-inside
                   {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% endif %}
                 <li>
-                  <a {% if activity.url %}href="{{url_prefix}}{{activity.url}}"{% else %}data-state="disabled"{% endif %}>{{activity.title}}</a>
+                  <a {% if activity.url %}href="{{url_prefix}}{{activity.url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{activity.title}}</a>
                 </li>
               {% endfor %}
             </ol>
@@ -173,7 +173,7 @@ layout: basic-inside
                     {% capture url %}/courses/{{page.collection}}/{{task.url}}/{% endcapture %}
                   {% endif %}
                   <li{% if forloop.index == 3 %} class="week-list-tasks-outside"{% endif %}>
-                    <a {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %}>{{task.title}}</a>
+                    <a {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}}</a>
                   </li>
                 {% endif %}
               {% endfor %}
