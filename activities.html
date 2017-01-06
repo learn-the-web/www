@@ -8,20 +8,14 @@ head: |
 
 # A hacky way to put unused activities on this page
 # Should probably move this to `data`
-unused_activities:
-  title: "Fun & games"
-  docs:
-    - layout: week
-      tasks:
-        - title: "Acronym Annihilator"
-          url: https://activities.learn-the-web.algonquindesign.ca/acronym-annihilator/
-          type: activity
-        - title: "Specificity Spy"
-          url: "https://activities.learn-the-web.algonquindesign.ca/specificity-spy/"
-          type: activity
-        - title: "URL Explorer"
-          url: "https://activities.learn-the-web.algonquindesign.ca/url-explorer/"
-          type: activity
+# unused_activities:
+#   title: "Fun & games"
+#   docs:
+#     - layout: week
+#       tasks:
+#         - title: "Specificity Spy"
+#           url: "https://activities.learn-the-web.algonquindesign.ca/specificity-spy/"
+#           type: activity
 ---
 
 {% include icons-topics.html %}
@@ -37,8 +31,16 @@ unused_activities:
       {% assign link = true %}
     {% endif %}
 
-    {% include activity-section.html number=forloop.index collection=collection is-last=false link=link %}
+    {% if page.unused_activities %}
+      {% assign is_last = false %}
+    {% else %}
+      {% assign is_last = forloop.last %}
+    {% endif %}
+
+    {% include activity-section.html number=forloop.index collection=collection is-last=is_last link=link %}
   {% endfor %}
 
-  {% include activity-section.html number="infinite" collection=page.unused_activities is-last=true link=false %}
+  {% if page.unused_activities %}
+    {% include activity-section.html number="infinite" collection=page.unused_activities is-last=true link=false %}
+  {% endif %}
 </div>
