@@ -16,7 +16,7 @@ no_wrapper: true
     {% assign weight_exercises = doc.grades.exercises %}
     {% assign weight_videos = doc.grades.videos %}
     {% assign weight_projects = doc.grades.projects %}
-    {% endif %}
+  {% endif %}
 {% endfor %}
 
 {% assign total_exercises=0 %}
@@ -38,7 +38,7 @@ no_wrapper: true
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
       {% endunless %}
     {% else %}
-      {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
       {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
     {% endif %}
   {% endfor %}

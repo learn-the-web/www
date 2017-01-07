@@ -15,11 +15,13 @@
     {% endfor %}
   </td>
   <td>
-    {% for tut in doc.video_tutorials %}
-      {% if tut.videos %}
-        {% include comms/schedule-assessment.html prefix="Videos" title=tut.title value=videos_per %}
-      {% endif %}
-    {% endfor %}
+    {% if videos_per > 0 %}
+      {% for tut in doc.video_tutorials %}
+        {% if tut.videos %}
+          {% include comms/schedule-assessment.html prefix="Videos" title=tut.title value=videos_per %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     {% for exercise in doc.tasks %}
       {% if exercise.graded-as %}
         {% unless found_projects contains exercise.graded-as %}
@@ -27,7 +29,7 @@
           {% include comms/schedule-assessment.html prefix="Project" title=exercise.title value=projects_per %}
         {% endunless %}
       {% else %}
-        {% if exercise.graded-as == false or exercise.type == "blank" %}{% continue %}{% endif %}
+        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
         {% include comms/schedule-assessment.html prefix="Exercise" title=exercise.title value=exercises_per %}
       {% endif %}
     {% endfor %}
