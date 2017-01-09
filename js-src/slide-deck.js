@@ -221,3 +221,21 @@
     resizeTimer = setTimeout(onWindowResize, 100);
   });
 }());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   HIDE FULL SCREEN INFO BUBBLE
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+
+  var fullScreenBubble = document.querySelector('.full-screen-shortcut');
+
+  if (!fullScreenBubble) return;
+
+  fullScreenBubble.addEventListener('animationend', function (e) {
+    fullScreenBubble.parentNode.removeChild(fullScreenBubble);
+  });
+}());
