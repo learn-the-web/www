@@ -6,15 +6,15 @@
 
   {% for item in include.data %}
 
-    {% if item[1].tool %}
+    {% if item.tool %}
       {% continue %}
     {% endif %}
 
-    {% if item[1].hidden %}
+    {% if item.hidden %}
       {% continue %}
     {% endif %}
 
-    {% if item[0] == include.theslug %}
+    {% if item.slug == include.theslug %}
       {% assign incoming = true %}
     {% else %}
 
@@ -38,10 +38,13 @@
   <div class="tutorial-footer wrapper gutter-1-2 pad-t pad-b">
     <ul class="list-group controls push-0">
       {% if prev %}
+        {% capture prev_slug %}/topics/{{prev.slug}}/{% endcapture %}
+        {% assign results = site.topics | where: "url", prev_slug %}
+        {% assign prev_data = results[0] %}
         <li class="controls-prev push-1-4">
-          <a class="btn btn-ghost" href="/topics/{{prev[0]}}/" rel="prev">
+          <a class="btn btn-ghost" href="{{prev_slug}}" rel="prev">
             <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
-            <span class="icon-label">{{prev[1].title}}</span>
+            <span class="icon-label">{{prev_data.title}}</span>
           </a>
         </li>
       {% endif %}
@@ -52,9 +55,12 @@
         </a>
       </li>
       {% if next %}
+        {% capture next_slug %}/topics/{{next.slug}}/{% endcapture %}
+        {% assign results = site.topics | where: "url", next_slug %}
+        {% assign next_data = results[0] %}
         <li class="controls-next push-1-4">
-          <a class="btn btn-ghost" href="/topics/{{next[0]}}/" rel="next">
-            <span class="icon-label">{{next[1].title}}</span>
+          <a class="btn btn-ghost" href="{{next_slug}}" rel="next">
+            <span class="icon-label">{{next_data.title}}</span>
             <i class="icon i-24 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
           </a>
         </li>

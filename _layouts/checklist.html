@@ -3,6 +3,18 @@ layout: default
 ---
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 
+{% assign results = site.topics | where: "url", "/topics/index.html" %}
+{% assign toc = results[0].toc %}
+
+{% for toc_section in toc %}
+  {% for toc_item in toc_section[1] %}
+    {% capture the_slug %}{{toc_item.slug}}/{% endcapture %}
+    {% if page.url contains the_slug %}
+      {% assign toc_pages = toc_section[1] %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
 {% include inside-nav.html %}
 
 <main class="relative" role="main">
@@ -19,4 +31,4 @@ layout: default
 
 </main>
 
-{% include prev-next-nav.html data=groupdata theslug=slug %}
+{% include prev-next-nav.html data=toc_pages theslug=slug %}
