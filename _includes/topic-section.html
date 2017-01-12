@@ -1,6 +1,6 @@
-<section class="topic-section {{include.class}} pad-t pad-b" id="{{include.id}}" tabindex="-1">
+<section class="topic-section {{include.class}} pad-t {% unless include.show_border %}pad-b{% endunless %}" id="{{include.id}}" tabindex="-1">
   <div class="wrapper gutter-1-2">
-    <div class="topic-wrap">
+    <div class="topic-wrap {% if include.show_border %}pad-b{% endif %}">
       <h2 class="topic-heading" tabindex="0">
         <i class="icon i-48 push-1-4">
           <svg><use xlink:href="#icon-topic-{{include.number}}"/></svg>
@@ -11,14 +11,16 @@
         <div class="unit [xs-1 s-1 m-2-3 l-2-3 ]">
           <ol class="list-group topics push-0">
             {% for item in include.data %}
-              {% assign details = item[1] %}
-              {% if details.hidden != true %}
-                <li class="indent{{details.indent}} {% if details.disabled %}topic-disabled{% endif %} {% if details.fullsite %}topic-flag topic-fullsite{% endif %} {% if details.checklist %}topic-flag topic-checklist{% endif %} {% if details.cheatsheet %}topic-flag topic-cheatsheet{% endif %} {% if details.tool %}topic-flag topic-tool{% endif %}" id="{{item[0]}}" data-tags="{{item[1].tags}}">
-                  {% if details.disabled %}<span class="topic-text">{% else %}<a class="topic-text" href="{% if details.tool %}{{details.tool}}{% else %}/topics/{{item[0]}}/{% endif %}">{% endif %}
-                    {% if details.highlight %}<strong class="topic-text-content">{% else %}<span class="topic-text-content">{% endif %}
-                      {{details.title}}{% if details.tool %} »{% endif %}
-                    {% if details.highlight %}</strong>{% else %}</span>{% endif %}
-                  {% if details.disabled %}</span>{% else %}</a>{% endif %}
+              {% capture the_slug %}{{item.slug}}/{% endcapture %}
+              {% assign results = site.topics | where_exp: "doc", "doc.url contains the_slug" %}
+              {% assign details = results[0] %}
+              {% if item.hidden != true %}
+                <li class="indent{{item.indent}} {% if item.disabled %}topic-disabled{% endif %} {% if item.fullsite %}topic-flag topic-fullsite{% endif %} {% if item.checklist %}topic-flag topic-checklist{% endif %} {% if item.cheatsheet %}topic-flag topic-cheatsheet{% endif %} {% if item.tool %}topic-flag topic-tool{% endif %}" id="{{item.slug}}" data-tags="{{details.tags}}{{item.tool_tags}}">
+                  {% if item.disabled %}<span class="topic-text">{% else %}<a class="topic-text" href="{% if item.tool %}{{item.tool}}{% else %}/topics/{{item.slug}}/{% endif %}">{% endif %}
+                    {% if item.highlight %}<strong class="topic-text-content">{% else %}<span class="topic-text-content">{% endif %}
+                      {{details.title}}{% if item.tool %}{{item.tool_title}} »{% endif %}
+                    {% if item.highlight %}</strong>{% else %}</span>{% endif %}
+                  {% if item.disabled %}</span>{% else %}</a>{% endif %}
                 </li>
               {% endif %}
             {% endfor %}
@@ -26,17 +28,18 @@
         </div>
         <div class="unit [xs-1 s-1 m-1-3 l-1-3 ] text-center italic">
           {% if include.curriculum %}
-            <a class="course-btn block link-box link-box-no-mark" href="/courses/{{include.id}}/">
+            <a class="course-btn block link-box link-box-no-mark" href="/courses/{% if include.curriculum_url %}{{include.curriculum_url}}{% else %}{{include.id}}{% endif %}/">
               <span class="inline-block course-btn-icon push-1-4">
                 <i class="icon i-24">
                   <svg><use xlink:href="#icon-courses"/></svg>
                 </i>
               </span>
-              <strong class="block normal">Explore the<br>Web Dev {{include.number}}<br>weekly curriculum</strong>
+              <strong class="block normal">Explore the<br>{% if include.curriculum_title %}{{include.curriculum_title}}{% else %}Web Dev {{include.number}}{% endif %}<br>weekly curriculum</strong>
             </a>
           {% endif %}
         </div>
       </div>
     </div>
+    {% if include.show_border %}<hr class="topic-section-border push-0">{% endif %}
   </div>
 </section>

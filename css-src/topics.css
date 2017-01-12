@@ -343,6 +343,11 @@
   background-image: inline("../images-embed/topics-indent-line-6.svg");
 }
 
+.topic-section-border {
+  border-color: #cecece;
+  opacity: .5;
+}
+
 .search {
   background-color: var(--color-brand-light);
 }

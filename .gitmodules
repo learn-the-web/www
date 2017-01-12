@@ -1,5 +1,5 @@
 [submodule "topics"]
-	path = topics
+	path = _topics
 	url = https://github.com/acgd-learn-the-web/topics.git
 [submodule "_web-dev-1"]
 	path = _web-dev-1

@@ -1,35 +1,16 @@
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
-
-{% if site.data.setup contains slug %}
-  {% assign groupdata = site.data.setup %}
-{% elsif site.data.web-dev-1 contains slug %}
-  {% assign groupdata = site.data.web-dev-1 %}
-{% elsif site.data.web-dev-2 contains slug %}
-  {% assign groupdata = site.data.web-dev-2 %}
-{% elsif site.data.web-dev-3 contains slug %}
-  {% assign groupdata = site.data.web-dev-3 %}
-{% elsif site.data.web-dev-4 contains slug %}
-  {% assign groupdata = site.data.web-dev-4 %}
-{% elsif site.data.web-dev-5 contains slug %}
-  {% assign groupdata = site.data.web-dev-5 %}
-{% elsif site.data.web-dev-6 contains slug %}
-  {% assign groupdata = site.data.web-dev-6 %}
-{% elsif site.data.whats-next contains slug %}
-  {% assign groupdata = site.data.whats-next %}
-{% endif %}
-
-{% assign details = groupdata[slug] %}
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
   {% include head.html %}
-  {% if page.url == "/topics/" %}
+  {% if page.url == "/topics/index.html" %}
   <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
   <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
   <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
   <link href="/topics/" rel="prerender">
+  <link href="/courses/" rel="prerender">
   {% endif %}
   {{page.head}}
 </head>
@@ -98,7 +79,7 @@
   <script>{% include fontfaceobserver.js %}</script>
   <script>{% include alegreya-observer.min.js %}</script>
   <script src="/js/common.min.js?v={{site.version}}" async></script>
-  {% if page.url == "/topics/" %}
+  {% if page.url == "/topics/index.html" %}
     <script src="/js/topics.min.js?v={{site.version}}" async></script>
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
     <script src="/js/article.min.js?v={{site.version}}" defer></script>

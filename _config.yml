@@ -1,4 +1,4 @@
-version: 74
+version: 75
 
 permalink: pretty
 highlighter: none
@@ -14,22 +14,26 @@ exclude:
   - js-src
   - vendor
   - images-embed
+  - _topics/README.md
+  - _topics/UNLICENSE
   - _web-dev-1/README.md
-  - _web-dev-1/LICENSE
+  - _web-dev-1/UNLICENSE
   - _web-dev-2/README.md
-  - _web-dev-2/LICENSE
+  - _web-dev-2/UNLICENSE
   - _web-dev-3/README.md
-  - _web-dev-3/LICENSE
+  - _web-dev-3/UNLICENSE
   - _web-dev-4/README.md
-  - _web-dev-4/LICENSE
+  - _web-dev-4/UNLICENSE
   - _web-dev-5/README.md
-  - _web-dev-5/LICENSE
+  - _web-dev-5/UNLICENSE
   - _web-dev-6/README.md
-  - _web-dev-6/LICENSE
-
-data_dir: ./topics/_table-of-contents
+  - _web-dev-6/UNLICENSE
 
 collections:
+  topics:
+    output: true
+    permalink: /topics/:path/
+    title: "Web Dev Topics"
   web-dev-1:
     output: true
     permalink: /courses/web-dev-1/:path/
@@ -71,7 +75,8 @@ kramdown:
 
 defaults:
   - scope:
-      path: "topics"
+      path: ""
+      type: "topics"
     values:
       layout: article
   - scope:

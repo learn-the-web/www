@@ -3,26 +3,6 @@ layout: default
 ---
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 
-{% if site.data.setup contains slug %}
-  {% assign groupdata = site.data.setup %}
-{% elsif site.data.web-dev-1 contains slug %}
-  {% assign groupdata = site.data.web-dev-1 %}
-{% elsif site.data.web-dev-2 contains slug %}
-  {% assign groupdata = site.data.web-dev-2 %}
-{% elsif site.data.web-dev-3 contains slug %}
-  {% assign groupdata = site.data.web-dev-3 %}
-{% elsif site.data.web-dev-4 contains slug %}
-  {% assign groupdata = site.data.web-dev-4 %}
-{% elsif site.data.web-dev-5 contains slug %}
-  {% assign groupdata = site.data.web-dev-5 %}
-{% elsif site.data.web-dev-6 contains slug %}
-  {% assign groupdata = site.data.web-dev-6 %}
-{% elsif site.data.whats-next contains slug %}
-  {% assign groupdata = site.data.whats-next %}
-{% endif %}
-
-{% assign details = groupdata[slug] %}
-
 {% include icons-article.html %}
 {% include inside-nav.html %}
 
@@ -136,7 +116,7 @@ layout: default
     </div>
 
     <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ] pad-t-1-2">
-      <h1 class="yotta" id="start" itemprop="name" tabindex="0">{{details.title}}</h1>
+      <h1 class="yotta" id="start" itemprop="name" tabindex="0">{{page.title}}</h1>
       <div itemprop="articleBody">
         {{content | replace_first: '<p>', '<p class="giga">'}}
       </div>

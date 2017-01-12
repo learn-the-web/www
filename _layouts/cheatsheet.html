@@ -4,32 +4,12 @@ head: '<style>@page { size: landscape; }</style>'
 ---
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 
-{% if site.data.setup contains slug %}
-  {% assign groupdata = site.data.setup %}
-{% elsif site.data.web-dev-1 contains slug %}
-  {% assign groupdata = site.data.web-dev-1 %}
-{% elsif site.data.web-dev-2 contains slug %}
-  {% assign groupdata = site.data.web-dev-2 %}
-{% elsif site.data.web-dev-3 contains slug %}
-  {% assign groupdata = site.data.web-dev-3 %}
-{% elsif site.data.web-dev-4 contains slug %}
-  {% assign groupdata = site.data.web-dev-4 %}
-{% elsif site.data.web-dev-5 contains slug %}
-  {% assign groupdata = site.data.web-dev-5 %}
-{% elsif site.data.web-dev-6 contains slug %}
-  {% assign groupdata = site.data.web-dev-6 %}
-{% elsif site.data.whats-next contains slug %}
-  {% assign groupdata = site.data.whats-next %}
-{% endif %}
-
-{% assign details = groupdata[slug] %}
-
 {% include inside-nav.html %}
 
 <main class="relative" role="main">
 
   <article class="cheatsheet">
-    {% include simple-header.html title=details.title %}
+    {% include simple-header.html title=page.title %}
 
     {% include simple-nav.html groups=page.groups %}
     {% include cheats-group.html groups=page.groups %}
