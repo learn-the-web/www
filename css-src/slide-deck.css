@@ -104,6 +104,7 @@
 
 .slide-code {
   background-color: var(--color-code);
+  overflow-y: auto;
 }
 
 .slide-code pre {
