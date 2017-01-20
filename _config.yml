@@ -1,4 +1,4 @@
-version: 77
+version: 78
 
 permalink: pretty
 highlighter: none
@@ -73,7 +73,6 @@ collections:
     output: true
     permalink: /workshops/think-like-a-programmer/:path/
     title: "think == programmer"
-    disabled: true
   jquery-jq-what:
     output: true
     permalink: /workshops/jquery-jq-what/:path/

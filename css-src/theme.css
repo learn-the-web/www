@@ -60,10 +60,6 @@ a:not([href]),
   border-color: var(--color-grey-dark);
 }
 
-.link-no-highlight {
-  border: 0;
-}
-
 hr {
   border-color: var(--color-grey-light);
   border-width: 3px;

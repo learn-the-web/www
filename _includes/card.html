@@ -4,6 +4,7 @@
 {% assign submit_code = "Submit with Markbot." %}
 {% assign submit_show = "Show teacher for marks." %}
 {% assign submit_online = "Submit to Canvas for marks." %}
+{% assign submit_slide_deck = "Read the introduction." %}
 
 {% assign button_pair = "Code together" %}
 {% assign button_lesson = "Follow lesson" %}
@@ -13,6 +14,7 @@
 {% assign button_videos = "Watch videos" %}
 {% assign button_online = "Submit online" %}
 {% assign button_code = "Write code" %}
+{% assign button_slide_deck = "See slide deck" %}
 
 {% case include.data.type %}
   {% when "lesson" %}
@@ -43,6 +45,10 @@
     {% assign submit = submit_online %}
     {% assign submission_type = "online" %}
     {% assign button = button_online %}
+  {% when "slide-deck" %}
+    {% assign icon = "slide-deck" %}
+    {% assign submit = submit_slide_deck %}
+    {% assign button = button_slide_deck %}
   {% when "videos" %}
     {% assign icon = "play-reversed" %}
     {% assign button = button_videos %}
