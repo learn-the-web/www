@@ -163,12 +163,6 @@ hasCourseNav: true
     </div>
   </section>
 
-  <!--
-  <section>
-  activities links
-  </section>
-  -->
-
   {% include algonquin.html %}
 
   <section class="section-muted">
@@ -187,7 +181,7 @@ hasCourseNav: true
           <i class="icon courses-icon"><svg><use xlink:href="#icon-github" /></svg></i>
           Open&nbsp;curriculum
         </h3>
-        <ul class="list-group-inline courses-list push-0">
+        <ol class="list-group-inline courses-list push-1-2">
           <li>
             <a class="link-btn link-box link-box-no-mark" href="/courses/web-dev-1/" aria-label="Web Dev 1 curriculum">
               <span class="icon-label">Web Dev 1</span>
@@ -224,22 +218,41 @@ hasCourseNav: true
               <i class="icon i-20 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
             </a>
           </li>
+        </ol>
+        <div class="gutter pad-b-1-4">
+          <hr class="hr-medium push-1-2">
+        </div>
+        <ul class="list-group-inline courses-list push-0">
+          <li>
+            <a class="link-btn link-box link-box-no-mark link-disabled" href="/courses/javascript/" aria-label="Javascript curriculum">
+              <span class="icon-label">Javascript</span>
+              <i class="icon i-20 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+            </a>
+          </li>
+          <li>
+            <a class="link-btn link-box link-box-no-mark link-disabled" href="/courses/jekyll/" aria-label="Jekyll curriculum">
+              <span class="icon-label">Jekyll</span>
+              <i class="icon i-20 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
+  {% include markbot.html %}
+
   <section class="section-dark">
-    <div class="wrapper grid grid-stretch gutter-1-2 pad-t-2 pad-b-2">
-      <div class="unit [ xs-1 s-2-3 m-2-3 l-2-3 ]">
+    <div class="wrapper grid grid-stretch gutter-1-4 pad-t-2 pad-b-2">
+      <div class="unit [ xs-1 s-2-3 m-2-3 l-2-3 ] gutter-1-4">
         <h2 class="zetta" tabindex="0">Professor of the Open Web.</h2>
-        <p class="bio push-0">The tutorials, videos &amp; curriculum were hand-crafted &amp; curated by Thomas&nbsp;J&nbsp;Bradley, a professor in the Graphic Design program.</p>
+        <p class="bio push-1-2">The tutorials, videos &amp; curriculum were hand-crafted &amp; curated by Thomas&nbsp;J&nbsp;Bradley, a professor in the Graphic Design program.</p>
         <ul class="">
           <li><a href="http://thomasjbradley.ca/" rel="author">thomasjbradley.ca</a></li>
           <li><a href="mailto:bradlet@algonquincollege.com">bradlet@algonquincollege.com</a></li>
         </ul>
       </div>
-      <div class="photo unit [ xs-1 s-1-3 m-1-3 l-1-3 ]" style="background-image:url(/images/thomasjbradley.jpg);">
+      <div class="photo unit [ xs-1 s-1-3 m-1-3 l-1-3 ] gutter-1-4" style="background-image:url(/images/thomasjbradley.jpg);">
         <a class="photo-copyright" href="http://elizabethandjane.ca" rel="external">© elizabeth&amp;jane photography</a>
       </div>
     </div>

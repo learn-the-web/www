@@ -1,6 +1,7 @@
 .btn {
   background-color: var(--color-brand);
   border-color: var(--color-brand);
+  border-radius: 8px;
   transition: all 50ms linear;
 
   color: #000;
@@ -91,22 +92,4 @@
   background-color: transparent;
 
   color: #000;
-}
-
-.btn-alg {
-  background-color: #0f663f;
-  border-color: #94C947;
-  color: #94C947;
-}
-
-.btn-alg:focus,
-.btn-alg:hover {
-  background-color: #94C947;
-  border-color: #94C947;
-}
-
-.btn-alg-dark {
-  background-color: transparent;
-  border-color: #0f663f;
-  color: #0f663f;
 }

@@ -60,6 +60,10 @@ a:not([href]),
   border-color: var(--color-grey-dark);
 }
 
+.link-no-highlight {
+  border: 0;
+}
+
 hr {
   border-color: var(--color-grey-light);
   border-width: 3px;
@@ -67,6 +71,10 @@ hr {
 
 .hr-medium {
   border-color: var(--color-code-darker);
+}
+
+.hr-dark {
+  border-color: var(--color-code-darkest);
 }
 
 .hr-full {
@@ -99,6 +107,11 @@ td, th {
   margin-left: 0;
   margin-right: 0;
   max-width: 33em;
+}
+
+.wrapper-contract {
+  display: inline-block;
+  width: auto;
 }
 
 .main-fill {
@@ -139,27 +152,6 @@ nav a:focus {
 
 .i-shift-left {
   margin-left: -0.4em;
-}
-
-.algonquin {
-  background-color: #0f663f;
-
-  color: #fff;
-}
-
-.algonquin--inner {
-  background-color: var(--color-code-darkest);
-
-  color: #333;
-}
-
-.acgd-logo {
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-}
-
-.alg-blurb {
-
 }
 
 .text-disabled {

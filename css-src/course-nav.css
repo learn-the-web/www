@@ -31,11 +31,3 @@
   content: none;
   display: none;
 }
-
-@media only screen and (min-width: 38em) {
-
-  .course-nav-extras {
-    text-align: right;
-  }
-
-}

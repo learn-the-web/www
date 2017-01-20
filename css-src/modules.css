@@ -62,6 +62,18 @@ audio:not([controls]) {
   height: 0;
 }
 
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
 img {
   border: 0;
 }
@@ -71,12 +83,12 @@ img {
   width: 100%;
 }
 
-svg:not(:root) {
-  overflow: hidden;
-}
-
 svg {
   fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
 }
 
 svg.img-flex {
@@ -255,6 +267,27 @@ svg.img-flex {
   width: 64px;
 }
 
+.i-96, .i--96 {
+  height: 96px;
+  width: 96px;
+}
+
+.i-128, .i--128 {
+  height: 128px;
+  width: 128px;
+}
+
+.i-192, .i--192 {
+  height: 192px;
+  width: 192px;
+}
+
+.i-256, .i--256 {
+  height: 256px;
+  width: 256px;
+}
+
+.icon img,
 .icon svg {
   left: 0;
   height: 100%;
@@ -274,8 +307,10 @@ svg.img-flex {
 }
 
 [hidden], .hidden {
+  /* stylelint-disable declaration-no-important */
   display: none !important;
   visibility: hidden !important;
+  /* stylelint-enable */
 }
 
 .visually-hidden {
@@ -300,6 +335,11 @@ svg.img-flex {
 
 .invisible {
   visibility: hidden;
+}
+
+.chop,
+.crop {
+  overflow: hidden;
 }
 
 .truncate {
@@ -334,6 +374,53 @@ svg.img-flex {
 
 .right {
   float: right;
+}
+
+.center-text,
+.center-flow {
+  text-align: center;
+}
+
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-contents,
+.center-contents-vertical {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-direction: column wrap;
+  -ms-flex-direction: column wrap;
+  flex-flow: column wrap;
+}
+
+.center-contents-horizontal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-direction: row wrap;
+  -ms-flex-direction: row wrap;
+  flex-flow: row wrap;
 }
 
 .inline {
@@ -408,6 +495,36 @@ svg.img-flex {
   right: 0;
 }
 
+.pin-top-center, .pin-tc {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.pin-bottom-center, .pin-bc {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pin-center-left, .pin-cl {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pin-center-right, .pin-cr {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pin-center, .pin-c {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .width-quarter, .w-1-4 {
   width: 25%;
 }
@@ -418,6 +535,18 @@ svg.img-flex {
 
 .width-full, .w-1 {
   width: 100%;
+}
+
+.height-quarter, .h-1-4 {
+  height: 25%;
+}
+
+.height-half, .h-1-2 {
+  height: 50%;
+}
+
+.height-full, .h-1 {
+  height: 100%;
 }
 
 ul {
@@ -457,22 +586,41 @@ ol > li::before {
   text-decoration: none;
 }
 
+button,
 .btn {
   cursor: pointer;
   display: inline-block;
-  padding: 0.375em 0.75em 0.42em;
+  margin: 0;
+  overflow: visible;
+  padding: .375em .75em .42em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #333;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 3px solid #333;
   color: #fff;
+  font: inherit;
   text-decoration: none;
+  text-transform: none;
 }
 
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+button:focus,
+button:hover,
 .btn:focus,
 .btn:hover {
   background-color: #000;
   border-color: #000;
   color: #fff;
+}
+
+button[disabled] {
+  cursor: default;
 }
 
 .btn-light, .btn--light {
@@ -501,9 +649,24 @@ ol > li::before {
 .btn-ghost:hover,
 .btn--ghost:focus,
 .btn--ghost:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #e2e2e2;
   border-color: #000;
   color: #000;
+}
+
+.btn-link {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  color: inherit;
+}
+
+.btn-link:focus,
+.btn-link:hover {
+  background-color: transparent;
+  color: inherit;
 }
 
 a:hover, a:active {
@@ -512,10 +675,10 @@ a:hover, a:active {
 
 a:focus,
 [tabindex="0"]:focus,
-input:focus,
-textarea:focus,
 details:focus,
 summary:focus,
+input:focus,
+textarea:focus,
 button:focus,
 select:focus {
   outline: 3px solid #000;
@@ -537,7 +700,7 @@ a:focus, [tabindex="0"]:focus {
 
 .skip-links a,
 .skip-links button {
-  padding: 0.5em 0.75em;
+  padding: .5em .75em;
   position: absolute;
   top: -10em;
   z-index: 10000; /* To make sure they're always on top */
@@ -553,6 +716,18 @@ a:focus, [tabindex="0"]:focus {
 .skip-links button:focus {
   outline-offset: 3px;
   top: 0;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled] {
+  cursor: default;
 }
 
 .print-only {

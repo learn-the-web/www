@@ -1,4 +1,4 @@
-version: 76
+version: 77
 
 permalink: pretty
 highlighter: none
@@ -69,6 +69,21 @@ collections:
     permalink: /courses/jekyll/:path/
     title: "Jekyll"
     disabled: true
+  think-like-a-programmer:
+    output: true
+    permalink: /workshops/think-like-a-programmer/:path/
+    title: "think == programmer"
+    disabled: true
+  jquery-jq-what:
+    output: true
+    permalink: /workshops/jquery-jq-what/:path/
+    title: "jQuery, jQ-what‽"
+    disabled: true
+  svg-heart-js:
+    output: true
+    permalink: /workshops/svg-heart-js/:path/
+    title: "SVG❤JS"
+    disabled: true
 
 kramdown:
   input: GFM
@@ -122,9 +137,14 @@ collections_courses:
   - web-dev-5
   - web-dev-6
 
-collections_workshops:
+collections_selfdirected:
   - javascript
   - jekyll
+
+collections_workshops:
+  - think-like-a-programmer
+  - jquery-jq-what
+  - svg-heart-js
 
 max_weeks: 15
 

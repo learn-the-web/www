@@ -4,6 +4,7 @@ permalink: /solutions/template.php
 title: "<?= $course_name ?> solutions"
 desc: "Solutions to all the assignments from the <?= $course_name ?> course. They are password protected and only available for teachers and TAs."
 priority: 0.1
+hide_markbot: true
 hide_algonquin: true
 hide_nav: true
 head: |
