@@ -75,7 +75,8 @@ head: |
       {% endif %}
 
       {% assign data = collection.docs | where: "layout", "workshop" | first %}
-      {% include course-section.html number="star" data=data link=link %}
+      {% capture url_prefix %}workshops/{{collection_id}}{% endcapture %}
+      {% include course-section.html number="star" data=data link=link show_tasks=true url_prefix=url_prefix %}
     {% endfor %}
   </div>
 </div>

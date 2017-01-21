@@ -17,6 +17,20 @@
       <strong class="exa text-disabled">{{include.data.title}}</strong>
       {% endif %}
       <p class="push-0">{{include.data.desc}}</p>
+      {% if include.show_tasks %}
+        <ol class="week-list-tasks list-group-inline micro push-0">
+          {% for task in data.tasks %}
+            {% if task.url and task.url contains "/" %}
+              {% assign url_prefix="" %}
+            {% else %}
+              {% capture url_prefix %}/{{include.url_prefix}}/{% endcapture %}
+            {% endif %}
+            <li>
+              <a {% if task.url %}href="{{url_prefix}}{{task.url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}}</a>
+            </li>
+          {% endfor %}
+        </ol>
+      {% endif %}
     </div>
   </div>
 </section>
