@@ -1,4 +1,4 @@
-version: 78
+version: 79
 
 permalink: pretty
 highlighter: none
@@ -14,20 +14,8 @@ exclude:
   - js-src
   - vendor
   - images-embed
-  - _topics/README.md
-  - _topics/UNLICENSE
-  - _web-dev-1/README.md
-  - _web-dev-1/UNLICENSE
-  - _web-dev-2/README.md
-  - _web-dev-2/UNLICENSE
-  - _web-dev-3/README.md
-  - _web-dev-3/UNLICENSE
-  - _web-dev-4/README.md
-  - _web-dev-4/UNLICENSE
-  - _web-dev-5/README.md
-  - _web-dev-5/UNLICENSE
-  - _web-dev-6/README.md
-  - _web-dev-6/UNLICENSE
+  - _*/README.md
+  - _*/UNLICENSE
 
 collections:
   topics:

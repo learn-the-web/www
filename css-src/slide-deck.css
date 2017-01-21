@@ -75,6 +75,19 @@
   margin: 0 auto;
 }
 
+.slide-figure {
+  height: calc(100vh - 4em);
+}
+
+.slide .slide-figure-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  max-width: 100%;
+}
+
 .big-text {
   font-size: 1.2148rem;
   line-height: 1.6250rem;
