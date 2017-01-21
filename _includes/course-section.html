@@ -1,7 +1,7 @@
 <section class="topic-section pad-t pad-b" tabindex="-1">
   <div class="wrapper gutter-1-2">
     <div class="topic-wrap">
-      <h2 class="topic-heading">
+      <h2 class="topic-heading" aria-label="{{include.data.title}}">
         {% if include.link == true %}
           <a class="link-box link-box-no-mark" href="{{include.data.url | replace: 'index.html', ''}}">
         {% endif %}
@@ -11,11 +11,13 @@
           </a>
         {% endif %}
       </h2>
-      {% if include.link == true %}
-      <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.data.title}}</a>
-      {% else %}
-      <strong class="exa text-disabled">{{include.data.title}}</strong>
-      {% endif %}
+      <div class="push-1-4">
+        {% if include.link == true %}
+        <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.data.title}}</a>
+        {% else %}
+        <strong class="exa text-disabled">{{include.data.title}}</strong>
+        {% endif %}
+      </div>
       <p class="push-0">{{include.data.desc}}</p>
       {% if include.show_tasks %}
         <ol class="week-list-tasks list-group-inline micro push-0">
