@@ -62,7 +62,12 @@
 {% if include.data.url contains "/" %}
   {% assign url_prefix="" %}
 {% else %}
-  {% capture url_prefix %}/courses/{{include.collection}}/{% endcapture %}
+  {% if site.collections_workshops contains include.collection %}
+    {% assign url_chunk = "workshops" %}
+  {% else %}
+    {% assign url_chunk = "courses" %}
+  {% endif %}
+  {% capture url_prefix %}/{{url_chunk}}/{{include.collection}}/{% endcapture %}
 {% endif %}
 
 {% if include.data.submit %}
