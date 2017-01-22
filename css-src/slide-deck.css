@@ -88,6 +88,10 @@
   max-width: 100%;
 }
 
+.slide-figure figcaption * {
+  margin-bottom: 0;
+}
+
 .big-text {
   font-size: 1.2148rem;
   line-height: 1.6250rem;
