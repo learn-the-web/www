@@ -1,7 +1,13 @@
 <div class="wrapper">
   <figure class="slide-figure push-0 unit-content-distribute">
-    <div class="content-fill relative">
+    <div class="content-fill relative chop">
+    {% if include.data.video %}
+      <video class="slide-figure-img" autoplay loop>
+        <source src="{{include.data.video}}" type="video/mp4">
+      </video>
+    {% else %}
       <img class="slide-figure-img" src="{{include.data.image}}" alt="">
+    {% endif %}
     </div>
     <figcaption class="exa island-1-2 text-center">{{include.data.caption | markdownify }}</figcaption>
   </figure>

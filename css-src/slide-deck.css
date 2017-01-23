@@ -71,7 +71,6 @@
 
 .slide video {
   display: block;
-  width: 90%;
   margin: 0 auto;
 }
 
@@ -86,6 +85,11 @@
   transform: translate(-50%, -50%);
   max-height: 100%;
   max-width: 100%;
+}
+
+.slide video.slide-figure-img {
+  /* Hack: chop off the black bar at the bottom in Chrome */;
+  transform: translate(-50%, -50%) scale(1.01);
 }
 
 .slide-figure figcaption * {
