@@ -15,7 +15,7 @@ no_wrapper: true
     {% assign card_num=0 %}
     <ol class="list-group grid grid-bottom">
       {% for task in page.tasks %}
-        <li class="unit [ xs-1 m-1-3 l-1-5 ] gutter-1-4 pad-t pad-b-1-4">
+        <li class="unit [ xs-1 xs-1-2 m-1-3 l-1-5 ] gutter-1-4 pad-t pad-b-1-4">
           {% capture card_num %}{{card_num | plus:1}}{% endcapture %}
           {% include card.html data=task collection=page.collection num=card_num %}
         </li>
@@ -28,7 +28,7 @@ no_wrapper: true
       <div class="unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 ">
         <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4">Videos, tutorials &amp; quizzes</h2>
         <div class="grid grid-middle gutter-1-4">
-          <div class="unit [ xs-1 s-1 m-1-2 ]">
+          <div class="unit [ xs-1-2 ]">
             <ul class="list-group milli">
               {% for link in page.video_tutorials %}
                 <li>
@@ -49,7 +49,7 @@ no_wrapper: true
               {% endfor %}
             </ul>
           </div>
-          <div class="unit [ xs-1 s-1 m-1-2 ]">
+          <div class="unit [ xs-1-2 ]">
             <ul class="list-group mega">
               {% for link in page.activities %}
                 <li {% unless forloop.last %}class="push-1-2"{% endunless %}>
@@ -73,7 +73,7 @@ no_wrapper: true
         <div class="gutter-1-4">
           <h3 class="push-1-4 giga normal italic">{{page.related_course.title}}</h3>
           <p class="push-1-2">{{page.related_course.desc}}</p>
-          <a class="btn btn-ghost" {% if page.related_course.url %}href="{{page.related_course.url}}"{% else %}data-state="disabled"{% endif %}>
+          <a class="btn btn-ghost push-1-2" {% if page.related_course.url %}href="{{page.related_course.url}}"{% else %}data-state="disabled"{% endif %}>
             <span class="icon-label inline-block push-r-1-4">See the {{page.related_course.title}} curriculum</span>
             <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
           </a>
