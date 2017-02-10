@@ -4,6 +4,14 @@
       <span class="slide-code-label">URL</span>
       <pre><code>{{include.data.url}}</code></pre>
     {% endif %}
+    {% if include.data.markdown %}
+      <span class="slide-code-label">Markdown</span>{% if include.data.markdown_file %} <samp>{{include.data.markdown_file}}</samp>{% endif %}
+      <pre class="language-markdown" data-line="{{include.data.markdown_lines}}"><code class="language-markdown">{{include.data.markdown | xml_escape}}</code></pre>
+    {% endif %}
+    {% if include.data.yaml %}
+      <span class="slide-code-label">YAML</span>{% if include.data.yaml_file %} <samp>{{include.data.yaml_file}}</samp>{% endif %}
+      <pre class="language-yaml" data-line="{{include.data.yaml_lines}}"><code class="language-yaml">{{include.data.yaml | xml_escape}}</code></pre>
+    {% endif %}
     {% if include.data.html %}
       <span class="slide-code-label">HTML</span>{% if include.data.html_file %} <samp>{{include.data.html_file}}</samp>{% endif %}
       <pre class="language-html" data-line="{{include.data.html_lines}}"><code class="language-html">{{include.data.html | xml_escape}}</code></pre>
