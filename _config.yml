@@ -65,7 +65,6 @@ collections:
     output: true
     permalink: /workshops/jquery-jq-what/:path/
     title: "jQuery, jQ-what‽"
-    disabled: true
   svg-heart-js:
     output: true
     permalink: /workshops/svg-heart-js/:path/
