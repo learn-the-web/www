@@ -27,9 +27,9 @@ no_wrapper: true
     <div class="grid grid-strecth content-fill">
       <div class="unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 ">
         <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4">Videos, tutorials &amp; quizzes</h2>
-        <div class="grid grid-middle gutter-1-4">
+        <div class="grid gutter-1-4">
           <div class="unit [ xs-1-2 ]">
-            <ul class="list-group milli">
+            <ul class="list-group milli push-0">
               {% for link in page.video_tutorials %}
                 <li>
                   {% if link.highlight %}<strong>{% endif %}
@@ -50,7 +50,7 @@ no_wrapper: true
             </ul>
           </div>
           <div class="unit [ xs-1-2 ]">
-            <ul class="list-group mega">
+            <ul class="list-group mega push-0">
               {% for link in page.activities %}
                 <li {% unless forloop.last %}class="push-1-2"{% endunless %}>
                   {% if link.highlight %}<strong>{% endif %}
