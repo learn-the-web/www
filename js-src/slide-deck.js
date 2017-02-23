@@ -210,3 +210,108 @@
     fullScreenBubble.parentNode.removeChild(fullScreenBubble);
   });
 }());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   COUNTDOWN TIMER
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+
+  var countdownElems = document.querySelectorAll('[data-countdown-minutes]');
+  var countdowns = {};
+
+  var convertTime = function (numSeconds) {
+    var hours = Math.floor(numSeconds / 3600);
+    var minutes = Math.floor((numSeconds - (hours * 3600)) / 60);
+    var seconds = numSeconds - (hours * 3600) - (minutes * 60);
+
+    if (hours < 10) hours = '0' + hours;
+    if (seconds < 10) seconds = '0' + seconds;
+
+    if (hours == '00' || hours == '0') {
+      return minutes + ':' + seconds;
+    } else {
+      if (minutes < 10) minutes = '0' + minutes;
+      return hours + ':' + minutes + ':' + seconds;
+    }
+  };
+
+  var completeDisplay = function (countdown) {
+    countdown.elem.innerHTML = '0:00';
+    countdown.elem.classList.add('countdown-complete');
+    countdown.startBtn.innerHTML = countdown.startBtn.dataset.textStart;
+    countdown.startBtn.dataset.state = 'stopped';
+  };
+
+  var updateDisplay = function (countdown, seconds) {
+    countdown.elem.innerHTML = convertTime(seconds);
+  };
+
+  var resetDisplay = function (countdown) {
+    updateDisplay(countdown, Math.ceil(countdown.timeMilliseconds / 1000));
+    countdown.elem.classList.remove('countdown-complete');
+    countdown.startBtn.innerHTML = countdown.startBtn.dataset.textStart;
+    countdown.startBtn.dataset.state = 'stopped';
+  };
+
+  if (!countdownElems) return;
+
+  [].forEach.call(countdownElems, function (elem) {
+    var id = elem.id;
+    var startBtn = document.querySelector('.slide-countdown-btn-start[aria-controls="' + id + '"]');
+    var resetBtn = document.querySelector('.slide-countdown-btn-reset[aria-controls="' + id + '"]');
+
+    countdowns[id] = {
+      elem: elem,
+      start: false,
+      time: parseFloat(elem.dataset.countdownMinutes),
+      timeMilliseconds: Math.ceil(parseFloat(elem.dataset.countdownMinutes) * 60 * 1000),
+      interval: false,
+      startBtn: startBtn,
+      resetBtn: resetBtn,
+    };
+
+    updateDisplay(countdowns[id], Math.floor(countdowns[id].timeMilliseconds / 1000));
+
+    startBtn.addEventListener('click', function (e) {
+      var id = e.target.getAttribute('aria-controls');
+
+      if (e.target.dataset.state === 'running') {
+        var now = countdowns[id].timeMilliseconds - (new Date().getTime() - countdowns[id].start);
+
+        clearInterval(countdowns[id].interval);
+        e.target.innerHTML = e.target.dataset.textStart;
+        e.target.dataset.state = 'paused';
+        countdowns[id].timeMilliseconds = now;
+        updateDisplay(countdowns[id], Math.ceil(now / 1000));
+      } else {
+        e.target.innerHTML = e.target.dataset.textPause;
+        e.target.dataset.state = 'running';
+        countdowns[id].start = new Date().getTime();
+
+        countdowns[id].interval = setInterval(function() {
+          var now = countdowns[id].timeMilliseconds - (new Date().getTime() - countdowns[id].start);
+
+          if (now <= 0) {
+            clearInterval(countdowns[id].interval);
+            completeDisplay(countdowns[id]);
+          } else {
+            updateDisplay(countdowns[id], Math.ceil(now / 1000));
+          }
+        }, 100);
+      }
+    });
+
+    resetBtn.addEventListener('click', function (e) {
+      var id = e.target.getAttribute('aria-controls');
+
+      e.preventDefault();
+      countdowns[id].timeMilliseconds = Math.ceil(countdowns[id].time * 60 * 1000);
+      clearInterval(countdowns[id].interval);
+      resetDisplay(countdowns[id]);
+    });
+  });
+}());

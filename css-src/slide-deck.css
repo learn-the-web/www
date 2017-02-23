@@ -220,6 +220,13 @@ iframe {
   line-height: 1.6em;
 }
 
+.slide .slide-countdown {
+  appearance: none;
+
+  font-size: 14rem;
+  line-height: 1;
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {
