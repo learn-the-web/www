@@ -126,7 +126,7 @@
     var pre = env.element.parentNode;
 
     if (env.highlightedCode.match(/⬇/)) {
-      env.highlightedCode = env.highlightedCode.replace(/⬇/g, '<mark class="code-big-down-arrow"><span class="code-big-down-arrow-wrap">⬇</span></mark>');
+      env.highlightedCode = env.highlightedCode.replace(/⬇/g, '<mark class="code-big-down-arrow">⬇</mark>');
     }
   });
 }());
