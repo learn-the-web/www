@@ -195,35 +195,6 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
-   PRISM WINDOW RESIZE LINE HIGHLIGHT BUG
- ++++++++++++++++++++++++++++++++++++++++++
-*/
-
-(function () {
-  'use strict';
-  var resizeTimer;
-
-  var onWindowResize = function () {
-    var
-      lineHightlights = document.querySelectorAll('pre .line-highlight'),
-      i=0, total = lineHightlights.length
-    ;
-
-    for (i; i<total; i++) {
-      lineHightlights[i].parentNode.removeChild(lineHightlights[i]);
-    }
-
-    Prism.highlightAll();
-  };
-
-  window.addEventListener('resize', function (e) {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(onWindowResize, 100);
-  });
-}());
-
-/*
- ++++++++++++++++++++++++++++++++++++++++++
    HIDE FULL SCREEN INFO BUBBLE
  ++++++++++++++++++++++++++++++++++++++++++
 */
