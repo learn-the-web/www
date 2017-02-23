@@ -83,13 +83,15 @@
   display: none;
 }
 
-.code-continue-from-above {
+.code-continue-from-above,
+.code-big-down-arrow {
   position: relative;
 
   background-color: transparent;
 }
 
-.code-continue-from-above::after {
+.code-continue-from-above::after,
+.code-big-down-arrow::after {
   content: "Continuing code from earlier in this lesson…";
   display: inline-block;
   margin-left: .5rem;
@@ -108,6 +110,23 @@
 
 .code-continue-from-above:last-of-type:not(:first-of-type)::after {
   content: "Code completed earlier in this lesson…";
+}
+
+.code-big-down-arrow {
+  display: inline-block;
+  margin-bottom: .8em;
+  margin-top: 1em;
+}
+
+.code-big-down-arrow-wrap {
+  color: #444;
+  font-size: 1.6em;
+}
+
+.code-big-down-arrow::after {
+  content: "Make the following changes…";
+
+  transform: translateY(-62%);
 }
 
 .lesson-video {

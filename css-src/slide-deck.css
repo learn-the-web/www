@@ -128,6 +128,11 @@
   overflow-y: auto;
 }
 
+.slide-code-before {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .slide-code pre {
   margin: 0;
 

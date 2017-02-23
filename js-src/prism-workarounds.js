@@ -1,6 +1,6 @@
 /*
  ++++++++++++++++++++++++++++++++++++++++++
-   PRISM WINDOW RESIZE LINE HIGHLIGHT BUG
+   WINDOW RESIZE LINE HIGHLIGHT BUG
  ++++++++++++++++++++++++++++++++++++++++++
 */
 
@@ -43,7 +43,7 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
-   PRISM FADE LINES
+   FADE LINES
  ++++++++++++++++++++++++++++++++++++++++++
 */
 
@@ -71,7 +71,7 @@
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
-   PRISM LINE NUMBERS TO LETTERS
+   LINE NUMBERS TO LETTERS
  ++++++++++++++++++++++++++++++++++++++++++
 */
 
@@ -95,10 +95,9 @@
   });
 }());
 
-
 /*
  ++++++++++++++++++++++++++++++++++++++++++
-   PRISM CONTINUE FROM ABOVE
+   CONTINUE FROM ABOVE
  ++++++++++++++++++++++++++++++++++++++++++
 */
 
@@ -110,6 +109,24 @@
 
     if (env.highlightedCode.match(/⋮/)) {
       env.highlightedCode = env.highlightedCode.replace(/⋮/g, '<mark class="code-continue-from-above">⋮</mark>');
+    }
+  });
+}());
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   BIG DOWN CONVERT-TO ARROW
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict'
+
+  Prism.hooks.add('before-insert', function(env) {
+    var pre = env.element.parentNode;
+
+    if (env.highlightedCode.match(/⬇/)) {
+      env.highlightedCode = env.highlightedCode.replace(/⬇/g, '<mark class="code-big-down-arrow"><span class="code-big-down-arrow-wrap">⬇</span></mark>');
     }
   });
 }());
