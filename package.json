@@ -24,7 +24,7 @@
     "start": "parallelshell 'npm run start-server' 'npm run watch-css' 'npm run watch-js'",
     "start-server": "jekyll serve --incremental",
     "build-site": "jekyll build",
-    "postcss": "postcss -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano",
+    "postcss": "postcss -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano --cssnano.safe",
     "build-css-main": "npm run postcss -- -o css/main.min.css css-src/main.css",
     "build-css-home": "npm run postcss -- -o css/main-home.min.css css-src/main-home.css",
     "build-css-topics": "npm run postcss -- -o css/main-topics.min.css css-src/main-topics.css",

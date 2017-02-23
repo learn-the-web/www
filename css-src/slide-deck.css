@@ -203,6 +203,18 @@ iframe {
   background-image: inline("../images-embed/checkerboard.svg");
 }
 
+.slide-numbered {
+  bottom: -0.8em;
+  width: 1.6em;
+  z-index: 1100;
+
+  background-color: #000;
+  border-radius: 50em;
+
+  color: #fff;
+  line-height: 1.6em;
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {
