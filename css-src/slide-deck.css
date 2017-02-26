@@ -108,7 +108,7 @@
 
 .slide-full,
 .slide-interactive {
-  left: calc(((100vw - 50rem) / 2) * -1);
+  left: 0;
   position: absolute;
   width: 100vw;
 }
