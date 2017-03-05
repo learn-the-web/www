@@ -74,6 +74,49 @@ no_wrapper: true
     </section>
   {% endif %}
 
+  {% if page.fork %}
+    <section class="lesson-step grid grid-stretch">
+      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
+        <h2 class="lesson-title zetta push-1-4">
+          <i class="lesson-step-num icon i-48">
+            <svg width="256" height="256" viewBox="0 0 256 256">
+              <circle cx="128" cy="110" r="110"/>
+              <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 84.9 116.1 84.9 75"/>
+              <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 170.1 116.1 170.1 75"/>
+              <circle cx="86" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+              <circle cx="170" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+              <circle cx="127.8" cy="165.1" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+            </svg>
+          </i>
+          Fork &amp; clone
+        </h2>
+        <div class="mega gutter-1-4 lesson-body-text">
+          <p>Start the lesson by forking and cloning the <code>{{page.slug}}</code> repository.</p>
+          <p class="tera"><strong><a href="{{page.fork.url}}">Fork the “{{page.slug}}” repo.</a></strong></p>
+          <p><em>The repository will have some starter files to put you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
+        </div>
+      </div>
+      <div class="lesson-notes unit [ xs-1 m-1-3 ]">
+        <ol class="lesson-note-list list-group">
+          <li class="lesson-note">
+            <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{% unless page.hide_markbot %}Fork, clone &amp; Markbot{% else %}Fork &amp; clone{% endunless %}</h3>
+            <div class="gutter-1-2 italic">
+              <p>This includes some starter code that you can get by forking and cloning the repository.{% unless page.hide_markbot %} You’ll use Markbot to double check everything is done properly.{% endunless %}</p>
+            </div>
+          </li>
+          {% if page.fork.notes %}
+            {% for note in page.fork.notes %}
+              <li class="lesson-note">
+                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ol>
+      </div>
+    </section>
+  {% endif %}
+
   {% for step in page.steps %}
     {% assign step_count = forloop.index %}
     {% assign step_count_even = forloop.index | modulo:2 %}
