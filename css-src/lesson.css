@@ -125,6 +125,10 @@
   border-bottom: 3px solid var(--color-code-darkest);
 }
 
+.lesson-notes-no-border {
+  border-bottom: 0;
+}
+
 .lesson-notes-last,
 .lesson-notes-final {
   border: 0;
@@ -419,6 +423,10 @@
 
   .lesson-body {
     border-bottom: 3px solid var(--color-grey-light);
+  }
+
+  .lesson-body-no-border {
+    border-bottom: 0;
   }
 
   .lesson-body-text img {
