@@ -22,9 +22,24 @@ head: |
 {% include icons-topics.html %}
 
 <div class="wrapper gutter-1-2 pad-t pad-b-1-2">
-  {% for collection_id in site.collections_courses %}
+  {% capture all_courses %}{{site.collections_courses | join: "|"}}|{{site.collections_selfdirected | join: "|"}}{% endcapture %}
+  {% assign the_courses = all_courses | split: "|" %}
+
+  {% for collection_id in the_courses %}
     {% assign collection = site.collections | where: "label", collection_id | first %}
+    {% if collection.disabled %}{% continue %}{% endif %}
     {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+    {% assign the_number = forloop.index %}
+    {% capture the_slug %}web-dev-{{the_number}}{% endcapture %}
+
+    {% case collection_id %}
+      {% when "javascript" %}
+        {% assign the_number = "infinite" %}
+        {% assign the_slug = "javascript" %}
+      {% when "jekyll" %}
+        {% assign the_number = "infinite" %}
+        {% assign the_slug = "jekyll" %}
+    {% endcase %}
 
     {% if collection.disabled %}
       {% assign link = false %}
@@ -38,10 +53,10 @@ head: |
       {% assign is_last = forloop.last %}
     {% endif %}
 
-    {% include activity-section.html number=forloop.index collection=collection is-last=is_last link=link %}
+    {% include activity-section.html slug=the_slug icon=the_number collection=collection is-last=is_last link=link %}
   {% endfor %}
 
   {% if page.unused_activities %}
-    {% include activity-section.html number="infinite" collection=page.unused_activities is-last=true link=false %}
+    {% include activity-section.html slug=the_slug icon="infinite" collection=page.unused_activities is-last=true link=false %}
   {% endif %}
 </div>

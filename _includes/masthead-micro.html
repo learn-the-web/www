@@ -27,6 +27,8 @@
       {% capture next_size %}{{next | size}}{% endcapture %}
       {% capture next_link %}{% if next_size == "1" %}0{% endif %}{{next}}{% endcapture %}
       {% capture max_weeks %}{{site.max_weeks | plus:1}}{% endcapture %}
+      {% if page.last_week %}{% assign next = max_weeks %}{% endif %}
+
       <nav class="masthead-next unit [ xs-1 l-2-5 ]">
         <ul class="list-group-inline push-0">
           <li>

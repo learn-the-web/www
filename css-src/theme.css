@@ -79,6 +79,10 @@ hr {
   width: 150vw;
 }
 
+.wrapper hr:last-child {
+  display: none;
+}
+
 table {
   table-layout: fixed;
 }

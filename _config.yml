@@ -1,4 +1,4 @@
-version: 88
+version: 89
 
 permalink: pretty
 highlighter: none
@@ -51,7 +51,6 @@ collections:
     output: true
     permalink: /courses/javascript/:path/
     title: "Javascript"
-    disabled: true
   jekyll:
     output: true
     permalink: /courses/jekyll/:path/
@@ -108,6 +107,16 @@ defaults:
   - scope:
       path: ""
       type: "web-dev-6"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "javascript"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "jekyll"
     values:
       layout: week
 

@@ -1,11 +1,12 @@
+{{include.number}}
 <section class="topic-section pad-b" tabindex="-1">
   <div class="wrapper gutter-1-2">
     <div class="topic-wrap">
       <h2 class="topic-heading">
         {% if include.link == true %}
-          <a class="link-box link-box-no-mark" href="/courses/web-dev-{{include.number}}/">
+          <a class="link-box link-box-no-mark" href="/courses/{{include.slug}}/">
         {% endif %}
-          <i class="icon i-48 push-1-4"><svg><use xlink:href="#icon-topic-{{include.number}}"/></svg></i>
+          <i class="icon i-48 push-1-4"><svg><use xlink:href="#icon-topic-{{include.icon}}"/></svg></i>
           <span class="mega topic-heading-text">{{include.collection.title}}</span>
         {% if include.link == true %}
           </a>
