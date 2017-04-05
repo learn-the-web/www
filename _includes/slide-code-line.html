@@ -1,0 +1,4 @@
+<div class="slide-notes-code-line push">
+  <h3 class="slide-notes-code-line-title tera push-1-2 relative">{% if include.prefix %}{{include.prefix}} — {% endif %}Line{% if include.line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=include.line.num %}</h3>
+  <div>{{include.line.text | markdownify}}</div>
+</div>

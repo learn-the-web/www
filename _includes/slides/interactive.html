@@ -6,19 +6,19 @@
     {% endif %}
     {% if include.data.html %}
       <span class="slide-code-label">HTML</span>
-      <pre class="language-html" data-line="{{include.data.html_lines}}"><code class="language-html">{{include.data.html | xml_escape}}</code></pre>
+      <pre class="language-html" data-line="{% if include.data.html_lines[0] %}{% for line in include.data.html_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.html_lines}}{% endif %}"><code class="language-html">{{include.data.html | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.svg %}
       <span class="slide-code-label">SVG</span>
-      <pre class="language-xml" data-line="{{include.data.svg_lines}}"><code class="language-xml">{{include.data.svg | xml_escape}}</code></pre>
+      <pre class="language-xml" data-line="{% if include.data.svg_lines[0] %}{% for line in include.data.js_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.js_lines}}{% endif %}"><code class="language-xml">{{include.data.svg | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.css %}
       <span class="slide-code-label">CSS</span>
-      <pre class="language-css" data-line="{{include.data.css_lines}}"><code class="language-css">{{include.data.css | xml_escape}}</code></pre>
+      <pre class="language-css" data-line="{% if include.data.css_lines[0] %}{% for line in include.data.css_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.css_lines}}{% endif %}"><code class="language-css">{{include.data.css | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.js %}
       <span class="slide-code-label">Javascript</span>
-      <pre class="language-js" data-line="{{include.data.js_lines}}"><code class="language-js">{{include.data.js | xml_escape}}</code></pre>
+      <pre class="language-js" data-line="{% if include.data.js_lines[0] %}{% for line in include.data.js_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.js_lines}}{% endif %}"><code class="language-js">{{include.data.js | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.html_hidden %}
       <textarea class="html-hidden" hidden>{{include.data.html_hidden | xml_escape}}</textarea>

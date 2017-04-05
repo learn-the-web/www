@@ -64,13 +64,17 @@
         {% include slides/{{slide_type}}.html data=slide collection_label=page.collection id=forloop.index %}
         {% if slide.numbered %}<strong class="slide-numbered exa bold text-center absolute pin-bc" aria-label="Slide question {{slide.numbered}}" tabindex="0">{{slide.numbered}}</strong>{% endif %}
       </div>
-      {% if slide.notes %}
+      {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines %}
         <input type="checkbox" class="hide-show-control" id="hide-show-notes-{{forloop.index}}">
         <label class="hide-show-btn" for="hide-show-notes-{{forloop.index}}">
-          <i class="icon i-24 notes-show" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
-          <i class="icon i-24 notes-hide" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>
+          <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
+          <i class="icon i-24 notes-hide" title="Hide notes" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>
         </label>
-        <aside class="slide-notes pad-t-2 pad-b-2 gutter giga">{{ slide.notes | markdownify }}</aside>
+        <aside class="slide-notes pad-t-2 pad-b gutter giga">
+          {{ slide.notes | markdownify }}
+          {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{{line.text | markdownify}}{% endfor %}{% endif %}
+          {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line %}{% endif %}{% endfor %}{% endif %}
+        </aside>
       {% endif %}
       <nav class="slide-nav milli">
         <ul class="list-group-inline push-0">

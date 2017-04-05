@@ -237,19 +237,34 @@ iframe {
 .slide-notes {
   bottom: 0;
   display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: absolute;
   right: 0;
   top: 0;
   width: 20em;
   z-index: 799;
 
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, .9);
 
   color: #fff;
 }
 
 .hide-show-control:checked ~ .slide-notes {
   display: block;
+}
+
+.slide-notes code {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.slide-notes a {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .4);
+}
+
+.slide-notes a:hover {
+  border-color: #fff;
 }
 
 .hide-show-btn {
@@ -273,6 +288,25 @@ iframe {
   display: inline-block;
 }
 
+.slide-notes-code-line {
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.slide-notes-code-line:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.slide-notes-code-line-title::before {
+  content: "—";
+  position: absolute;
+  right: calc(100% + .25em);
+}
+
+.slide-notes-code-line:last-child :last-child {
+  margin-bottom: 0;
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {
@@ -288,7 +322,7 @@ iframe {
     line-height: 4.5rem;
   }
 
-  .slide h3 {
+  .slide > :not(.slide-notes) h3 {
     font-size: 2.5657rem;
     line-height: 3.75rem;
   }
