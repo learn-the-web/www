@@ -72,8 +72,12 @@
         </label>
         <aside class="slide-notes pad-t-2 pad-b gutter giga">
           {{ slide.notes | markdownify }}
-          {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{{line.text | markdownify}}{% endfor %}{% endif %}
-          {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="HTML" %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.markdown_lines[0] %}{% for line in slide.markdown_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Markdown" %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.yaml_lines[0] %}{% for line in slide.yaml_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="YAML" %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.css_lines[0] %}{% for line in slide.css_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="CSS" %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.svg_lines[0] %}{% for line in slide.svg_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="SVG" %}{% endif %}{% endfor %}{% endif %}
+          {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Javascript" %}{% endif %}{% endfor %}{% endif %}
         </aside>
       {% endif %}
       <nav class="slide-nav milli">
