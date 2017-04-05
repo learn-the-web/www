@@ -227,6 +227,52 @@ iframe {
   line-height: 1;
 }
 
+.hide-show-control {
+  opacity: 0;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+.slide-notes {
+  bottom: 0;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20em;
+  z-index: 799;
+
+  background-color: rgba(0, 0, 0, .8);
+
+  color: #fff;
+}
+
+.hide-show-control:checked ~ .slide-notes {
+  display: block;
+}
+
+.hide-show-btn {
+  right: .5em;
+  position: absolute;
+  top: .5em;
+  z-index: 800;
+
+  cursor: pointer;
+}
+
+.notes-hide {
+  display: none;
+}
+
+.hide-show-control:checked ~ .hide-show-btn .notes-show {
+  display: none;
+}
+
+.hide-show-control:checked ~ .hide-show-btn .notes-hide {
+  display: inline-block;
+}
+
 @media only screen and (min-width: 38em) {
 
   .slide-deck .masthead {
