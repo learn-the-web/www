@@ -65,8 +65,10 @@ layout: basic-inside
       </thead>
       <tbody>
         {% assign count = 0 %}
+        {% assign week_count = 0 %}
         {% for doc in page_data.docs %}
           {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+          {% capture week_count %}{{week_count | plus: 1}}{% endcapture %}
           {% for tut in doc.video_tutorials %}
             {% if tut.videos and page.grades.videos %}
               {% capture count %}{{count | plus: 1}}{% endcapture %}
@@ -108,7 +110,7 @@ layout: basic-inside
         <tr>
           <td colspan="12"><strong>{{count}} total assessments</strong></td>
           <td colspan="3"><strong>100%</strong></td>
-          <td colspan="4"><strong>15 weeks</strong></td>
+          <td colspan="4"><strong>{{week_count}} weeks</strong></td>
           <td colspan="5"></td>
         </tr>
       </tfoot>
