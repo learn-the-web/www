@@ -136,7 +136,7 @@ no_wrapper: true
     </div>
     {% assign card_num=0 %}
     <ul class="list-group grid grid-bottom">
-      <li class="unit [ xs-1 m-1-3 ] gutter-1-4 pad-t pad-b-1-4">
+      <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4">
         {% if page.tasks[0] %}
           {% if page.tasks[0].type != "blank" %}
             {% assign data = page.tasks[0] %}
@@ -149,7 +149,7 @@ no_wrapper: true
           {% include card.html data=site.no_activities collection=page.collection %}
         {% endif %}
       </li>
-      <li class="unit [ xs-1 m-1-3 ] gutter-1-4 pad-t pad-b-1-4">
+      <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4">
         {% if page.tasks[1] %}
           {% if page.tasks[1].type != "blank" %}
             {% assign data = page.tasks[1] %}
@@ -162,7 +162,7 @@ no_wrapper: true
           {% include card.html data=site.no_lessons collection=page.collection %}
         {% endif %}
       </li>
-      <li class="unit [ xs-1 m-1-3 ] gutter-1-4 pad-t pad-b-1-4">
+      <li class="unit [ xs-1 s-1-2  m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4">
         {% if page.tasks[2] %}
           {% if page.tasks[2].type != "blank" %}
             {% assign data = page.tasks[2] %}
@@ -192,7 +192,7 @@ no_wrapper: true
     </div>
 
     <ul class="list-group grid grid-bottom">
-      <li class="unit [ xs-1 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
+      <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
         {% if page.tasks[3].type == "blank" %}
           {% include card.html data=site.no_exercises collection=page.collection %}
         {% else %}
@@ -201,7 +201,7 @@ no_wrapper: true
           {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
         {% endif %}
       </li>
-      <li class="unit [ xs-1 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
+      <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4">
         {% if page.tasks[4].type != "blank" %}
           {% if page.tasks[4] and page.tasks[4].type != "watch-videos" %}
             {% assign data = page.tasks[4] %}

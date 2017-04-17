@@ -4,6 +4,9 @@
 
 .topic-wrap {
   position: relative;
+}
+
+.topic-wrap-indented {
   padding-left: 1.5rem;
 }
 
@@ -300,6 +303,10 @@
   background-image: inline("../images-embed/topics-circle-6.svg");
 }
 
+.topic-section-8 + .topic-section-8 {
+  border-top: 3px solid rgba(0, 0, 0, .05);
+}
+
 .topics .indent1,
 .topics .indent2 {
   padding-left: 38px;
@@ -387,6 +394,10 @@
    color: var(--color-grey);
 }
 
+.course-btn-wrap {
+  padding-top: 1.5rem;
+}
+
 .course-btn {
   color: var(--color-grey-dark);
 }
@@ -452,6 +463,10 @@
 
   .topic-flag::after {
     display: inline-block;
+  }
+
+  .course-btn-wrap {
+    padding-top: 0;
   }
 
 }

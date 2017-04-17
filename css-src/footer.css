@@ -3,10 +3,6 @@
   color: color(var(--color-brand) saturation(-60%));
 }
 
-.footer {
-  text-align: center;
-}
-
 .footer a,
 .footer .icon-link .icon-label {
   transition: all 50ms linear;

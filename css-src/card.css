@@ -31,6 +31,10 @@
   color: var(--color-brand);
 }
 
+.card-num svg:not(:root) {
+  overflow: visible;
+}
+
 .card-title {
 
 }

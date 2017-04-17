@@ -13,11 +13,6 @@
   top: .3em;
 }
 
-.week-list-tasks-group {
-  display: flex;
-  flex-direction: row;
-}
-
 .week-list-tasks > li::after {
   content: "·";
   display: inline-block;
@@ -37,4 +32,13 @@
 
 .week-list-tasks > li:last-child::after {
   content: none;
+}
+
+@media only screen and (min-width: 60em) {
+
+  .week-list-tasks-group {
+    display: flex;
+    flex-direction: row;
+  }
+
 }

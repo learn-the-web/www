@@ -10,7 +10,7 @@
   left: calc(50% - 60px);
   height: 80px;
   position: absolute;
-  top: 24%;
+  top: 12%;
   width: 120px;
   z-index: 10;
 
@@ -39,13 +39,25 @@
   left: 50%;
   padding: 0 1em;
   position: absolute;
-  top: 58%;
+  top: 65%;
   width: 100%;
 
   transform: translateX(-50%);
 
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (min-width: 25em) {
+
+  .video-placeholder::before {
+    top: 24%;
+  }
+
+  .video-intro {
+    top: 58%;
+  }
+
 }
 
 @media only screen and (min-width: 60em) {

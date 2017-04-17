@@ -223,9 +223,9 @@ layout: basic-inside
       {% assign column_width = "1-2" %}
     {% endif %}
     <div class="wrapper">
-      <h2 class="gutter-1-4 exa">Marking scheme</h2>
+      <h2 class="gutter-1-4 exa push-1-2">Marking scheme</h2>
       <div class="grid">
-        <div class="unit [ xs-1 m-{{column_width}} ] gutter-1-4">
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4">
           <h3 class="push-0">Exercises — {{page.grades.exercises}}%</h3>
           <p class="mega"><em>{{total_exercises}} exercises @ {{exercises_per}}% each.</em></p>
           <ul class="push-0">
@@ -234,7 +234,7 @@ layout: basic-inside
           </ul>
         </div>
         {% if page.grades.videos %}
-        <div class="unit [ xs-1 m-1-3 ] gutter-1-4">
+        <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4">
           <h3 class="push-0">Videos — {{page.grades.videos}}%</h3>
           <p class="mega"><em>{{total_videos}} video playlists @ {{videos_per}}% each.</em></p>
           <ul class="push-0">
@@ -243,7 +243,7 @@ layout: basic-inside
           </ul>
         </div>
         {% endif %}
-        <div class="unit [ xs-1 m-{{column_width}} ] gutter-1-4">
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4">
           <h3 class="push-0">Big projects — {{page.grades.projects}}%</h3>
           <p class="mega"><em>{{total_projects}} milestones @ {{projects_per}}% each.</em></p>
           <ul class="push-0">
@@ -302,25 +302,25 @@ layout: basic-inside
   {% assign prev=false %}
 {% endunless %}
 
-<div class="section-muted-medium pad-t pad-b">
+<div class="section-muted-medium pad-t-1-2 pad-b-1-2">
   <div class="wrapper gutter-1-2">
   <ul class="list-group controls push-0">
     {% if prev %}
-      <li class="controls-prev">
+      <li class="controls-prev pad-t-1-4 pad-b-1-4">
         <a class="btn btn-muted" href="/courses/web-dev-{{prev}}/">
           <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
           <span class="icon-label">Web Dev {{prev}}</span>
         </a>
       </li>
     {% endif %}
-    <li class="controls-start">
+    <li class="controls-start pad-t-1-4 pad-b-1-4">
       <a class="btn btn-muted" href="/courses/">
         <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
         <span class="icon-label">Courses</span>
       </a>
     </li>
     {% if next %}
-      <li class="controls-next">
+      <li class="controls-next pad-t-1-4 pad-b-1-4">
         <a class="btn btn-muted" href="/courses/web-dev-{{next}}/">
           <span class="icon-label">Web Dev {{next}}</span>
           <i class="icon i-24 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>

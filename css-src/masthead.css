@@ -40,32 +40,54 @@
 @media only screen and (min-width: 38em) {
 
   .logo {
+    height: 38px;
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-  }
-
-  .masthead-micro {
-    text-align: right;
-  }
-
-}
-
-@media only screen and (min-width: 38em) {
-
-  .logo {
-    height: 38px;
     width: 140px;
   }
 
   .masthead-micro {
     padding-bottom: 0;
-
     text-align: left;
+  }
+
+  .masthead-micro-title {
+    text-align: right;
   }
 
   .masthead-next {
     text-align: right;
+  }
+
+}
+
+@media only screen and (min-width: 60em) {
+
+  .masthead-micro-title {
+    text-align: left;
+  }
+
+}
+
+@media only screen and (max-width: 38em) {
+
+  .masthead {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .top-nav .i-24 {
+    height: 18px;
+    width: 18px;
+  }
+
+}
+
+@media only screen and (max-width: 60em) {
+
+  .top-nav .nav-home {
+    display: none;
   }
 
 }
