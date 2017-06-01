@@ -11,8 +11,8 @@
         <div class="unit [ xs-1 s-1 m-2-3 l-2-3 ]">
           <ol class="list-group topics push-0">
             {% for item in include.data %}
-              {% capture the_slug %}{{item.slug}}/{% endcapture %}
-              {% assign results = site.topics | where_exp: "doc", "doc.url contains the_slug" %}
+              {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+              {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
               {% assign details = results[0] %}
               {% if item.hidden != true %}
                 <li class="indent{{item.indent}} {% if item.disabled %}topic-disabled{% endif %} {% if item.fullsite %}topic-flag topic-fullsite{% endif %} {% if item.checklist %}topic-flag topic-checklist{% endif %} {% if item.cheatsheet %}topic-flag topic-cheatsheet{% endif %} {% if item.tool %}topic-flag topic-tool{% endif %}" id="{{item.slug}}" data-tags="{{details.tags}}{{item.tool_tags}}">
