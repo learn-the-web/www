@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-.week-list-tasks-outside::before {
+.week-list-tasks + .week-list-tasks-outside > li:first-child::before {
   content: "—";
   display: inline-block;
   margin-left: .1em;
