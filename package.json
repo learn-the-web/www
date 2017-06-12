@@ -45,7 +45,7 @@
     "watch:js": "onchange 'js-src/*.js' -- npm run build-js",
     "build": "npm run build:css && npm run build:js && npm run build:site",
     "deploy:site": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",
-    "deploy:solutions": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/solutions/ thomasjbradley_acltwsolutions@nfsn:/fs8c/acltwsolutions/protected/includes",
+    "deploy:solutions": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/solutions/ thomasjbradley_acltwsolutions@nfsn:/home/protected/includes",
     "deploy": "npm run deploy:site && npm run deploy:solutions",
     "build-n-deploy": "npm run build && npm run deploy"
   }
