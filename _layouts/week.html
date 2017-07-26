@@ -96,21 +96,21 @@ no_wrapper: true
                 {% if link.url contains "/" %}
                   {% assign url_prefix="" %}
                 {% endif %}
-                <li><a {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %}>{{link.title}}</a></li>
+                <li><a {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %} {% if link.disabled %}data-state="disabled"{% endif %}>{{link.title}}</a></li>
               {% endfor %}
             </ul>
           {% endif %}
 
           {% if page.group_activities %}
             <h3 class="mega push-1-4">Class activities</h3>
-            <ul class="push-1-2 list-group milli">
+            <ul class="list-group milli">
               {% for link in page.group_activities %}
                 {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                 {% if link.url contains "/" %}
                   {% assign url_prefix="" %}
                 {% endif %}
                 <li class="push-1-4">
-                  <a class="btn btn-ghost" {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %}>
+                  <a class="btn btn-ghost" {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %} {% if link.disabled %}data-state="disabled"{% endif %}>
                     <i class="icon i-18 push-r-1-4"><svg><use xlink:href="#icon-{{link.type}}" /></svg></i>
                     {% if link.pair %}
                       <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-pair" /></svg></i>
