@@ -42,6 +42,10 @@ a:focus,
   border-color: var(--color-link);
 }
 
+.icon-link {
+  border-bottom: 0;
+}
+
 a:not([href]),
 .link-disabled {
   pointer-events: none;
