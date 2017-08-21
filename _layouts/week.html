@@ -75,7 +75,7 @@ no_wrapper: true
                     {% endif %}
                   {% if link.highlight %}</strong>{% endif %}
                   {% if link.videos %}
-                    <span class="color-grey week-video-checked" title="These videos should be watched." aria-label="These videos will be checked.">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i>{% if link.video_percent %}&nbsp;&nbsp;(only {{link.video_percent}}% required){% endif %}</span>
+                    <span class="color-grey week-video-checked" title="These videos should be watched" aria-label="These videos should be watched">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i>{% if link.video_percent %}&nbsp;&nbsp;(only {{link.video_percent}}% required){% endif %}</span>
                   {% endif %}
                   {% if link.notes %}
                     <span class="italic micro block text-disabled">({{link.notes}})</span>
