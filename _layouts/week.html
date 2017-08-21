@@ -55,14 +55,14 @@ no_wrapper: true
 <main class="main-fill grid grid-stretch">
 
   <div class="class class-during unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4">{% if page.during_class %}{{page.during_class}}{% else %}During class{% endif %} <span class="right normal italic">Week {{number_leading_zero}}</span></h2>
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">{% if page.during_class %}{{page.during_class}}{% else %}During class{% endif %} <span class="right normal italic">Week {{number_leading_zero}}</span></h2>
 
     <div class="class-desc content-fill gutter-1-4">
       <p>{{page.desc}}</p>
 
       <div class="grid">
         <div class="unit [ xs-1 m-1-2 ]">
-          <h3 class="mega push-0">Videos & tutorials</h3>
+          <h3 class="mega push-0" tabindex="0">Videos & tutorials</h3>
           <ul class="list-group milli">
             {% if page.video_tutorials %}
               {% for link in page.video_tutorials %}
@@ -91,7 +91,7 @@ no_wrapper: true
         </div>
         <div class="unit [ xs-1 m-1-2 ]">
           {% if page.slides %}
-            <h3 class="mega push-0">Slides</h3>
+            <h3 class="mega push-0" tabindex="0">Slides</h3>
             <ul class="list-group milli">
               {% for link in page.slides %}
                 {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
@@ -104,7 +104,7 @@ no_wrapper: true
           {% endif %}
 
           {% if page.group_activities %}
-            <h3 class="mega push-1-4">Class activities</h3>
+            <h3 class="mega push-1-4" tabindex="0">Class activities</h3>
             <ul class="list-group milli">
               {% for link in page.group_activities %}
                 {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
@@ -126,7 +126,7 @@ no_wrapper: true
           {% endif %}
 
           {% if page.next_week_notes %}
-            <h3 class="mega push-1-4">Notes for next week</h3>
+            <h3 class="mega push-1-4" tabindex="0">Notes for next week</h3>
             <ul class="italic milli">
               {% for note in page.next_week_notes %}
                 <li>{{note}}</li>
@@ -181,7 +181,7 @@ no_wrapper: true
   </div>
 
   <div class="class class-outside unit [ xs-1 l-2-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative">
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative" tabindex="0">
       <span>Outside class</span>
       <span class="absolute pin-br pad-b-1-4 gutter-1-4">
         <a href="/get-help/" class="inline-block kilo icon-link italic">
