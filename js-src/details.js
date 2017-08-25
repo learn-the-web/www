@@ -8,16 +8,16 @@
       elem.setAttribute('aria-hidden', false);
       elem.removeAttribute('hidden');
       btn.setAttribute('aria-selected', true);
-      btn.innerHTML = '-';
-      btn.setAttribute('title', 'Collapse details');
-      btn.setAttribute('aria-label', 'Collapse details');
+      btn.querySelector('.btn').innerHTML = '-';
+      btn.querySelector('.btn').setAttribute('title', 'Collapse details');
+      btn.querySelector('.btn').setAttribute('aria-label', 'Collapse details');
     } else {
       elem.setAttribute('aria-hidden', true);
       elem.setAttribute('hidden', true);
       btn.setAttribute('aria-selected', false);
-      btn.innerHTML = '+';
-      btn.setAttribute('title', 'Expand details');
-      btn.setAttribute('aria-label', 'Expand details');
+      btn.querySelector('.btn').innerHTML = '+';
+      btn.querySelector('.btn').setAttribute('title', 'Expand details');
+      btn.querySelector('.btn').setAttribute('aria-label', 'Expand details');
     }
   };
 
@@ -26,7 +26,7 @@
   [].forEach.call(details, function (elem) {
     var id = elem.getAttribute('data-controls');
     var content = document.getElementById(id);
-    var btn = document.createElement('button');
+    var btn = document.createElement('span');
 
     content.setAttribute('hidden', true);
     content.setAttribute('aria-hidden', true);
@@ -38,13 +38,24 @@
     btn.innerHTML = '+';
     btn.setAttribute('title', 'Expand details');
     btn.setAttribute('aria-label', 'Expand details');
-    btn.setAttribute('aria-controls', id);
-    btn.setAttribute('aria-selected', false);
+    elem.setAttribute('aria-controls', id);
+    elem.setAttribute('aria-selected', false);
     elem.innerHTML += '&nbsp;';
     elem.appendChild(btn);
+    elem.style.cursor = 'pointer';
+    elem.setAttribute('role', 'button');
 
-    btn.addEventListener('click', function (e) {
+    elem.addEventListener('click', function (e) {
       toggleContent(e.target);
+    });
+
+    elem.addEventListener('keypress', function (e) {
+      switch (e.keyCode) {
+        case 32:
+        case 13:
+          e.preventDefault();
+          toggleContent(e.target);
+      }
     });
   });
 }());

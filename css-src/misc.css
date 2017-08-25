@@ -1,3 +1,7 @@
+[data-control] > * {
+  pointer-events: none
+}
+
 .algonquin {
   background-color: #0f663f;
 

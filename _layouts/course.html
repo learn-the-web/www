@@ -276,12 +276,11 @@ layout: basic-inside
       </div>
     </div>
   </div>
-
   {% if page.clr and page.ees and page.vlo %}
     <div class="section-muted pad-t-1-2 pad-b-1-4 gutter-1-4" id="vlo-ees-clr">
       <hr class="hr-medium">
       <div class="wrapper">
-        <h2 class="gutter-1-4 exa" data-control="details" data-controls="clr"><span tabindex="0">Course learning requirements</span></h2>
+        <h2 class="gutter-1-4 exa" data-control="details" data-controls="clr" tabindex="0">Course learning requirements</h2>
         <div class="grid" id="clr">
           {% for clr in page.clr %}
             <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
@@ -297,12 +296,12 @@ layout: basic-inside
           {% endfor %}
         </div>
 
-        <h2 class="gutter-1-4 exa" data-control="details" data-controls="vlo"><span tabindex="0">Vocational learning outcomes</span></h2>
+        <h2 class="gutter-1-4 exa" data-control="details" data-controls="vlo" tabindex="0">Vocational learning outcomes</h2>
         <div class="gutter-1-4 milli" id="vlo">
           {% include vlo-ees.html data=site.vlo values=page.vlo %}
         </div>
 
-        <h2 class="gutter-1-4 exa" data-control="details" data-controls="ees"><span tabindex="0">Essential employability skills</span></h2>
+        <h2 class="gutter-1-4 exa" data-control="details" data-controls="ees" tabindex="0">Essential employability skills</h2>
         <div class="gutter-1-4 milli" id="ees">
           {% include vlo-ees.html data=site.ees values=page.ees %}
         </div>
