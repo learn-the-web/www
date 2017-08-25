@@ -133,6 +133,10 @@
   background-color: var(--color-code-dark);
 }
 
+.assignment-viewer-screenshot {
+  border: 1px solid var(--color-grey-medium);
+}
+
 .assignment-scroll-down {
   bottom: .75rem;
   position: absolute;

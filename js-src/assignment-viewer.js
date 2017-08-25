@@ -90,6 +90,10 @@
     return href.replace('github.com', 'api.github.com/repos') + '/readme';
   };
 
+  var getScreenshotsUrl = function (href) {
+    return href.replace('github.com', 'api.github.com/repos') + '/contents/screenshots';
+  };
+
   var getYaml = function (text) {
     return text.trim().split('---').filter(Boolean)[0];
   };
@@ -121,6 +125,22 @@
     yaml.html = formatMarkdown(href, markdown);
 
     return yaml;
+  };
+
+  var parseScreenshots = function (data) {
+    var screensJson;
+    var screenshots = {};
+
+    try {
+      screensJson = JSON.parse(data);
+      screensJson.forEach(function (item) {
+        screenshots[item.name.replace(/[^\d]/g, '')] = item.download_url;
+      });
+    } catch (e) {
+      screenshots = false;
+    }
+
+    return screenshots;
   };
 
   var hideLoaders = function () {
@@ -185,6 +205,38 @@
     $content.innerHTML = text;
   };
 
+  var showScreenshot = function (screenshots) {
+    var availableScreenshots = Object.keys(screenshots);
+    var embed = document.createElement('div');
+    var img = document.createElement('img');
+
+    embed.classList.add('assignment-viewer-screenshot');
+    embed.classList.add('embed');
+    embed.classList.add('embed-4by3');
+    embed.classList.add('push');
+    img.classList.add('embed-item');
+
+    switch (true) {
+      case (availableScreenshots.indexOf('608') > -1):
+        img.src = screenshots['608'];
+        break;
+      case (availableScreenshots.indexOf('960') > -1):
+        img.src = screenshots['960'];
+        break;
+      case (availableScreenshots.indexOf('1400') > -1):
+        img.src = screenshots['1400'];
+        break;
+      case (availableScreenshots.indexOf('400') > -1):
+        img.src = screenshots['400'];
+        break;
+      default:
+        img.src = screenshots[availableScreenshots[0]];
+    }
+
+    embed.appendChild(img);
+    $content.insertBefore(embed, $content.firstChild);
+  };
+
   var convertTaskLists = function () {
     var lists = document.querySelectorAll('.assignment-content ul');
 
@@ -218,7 +270,7 @@
     $content.innerHTML = '';
   }
 
-  var populateViewer = function (readme) {
+  var populateViewer = function (readme, screenshots) {
     if (readme.summary) {
       showSummary(readme.summary);
     } else {
@@ -235,6 +287,7 @@
     if (readme.download) showDownloadButton(readme.download);
 
     showContent(readme.html);
+    if (screenshots) showScreenshot(screenshots);
     convertTaskLists()
     hideLoaders();
   };
@@ -279,33 +332,45 @@
   };
 
   var downloadContent = function (href) {
-    fetch(getReadmeUrl(href), {
-        headers: {
-          'Accept': 'application/vnd.github.v3.raw'
-        }
-      }
-    ).then(function(response) {
-      response.text().then(function (text) {
-        var readme = parseReadme(href, text);
-        cacheContent(href, readme);
-        populateViewer(readme);
+    var options = {
+      headers: {
+        'Accept': 'application/vnd.github.v3.raw'
+      },
+    };
+
+    Promise.all([
+      fetch(getReadmeUrl(href), options),
+      fetch(getScreenshotsUrl(href), options),
+    ]).then(function (responses) {
+      responses[0].text().then(function (readmeText) {
+        responses[1].text().then(function (screenshotsData) {
+          var readme = parseReadme(href, readmeText);
+          var screenshots = (responses[1].status >= 200 && responses[1].status <= 299) ? parseScreenshots(screenshotsData) : false;
+
+          cacheContent(href, readme, screenshots);
+          populateViewer(readme, screenshots);
+        });
       });
-    }, function() {
+    }).catch(function () {
       window.location(href);
     });
   };
 
-  var cacheContent = function (href, readme) {
+  var cacheContent = function (href, readme, screenshots) {
     sessionStorage.setItem(href, JSON.stringify(readme));
+    sessionStorage.setItem(href + '-screenshots', JSON.stringify(screenshots));
   };
 
   var displayCachedContent = function (href) {
-    populateViewer(JSON.parse(sessionStorage.getItem(href)));
+    populateViewer(
+      JSON.parse(sessionStorage.getItem(href)),
+      JSON.parse(sessionStorage.getItem(href + '-screenshots'))
+    );
   };
 
   var getViewerContent = function (href) {
     if (sessionStorage.getItem(href)) {
-      displayCachedContent(href);
+      displayCachedContent(href, sessionStorage.getItem(href + '-screenshot'));
     } else {
       downloadContent(href);
     }
