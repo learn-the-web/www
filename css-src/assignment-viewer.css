@@ -137,6 +137,24 @@
   border: 1px solid var(--color-grey-medium);
 }
 
+.assignment-viewer-screenshot .embed-item {
+  min-height: auto;
+}
+
+.assignment-viewer-swatch-wrap {
+  padding-left: calc(18px + .7em);
+  position: relative;
+}
+
+.assignment-viewer-swatch {
+  left: .4em;
+  position: absolute;
+  top: 50%;
+
+  border: 1px solid #a0a0a0;
+  transform: translateY(-50%);
+}
+
 .assignment-scroll-down {
   bottom: .75rem;
   position: absolute;

@@ -212,7 +212,7 @@
 
     embed.classList.add('assignment-viewer-screenshot');
     embed.classList.add('embed');
-    embed.classList.add('embed-4by3');
+    embed.classList.add('embed-golden');
     embed.classList.add('push');
     img.classList.add('embed-item');
 
@@ -235,6 +235,28 @@
 
     embed.appendChild(img);
     $content.insertBefore(embed, $content.firstChild);
+  };
+
+  var createColorPalette = function () {
+    var allLis = document.querySelectorAll('h2 + ul > li');
+
+    [].forEach.call(allLis, function (li) {
+      if (/^colou?rs?/i.test(li.textContent.trim())) {
+        var theColors = li.querySelectorAll('code');
+
+        [].forEach.call(theColors, function (colElem) {
+          var colorCode = colElem.textContent.trim();
+          var swatch = document.createElement('i');
+
+          swatch.classList.add('icon');
+          swatch.classList.add('i-18');
+          swatch.classList.add('assignment-viewer-swatch');
+          swatch.style.backgroundColor = colorCode;
+          colElem.classList.add('assignment-viewer-swatch-wrap');
+          colElem.insertBefore(swatch, colElem.firstChild);
+        });
+      }
+    });
   };
 
   var convertTaskLists = function () {
@@ -289,6 +311,7 @@
     showContent(readme.html);
     if (screenshots) showScreenshot(screenshots);
     convertTaskLists()
+    createColorPalette();
     hideLoaders();
   };
 
