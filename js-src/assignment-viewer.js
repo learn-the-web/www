@@ -214,7 +214,12 @@
     embed.classList.add('embed');
     embed.classList.add('embed-golden');
     embed.classList.add('push');
+    embed.dataset.state = 'loading';
     img.classList.add('embed-item');
+
+    img.addEventListener('load', function () {
+      embed.dataset.state = '';
+    });
 
     switch (true) {
       case (availableScreenshots.indexOf('608') > -1):

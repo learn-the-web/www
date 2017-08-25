@@ -134,11 +134,20 @@
 }
 
 .assignment-viewer-screenshot {
+  background: #fff none no-repeat center center / 32px 32px;
   border: 1px solid var(--color-grey-medium);
+}
+
+.assignment-viewer-screenshot[data-state="loading"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Cstyle%3Epath%7Btransform-origin:128px 128px;animation:rotater 1.6s linear infinite%7D@keyframes rotater%7B0%25%7Btransform:rotate(0deg)%7Dto%7Btransform:rotate(360deg)%7D%7D%3C/style%3E%3Cpath stroke='%23d0d1d3' fill='%23d0d1d3' stroke-miterlimit='10' d='M107.2 11.3a8.4 8.4 0 0 0-7.6 6.3l-4.2 23.3a92.9 92.9 0 0 0-24.8 13.9l-22-8.5a8 8 0 0 0-9.5 3.2L17.6 85a8 8 0 0 0 1.5 9.8l17.4 15.5a93.1 93.1 0 0 0-1.8 17.7 92.7 92.7 0 0 0 1.9 17.7l-17.5 15.4a8 8 0 0 0-1.5 9.9l21.6 35.4a8 8 0 0 0 9.5 3.2l22-8.4A92.9 92.9 0 0 0 95.4 215l4.2 23.3a8 8 0 0 0 7.6 6.4h41.5a8 8 0 0 0 7.7-6.4l4.2-23.3a92.9 92.9 0 0 0 24.8-13.9l22 8.4a8 8 0 0 0 9.4-3.2l21.6-35.3a8 8 0 0 0-1.5-9.9l-17.4-15.6a94.2 94.2 0 0 0 1.8-17.6 94.6 94.6 0 0 0-1.8-17.7l17.4-15.6a8 8 0 0 0 1.5-9.8l-21.6-35.2a8 8 0 0 0-9.4-3.2l-22 8.5A92.9 92.9 0 0 0 160.6 41l-4.2-23.3a8 8 0 0 0-7.7-6.3h-41.5zM128 83a45 45 0 1 1-45 45 44.9 44.9 0 0 1 45-45z'/%3E%3C/svg%3E");
 }
 
 .assignment-viewer-screenshot .embed-item {
   min-height: auto;
+}
+
+.assignment-viewer-screenshot[data-state="loading"] .embed-item {
+  visibility: hidden;
 }
 
 .assignment-viewer-swatch-wrap {
