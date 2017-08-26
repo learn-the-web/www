@@ -414,10 +414,6 @@
       return;
     }
 
-    if (!window.matchMedia(minScreenWidth).matches) {
-      return false;
-    }
-
     elem = document.getElementById(window.location.hash.replace(/#/g, ''));
 
     if (!elem) return;

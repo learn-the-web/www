@@ -39,12 +39,12 @@
 }
 
 .assignment-close-btn {
-  height: 3rem;
+  height: 2rem;
   padding: 0;
   position: absolute;
   right: 4px;
   top: 4px;
-  width: 3rem;
+  width: 2rem;
 
   background-color: transparent;
   border: 0;
@@ -64,7 +64,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
 
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: .7em;
 }
@@ -234,4 +234,17 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media only screen and (min-width: 60em) {
+
+  .assignment-close-btn {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .assignment-close-btn span {
+    font-size: 3rem;
+  }
+
 }
