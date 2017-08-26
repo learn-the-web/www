@@ -735,6 +735,18 @@ a:focus, [tabindex="0"]:focus {
   visibility: hidden;
 }
 
+.page-break-before {
+  page-break-before: always;
+}
+
+.page-break-after {
+  page-break-after: always;
+}
+
+.no-page-break-inside {
+  page-break-inside: avoid;
+}
+
 @media print {
 
   /* stylelint-disable declaration-no-important */

@@ -133,7 +133,7 @@ layout: basic-inside
       {% for week in page_data.docs %}
         {% if week.layout == "week" %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
-          <li class="push-1-2">
+          <li class="push-1-2 no-page-break-inside">
             <i class="week-list-icon icon i-48">
               <svg viewBox="0 0 256 256">
                 {% if week.disabled %}
@@ -310,10 +310,10 @@ layout: basic-inside
         <h2 class="gutter-1-4 exa" data-control="details" data-controls="clr" tabindex="0">Course learning requirements</h2>
         <div class="grid force-print" id="clr">
           {% for clr in page.clr %}
-            <div class="unit [ xs-1 m-1-2 ] gutter-1-4">
+            <div class="unit [ xs-1 m-1-2 ] gutter-1-4 no-page-break-inside">
               <h3 class="kilo"><span class="tera normal italic">{{forloop.index}}</span><br>{{clr.title}}</h3>
             </div>
-            <div class="unit [ xs-1 m-1-2 ] gutter-1-4 milli">
+            <div class="unit [ xs-1 m-1-2 ] gutter-1-4 milli no-page-break-inside">
               <ul>
                 {% for detail in clr.details %}
                   <li>{{detail}}</li>
