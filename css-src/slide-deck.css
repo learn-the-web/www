@@ -164,7 +164,7 @@
 
 iframe {
   border: 0;
-  height: 14em;
+  height: 20em;
   width: 100%;
 }
 
@@ -296,7 +296,7 @@ iframe {
   margin-bottom: 0;
 }
 
-@media only screen and (min-width: 38em) {
+@media only screen and (min-width: 60em) {
 
   .slide-deck .masthead {
     padding-top: 0;
@@ -325,10 +325,6 @@ iframe {
     font-size: 5.2015rem;
     line-height: 7.125rem;
   }
-
-}
-
-@media only screen and (min-width: 60em) {
 
   .slide-deck-masthead-top {
     display: none;
@@ -413,6 +409,14 @@ iframe {
 
   .hide-show-btn {
     display: block;
+  }
+
+}
+
+@media print {
+
+  .slide-deck .masthead-micro {
+    border: 0;
   }
 
 }

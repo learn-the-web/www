@@ -5,7 +5,6 @@
   .tutorial-footer,
   .downloads,
   .tutorial-nav,
-  .header,
   .play-btn,
   .footer-wrap {
     display: none;
@@ -29,11 +28,41 @@
 
   .cheat-section {
     clear: both;
+    page-break-before: always;
+  }
+
+  .cheat-section:first-of-type {
+    page-break-before: auto;
   }
 
   .cheat-list .unit {
     float: left;
     width: 33.333%;
+  }
+
+  .check-box ~ .check-label::before {
+    top: 0;
+    border: 2px solid black;
+  }
+
+  .check-box:checked ~ .check-label::before {
+    content: "✔";
+  }
+
+  .card-placeholder,
+  .card-subtle,
+  .card-btn {
+    display: none;
+  }
+
+  code,
+  pre,
+  samp,
+  kbd,
+  code[class*="language-"],
+  pre[class*="language-"],
+  pre > code {
+    white-space: pre-wrap !important;
   }
 
 }

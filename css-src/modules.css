@@ -754,9 +754,9 @@ a:focus, [tabindex="0"]:focus {
 
   .visually-hidden.force-print {
     height: auto;
-    margin: initial;
+    margin: 0;
     overflow: visible;
-    padding: initial;
+    padding: 0;
     position: static;
     width: auto;
     border: 0;

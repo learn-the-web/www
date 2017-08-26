@@ -12,6 +12,7 @@
   <link href="/topics/" rel="prerender">
   <link href="/courses/" rel="prerender">
   {% endif %}
+  {{layout.head}}
   {{page.head}}
 </head>
 <body {% if page.hasCourseNav %}class="body-no-border"{% endif %}>
@@ -20,7 +21,7 @@
 
   {{content}}
 
-  <div class="footer-wrap pad-t-1-2 pad-b-1-2">
+  <div class="footer-wrap pad-t-1-2 pad-b-1-2 no-print">
     <footer class="footer grid wrapper gutter-1-2" role="contentinfo">
       <div class="unit [ xs-1 s-1 m-2-5 unit-push-m-3-5 l-2-5 ]">
         <ul class="list-group footer-links micro">

@@ -11,7 +11,7 @@ no_wrapper: true
 
 <main>
   {% if page.video or page.playlist %}
-    <section class="lesson-step lesson-video grid grid-middle">
+    <section class="lesson-step lesson-video grid grid-middle no-print">
       <div class="lesson-body video-container unit [ xs-1 m-2-3 ]">
         {% if page.video %}
           <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}">
