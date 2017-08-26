@@ -395,7 +395,9 @@
 }
 
 .course-btn-wrap {
+  margin-left: -1.5rem;
   padding-top: 1.5rem;
+  width: calc(100% + 1.5rem);
 }
 
 .course-btn {
@@ -466,7 +468,9 @@
   }
 
   .course-btn-wrap {
+    margin-left: 0;
     padding-top: 0;
+    width: inherit;
   }
 
 }

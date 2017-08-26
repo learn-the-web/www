@@ -737,14 +737,30 @@ a:focus, [tabindex="0"]:focus {
 
 @media print {
 
+  /* stylelint-disable declaration-no-important */
+
   .no-print {
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
   }
 
-  .print-only {
-    display: block;
-    visibility: visible;
+  .print-only,
+  .force-print {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* stylelint-enable */
+
+  .visually-hidden.force-print {
+    height: auto;
+    margin: initial;
+    overflow: visible;
+    padding: initial;
+    position: static;
+    width: auto;
+    border: 0;
+    clip: unset;
   }
 
   /*
@@ -776,7 +792,8 @@ a:focus, [tabindex="0"]:focus {
   }
 
   a[href^="#"]::after,
-  a[href^="javascript:"]::after {
+  a[href^="javascript:"]::after,
+  a.href-no-print::after {
     content: "";
   }
 

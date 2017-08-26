@@ -23,6 +23,7 @@
 
 .lesson-body-text {
   padding-left: calc(48px + .4rem);
+  padding-right: 1rem;
   max-width: 30em;
 }
 

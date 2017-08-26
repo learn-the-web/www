@@ -265,7 +265,7 @@
 .video-stats-default > dd {
   line-height: 1;
 }
-
+/*
 .video-stats > dt {
   position: absolute;
 }
@@ -281,7 +281,7 @@
 .video-stats > dt:last-of-type {
   right: 0;
 }
-
+ */
 @media only screen and (min-width: 38em) {
 
   .play-btn {

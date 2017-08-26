@@ -39,16 +39,31 @@
 }
 
 .assignment-close-btn {
+  height: 3rem;
+  padding: 0;
   position: absolute;
   right: 4px;
   top: 4px;
+  width: 3rem;
 
   background-color: transparent;
   border: 0;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
 
   color: #fff;
+}
+
+.assignment-close-btn > * {
+  pointer-events: none;
+}
+
+.assignment-close-btn span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
   font-size: 3rem;
   font-weight: bold;
   line-height: .7em;

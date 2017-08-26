@@ -118,6 +118,10 @@ td, th {
   width: auto;
 }
 
+.table-wrapper table {
+  min-width: 48em;
+}
+
 .main-fill {
   /* Viewport - masthead (logo height, border, margins) */
   min-height: calc(100vh - 42px - 1.2rem);
@@ -190,6 +194,18 @@ nav a:focus {
 
   ol {
     padding-left: 0;
+  }
+
+  .table-wrapper {
+    overflow: visible;
+  }
+
+}
+
+@media print {
+
+  .table-wrapper table {
+    min-width: 100%;
   }
 
 }

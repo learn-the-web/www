@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var minScreenWidth = '(min-width: 60em)';
+
   var $viewer = document.getElementById('assignment-viewer');
   var $assignmentWrapper = document.querySelector('.assignment-wrapper');
   var $wrapper = document.querySelector('.assignment-content-wrapper');
@@ -412,6 +414,10 @@
       return;
     }
 
+    if (!window.matchMedia(minScreenWidth).matches) {
+      return false;
+    }
+
     elem = document.getElementById(window.location.hash.replace(/#/g, ''));
 
     if (!elem) return;
@@ -440,7 +446,12 @@
   [].forEach.call(document.querySelectorAll('a[data-control="assignment-viewer"]'), function (elem) {
     elem.addEventListener('click', function (e) {
       e.preventDefault();
-      window.location.hash = this.id;
+
+      if (window.location.hash.replace(/#/g, '') == this.id.replace(/#/g, '')) {
+        tiggerViewerOpen();
+      } else {
+        window.location.hash = this.id;
+      }
     });
   });
 

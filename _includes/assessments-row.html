@@ -1,6 +1,6 @@
 <tr>
-  <th class="normal" scope="row" colspan="12"><a href="{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}" {% if include.disabled %}data-state="disabled"{% endif %}>{{include.prefix}}: {{include.title}}</a></th>
+  <th class="normal" scope="row" colspan="12"><a class="href-no-print" href="{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}" {% if include.disabled %}data-state="disabled"{% endif %}>{{include.prefix}}: {{include.title}}</a></th>
   <td colspan="3">{{include.value}}%</td>
-  <td colspan="4"><a href="{{include.url}}">{{include.week}}</a></td>
+  <td colspan="4"><a class="href-no-print" href="{{include.url}}">{{include.week}}</a></td>
   <td colspan="5">{{include.clrs}}</td>
 </tr>

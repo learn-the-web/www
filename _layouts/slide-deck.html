@@ -1,4 +1,7 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
+{% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
+{% capture title %}{% if page.title %}{{page.title}}{% else %}Week {{number}}{% endif %} · {{page_data.title}}{% endcapture %}
+
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
@@ -10,6 +13,10 @@
 
 {% include icons.html %}
 
+<div class="slide-deck-masthead-top push">
+  {% include masthead-micro.html %}
+</div>
+
 {% if site.collections_workshops contains page.collection %}
   {% assign url_chunk = "workshops" %}
   {% assign is_workshop = true %}
@@ -18,7 +25,7 @@
   {% assign is_workshop = false %}
 {% endif %}
 
-<strong class="full-screen-shortcut giga gutter pad-t-1-2 pad-b-1-2">Go fullscreen: ⌃⌥F</strong>
+<strong class="full-screen-shortcut giga gutter pad-t-1-2 pad-b-1-2 no-print">Go fullscreen: ⌃⌥F</strong>
 
 <main class="main-fill grid grid-stretch">
   {% assign count = 0 %}
@@ -70,14 +77,18 @@
           <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
           <i class="icon i-24 notes-hide" title="Hide notes" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>
         </label>
-        <aside class="slide-notes pad-t-2 pad-b gutter giga">
-          {{ slide.notes | markdownify }}
-          {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="HTML" %}{% endif %}{% endfor %}{% endif %}
-          {% if slide.markdown_lines[0] %}{% for line in slide.markdown_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Markdown" %}{% endif %}{% endfor %}{% endif %}
-          {% if slide.yaml_lines[0] %}{% for line in slide.yaml_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="YAML" %}{% endif %}{% endfor %}{% endif %}
-          {% if slide.css_lines[0] %}{% for line in slide.css_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="CSS" %}{% endif %}{% endfor %}{% endif %}
-          {% if slide.svg_lines[0] %}{% for line in slide.svg_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="SVG" %}{% endif %}{% endfor %}{% endif %}
-          {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Javascript" %}{% endif %}{% endfor %}{% endif %}
+        <aside class="slide-notes pad-t-2 pad-b gutter">
+          <div class="wrapper">
+            <div class="giga">
+              {{ slide.notes | markdownify }}
+              {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="HTML" %}{% endif %}{% endfor %}{% endif %}
+              {% if slide.markdown_lines[0] %}{% for line in slide.markdown_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Markdown" %}{% endif %}{% endfor %}{% endif %}
+              {% if slide.yaml_lines[0] %}{% for line in slide.yaml_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="YAML" %}{% endif %}{% endfor %}{% endif %}
+              {% if slide.css_lines[0] %}{% for line in slide.css_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="CSS" %}{% endif %}{% endfor %}{% endif %}
+              {% if slide.svg_lines[0] %}{% for line in slide.svg_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="SVG" %}{% endif %}{% endfor %}{% endif %}
+              {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Javascript" %}{% endif %}{% endfor %}{% endif %}
+            </div>
+          </div>
         </aside>
       {% endif %}
       <nav class="slide-nav milli">
@@ -122,7 +133,9 @@
 
 </main>
 
-{% include masthead-micro.html no_wrapper=true %}
+<div class="slide-deck-masthead-bottom">
+  {% include masthead-micro.html no_wrapper=true %}
+</div>
 
 <script>{% include fontfaceobserver.js %}</script>
 <script>{% include alegreya-observer.min.js %}</script>

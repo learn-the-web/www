@@ -49,6 +49,7 @@
 
 .cheat-head code {
   background-color: var(--color-code-dark);
+  white-space: pre-wrap;
 }
 
 .cheat-details p code {

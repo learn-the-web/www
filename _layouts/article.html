@@ -44,21 +44,27 @@ layout: default
     {% if page.video or page.playlist %}
       <div class="section-lightest" id="watch-stats" hidden>
         <div class="wrapper island-1-2">
-          <dl class="video-stats push-0 clearfix relative">
-            <dt class="micro text-upper">№ videos</dt>
-            <dd class="bold left push-0 pad-t-1-2">
-              <span class="yotta" id="playlist-items">0</span>
-            </dd>
-            <dt class="micro text-upper">Total time</dt>
-            <dd class="bold left push-0 pad-t-1-2">
-              <span class="yotta"><span id="playlist-time-hours">0</span><span class="mega">h</span></span>
-              <span class="yotta"><span id="playlist-time-minutes">0</span><span class="mega">m</span></span>
-              <span class="yotta"><span id="playlist-time-seconds">0</span><span class="mega">s</span></span>
-            </dd>
-            <dt class="micro text-right text-upper">Watched</dt>
-            <dd class="text-right bold right push-0 pad-t-1-2">
-              <span class="yotta" id="playlist-watched">0</span><sup class="video-stats-percent milli">%</sup>
-            </dd>
+          <dl class="video-stats grid push-0">
+            <div class="unit xs-1-3">
+              <dt class="micro text-upper">№ videos</dt>
+              <dd class="bold push-0">
+                <span class="yotta" id="playlist-items">0</span>
+              </dd>
+            </div>
+            <div class="unit xs-1-3">
+              <dt class="micro text-upper">Total time</dt>
+              <dd class="bold push-0">
+                <span class="yotta"><span id="playlist-time-hours">0</span><span class="mega">h</span></span>
+                <span class="yotta"><span id="playlist-time-minutes">0</span><span class="mega">m</span></span>
+                <span class="yotta"><span id="playlist-time-seconds">0</span><span class="mega">s</span></span>
+              </dd>
+            </div>
+            <div class="unit xs-1-3 text-right">
+              <dt class="micro text-upper">Watched</dt>
+              <dd class="bold push-0">
+                <span class="yotta" id="playlist-watched">0</span><sup class="video-stats-percent milli">%</sup>
+              </dd>
+            </div>
           </dl>
         </div>
       </div>

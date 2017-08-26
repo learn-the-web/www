@@ -6,7 +6,7 @@
   var markbotBtnWin = document.getElementById('markbot-btn-win');
   var isWin = (navigator.appVersion.indexOf('Win') != -1) ? true : false;
 
-  if (!markbotBtnMac && !markbotBtnWin && !markbotIconBtn) return;
+  if (!markbotBtnMac && !markbotBtnWin && !markbotBtnIcon) return;
 
   if (isWin) {
     markbotBtnMac.setAttribute('hidden', true);
