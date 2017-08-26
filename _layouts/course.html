@@ -207,7 +207,14 @@ layout: basic-inside
                         {% capture url %}/courses/{{page.collection}}/{{task.url}}/{% endcapture %}
                       {% endif %}
                       <li>
-                        <a class="href-no-print" {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}}</a>
+                        <a class="href-no-print {% if task.graded-as %}icon-link{% endif %}" {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>
+                          {% if task.graded-as %}
+                            <span class="icon-label">{{task.title}}</span>
+                            <i class="icon i-16"><svg><use xlink:href="#icon-star"></use></svg></i>
+                          {% else %}
+                            {{task.title}}
+                          {% endif %}
+                        </a>
                       </li>
                     {% endif %}
                   {% endfor %}
@@ -224,7 +231,14 @@ layout: basic-inside
                       {% capture url %}/courses/{{page.collection}}/{{task.url}}/{% endcapture %}
                     {% endif %}
                     <li>
-                      <a class="href-no-print" {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}}</a>
+                      <a class="href-no-print {% if task.graded-as %}icon-link{% endif %}" {% if task.url %}href="{{url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>
+                        {% if task.graded-as %}
+                          <span class="icon-label">{{task.title}}</span>
+                          <i class="icon i-16"><svg><use xlink:href="#icon-star"></use></svg></i>
+                        {% else %}
+                          {{task.title}}
+                        {% endif %}
+                      </a>
                     </li>
                   {% endif %}
                 {% endfor %}
@@ -276,7 +290,10 @@ layout: basic-inside
         </div>
         {% endif %}
         <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4">
-          <h3 class="push-0"><span tabindex="0">Big projects — {{page.grades.projects}}%</span></h3>
+          <h3 class="push-0">
+            <span class="icon-label" tabindex="0">Big projects — {{page.grades.projects}}%</span>
+            <i class="icon i-20"><svg><use xlink:href="#icon-star"></use></svg></i>
+          </h3>
           <p class="mega"><em>{{total_projects}} milestones @ {{projects_per}}% each.</em></p>
           <ul class="push-0">
             <li>Letter grade.</li>
