@@ -18,7 +18,7 @@
 {% assign found_projects = "" %}
 
 {% for doc in page_data.docs %}
-  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
     {% if tut.videos %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
@@ -61,7 +61,7 @@
   <tbody valign="top" align="left" style="font: normal 11px Arial">
     {% assign count = 0 %}
     {% for doc in page_data.docs %}
-      {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+      {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
       {% capture count %}{{count | plus:1 }}{% endcapture %}
       {% include comms/schedule-row.html course_name=page_data.title course=page.collection week=count doc=doc exercises_per=exercises_per videos_per=videos_per project_per=projects_per %}
     {% endfor %}

@@ -1,7 +1,7 @@
 {% assign collection = site.collections | where: "label", page.course | first %}
 [
   {% for doc in collection.docs %}
-    {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+    {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
     {% for activity in doc.group_activities %}
       {% if activity.no-solution %}{% continue %}{% endif %}
       {% if activity.url contains "/" %}{% continue %}{% endif %}

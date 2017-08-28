@@ -11,7 +11,7 @@
 
 [
 {% for doc in page_data.docs %}
-  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% if weight_videos > 0 %}
     {% for tut in doc.video_tutorials %}
       {% if tut.videos %}

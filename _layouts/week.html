@@ -25,7 +25,7 @@ no_wrapper: true
 {% assign found_projects="" %}
 
 {% for doc in page_data.docs %}
-  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
     {% if tut.videos %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
@@ -55,7 +55,7 @@ no_wrapper: true
 <main class="main-fill grid grid-stretch">
 
   <div class="class class-during unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">{% if page.during_class %}{{page.during_class}}{% else %}During class{% endif %} <span class="right normal italic">Week {{number_leading_zero}}</span></h2>
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">{% if page.during_class %}{{page.during_class}}{% else %}{% if layout.during_class %}{{layout.during_class}}{% else %}During class{% endif %}{% endif %} <span class="right normal italic">Week {{number_leading_zero}}</span></h2>
 
     <div class="class-desc content-fill gutter-1-4">
       <p>{{page.desc}}</p>
@@ -182,7 +182,7 @@ no_wrapper: true
 
   <div class="class class-outside unit [ xs-1 l-2-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
     <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative" tabindex="0">
-      <span>Outside class</span>
+      <span>{% if page.outside_class %}{{page.outside_class}}{% else %}{% if layout.outside_class %}{{layout.outside_class}}{% else %}Outside class{% endif %}{% endif %}</span>
       <span class="absolute pin-br pad-b-1-4 gutter-1-4">
         <a href="/get-help/" class="inline-block kilo icon-link italic">
           <i class="icon i-20 push-r-1-8"><svg><use xlink:href="#icon-help"></use></svg></i>

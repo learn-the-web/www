@@ -21,7 +21,7 @@
 <script>{% include alegreya-observer.min.js %}</script>
 <script>{% include source-code-pro-observer.min.js %}</script>
 <script src="/js/course.min.js?v={{site.version}}"></script>
-{% if page.layout == "week" %}
+{% if page.layout contains "week" %}
   <script src="/js/assignment-viewer.min.js" async></script>
 {% endif %}
 

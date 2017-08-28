@@ -18,7 +18,7 @@
 {% assign found_projects = "" %}
 
 {% for doc in page_data.docs %}
-  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
     {% if tut.videos %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
@@ -57,7 +57,7 @@
   </thead>
   <tbody valign="top" align="left" style="font: normal 11px Arial">
     {% for doc in page_data.docs %}
-      {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+      {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
       {% if weight_videos > 0 %}
         {% for tut in doc.video_tutorials %}
           {% if tut.videos %}

@@ -19,7 +19,7 @@
       {% endif %}
       </h1>
     </div>
-    {% if page.layout == "week" %}
+    {% if page.layout contains "week" %}
       {% capture prev %}{{number | minus:1}}{% endcapture %}
       {% capture prev_size %}{{prev | size}}{% endcapture %}
       {% capture prev_link %}{% if prev_size == "1" %}0{% endif %}{{prev}}{% endcapture %}
@@ -57,7 +57,7 @@
       {% assign count = 0 %}
       {% assign lesson_week = 0 %}
       {% for week in page_data.docs %}
-        {% if week.layout == "week" %}
+        {% if week.layout contains "week" %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
           {% for task in week.tasks %}
             {% if task.url == page.slug %}
@@ -97,7 +97,7 @@
       {% assign count = 0 %}
       {% assign lesson_week = 0 %}
       {% for week in page_data.docs %}
-        {% if week.layout == "week" %}
+        {% if week.layout contains "week" %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
           {% for task in week.slides %}
             {% if task.url == page.slug %}

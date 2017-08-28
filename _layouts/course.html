@@ -10,7 +10,7 @@ layout: basic-inside
 {% assign found_projects="" %}
 
 {% for doc in page_data.docs %}
-  {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
     {% if tut.videos and page.grades.videos %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
@@ -72,7 +72,7 @@ layout: basic-inside
           {% assign count = 0 %}
           {% assign week_count = 0 %}
           {% for doc in page_data.docs %}
-            {% unless doc.layout == "week" %}{% continue %}{% endunless %}
+            {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
             {% capture week_count %}{{week_count | plus: 1}}{% endcapture %}
             {% for tut in doc.video_tutorials %}
               {% if tut.videos and page.grades.videos %}
@@ -131,7 +131,7 @@ layout: basic-inside
     <ol class="list-group week-list push-0">
       {% assign count = 0 %}
       {% for week in page_data.docs %}
-        {% if week.layout == "week" %}
+        {% if week.layout contains "week" %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
           <li class="push-1-2 no-page-break-inside">
             <i class="week-list-icon icon i-48">
