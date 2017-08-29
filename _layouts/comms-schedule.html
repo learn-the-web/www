@@ -1,5 +1,14 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>{{page_data.title}} · Schedule · COMMS Course Section Information Documents</title>
+  <meta name="description" content="A generated file used for populating the schedule setion of {{page_data.title}}’s Algonquin College COMMS Course Section Information Document">
+</head>
+<body>
+
 {% assign weight_exercises=0 %}
 {% assign weight_videos=0 %}
 {% assign weight_projects=0 %}
@@ -67,3 +76,6 @@
     {% endfor %}
   </tbody>
 </table>
+
+</body>
+</html>
