@@ -1,40 +1,53 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 {% assign found_projects = "" %}
+{% assign first_entry = true %}
+{% assign datetimes = false %}
+{% assign week_count = -1 %}
 
 {% for doc in page_data.docs %}
   {% if doc.slug == "index" %}
+    {% assign canvas_ids = doc.canvas_ids %}
     {% assign weight_exercises = doc.grades.exercises %}
     {% assign weight_videos = doc.grades.videos %}
     {% assign weight_projects = doc.grades.projects %}
+    {% if doc.datetimes %}
+      {% assign datetimes = doc.datetimes %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 
 [
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
+
+  {% assign week_count = week_count | plus:1 %}
+  {% assign week_number = datetimes.start_week | plus:week_count %}
+
   {% if weight_videos > 0 %}
     {% for tut in doc.video_tutorials %}
       {% if tut.videos %}
-        {% capture count %}{{count | plus: 1}}{% endcapture %}
         {% capture url %}/topics/{{tut.url}}/{% endcapture %}
-        {% include canvas-row.json title=tut.title group="videos" grading_type="pass_fail" points=1 url=url %}
+        {% include canvas-row.json title=tut.title group=canvas_ids.videos grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number due_offset=0 %}
+        {% assign first_entry = false %}
       {% endif %}
     {% endfor %}
   {% endif %}
+
   {% for exercise in doc.tasks %}
     {% if exercise.graded-as %}
       {% unless found_projects contains exercise.graded-as %}
-        {% capture count %}{{count | plus: 1}}{% endcapture %}
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+        {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
         {% assign slug = exercise.url | split: "/" | unique | last %}
         {% assign markbot_slug = slug %}
         {% assign disabled = true %}
         {% if exercise.url %}{% assign disabled = false %}{% endif %}
-        {% include canvas-row.json title=exercise.title group="project" grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug %}
+        {% include canvas-row.json title=exercise.title group=canvas_ids.projects grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=exercise.due_time %}
+        {% assign first_entry = false %}
       {% endunless %}
     {% else %}
-      {% capture count %}{{count | plus: 1}}{% endcapture %}
       {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
       {% if exercise.url contains "github.com" %}
         {% assign slug = exercise.url | split: "/" | unique | last %}
         {% assign markbot_slug = slug %}
@@ -50,8 +63,10 @@
       {% endif %}
       {% assign disabled = true %}
       {% if exercise.url %}{% assign disabled = false %}{% endif %}
-      {% include canvas-row.json title=exercise.title group="exercises" grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug %}
+      {% include canvas-row.json title=exercise.title group=canvas_ids.exercises grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset %}
+      {% assign first_entry = false %}
     {% endif %}
+
   {% endfor %}
 {% endfor %}
 ]

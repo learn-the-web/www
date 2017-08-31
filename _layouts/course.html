@@ -132,6 +132,7 @@ layout: basic-inside
       {% assign count = 0 %}
       {% for week in page_data.docs %}
         {% if week.layout contains "week" %}
+          {% capture week_time %}{{page.datetimes.year}}-W{{page.datetimes.start_week | plus: count}}{% endcapture %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
           <li class="push-1-2 no-page-break-inside">
             <i class="week-list-icon icon i-48">
@@ -151,6 +152,7 @@ layout: basic-inside
                 <a href="{{week.url}}">{{week.topic}}</a>
               {% endif %}
             </h2>
+            <time datetime="{{week_time}}">{{week_time}}-1/{{week_time}}-5</time>
             <p class="push-0">{{week.desc}}</p>
             <div class="week-list-tasks-group micro">
               {% if week.slides or week.group_activities %}

@@ -4,6 +4,9 @@
 {% endunless %}
 
 {% capture url %}{{url_prefix}}{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}{% endcapture %}
+
+{% if include.first == false %},{% endif %}
+
 {
   "name": "{{include.title}}",
   "description": "<h2><a href=\"{{url}}\">{{url}}</a></h2>",
@@ -14,4 +17,15 @@
   "allowed_extensions": ["{{include.markbot_slug}}"],
   "published": true,
   "muted": true
-},
+  {% if include.datetimes %}
+  ,"assignment_overrides": [
+    {% for section in include.datetimes.sections %}
+      {% capture due_hour %}{% unless include.due_offset == "0" %}{{section.start_time}}{% else %}{{section.end_time}}{% endunless %}{% endcapture %}
+      {
+        "course_section_id": "{{section.canvas_id}}",
+        "due_at": "{{include.datetimes.year}}-W{{include.week_number | plus: include.due_offset }}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{{due_hour}}:00{% endif %}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+  {% endif %}
+}
