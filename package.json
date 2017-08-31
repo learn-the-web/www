@@ -12,7 +12,7 @@
     "uglify-js": "^2.7.0"
   },
   "config": {
-    "js_common": "js-src/toggle-nav.js js-src/heading-jumps.js js-src/video-home.js js-src/details.js js-src/tabs.js js-src/markbot.js",
+    "js_common": "js-src/toggle-nav.js js-src/heading-jumps.js js-src/video-home.js js-src/details.js js-src/tabs.js js-src/markbot.js js-src/week-list.js",
     "js_topics": "js-src/fuzzy-match.js js-src/topic-search.js js-src/topics-visited.js",
     "js_article": "vendor/prism.js js-src/syntax.js js-src/article-nav.js js-src/section-links.js js-src/video.js vendor/fetch.js js-src/watch-stats.js",
     "js_course": "js-src/fullscreen.js",

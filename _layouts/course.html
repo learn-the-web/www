@@ -145,14 +145,16 @@ layout: basic-inside
                 <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{count}}</text>
               </svg>
             </i>
-            <h2 class="push-1-4">
+            <h2 class="push-1-8">
               {% if week.disabled %}
                 <span class="color-grey-dark">{{week.topic}}</span>
               {% else %}
                 <a href="{{week.url}}">{{week.topic}}</a>
               {% endif %}
             </h2>
-            <time datetime="{{week_time}}">{{week_time}}-1/{{week_time}}-5</time>
+            {% if page.datetimes.sections %}
+              <time class="week-list-times italic" datetime="{{week_time}}" hidden aria-hidden="true">{{week_time}}</time>
+            {% endif %}
             <p class="push-0">{{week.desc}}</p>
             <div class="week-list-tasks-group micro">
               {% if week.slides or week.group_activities %}
