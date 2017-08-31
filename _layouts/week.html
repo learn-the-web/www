@@ -57,7 +57,16 @@ no_wrapper: true
 <main class="main-fill grid grid-stretch">
 
   <div class="class class-during unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">{% if page.during_class %}{{page.during_class}}{% else %}{% if layout.during_class %}{{layout.during_class}}{% else %}During class{% endif %}{% endif %} <span class="right normal italic">Week {{number_leading_zero}}</span></h2>
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">
+      {% if page.during_class %}{{page.during_class}}{% else %}{% if layout.during_class %}{{layout.during_class}}{% else %}During class{% endif %}{% endif %}
+      <span class="right normal italic">
+        Week {{number_leading_zero}}
+        {% if course_data.datetimes.sections %}
+          {% capture week_time %}{{course_data.datetimes.year}}-W{{course_data.datetimes.start_week | plus: number | minus: 1}}{% endcapture %}
+          — <time class="week-times" datetime="{{week_time}}" hidden aria-hidden="true">{{week_time}}</time>
+        {% endif %}
+      </span>
+    </h2>
 
     <div class="class-desc content-fill gutter-1-4">
       <p>{{page.desc}}</p>

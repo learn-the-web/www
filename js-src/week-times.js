@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var weekListTimes = document.querySelectorAll('.week-list-times');
+  var weekListTimes = document.querySelectorAll('.week-times');
 
   // https://stackoverflow.com/questions/16590500/javascript-calculate-date-from-week-number
   var getDateOfISOWeek = function (w, y) {

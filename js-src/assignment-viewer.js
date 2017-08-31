@@ -1,8 +1,6 @@
 (function () {
   'use strict';
 
-  var minScreenWidth = '(min-width: 60em)';
-
   var $viewer = document.getElementById('assignment-viewer');
   var $assignmentWrapper = document.querySelector('.assignment-wrapper');
   var $wrapper = document.querySelector('.assignment-content-wrapper');
