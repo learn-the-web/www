@@ -7,12 +7,14 @@ no_wrapper: true
 {% capture number_leading_zero %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 
-{% assign weight_exercises=0 %}
-{% assign weight_videos=0 %}
-{% assign weight_projects=0 %}
+{% assign course_data = false %}
+{% assign weight_exercises = 0 %}
+{% assign weight_videos = 0 %}
+{% assign weight_projects = 0 %}
 
 {% for doc in page_data.docs %}
   {% if doc.slug == "index" %}
+    {% assign course_data = doc %}
     {% assign weight_exercises = doc.grades.exercises %}
     {% assign weight_videos = doc.grades.videos %}
     {% assign weight_projects = doc.grades.projects %}
@@ -192,9 +194,8 @@ no_wrapper: true
     </h2>
 
     <div class="class-desc content-fill gutter-1-4">
-      {% capture week_include %}week/{{page.collection}}.html{% endcapture %}
-      {% include {{week_include}} no_lab_times=page.no_lab_times no_office_hours=page.no_office_hours %}
-     </div>
+      {% include week-data.html data=course_data no_lab_times=page.no_lab_times no_office_hours=page.no_office_hours no_classes=page.no_classes %}
+    </div>
 
     <ul class="list-group grid grid-bottom">
       <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">

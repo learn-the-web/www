@@ -113,12 +113,12 @@ defaults:
       path: ""
       type: "javascript"
     values:
-      layout: week
+      layout: week-self-directed
   - scope:
       path: ""
       type: "jekyll"
     values:
-      layout: week
+      layout: week-self-directed
 
 ########################################
 # WEBSITE SPECIFIC CONFIG
