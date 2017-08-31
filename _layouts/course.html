@@ -274,7 +274,7 @@ layout: basic-inside
     {% endif %}
     <div class="wrapper">
       <h2 class="gutter-1-4 exa push-1-2"><span tabindex="0">Marking scheme</span></h2>
-      <div class="grid">
+      <div class="grid push">
         <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4">
           <h3 class="push-0"><span tabindex="0">Exercises — {{page.grades.exercises}}%</span></h3>
           <p class="mega"><em>{{total_exercises}} exercises @ {{exercises_per}}% each.</em></p>
@@ -303,6 +303,51 @@ layout: basic-inside
             <li>Letter grade.</li>
             <li>Proof you learned everything.</li>
           </ul>
+        </div>
+      </div>
+      <h2 class="gutter-1-4 exa push-0" data-control="details" data-controls="grading-system" tabindex="0">Grading system</h2>
+      <div class="gutter-1-4 pad-t milli force-print" id="grading-system">
+        <div class="max-length">
+          <p>Algonquin College’s grading system is based on letter grades. Below are qualitative descriptions as well as numerical equivalents for the letter grades.</p>
+          <p>You need to maintain a GPA above 1.7, with no grades below C-, to succeed in the program. <a href="https://www.algonquincollege.com/policies/policy/aa14-grading-system/" rel="external">Refer to Algonquin’s policy to learn how to calculate your grade point average.</a></p>
+          <h3>Grade designations</h3>
+          <dl>
+            <dt class="bold kilo">A — Excellent</dt>
+            <dd class="push-1-2">Course learning requirements are met in a consistently outstanding manner.</dd>
+            <dt class="bold kilo">B — Superior</dt>
+            <dd class="push-1-2">Course learning requirements are met and exceed the requirements.</dd>
+            <dt class="bold kilo">C — Satisfactory</dt>
+            <dd class="push-1-2">Course learning requirements are met satisfactorily.</dd>
+            <dt class="bold kilo">D — Marginal</dt>
+            <dd class="push-1-2">Course learning requirements are met, but achieved at a marginal level. consistent, ongoing effort is required for continuing success in the program.</dd>
+            <dt class="bold kilo">F — Unsatisfactory (failure)</dt>
+            <dd class="push-0">Course learning requirements are not met. No credit is awarded.</dd>
+          </dl>
+          <h3>Numeric value conversions</h3>
+          <table class="push-0">
+            <thead>
+              <tr>
+                <th scope="row">Percent grade</th>
+                <th scope="row">Letter grade</th>
+                <th scope="row">Numeric grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>90–100</td><td>A+</td><td>4.0</td></tr>
+              <tr><td>85–89</td><td>A</td><td>3.8</td></tr>
+              <tr><td>80–84</td><td>A-</td><td>3.6</td></tr>
+              <tr><td>77–79</td><td>B+</td><td>3.3</td></tr>
+              <tr><td>73–76</td><td>B</td><td>3.0</td></tr>
+              <tr><td>70–72</td><td>B-</td><td>2.7</td></tr>
+              <tr><td>67–69</td><td>C+</td><td>2.3</td></tr>
+              <tr><td>63–66</td><td>C</td><td>2.0</td></tr>
+              <tr><td>60–62</td><td>C-</td><td>1.7</td></tr>
+              <tr><td>57–59</td><td>D+</td><td>1.4</td></tr>
+              <tr><td>53–56</td><td>D</td><td>1.2</td></tr>
+              <tr><td>50–52</td><td>D-</td><td>1.0</td></tr>
+              <tr><td></td><td>F</td><td>0</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
