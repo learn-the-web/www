@@ -23,6 +23,11 @@ body {
   font-family: sans-serif !important;
 }
 
+.focus-glow:focus {
+  outline: 0;
+  box-shadow: 0 0 8px #00deaf;
+}
+
 svg {
   stroke: currentColor;
 }

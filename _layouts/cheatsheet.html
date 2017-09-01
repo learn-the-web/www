@@ -1,7 +1,10 @@
 ---
 layout: default
 head: '<style>@page { size: landscape; }</style>'
+skip_links: |
+  <li><a href="#groups">Skip to groupings list</a></li>
 ---
+
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 
 {% assign results = site.topics | where: "url", "/topics/index.html" %}
@@ -22,7 +25,6 @@ head: '<style>@page { size: landscape; }</style>'
 
   <article class="cheatsheet">
     {% include simple-header.html title=page.title %}
-
     {% include simple-nav.html groups=page.groups %}
     {% include cheats-group.html groups=page.groups %}
   </article>

@@ -1,6 +1,13 @@
 ---
 layout: default
+skip_links: |
+  <li><a href="#article">Skip to article</a></li>
+  <li><a href="#video">Skip to video</a></li>
+  <li><a href="#headings">Skip to heading list</a></li>
+  <li><a href="#resources">Skip to resources</a></li>
+  <li><a href="#activites">Skip to activities</a></li>
 ---
+
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 
 {% assign results = site.topics | where: "url", "/topics/index.html" %}
@@ -27,7 +34,7 @@ layout: default
   <meta itemprop="learningResourceType" content="Reference">
   <meta itemprop="image" content="https://learn-the-web.algonquindesign.ca/images/article-thumbnail.png">
 
-  <div class="header push no-print">
+  <div class="header push no-print" id="video">
     <div class="wrapper gutter-1-2 relative" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
       <meta itemprop="name" content="{{page.title}}">
       <meta itemprop="description" content="{{page.desc}}">
@@ -87,7 +94,7 @@ layout: default
 
   <div class="grid wrapper relative gutter-1-2">
     <div class="unit [ xs-1 s-1 m-1 l-1-4 ] {% if !page.livewebsite or page.download or page.github %}pad-t-1-2{% endif %} push">
-      <ul class="downloads list-group grid push-1-2">
+      <ul class="downloads list-group grid push-1-2" id="resources">
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
             <a class="btn btn-ghost" href="https://demos.learn-the-web.algonquindesign.ca/{{page.livewebsite}}/" rel="nofollow">
@@ -138,7 +145,7 @@ layout: default
         {% endif %}
       </ul>
 
-      <nav class="tutorial-nav" hidden>
+      <nav class="tutorial-nav" id="headings" hidden>
         <input type="checkbox" class="visually-hidden nav-check" id="nav-check">
         <label class="nav-label giga" for="nav-check">
           <i class="icon i-nav"></i>
@@ -147,13 +154,15 @@ layout: default
       </nav>
     </div>
 
-    <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ] pad-t-1-2">
+    <article class="tutorial unit [ xs-1 s-1 m-1 l-3-4 ] pad-t-1-2" id="article">
       <h1 class="yotta" id="start" itemprop="name" tabindex="0">{{page.title}}</h1>
       <div itemprop="articleBody">
         {{content | replace_first: '<p>', '<p class="giga">'}}
       </div>
     </article>
   </div>
+
+  <section id="activities"></section>
 
 </main>
 

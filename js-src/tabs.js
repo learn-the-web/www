@@ -29,4 +29,15 @@
       newTabPanel.removeAttribute('aria-hidden');
     });
   });
+
+  window.addEventListener('hashchange', function () {
+    var hash = window.location.hash.replace(/\#/, '');
+    var tab = document.querySelector('[aria-controls="' + hash + '"]');
+
+    if (tab) {
+      tab.click();
+      document.getElementById(hash).focus();
+      document.getElementById(hash).scrollIntoView(true);
+    }
+  });
 }());

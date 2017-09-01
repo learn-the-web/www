@@ -1,6 +1,12 @@
 ---
 layout: course-inside
 no_wrapper: true
+skip_links: |
+  <li><a href="#during-class">Skip to during class</a></li>
+  <li><a href="#outside-class">Skip to outside class</a></li>
+  <li><a href="#during-class-exercises">Skip to during class exercises</a></li>
+  <li><a href="#outside-class-exercies">Skip to outside class exercises</a></li>
+
 ---
 
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
@@ -57,7 +63,7 @@ no_wrapper: true
 <main class="main-fill grid grid-stretch">
 
   <div class="class class-during unit [ xs-1 l-3-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0">
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4" tabindex="0" id="during-class">
       {% if page.during_class %}{{page.during_class}}{% else %}{% if layout.during_class %}{{layout.during_class}}{% else %}During class{% endif %}{% endif %}
       <span class="right normal italic">
         Week {{number_leading_zero}}
@@ -148,63 +154,65 @@ no_wrapper: true
       </div>
     </div>
     {% assign card_num=0 %}
-    <ul class="list-group grid grid-bottom">
-      {% if page.tasks[0] %}
-        {% if page.tasks[0].type != "blank" %}
-          <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-            {% assign data = page.tasks[0] %}
-            {% assign card_num=1 %}
-            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
-          </li>
+    <div id="during-class-exercises" tabindex="0">
+      <ul class="list-group grid grid-bottom">
+        {% if page.tasks[0] %}
+          {% if page.tasks[0].type != "blank" %}
+            <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% assign data = page.tasks[0] %}
+              {% assign card_num=1 %}
+              {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+            </li>
+          {% else %}
+            <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% include card.html data=site.no_activities collection=page.collection %}
+            </li>
+          {% endif %}
         {% else %}
           <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
             {% include card.html data=site.no_activities collection=page.collection %}
           </li>
         {% endif %}
-      {% else %}
-        <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-          {% include card.html data=site.no_activities collection=page.collection %}
-        </li>
-      {% endif %}
-      {% if page.tasks[1] %}
-        {% if page.tasks[1].type != "blank" %}
-          <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-            {% assign data = page.tasks[1] %}
-            {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
-          </li>
+        {% if page.tasks[1] %}
+          {% if page.tasks[1].type != "blank" %}
+            <li class="unit [ xs-1 s-1-2 m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% assign data = page.tasks[1] %}
+              {% assign card_num=card_num | plus:1 %}
+              {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+            </li>
+          {% else %}
+            <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% include card.html data=site.no_lessons collection=page.collection %}
+            </li>
+          {% endif %}
         {% else %}
           <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
             {% include card.html data=site.no_lessons collection=page.collection %}
           </li>
         {% endif %}
-      {% else %}
-        <li class="unit [ unit-xs-hidden m-1-3 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-          {% include card.html data=site.no_lessons collection=page.collection %}
-        </li>
-      {% endif %}
-      {% if page.tasks[2] %}
-        {% if page.tasks[2].type != "blank" %}
-          <li class="unit [ xs-1 s-1-2  m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-            {% assign data = page.tasks[2] %}
-            {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
-          </li>
+        {% if page.tasks[2] %}
+          {% if page.tasks[2].type != "blank" %}
+            <li class="unit [ xs-1 s-1-2  m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% assign data = page.tasks[2] %}
+              {% assign card_num=card_num | plus:1 %}
+              {% include card.html data=data collection=page.collection num=card_num due="By end of class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+            </li>
+          {% else %}
+            <li class="unit [ unit-xs-hidden m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+              {% include card.html data=site.no_exercises collection=page.collection %}
+            </li>
+          {% endif %}
         {% else %}
           <li class="unit [ unit-xs-hidden m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
             {% include card.html data=site.no_exercises collection=page.collection %}
           </li>
         {% endif %}
-      {% else %}
-        <li class="unit [ unit-xs-hidden m-1-3 ] unit-s-centered gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-          {% include card.html data=site.no_exercises collection=page.collection %}
-        </li>
-      {% endif %}
-    </ul>
+      </ul>
+    </div>
   </div>
 
   <div class="class class-outside unit [ xs-1 l-2-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
-    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative" tabindex="0">
+    <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative" tabindex="0" id="outside-class">
       <span>{% if page.outside_class %}{{page.outside_class}}{% else %}{% if layout.outside_class %}{{layout.outside_class}}{% else %}Outside class{% endif %}{% endif %}</span>
       <span class="absolute pin-br pad-b-1-4 gutter-1-4">
         <a href="/get-help/" class="inline-block kilo icon-link italic">
@@ -218,39 +226,41 @@ no_wrapper: true
       {% include week-data.html data=course_data no_lab_times=page.no_lab_times no_office_hours=page.no_office_hours no_classes=page.no_classes %}
     </div>
 
-    <ul class="list-group grid grid-bottom">
-      <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-        {% if page.tasks[3].type == "blank" %}
-          {% include card.html data=site.no_exercises collection=page.collection %}
-        {% else %}
-          {% assign data = page.tasks[3] %}
-          {% assign card_num=card_num | plus:1 %}
-          {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
-        {% endif %}
-      </li>
-      <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
-        {% if page.tasks[4].type != "blank" %}
-          {% if page.tasks[4] and page.tasks[4].type != "watch-videos" %}
-            {% assign data = page.tasks[4] %}
+    <div id="outside-class-exercies" tabindex="0">
+      <ul class="list-group grid grid-bottom">
+        <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+          {% if page.tasks[3].type == "blank" %}
+            {% include card.html data=site.no_exercises collection=page.collection %}
+          {% else %}
+            {% assign data = page.tasks[3] %}
             {% assign card_num=card_num | plus:1 %}
             {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
-          {% else %}
-            {% assign next_url=number | plus:1 %}
-            {% if page.tasks[4] and page.tasks[4].type == "watch-videos" %}
-              {% assign card_data=site.watch_videos %}
-            {% else %}
-              {% assign card_data=site.next_week %}
-            {% endif %}
-            {% if next_url < 9 %}
-              {% capture next_url %}week-0{{next_url}}{% endcapture %}
-            {% else %}
-              {% capture next_url %}week-{{next_url}}{% endcapture %}
-            {% endif %}
-            {% include card.html data=card_data collection=page.collection url=next_url %}
           {% endif %}
-        {% endif %}
-      </li>
-    </ul>
+        </li>
+        <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
+          {% if page.tasks[4].type != "blank" %}
+            {% if page.tasks[4] and page.tasks[4].type != "watch-videos" %}
+              {% assign data = page.tasks[4] %}
+              {% assign card_num=card_num | plus:1 %}
+              {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr %}
+            {% else %}
+              {% assign next_url=number | plus:1 %}
+              {% if page.tasks[4] and page.tasks[4].type == "watch-videos" %}
+                {% assign card_data=site.watch_videos %}
+              {% else %}
+                {% assign card_data=site.next_week %}
+              {% endif %}
+              {% if next_url < 9 %}
+                {% capture next_url %}week-0{{next_url}}{% endcapture %}
+              {% else %}
+                {% capture next_url %}week-{{next_url}}{% endcapture %}
+              {% endif %}
+              {% include card.html data=card_data collection=page.collection url=next_url %}
+            {% endif %}
+          {% endif %}
+        </li>
+      </ul>
+    </div>
   </div>
 
 </main>

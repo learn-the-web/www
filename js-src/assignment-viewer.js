@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var allAssignmentIds = [];
+
   var $viewer = document.getElementById('assignment-viewer');
   var $assignmentWrapper = document.querySelector('.assignment-wrapper');
   var $wrapper = document.querySelector('.assignment-content-wrapper');
@@ -433,11 +435,15 @@
   };
 
   window.addEventListener('hashchange', function (e) {
-    e.preventDefault();
-    tiggerViewerOpen();
+    if (allAssignmentIds.indexOf(window.location.hash) > -1 || window.location.hash === '#' || !window.location.hash) {
+      e.preventDefault();
+      tiggerViewerOpen();
+    }
   });
 
   [].forEach.call(document.querySelectorAll('a[data-control="assignment-viewer"]'), function (elem) {
+    allAssignmentIds.push('#' + elem.id);
+
     elem.addEventListener('click', function (e) {
       e.preventDefault();
 
@@ -469,5 +475,7 @@
     }
   });
 
-  tiggerViewerOpen();
+  if (allAssignmentIds.indexOf(window.location.hash) > -1) {
+    tiggerViewerOpen();
+  }
 }());

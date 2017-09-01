@@ -17,6 +17,13 @@
 </head>
 <body {% if page.hasCourseNav %}class="body-no-border"{% endif %}>
 
+  {% if page.skip_links or layout.skip_links %}
+    <ul class="skip-links">
+      {{page.skip_links}}
+      {{layout.skip_links}}
+    </ul>
+  {% endif %}
+
   {% include icons.html %}
 
   {{content}}

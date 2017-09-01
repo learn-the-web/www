@@ -33,11 +33,6 @@
   overflow: hidden;
 }
 
-.assignment-wrapper:focus {
-  outline: 0;
-  box-shadow: 0 0 8px #00deaf;
-}
-
 .assignment-close-btn {
   height: 2rem;
   padding: 0;

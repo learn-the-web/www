@@ -6,6 +6,8 @@ priority: 0.8
 hide_markbot: true
 head: |
   <link href="/css/main-topics.min.css" rel="stylesheet">
+skip_links: |
+  <li><a href="#activity-list">Skip to activity list</a></li>
 
 # A hacky way to put unused activities on this page
 # Should probably move this to `data`
@@ -21,7 +23,7 @@ head: |
 
 {% include icons-topics.html %}
 
-<div class="wrapper gutter-1-2 pad-t pad-b-1-2">
+<div class="wrapper gutter-1-2 pad-t pad-b-1-2" id="activity-list">
   {% capture all_courses %}{{site.collections_courses | join: "|"}}|{{site.collections_selfdirected | join: "|"}}{% endcapture %}
   {% assign the_courses = all_courses | split: "|" %}
 

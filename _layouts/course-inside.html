@@ -11,6 +11,13 @@
 </head>
 <body>
 
+  {% if page.skip_links or layout.skip_links %}
+    <ul class="skip-links">
+      {{page.skip_links}}
+      {{layout.skip_links}}
+    </ul>
+  {% endif %}
+
   {% include icons.html %}
   {% include icons-course.html %}
   {% include masthead-micro.html no_wrapper=layout.no_wrapper %}

@@ -1,5 +1,10 @@
 ---
 layout: basic-inside
+skip_links: |
+  <li><a href="#course-details">Skip to course details</a></li>
+  <li><a href="#week-view">Skip to weeks</a></li>
+  <li><a href="#assessment-view">Skip to assessments</a></li>
+  <li><a href="#marking-scheme">Skip to marking scheme</a></li>
 ---
 
 {% assign page_data = site.collections | where: "label", page.collection | first %}
@@ -50,7 +55,7 @@ layout: basic-inside
   {% assign prev=false %}
 {% endunless %}
 
-<div class="header header--light">
+<div class="header header--light" id="course-details">
   <div class="wrapper gutter-1-2 pad-b">
     <div class="grid">
       <div class="unit [ xs-1 m-3-5 ]">
@@ -386,7 +391,12 @@ layout: basic-inside
       <div class="pad-t milli force-print" id="grading-system">
         <div class="max-length gutter-1-4">
           <p>Algonquin College’s grading system is based on letter grades. Below are qualitative descriptions as well as numerical equivalents for the letter grades.</p>
-          <p><em>You need to maintain a GPA above 1.7, with no grades below C-, to succeed in the program.</em> <a href="https://www.algonquincollege.com/policies/policy/aa14-grading-system/" rel="external">Refer to Algonquin’s policy to learn how to calculate your grade point average.</a></p>
+          <p>To succeed in the Graphic Design program you must…</p>
+          <ul>
+            <li>Achieve a minimum passing grade of 50% (D-) in all courses across all levels</li>
+            <li>Achieve a minimum cumulative grade of 63% (C / 2.0)</li>
+          </ul>
+          <p><a href="https://www.algonquincollege.com/policies/policy/aa14-grading-system/" rel="external">Refer to Algonquin’s policy to learn how to calculate your grade point average.</a></p>
         </div>
         <div class="grid">
           <div class="unit [ xs-1 l-1-2 ] gutter-1-4">
