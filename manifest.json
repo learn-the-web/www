@@ -1,0 +1,17 @@
+{
+  "name": "Learn The Web",
+  "short_name": "LearnTheWeb",
+  "description": "A complete and logical web development series of tutorials and videos for graphic designers.",
+  "lang": "en-CA",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "orientation": "any",
+  "background_color": "#00deaf",
+  "icons": [
+    {
+      "src": "/favicon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
