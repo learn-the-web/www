@@ -97,7 +97,7 @@ layout: basic-inside
             <tr>
               <td colspan="8">{% if page.datetimes.sections %}{{page.hours}} h{% else %}None{% endif %}</td>
               <td colspan="8">{% if page.datetimes.labs %}15 h{% else %}None{% endif %}</td>
-              <td colspan="8">~{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}} h{% endif %}</td>
+              <td colspan="8">~{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}}{% endif %} h</td>
             </tr>
           </tbody>
         </table>
