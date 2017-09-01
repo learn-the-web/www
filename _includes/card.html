@@ -156,3 +156,44 @@
   <meta property="due" content="{% if include.data.due %}{{include.data.due}}{% else %}{{include.due}}{% endif %}">
   <meta property="clr" content="{% if include.data.clr %}{{include.data.clr}}{% else %}{{include.clr}}{% endif %}">
 </a>
+
+{% if include.data.url contains "github.com" %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "accessMode": "textual, visual",
+      "accessModeSufficient": "textual",
+      "accessibilityAPI": "ARIA",
+      "accessibilityControl": "fullKeyboardControl, fullMouseControl, fullTouchControl",
+      "accessibilityFeature": "alternativeText, highContrastDisplay, largePrint, readingOrder, structuralNavigation",
+      "accessibilityHazard": "noFlashingHazard, noSoundHazard",
+      "author": {
+        "@id": "#thomasjbradley"
+      },
+      "copyrightHolder": {
+        "@id": "#thomasjbradley"
+      },
+      "copyrightYear": "{{site.time | date:'%Y'}}",
+      "dateModified": "{{site.time}}",
+      "educationalAlignment": {
+        "@id": "#higher-education"
+      },
+      "educationalUse": "Assignment",
+      "isAccessibleForFree": true,
+      "learningResourceType": "Assignment",
+      "interactivityType": "active",
+      "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "timeRequired": "PT1H",
+      "name": "{{include.data.title}}",
+      "url": "{{include.data.url}}",
+      "isPartOf": {
+        "@id": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "public"
+      }
+    }
+  </script>
+{% endif %}

@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "accessMode": "textual, visual",
+  "accessModeSufficient": "textual",
+  "accessibilityAPI": "ARIA",
+  "accessibilityControl": "fullKeyboardControl, fullMouseControl, fullTouchControl",
+  "accessibilityFeature": "alternativeText, highContrastDisplay, largePrint, readingOrder, structuralNavigation",
+  "accessibilityHazard": "noFlashingHazard, noSoundHazard",
+  "author": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightHolder": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightYear": "{{site.time | date:'%Y'}}",
+  "dateModified": "{{site.time}}",
+  "educationalAlignment": {
+    "@id": "#higher-education"
+  },
+  "educationalUse": "Workshop",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Workshop",
+  "interactivityType": "active",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "timeRequired": "PT3H",
+  "description": "{{page.desc}}",
+  "name": "{{page.title}}",
+  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "public"
+  }
+}

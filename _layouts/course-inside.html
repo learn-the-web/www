@@ -11,19 +11,22 @@
 </head>
 <body>
 
-{% include icons.html %}
-{% include icons-course.html %}
-{% include masthead-micro.html no_wrapper=layout.no_wrapper %}
+  {% include icons.html %}
+  {% include icons-course.html %}
+  {% include masthead-micro.html no_wrapper=layout.no_wrapper %}
 
-{{content}}
+  {{content}}
 
-<script>{% include fontfaceobserver.js %}</script>
-<script>{% include alegreya-observer.min.js %}</script>
-<script>{% include source-code-pro-observer.min.js %}</script>
-<script src="/js/course.min.js?v={{site.version}}"></script>
-{% if page.layout contains "week" %}
-  <script src="/js/assignment-viewer.min.js" async></script>
-{% endif %}
+  <script>{% include fontfaceobserver.js %}</script>
+  <script>{% include alegreya-observer.min.js %}</script>
+  <script>{% include source-code-pro-observer.min.js %}</script>
+  <script src="/js/course.min.js?v={{site.version}}"></script>
+  {% if page.layout contains "week" %}
+    <script src="/js/assignment-viewer.min.js" async></script>
+  {% endif %}
+
+  <script type="application/ld+json">{% include metadata/main.json %}</script>
+  <script type="application/ld+json">{% include metadata/faculty.json %}</script>
 
 </body>
 </html>

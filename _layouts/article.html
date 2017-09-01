@@ -17,18 +17,32 @@ layout: default
 
 {% include icons-article.html %}
 {% include inside-nav.html %}
+{% include metadata/thomasjbradley.html %}
 
-<main class="relative" role="main" itemscope itemtype="http://schema.org/Article">
+<main class="relative" role="main" itemscope itemtype="http://schema.org/TechArticle">
+  {% include metadata/article-lesson.html %}
+  <meta itemprop="proficiencyLevel" content="Beginner">
+  <meta itemprop="educationalUse" content="Reference">
+  <meta itemprop="interactivityType" content="expositive">
+  <meta itemprop="learningResourceType" content="Reference">
+  <meta itemprop="image" content="https://learn-the-web.algonquindesign.ca/images/article-thumbnail.png">
+
   <div class="header push no-print">
-    <div class="wrapper gutter-1-2 relative">
+    <div class="wrapper gutter-1-2 relative" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+      <meta itemprop="name" content="{{page.title}}">
+      <meta itemprop="description" content="{{page.desc}}">
+      <meta itemprop="thumbnailUrl" content="https://learn-the-web.algonquindesign.ca/images/video-thumbnail.png">
+      <meta itemprop="uploadDate" content="{{site.time}}">
+      <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
+
       {% if page.video %}
-        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}">
+        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}"  itemprop="embedUrl">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
           <strong class="giga icon-label play-icon-text">Watch the video</strong>
         </a>
       {% endif %}
       {% if page.playlist %}
-        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}">
+        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}" itemprop="embedUrl">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
           <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
         </a>

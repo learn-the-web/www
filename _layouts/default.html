@@ -84,5 +84,8 @@
       localStorage.setItem('visited-' + path, true);
     </script>
   {% endif %}
+
+  <script type="application/ld+json">{% include metadata/main.json %}</script>
+  <script type="application/ld+json">{% include metadata/faculty.json %}</script>
 </body>
 </html>

@@ -3,395 +3,415 @@ layout: course-inside
 no_wrapper: true
 ---
 
-<div class="lesson-desc">
-  <div class="grid gutter-1-2 pad-t-1-2 pad-b-1-2 {% unless layout.no_wrapper %}wrapper{% endunless %}">
-    <p class="unit [ xs-1 ] unit-push-l-1-5 lesson-intro push-0 giga">{{page.desc}}</p>
+{% include metadata/thomasjbradley.html %}
+
+<div itemscope itemtype="http://schema.org/HowTo">
+  {% include metadata/article-lesson.html %}
+  <meta itemprop="performTime" content="PT1H">
+  <meta itemprop="prepTime" content="PT5M">
+  <meta itemprop="educationalUse" content="Lesson">
+  <meta itemprop="interactivityType" content="active">
+  <meta itemprop="learningResourceType" content="Lesson">
+  <meta itemprop="image" content="https://learn-the-web.algonquindesign.ca/images/lesson-thumbnail.png">
+
+  <div class="lesson-desc">
+    <div class="grid gutter-1-2 pad-t-1-2 pad-b-1-2 {% unless layout.no_wrapper %}wrapper{% endunless %}">
+      <p class="unit [ xs-1 ] unit-push-l-1-5 lesson-intro push-0 giga" itemprop="description">{{page.desc}}</p>
+    </div>
   </div>
-</div>
 
-<main>
-  {% if page.video or page.playlist %}
-    <section class="lesson-step lesson-video grid grid-middle no-print">
-      <div class="lesson-body video-container unit [ xs-1 m-2-3 ]">
-        {% if page.video %}
-          <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}">
-            <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-            <strong class="giga icon-label play-icon-text">Watch the video</strong>
-          </a>
-        {% endif %}
-        {% if page.playlist %}
-          <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}">
-            <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-            <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
-          </a>
-        {% endif %}
-        <div class="embed embed--5by1 video-embed"></div>
-      </div>
-      <div class="lesson-notes lesson-notes-video unit [ xs-1 m-1-3 ]">
-       <ol class="lesson-note-list list-group push-0">
-          <li class="lesson-note">
-            <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Video or tutorial</h3>
-            <div class="gutter-1-2 italic">
-              <p class="push-0">You can watch the video(s) or follow along with the written tutorial—or both—they convey exactly the same information.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-  {% endif %}
+  <main itemprop="steps">
+    {% if page.video or page.playlist %}
+      <div itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
+        <meta itemprop="name" content="{{page.title}}">
+        <meta itemprop="description" content="{{page.desc}}">
+        <meta itemprop="thumbnailUrl" content="https://learn-the-web.algonquindesign.ca/images/video-thumbnail.png">
+        <meta itemprop="uploadDate" content="{{site.time}}">
+        <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
-  {% if page.goal %}
-    <section class="lesson-step grid grid-stretch">
-      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if page.important %}lesson-body-no-border{% endif %}">
-        <h2 class="lesson-title zetta push-1-4">
-          <i class="lesson-step-num icon i-48"><svg><use xlink:href="#icon-victory" /></svg></i>
-          Goal
-        </h2>
-        <div class="mega gutter-1-4 lesson-body-text">
-          {% if page.goal.before %}
-            {{page.goal.before | markdownify}}
-            {% if page.goal.no_image != true %}
-              <p><em>This is what it should look like when it’s done:</em></p>
+        <section class="lesson-step lesson-video grid grid-middle no-print">
+          <div class="lesson-body video-container unit [ xs-1 m-2-3 ]">
+            {% if page.video %}
+              <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}" itemprop="embedUrl">
+                <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+                <strong class="giga icon-label play-icon-text">Watch the video</strong>
+              </a>
             {% endif %}
-          {% endif %}
-          {% if page.goal.no_image != true %}
-            <img src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
-          {% endif %}
-        </div>
-      </div>
-      <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if page.important %}lesson-notes-no-border{% endif %}">
-        {% if page.goal.notes %}
-          <ol class="lesson-note-list list-group">
-            {% for note in page.goal.notes %}
-              <li class="lesson-note">
-                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
-                <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
-              </li>
-            {% endfor %}
-          </ol>
-        {% endif %}
-      </div>
-    </section>
-  {% endif %}
-
-  {% if page.important %}
-    <aside class="lesson-step lesson-step-final grid grid-stretch">
-      <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
-        <h2 class="lesson-title zetta push-1-4">
-          <i class="lesson-step-num icon i-48">
-            <svg id="Layer_1" width="256" height="256" viewBox="0 0 256 256">
-              <path d="M226.8 167.2L135.9 9.5a9.1 9.1 0 0 0-15.7-.1l-91 157.8a9.2 9.2 0 0 0 7.9 13.8h181.8a9.2 9.2 0 0 0 7.9-13.8z"/>
-              <polygon fill="#fff" points="139.9 67 139.1 87.4 135.8 123 120.2 123 116.9 87.4 116.1 67 139.9 67"/>
-              <path fill="#fff" d="M128 160.8c-8.9 0-15.3-6.5-15.3-15.4s6.4-15.1 15.3-15.1 15.3 6.2 15.3 15.1-6.4 15.4-15.3 15.4z"/>
-            </svg>
-          </i>
-          {{page.important.title}}
-        </h2>
-        <div class="mega lesson-body-text">{{page.important.text | markdownify}}</div>
-      </div>
-      <div class="lesson-notes lesson-notes-final unit [ xs-1 m-1-3 ]">
-        <ol class="lesson-note-list list-group">
-          <li class="lesson-note">
-            <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 yellow-sticky">Important</h3>
-            <div class="gutter-1-2 italic">Read this stuff—it’s like totally important.</div>
-          </li>
-        </ol>
-      </div>
-    </aside>
-  {% endif %}
-
-  {% if page.fork %}
-    <section class="lesson-step grid grid-stretch">
-      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
-        <h2 class="lesson-title zetta push-1-4">
-          <i class="lesson-step-num icon i-48">
-            <svg width="256" height="256" viewBox="0 0 256 256">
-              <circle cx="128" cy="110" r="110"/>
-              <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 84.9 116.1 84.9 75"/>
-              <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 170.1 116.1 170.1 75"/>
-              <circle cx="86" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
-              <circle cx="170" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
-              <circle cx="127.8" cy="165.1" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
-            </svg>
-          </i>
-          Fork &amp; clone
-        </h2>
-        <div class="mega gutter-1-4 lesson-body-text">
-          <p>Start the lesson by forking and cloning the <code>{{page.slug}}</code> repository.</p>
-          <p class="tera"><strong><a href="{{page.fork.url}}">Fork &amp; clone the “{{page.slug}}” repo.</a></strong></p>
-          <p><em>The repository will have some starter files to get you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
-        </div>
-      </div>
-      <div class="lesson-notes unit [ xs-1 m-1-3 ]">
-        <ol class="lesson-note-list list-group">
-          <li class="lesson-note">
-            <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{% unless page.hide_markbot %}Fork, clone &amp; Markbot{% else %}Fork &amp; clone{% endunless %}</h3>
-            <div class="gutter-1-2 italic">
-              <p>This includes some starter code that you can get by forking and cloning the repository.{% unless page.hide_markbot %} You’ll use Markbot to double check everything is done properly.{% endunless %}</p>
-            </div>
-          </li>
-          {% if page.fork.notes %}
-            {% for note in page.fork.notes %}
-              <li class="lesson-note">
-                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
-                <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
-              </li>
-            {% endfor %}
-          {% endif %}
-        </ol>
-      </div>
-    </section>
-  {% endif %}
-
-  {% for step in page.steps %}
-    {% assign step_count = forloop.index %}
-    {% assign step_count_even = forloop.index | modulo:2 %}
-    <section class="lesson-step grid grid-stretch" data-total="{{forloop.rindex | plus:1}}">
-      <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last and page.hide_markbot %}lesson-body-last{% endif %}">
-        <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}">
-          <i class="lesson-step-num icon i-48">
-            {% if page.pair %}
-              {% if step_count_even == 0 %}
-                <svg><use xlink:href="#icon-person-1" /></svg>
-              {% else %}
-                <svg><use xlink:href="#icon-person-2" /></svg>
-              {% endif %}
-            {% else %}
-              <svg viewBox="0 0 256 256">
-                <circle cx="128" cy="110" r="110" />
-                <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{forloop.index}}</text>
-              </svg>
+            {% if page.playlist %}
+              <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}">
+                <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+                <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
+              </a>
             {% endif %}
-          </i>
-          {{step.title | escape}}
-        </h2>
-        {% if page.pair %}
-          <div class="mega gutter-1-4 lesson-body-text">
-          {% if forloop.first %}
-            <p class="pair-intro tera italic">Choose roles: one person will type the code, the other will point out problems and guide.<p>
-          {% else %}
-            <p class="pair-intro tera italic">Change roles: the driver becomes the pointer & the pointer becomes the driver.<p>
-          {% endif %}
+            <div class="embed embed--5by1 video-embed"></div>
           </div>
-        {% endif %}
-        {% if step.before %}
-          <div class="mega gutter-1-4 lesson-body-text">{{step.before | markdownify}}</div>
-        {% endif %}
-        {% if step.video %}
-          <div class="embed embed--16by9">
-            <iframe class="embed-item" src="https://www.youtube.com/embed/{{step.video}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>
-          </div>
-        {% endif %}
-        {% if step.folders %}
-          <div class="mega gutter-1-4 lesson-body-text">
-            <ol class="list-group folders pad-t-1-2 pad-b-1-2 milli">
-              {% for file in step.folders %}
-                {% assign file_folder="file" %}
-                {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
-                {% unless file.continue %}
-                  <li>
-                    <div class="relative {% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
-                      <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
-                      <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
-                      {% if file.rename %}
-                        <span class="icon-label color-grey folder-rename" title="Rename the file to" aria-label="Rename the file to">&nbsp;&nbsp; ➔ &nbsp;&nbsp;</span>
-                        <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
-                        <span class="icon-label bold">{{file.rename}}</span>
-                      {% endif %}
-                      {% if file.notes %}<span class="icon-label kilo folder-notes italic">{{file.notes}}</span>{% endif %}
-                    </div>
-                  </li>
-                {% else %}
-                  <li><i class="icon i-18 not-italic text-center">⋮</i></li>
-                {% endunless %}
-              {% endfor %}
-            </ol>
-          </div>
-        {% endif %}
-        {% if step.shortcuts %}
-          <div class="lesson-body-table">
-            <table class="shortcuts">
-              <thead>
-                <tr>
-                  <th scope="col" colspan="6">Keys</th>
-                  <th scope="col" colspan="18">Explanation</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for shortcut in step.shortcuts %}
-                  <tr>
-                    <td colspan="6">{{shortcut.keys | markdownify}}</td>
-                    <td colspan="18">{{shortcut.text | markdownify}}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-        {% endif %}
-        {% if step.multi_code %}
-          {% for code in step.multi_code %}
-            {% include lesson/code.html code=code.code code_file=code.code_file code_lang=code.code_lang code_before=code.code_before code_can_copy=code.code_can_copy lines=code.lines %}
-          {% endfor %}
-        {% endif %}
-        {% if step.code %}
-          {% include lesson/code.html code=step.code code_file=step.code_file code_lang=step.code_lang code_before=step.code_before code_can_copy=step.code_can_copy lines=step.lines %}
-        {% endif %}
-        {% if step.image_steps %}
-          <div class="lesson-body-image-steps push-2">
-            <form class="image-steps-form">
-              {% for img in step.image_steps %}
-                <div class="image-step">
-                  <input class="image-step-control" type="radio" id="step-{{step_count}}-image-{{forloop.index}}" name="step-{{step_count}}-image-steps" {% if forloop.first %}checked{% endif %}>
-                  <img class="image-step-img" src="{{img.url}}" alt="">
-                  <label class="image-step-btn" for="step-{{step_count}}-image-{{forloop.index}}">{{forloop.index}}</label>
-                  <label class="image-step-prev" for="step-{{step_count}}-image-{{forloop.index | minus:1}}">
-                    <i class="icon i-48"><svg><use xlink:href="#icon-left"/></svg></i>
-                    <span class="visually-hidden">{{forloop.index | minus:1}}</span>
-                  </label>
-                  <label class="image-step-next" for="step-{{step_count}}-image-{{forloop.index | plus:1}}">
-                    <i class="icon i-48"><svg><use xlink:href="#icon-right"/></svg></i>
-                    <span class="visually-hidden">{{forloop.index | plus:1}}</span>
-                  </label>
+          <div class="lesson-notes lesson-notes-video unit [ xs-1 m-1-3 ]">
+           <ol class="lesson-note-list list-group push-0">
+              <li class="lesson-note">
+                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Video or tutorial</h3>
+                <div class="gutter-1-2 italic">
+                  <p class="push-0">You can watch the video(s) or follow along with the written tutorial—or both—they convey exactly the same information.</p>
                 </div>
-              {% endfor %}
-            </form>
-          </div>
-          <div class="mega gutter-1-4 lesson-body-text">
-            <ol class="image-steps">
-              {% for img in step.image_steps %}
-                <li><label class="image-steps-label" for="step-{{step_count}}-image-{{forloop.index}}">{{img.text | markdownify}}</label></li>
-              {% endfor %}
-            </ol>
-          </div>
-        {% endif %}
-        {% if step.after %}
-          <div class="mega gutter-1-4 lesson-body-text">{{step.after | markdownify}}</div>
-        {% endif %}
-      </div>
-      <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %}">
-        {% if step.notes or step.lines or step.multi_code[0].lines or step.multi_code[1].lines %}
-          <ol class="lesson-note-list list-group">
-            {% for note in step.notes %}
-              <li class="lesson-note">
-                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
-                <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
-              </li>
-            {% endfor %}
-            {% if step.lines %}
-              {% for line in step.lines %}
-                {% if line.text %}
-                  {% include lesson/code-line.html line=line %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-            {% if step.multi_code %}
-              {% for block in step.multi_code %}
-                {% if block.lines %}
-                  {% for line in block.lines %}
-                    {% if line.text %}
-                      {% include lesson/code-line.html line=line prefix=block.code_file %}
-                    {% endif %}
-                  {% endfor %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-          </ol>
-        {% endif %}
-      </div>
-    </section>
-    {% if forloop.last %}
-
-      {% unless page.hide_markbot %}
-        <section class="lesson-step grid grid-stretch">
-          <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last">
-            <h2 class="lesson-title zetta push-1-4">
-              <i class="lesson-step-num lesson-step-markbot icon i-48">
-                <svg viewBox="0 0 256 256">
-                  <defs>
-                    <clipPath id="a">
-                      <path fill="none" d="M50.6 205.4l-32-77.4 32-77.4 77.4-32 77.4 32 32 77.4-32 77.4-77.4 32-77.4-32z"/>
-                    </clipPath>
-                  </defs>
-                  <path d="M40 216L3.8 128 40 40l88-36.3L216 40l36.3 88-36.4 88-88 36.3L40 216"/>
-                  <g fill="#fff" clip-path="url(#a)">
-                    <path d="M199 195.2a12.2 12.2 0 0 0-12.2-12.2H61.2A12.2 12.2 0 0 0 49 195.2v78.6A12.2 12.2 0 0 0 61.2 286h125.6a12.2 12.2 0 0 0 12.2-12.2zM59.4 141C48 141 41 136.5 41 126V84c0-2 2-3.4 4-3.4s4 1.5 4 3.3v42c0 7 3.4 8 10.8 8a3.3 3.3 0 0 1 3.4 3.3 3.7 3.7 0 0 1-3.8 3.4zm6.3-18h7v28.7h-7z"/>
-                    <path d="M58.7 126h7v22.7h-7zm138 15c11.2 0 18.3-4.4 18.3-15V84c0-2-2-3.4-4-3.4s-4 1.5-4 3.3v42c0 7-3.4 8-10.8 8a3.3 3.3 0 0 0-3.4 3.3 3.7 3.7 0 0 0 3.8 3.4zm-6.4 10.7h-7V123h7z"/>
-                    <path d="M197.3 148.7h-7V126h7zM176.5 96H79.3c-3.6 0-6.3 5.5-6.3 9v65c0 3.6 2.7 5.2 6.3 5.2h97.2c3.6 0 6.5-2 6.5-5.6V105c0-3.7-3-8.8-6.5-8.8zm-90 30a15.3 15.3 0 1 1 15.3 15.4A15.3 15.3 0 0 1 86.5 126zm73.5 41H96v-7h64zm-6-25.6a15.3 15.3 0 1 1 15.3-15.3 15.3 15.3 0 0 1-15.3 15.6z"/>
-                  </g>
-                </svg>
-              </i>
-              Drop it into Markbot
-            </h2>
-            <div class="mega lesson-body-text">
-              <p>Drop the final, coded exercise into Markbot and fix all the errors until Markbot gives you all green.</p>
-              {% if page.markbot_notes %}{{page.markbot_notes | markdownify}}{% endif %}
-              <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
-            </div>
-          </div>
-          <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-last">
-            <ol class="lesson-note-list list-group">
-              <li class="lesson-note">
-                <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Can’t submit</h3>
-                <div class="gutter-1-2 italic">Markbot won’t let you submit this exercise because it’s getting checked by the teacher during class.</div>
               </li>
             </ol>
           </div>
         </section>
-      {% endunless %}
+      </div>
+    {% endif %}
 
-      {% unless page.hide_show_for_marks %}
-        <aside class="lesson-step lesson-step-final grid grid-stretch">
-          <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
-            <h2 class="lesson-title zetta push-1-4">
-              <i class="lesson-step-num icon i-48">
+    {% if page.goal %}
+      <section class="lesson-step grid grid-stretch">
+        <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if page.important %}lesson-body-no-border{% endif %}">
+          <h2 class="lesson-title zetta push-1-4">
+            <i class="lesson-step-num icon i-48"><svg><use xlink:href="#icon-victory" /></svg></i>
+            Goal
+          </h2>
+          <div class="mega gutter-1-4 lesson-body-text">
+            {% if page.goal.before %}
+              {{page.goal.before | markdownify}}
+              {% if page.goal.no_image != true %}
+                <p><em>This is what it should look like when it’s done:</em></p>
+              {% endif %}
+            {% endif %}
+            {% if page.goal.no_image != true %}
+              <img itemprop="image" src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
+            {% endif %}
+          </div>
+        </div>
+        <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if page.important %}lesson-notes-no-border{% endif %}">
+          {% if page.goal.notes %}
+            <ol class="lesson-note-list list-group">
+              {% for note in page.goal.notes %}
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                  <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+                </li>
+              {% endfor %}
+            </ol>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.important %}
+      <aside class="lesson-step lesson-step-final grid grid-stretch">
+        <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
+          <h2 class="lesson-title zetta push-1-4">
+            <i class="lesson-step-num icon i-48">
+              <svg id="Layer_1" width="256" height="256" viewBox="0 0 256 256">
+                <path d="M226.8 167.2L135.9 9.5a9.1 9.1 0 0 0-15.7-.1l-91 157.8a9.2 9.2 0 0 0 7.9 13.8h181.8a9.2 9.2 0 0 0 7.9-13.8z"/>
+                <polygon fill="#fff" points="139.9 67 139.1 87.4 135.8 123 120.2 123 116.9 87.4 116.1 67 139.9 67"/>
+                <path fill="#fff" d="M128 160.8c-8.9 0-15.3-6.5-15.3-15.4s6.4-15.1 15.3-15.1 15.3 6.2 15.3 15.1-6.4 15.4-15.3 15.4z"/>
+              </svg>
+            </i>
+            {{page.important.title}}
+          </h2>
+          <div class="mega lesson-body-text">{{page.important.text | markdownify}}</div>
+        </div>
+        <div class="lesson-notes lesson-notes-final unit [ xs-1 m-1-3 ]">
+          <ol class="lesson-note-list list-group">
+            <li class="lesson-note">
+              <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 yellow-sticky">Important</h3>
+              <div class="gutter-1-2 italic">Read this stuff—it’s like totally important.</div>
+            </li>
+          </ol>
+        </div>
+      </aside>
+    {% endif %}
+
+    {% if page.fork %}
+      <section class="lesson-step grid grid-stretch">
+        <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
+          <h2 class="lesson-title zetta push-1-4">
+            <i class="lesson-step-num icon i-48">
+              <svg width="256" height="256" viewBox="0 0 256 256">
+                <circle cx="128" cy="110" r="110"/>
+                <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 84.9 116.1 84.9 75"/>
+                <polyline fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="17" points="127.5 181 127.5 143.3 170.1 116.1 170.1 75"/>
+                <circle cx="86" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+                <circle cx="170" cy="70.9" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+                <circle cx="127.8" cy="165.1" r="21" stroke="#fff" stroke-miterlimit="10" stroke-width="17"/>
+              </svg>
+            </i>
+            Fork &amp; clone
+          </h2>
+          <div class="mega gutter-1-4 lesson-body-text">
+            <p>Start the lesson by forking and cloning the <code>{{page.slug}}</code> repository.</p>
+            <p class="tera"><strong><a href="{{page.fork.url}}">Fork &amp; clone the “{{page.slug}}” repo.</a></strong></p>
+            <p><em>The repository will have some starter files to get you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
+          </div>
+        </div>
+        <div class="lesson-notes unit [ xs-1 m-1-3 ]">
+          <ol class="lesson-note-list list-group">
+            <li class="lesson-note">
+              <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{% unless page.hide_markbot %}Fork, clone &amp; Markbot{% else %}Fork &amp; clone{% endunless %}</h3>
+              <div class="gutter-1-2 italic">
+                <p>This includes some starter code that you can get by forking and cloning the repository.{% unless page.hide_markbot %} You’ll use Markbot to double check everything is done properly.{% endunless %}</p>
+              </div>
+            </li>
+            {% if page.fork.notes %}
+              {% for note in page.fork.notes %}
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                  <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+                </li>
+              {% endfor %}
+            {% endif %}
+          </ol>
+        </div>
+      </section>
+    {% endif %}
+
+    {% for step in page.steps %}
+      {% assign step_count = forloop.index %}
+      {% assign step_count_even = forloop.index | modulo:2 %}
+      <section class="lesson-step grid grid-stretch" data-total="{{forloop.rindex | plus:1}}">
+        <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last and page.hide_markbot %}lesson-body-last{% endif %}">
+          <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}">
+            <i class="lesson-step-num icon i-48">
+              {% if page.pair %}
+                {% if step_count_even == 0 %}
+                  <svg><use xlink:href="#icon-person-1" /></svg>
+                {% else %}
+                  <svg><use xlink:href="#icon-person-2" /></svg>
+                {% endif %}
+              {% else %}
                 <svg viewBox="0 0 256 256">
                   <circle cx="128" cy="110" r="110" />
-                  <path fill="#fff" transform="scale(.7) translate(40, 24)" d="M95 164.8c6-12.5 13-26 21.2-41s17.5-29.8 28-44.6c10.3-14.8 18-24.6 22.6-29.5 4.8-4.8 8.8-8.7 12-11.5 3.4-2.8 9.2-5 17.6-6.2 8.4-1.3 14.7-2 19-2 3 0 5.3 1 7 2.6 2 1.8 2.8 4 2.8 7 0 2-.5 4-1.6 5.6-1 1.6-3.3 4-6.6 7-16 14.8-32.7 35.8-50 63-17.4 27.4-31.2 53.8-41.4 79.4-4.8 11.7-8 18.6-9.3 20.6-1.4 2-3.5 4-6.4 5.7-3 1.7-8.8 2.5-17.7 2.5-7 0-11.5-.4-13.4-1.3s-3.6-1.8-4.6-2.7c-1-1-4-5.2-9-12.7-5-8-12.6-17.2-22.3-28-5.5-6.2-8.3-11.4-8.3-15.5 0-6 3.2-11.3 9.6-15.8 6.4-4.5 12-6.7 17-6.7 5.3 0 11 2.2 17 6.5 6.3 4.4 11.8 10.2 16.7 17.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="50%" y="160" text-anchor="middle" fill="#fff" font-size="180" font-weight="bold" font-style="normal">{{forloop.index}}</text>
                 </svg>
-              </i>
-              Show teacher for marks
-            </h2>
-            <div class="mega lesson-body-text">
-              <p>Be sure to call the teacher over and show them that you’ve completed all these steps to get your mark.</p>
-            </div>
-          </div>
-          <div class="lesson-notes lesson-notes-final unit [ xs-1 m-1-3 ]">
-            <ol class="lesson-note-list list-group">
-              <li class="lesson-note">
-                <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 red-sticky">Red sticky note</h3>
-                <div class="gutter-1-2 italic">This is a good use of your red sticky note.</div>
-              </li>
-            </ol>
-          </div>
-        </aside>
-      {% endunless %}
-
-    {% endif %}
-  {% endfor %}
-
-  {% if page.extra_tutorials %}
-    <section class="lesson-step grid grid-stretch extra-tutorials">
-      <div class="lesson-body extra-tutorials unit [ xs-1 m-2-3 ] pad-t">
-        <h2 class="">Related videos, tutorials & slides</h2>
-        <ul class="milli">
-          {% for link in page.extra_tutorials %}
-            <li>
-              {% if link.highlight %}<strong>{% endif %}
-              {% if link.url contains "/" %}
-                {% assign url_prefix="" %}
-              {% else %}
-                {% assign url_prefix="/topics/" %}
               {% endif %}
-              <a href="{{url_prefix}}{{link.url}}">{{link.title}}</a>
-              {% if link.highlight %}</strong>{% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="lesson-notes extra-tutorials extra-tutorials-sidebar unit [ xs-1 m-1-3 ]">&nbsp;</div>
-    </section>
-  {% endif %}
+            </i>
+            {{step.title | escape}}
+          </h2>
+          {% if page.pair %}
+            <div class="mega gutter-1-4 lesson-body-text">
+            {% if forloop.first %}
+              <p class="pair-intro tera italic">Choose roles: one person will type the code, the other will point out problems and guide.<p>
+            {% else %}
+              <p class="pair-intro tera italic">Change roles: the driver becomes the pointer & the pointer becomes the driver.<p>
+            {% endif %}
+            </div>
+          {% endif %}
+          {% if step.before %}
+            <div class="mega gutter-1-4 lesson-body-text">{{step.before | markdownify}}</div>
+          {% endif %}
+          {% if step.video %}
+            <div class="embed embed--16by9">
+              <iframe class="embed-item" src="https://www.youtube.com/embed/{{step.video}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+          {% endif %}
+          {% if step.folders %}
+            <div class="mega gutter-1-4 lesson-body-text">
+              <ol class="list-group folders pad-t-1-2 pad-b-1-2 milli">
+                {% for file in step.folders %}
+                  {% assign file_folder="file" %}
+                  {% if file.type == "folder" %}{% assign file_folder="folder" %}{% endif %}
+                  {% unless file.continue %}
+                    <li>
+                      <div class="relative {% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
+                        <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                        <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
+                        {% if file.rename %}
+                          <span class="icon-label color-grey folder-rename" title="Rename the file to" aria-label="Rename the file to">&nbsp;&nbsp; ➔ &nbsp;&nbsp;</span>
+                          <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                          <span class="icon-label bold">{{file.rename}}</span>
+                        {% endif %}
+                        {% if file.notes %}<span class="icon-label kilo folder-notes italic">{{file.notes}}</span>{% endif %}
+                      </div>
+                    </li>
+                  {% else %}
+                    <li><i class="icon i-18 not-italic text-center">⋮</i></li>
+                  {% endunless %}
+                {% endfor %}
+              </ol>
+            </div>
+          {% endif %}
+          {% if step.shortcuts %}
+            <div class="lesson-body-table">
+              <table class="shortcuts">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="6">Keys</th>
+                    <th scope="col" colspan="18">Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for shortcut in step.shortcuts %}
+                    <tr>
+                      <td colspan="6">{{shortcut.keys | markdownify}}</td>
+                      <td colspan="18">{{shortcut.text | markdownify}}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          {% endif %}
+          {% if step.multi_code %}
+            {% for code in step.multi_code %}
+              {% include lesson/code.html code=code.code code_file=code.code_file code_lang=code.code_lang code_before=code.code_before code_can_copy=code.code_can_copy lines=code.lines %}
+            {% endfor %}
+          {% endif %}
+          {% if step.code %}
+            {% include lesson/code.html code=step.code code_file=step.code_file code_lang=step.code_lang code_before=step.code_before code_can_copy=step.code_can_copy lines=step.lines %}
+          {% endif %}
+          {% if step.image_steps %}
+            <div class="lesson-body-image-steps push-2">
+              <form class="image-steps-form">
+                {% for img in step.image_steps %}
+                  <div class="image-step">
+                    <input class="image-step-control" type="radio" id="step-{{step_count}}-image-{{forloop.index}}" name="step-{{step_count}}-image-steps" {% if forloop.first %}checked{% endif %}>
+                    <img class="image-step-img" src="{{img.url}}" alt="">
+                    <label class="image-step-btn" for="step-{{step_count}}-image-{{forloop.index}}">{{forloop.index}}</label>
+                    <label class="image-step-prev" for="step-{{step_count}}-image-{{forloop.index | minus:1}}">
+                      <i class="icon i-48"><svg><use xlink:href="#icon-left"/></svg></i>
+                      <span class="visually-hidden">{{forloop.index | minus:1}}</span>
+                    </label>
+                    <label class="image-step-next" for="step-{{step_count}}-image-{{forloop.index | plus:1}}">
+                      <i class="icon i-48"><svg><use xlink:href="#icon-right"/></svg></i>
+                      <span class="visually-hidden">{{forloop.index | plus:1}}</span>
+                    </label>
+                  </div>
+                {% endfor %}
+              </form>
+            </div>
+            <div class="mega gutter-1-4 lesson-body-text">
+              <ol class="image-steps">
+                {% for img in step.image_steps %}
+                  <li><label class="image-steps-label" for="step-{{step_count}}-image-{{forloop.index}}">{{img.text | markdownify}}</label></li>
+                {% endfor %}
+              </ol>
+            </div>
+          {% endif %}
+          {% if step.after %}
+            <div class="mega gutter-1-4 lesson-body-text">{{step.after | markdownify}}</div>
+          {% endif %}
+        </div>
+        <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %}">
+          {% if step.notes or step.lines or step.multi_code[0].lines or step.multi_code[1].lines %}
+            <ol class="lesson-note-list list-group">
+              {% for note in step.notes %}
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                  <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+                </li>
+              {% endfor %}
+              {% if step.lines %}
+                {% for line in step.lines %}
+                  {% if line.text %}
+                    {% include lesson/code-line.html line=line %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+              {% if step.multi_code %}
+                {% for block in step.multi_code %}
+                  {% if block.lines %}
+                    {% for line in block.lines %}
+                      {% if line.text %}
+                        {% include lesson/code-line.html line=line prefix=block.code_file %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            </ol>
+          {% endif %}
+        </div>
+      </section>
+      {% if forloop.last %}
 
-</main>
+        {% unless page.hide_markbot %}
+          <section class="lesson-step grid grid-stretch">
+            <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last">
+              <h2 class="lesson-title zetta push-1-4">
+                <i class="lesson-step-num lesson-step-markbot icon i-48">
+                  <svg viewBox="0 0 256 256">
+                    <defs>
+                      <clipPath id="a">
+                        <path fill="none" d="M50.6 205.4l-32-77.4 32-77.4 77.4-32 77.4 32 32 77.4-32 77.4-77.4 32-77.4-32z"/>
+                      </clipPath>
+                    </defs>
+                    <path d="M40 216L3.8 128 40 40l88-36.3L216 40l36.3 88-36.4 88-88 36.3L40 216"/>
+                    <g fill="#fff" clip-path="url(#a)">
+                      <path d="M199 195.2a12.2 12.2 0 0 0-12.2-12.2H61.2A12.2 12.2 0 0 0 49 195.2v78.6A12.2 12.2 0 0 0 61.2 286h125.6a12.2 12.2 0 0 0 12.2-12.2zM59.4 141C48 141 41 136.5 41 126V84c0-2 2-3.4 4-3.4s4 1.5 4 3.3v42c0 7 3.4 8 10.8 8a3.3 3.3 0 0 1 3.4 3.3 3.7 3.7 0 0 1-3.8 3.4zm6.3-18h7v28.7h-7z"/>
+                      <path d="M58.7 126h7v22.7h-7zm138 15c11.2 0 18.3-4.4 18.3-15V84c0-2-2-3.4-4-3.4s-4 1.5-4 3.3v42c0 7-3.4 8-10.8 8a3.3 3.3 0 0 0-3.4 3.3 3.7 3.7 0 0 0 3.8 3.4zm-6.4 10.7h-7V123h7z"/>
+                      <path d="M197.3 148.7h-7V126h7zM176.5 96H79.3c-3.6 0-6.3 5.5-6.3 9v65c0 3.6 2.7 5.2 6.3 5.2h97.2c3.6 0 6.5-2 6.5-5.6V105c0-3.7-3-8.8-6.5-8.8zm-90 30a15.3 15.3 0 1 1 15.3 15.4A15.3 15.3 0 0 1 86.5 126zm73.5 41H96v-7h64zm-6-25.6a15.3 15.3 0 1 1 15.3-15.3 15.3 15.3 0 0 1-15.3 15.6z"/>
+                    </g>
+                  </svg>
+                </i>
+                Drop it into Markbot
+              </h2>
+              <div class="mega lesson-body-text">
+                <p>Drop the final, coded exercise into Markbot and fix all the errors until Markbot gives you all green.</p>
+                {% if page.markbot_notes %}{{page.markbot_notes | markdownify}}{% endif %}
+                <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
+              </div>
+            </div>
+            <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-last">
+              <ol class="lesson-note-list list-group">
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Can’t submit</h3>
+                  <div class="gutter-1-2 italic">Markbot won’t let you submit this exercise because it’s getting checked by the teacher during class.</div>
+                </li>
+              </ol>
+            </div>
+          </section>
+        {% endunless %}
+
+        {% unless page.hide_show_for_marks %}
+          <aside class="lesson-step lesson-step-final grid grid-stretch">
+            <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
+              <h2 class="lesson-title zetta push-1-4">
+                <i class="lesson-step-num icon i-48">
+                  <svg viewBox="0 0 256 256">
+                    <circle cx="128" cy="110" r="110" />
+                    <path fill="#fff" transform="scale(.7) translate(40, 24)" d="M95 164.8c6-12.5 13-26 21.2-41s17.5-29.8 28-44.6c10.3-14.8 18-24.6 22.6-29.5 4.8-4.8 8.8-8.7 12-11.5 3.4-2.8 9.2-5 17.6-6.2 8.4-1.3 14.7-2 19-2 3 0 5.3 1 7 2.6 2 1.8 2.8 4 2.8 7 0 2-.5 4-1.6 5.6-1 1.6-3.3 4-6.6 7-16 14.8-32.7 35.8-50 63-17.4 27.4-31.2 53.8-41.4 79.4-4.8 11.7-8 18.6-9.3 20.6-1.4 2-3.5 4-6.4 5.7-3 1.7-8.8 2.5-17.7 2.5-7 0-11.5-.4-13.4-1.3s-3.6-1.8-4.6-2.7c-1-1-4-5.2-9-12.7-5-8-12.6-17.2-22.3-28-5.5-6.2-8.3-11.4-8.3-15.5 0-6 3.2-11.3 9.6-15.8 6.4-4.5 12-6.7 17-6.7 5.3 0 11 2.2 17 6.5 6.3 4.4 11.8 10.2 16.7 17.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </i>
+                Show teacher for marks
+              </h2>
+              <div class="mega lesson-body-text">
+                <p>Be sure to call the teacher over and show them that you’ve completed all these steps to get your mark.</p>
+              </div>
+            </div>
+            <div class="lesson-notes lesson-notes-final unit [ xs-1 m-1-3 ]">
+              <ol class="lesson-note-list list-group">
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 red-sticky">Red sticky note</h3>
+                  <div class="gutter-1-2 italic">This is a good use of your red sticky note.</div>
+                </li>
+              </ol>
+            </div>
+          </aside>
+        {% endunless %}
+
+      {% endif %}
+    {% endfor %}
+
+    {% if page.extra_tutorials %}
+      <section class="lesson-step grid grid-stretch extra-tutorials">
+        <div class="lesson-body extra-tutorials unit [ xs-1 m-2-3 ] pad-t">
+          <h2 class="">Related videos, tutorials & slides</h2>
+          <ul class="milli">
+            {% for link in page.extra_tutorials %}
+              <li>
+                {% if link.highlight %}<strong>{% endif %}
+                {% if link.url contains "/" %}
+                  {% assign url_prefix="" %}
+                {% else %}
+                  {% assign url_prefix="/topics/" %}
+                {% endif %}
+                <a href="{{url_prefix}}{{link.url}}">{{link.title}}</a>
+                {% if link.highlight %}</strong>{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="lesson-notes extra-tutorials extra-tutorials-sidebar unit [ xs-1 m-1-3 ]">&nbsp;</div>
+      </section>
+    {% endif %}
+
+  </main>
+</div>
 
 <script src="/js/lesson.min.js?v={{site.version}}"></script>

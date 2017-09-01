@@ -11,137 +11,141 @@
 </head>
 <body class="slide-deck">
 
-{% include icons.html %}
+  {% include icons.html %}
 
-<div class="slide-deck-masthead-top push">
-  {% include masthead-micro.html %}
-</div>
+  <div class="slide-deck-masthead-top push">
+    {% include masthead-micro.html %}
+  </div>
 
-{% if site.collections_workshops contains page.collection %}
-  {% assign url_chunk = "workshops" %}
-  {% assign is_workshop = true %}
-{% else %}
-  {% assign url_chunk = "courses" %}
-  {% assign is_workshop = false %}
-{% endif %}
+  {% if site.collections_workshops contains page.collection %}
+    {% assign url_chunk = "workshops" %}
+    {% assign is_workshop = true %}
+  {% else %}
+    {% assign url_chunk = "courses" %}
+    {% assign is_workshop = false %}
+  {% endif %}
 
-<strong class="full-screen-shortcut giga gutter pad-t-1-2 pad-b-1-2 no-print">Go fullscreen: ⌃⌥F</strong>
+  <strong class="full-screen-shortcut giga gutter pad-t-1-2 pad-b-1-2 no-print">Go fullscreen: ⌃⌥F</strong>
 
-<main class="main-fill grid grid-stretch">
-  {% assign count = 0 %}
-  {% assign slide_week = 0 %}
-  {% for week in page_data.docs %}
-    {% if week.layout contains "week" %}
-      {% capture count %}{{count | plus:1 }}{% endcapture %}
+  <main class="main-fill grid grid-stretch">
+    {% assign count = 0 %}
+    {% assign slide_week = 0 %}
+    {% for week in page_data.docs %}
+      {% if week.layout contains "week" %}
+        {% capture count %}{{count | plus:1 }}{% endcapture %}
 
-      {% for slide in week.slides %}
-        {% if slide.url == page.slug %}
-          {% assign slide_week = count %}
-          {% break %}
-        {% endif %}
-      {% endfor %}
-
-      {% if slide_week == 0 %}
-        {% for slide in week.group_activities %}
+        {% for slide in week.slides %}
           {% if slide.url == page.slug %}
             {% assign slide_week = count %}
             {% break %}
           {% endif %}
         {% endfor %}
+
+        {% if slide_week == 0 %}
+          {% for slide in week.group_activities %}
+            {% if slide.url == page.slug %}
+              {% assign slide_week = count %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
       {% endif %}
+    {% endfor %}
 
-    {% endif %}
-  {% endfor %}
-
-  {% capture slide_week_size %}{{slide_week | size}}{% endcapture %}
-  {% if slide_week_size == "1" %}
-    {% capture slide_week_padded %}0{{slide_week}}{% endcapture %}
-  {% else %}
-    {% assign slide_week_padded = slide_week %}
-  {% endif %}
-
-  {% for slide in page.slides %}
-    {% if slide.type %}
-      {% assign slide_type=slide.type %}
+    {% capture slide_week_size %}{{slide_week | size}}{% endcapture %}
+    {% if slide_week_size == "1" %}
+      {% capture slide_week_padded %}0{{slide_week}}{% endcapture %}
     {% else %}
-      {% assign slide_type="big-text" %}
+      {% assign slide_week_padded = slide_week %}
     {% endif %}
-    <section class="slide unit xs-1 center gutter-1-2" id="slide-{{forloop.index}}">
-      <div class="wrapper {% if slide.checkerboard %}slide-checkerboard{% endif %}">
-        {% include slides/{{slide_type}}.html data=slide collection_label=page.collection id=forloop.index %}
-        {% if slide.numbered %}<strong class="slide-numbered exa bold text-center absolute pin-bc" aria-label="Slide question {{slide.numbered}}" tabindex="0">{{slide.numbered}}</strong>{% endif %}
-      </div>
-      {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines %}
-        <input type="checkbox" class="hide-show-control" id="hide-show-notes-{{forloop.index}}">
-        <label class="hide-show-btn" for="hide-show-notes-{{forloop.index}}">
-          <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
-          <i class="icon i-24 notes-hide" title="Hide notes" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>
-        </label>
-        <aside class="slide-notes pad-t-2 pad-b gutter">
-          <div class="wrapper">
-            <div class="giga">
-              {{ slide.notes | markdownify }}
-              {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="HTML" %}{% endif %}{% endfor %}{% endif %}
-              {% if slide.markdown_lines[0] %}{% for line in slide.markdown_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Markdown" %}{% endif %}{% endfor %}{% endif %}
-              {% if slide.yaml_lines[0] %}{% for line in slide.yaml_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="YAML" %}{% endif %}{% endfor %}{% endif %}
-              {% if slide.css_lines[0] %}{% for line in slide.css_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="CSS" %}{% endif %}{% endfor %}{% endif %}
-              {% if slide.svg_lines[0] %}{% for line in slide.svg_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="SVG" %}{% endif %}{% endfor %}{% endif %}
-              {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Javascript" %}{% endif %}{% endfor %}{% endif %}
-            </div>
-          </div>
-        </aside>
+
+    {% for slide in page.slides %}
+      {% if slide.type %}
+        {% assign slide_type=slide.type %}
+      {% else %}
+        {% assign slide_type="big-text" %}
       {% endif %}
-      <nav class="slide-nav milli">
-        <ul class="list-group-inline push-0">
-          <li class="text-right gutter-1-4">
-            <a class="slide-nav-prev btn btn-ghost micro" {% if forloop.first == false %}href="#slide-{{forloop.index | minus: 1}}"{% else %}data-state="disabled"{% endif %}>
-              <i class="icon i-16"><svg><use xlink:href="#icon-left" /></svg></i>
-              <span class="icon-label">Previous</span>
-            </a>
-          </li>
-          <li class="text-left gutter-1-4">
-            <a class="slide-nav-next btn btn-ghost micro" {% if forloop.last == false %}href="#slide-{{forloop.index | plus: 1}}"{% else %}data-state="disabled"{% endif %}>
-              <span class="icon-label">Next</span>
-              <i class="icon i-16"><svg><use xlink:href="#icon-right" /></svg></i>
-            </a>
-          </li>
-          <li class="text-right gutter-1-4">
-            <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
-              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
-              <span class="icon-label">{{page_data.title}}</span>
-            </a>
-          </li>
-          {% unless is_workshop %}
+      <section class="slide unit xs-1 center gutter-1-2" id="slide-{{forloop.index}}">
+        <div class="wrapper {% if slide.checkerboard %}slide-checkerboard{% endif %}">
+          {% include slides/{{slide_type}}.html data=slide collection_label=page.collection id=forloop.index %}
+          {% if slide.numbered %}<strong class="slide-numbered exa bold text-center absolute pin-bc" aria-label="Slide question {{slide.numbered}}" tabindex="0">{{slide.numbered}}</strong>{% endif %}
+        </div>
+        {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines %}
+          <input type="checkbox" class="hide-show-control" id="hide-show-notes-{{forloop.index}}">
+          <label class="hide-show-btn" for="hide-show-notes-{{forloop.index}}">
+            <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
+            <i class="icon i-24 notes-hide" title="Hide notes" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>
+          </label>
+          <aside class="slide-notes pad-t-2 pad-b gutter">
+            <div class="wrapper">
+              <div class="giga">
+                {{ slide.notes | markdownify }}
+                {% if slide.html_lines[0] %}{% for line in slide.html_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="HTML" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.markdown_lines[0] %}{% for line in slide.markdown_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Markdown" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.yaml_lines[0] %}{% for line in slide.yaml_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="YAML" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.css_lines[0] %}{% for line in slide.css_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="CSS" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.svg_lines[0] %}{% for line in slide.svg_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="SVG" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="Javascript" %}{% endif %}{% endfor %}{% endif %}
+              </div>
+            </div>
+          </aside>
+        {% endif %}
+        <nav class="slide-nav milli">
+          <ul class="list-group-inline push-0">
             <li class="text-right gutter-1-4">
-              <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/week-{{slide_week_padded}}/">
-                <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
-                <span class="icon-label">Week {{slide_week_padded}}</span>
+              <a class="slide-nav-prev btn btn-ghost micro" {% if forloop.first == false %}href="#slide-{{forloop.index | minus: 1}}"{% else %}data-state="disabled"{% endif %}>
+                <i class="icon i-16"><svg><use xlink:href="#icon-left" /></svg></i>
+                <span class="icon-label">Previous</span>
               </a>
             </li>
-          {% endunless %}
-        </ul>
-      </nav>
-    </section>
-  {% endfor %}
+            <li class="text-left gutter-1-4">
+              <a class="slide-nav-next btn btn-ghost micro" {% if forloop.last == false %}href="#slide-{{forloop.index | plus: 1}}"{% else %}data-state="disabled"{% endif %}>
+                <span class="icon-label">Next</span>
+                <i class="icon i-16"><svg><use xlink:href="#icon-right" /></svg></i>
+              </a>
+            </li>
+            <li class="text-right gutter-1-4">
+              <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
+                <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+                <span class="icon-label">{{page_data.title}}</span>
+              </a>
+            </li>
+            {% unless is_workshop %}
+              <li class="text-right gutter-1-4">
+                <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/week-{{slide_week_padded}}/">
+                  <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
+                  <span class="icon-label">Week {{slide_week_padded}}</span>
+                </a>
+              </li>
+            {% endunless %}
+          </ul>
+        </nav>
+      </section>
+    {% endfor %}
 
-  <div class="slide-start unit center">
-    <a class="btn yotta" href="#slide-1">
-      <span class="icon-label push-r-1-2">Start</span>
-      <i class="icon i-48"><svg><use xlink:href="#icon-right" /></svg></i>
-    </a>
+    <div class="slide-start unit center">
+      <a class="btn yotta" href="#slide-1">
+        <span class="icon-label push-r-1-2">Start</span>
+        <i class="icon i-48"><svg><use xlink:href="#icon-right" /></svg></i>
+      </a>
+    </div>
+
+  </main>
+
+  <div class="slide-deck-masthead-bottom">
+    {% include masthead-micro.html no_wrapper=true %}
   </div>
 
-</main>
+  <script>{% include fontfaceobserver.js %}</script>
+  <script>{% include alegreya-observer.min.js %}</script>
+  <script>{% include source-code-pro-observer.min.js %}</script>
+  <script src="/js/course.min.js?v={{site.version}}"></script>
+  <script src="/js/slide-deck.min.js?v={{site.version}}"></script>
 
-<div class="slide-deck-masthead-bottom">
-  {% include masthead-micro.html no_wrapper=true %}
-</div>
-
-<script>{% include fontfaceobserver.js %}</script>
-<script>{% include alegreya-observer.min.js %}</script>
-<script>{% include source-code-pro-observer.min.js %}</script>
-<script src="/js/course.min.js?v={{site.version}}"></script>
-<script src="/js/slide-deck.min.js?v={{site.version}}"></script>
+  <script type="application/ld+json">{% include metadata/main.json %}</script>
+  <script type="application/ld+json">{% include metadata/faculty.json %}</script>
+  <script type="application/ld+json">{% include metadata/slide-deck.json %}</script>
 
 </body>
 </html>

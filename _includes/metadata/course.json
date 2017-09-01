@@ -1,0 +1,62 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "courseCode": "{{page.course_code}}",
+  {% if include.pre %}
+    "coursePrerequisites": "https://learn-the-web.algonquindesign.ca/courses/web-dev-{{include.pre}}/",
+  {% endif %}
+  "accessMode": "textual, visual",
+  "accessModeSufficient": "textual",
+  "accessibilityAPI": "ARIA",
+  "accessibilityControl": "fullKeyboardControl, fullMouseControl, fullTouchControl",
+  "accessibilityFeature": "alternativeText, highContrastDisplay, largePrint, readingOrder, structuralNavigation",
+  "accessibilityHazard": "noFlashingHazard, noSoundHazard",
+  "author": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightHolder": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightYear": "{{site.time | date:'%Y'}}",
+  "dateModified": "{{site.time}}",
+  "educationalAlignment": {
+    "@id": "#higher-education"
+  },
+  "educationalUse": "Course",
+  "isAccessibleForFree": true,
+  "learningResourceType": "Course",
+  "interactivityType": "mixed",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "timeRequired": "PT{{page.hours | plus:20}}H",
+  "description": "{{page.desc}}",
+  "name": "{{page.title}}",
+  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "public"
+  }
+  {% if page.datetimes.sections %}
+    , "hasCourseInstance": [
+      {% for section in page.datetimes.sections %}
+        {% unless forloop.first %},{% endunless %}
+        {
+          "@type": "CourseInstance",
+          "courseMode": "blended",
+          "name": "Web Dev {{include.id}}, Section {{section.title}}",
+          "description": "Class time for Web Dev {{include.id}} section {{section.title}} in room {{section.room}}",
+          "startDate": "{{page.datetimes.year}}-W{{page.datetimes.start_week}}",
+          "endDate": "{{page.datetimes.year}}-W{{page.datetimes.start_week | plus:14}}",
+          "duration": "PT3H",
+          "isAccessibleForFree": false,
+          "location": {
+            "@id": "#algonquin-address"
+          },
+          "instructor": {
+            "@id": "#{{page.prof.github}}"
+          }
+        }
+      {% endfor %}
+    ]
+  {% endif %}
+}

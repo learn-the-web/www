@@ -1,0 +1,49 @@
+[
+  {% assign duplicate_detector = "" %}
+
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thomas J Bradley",
+    "jobTitle": "Professor",
+    "memberOf": {
+      "@id": "#algonquin"
+    },
+    "description": "Thomas J Bradley, Professor of The Open Web, is in charge of developing & maintaining the Web Development courses in the Graphic Design program at Algonquin College",
+    "email": "thomas.bradley@algonquincollege.com",
+    "url": "https://thomasjbradley.ca"
+  }
+
+  {% for collection in site.collections %}
+    {% for doc in collection.docs %}
+      {% if doc.slug == "index" %}
+        {% if doc.prof.email %}
+          {% unless duplicate_detector contains doc.prof.email %}
+            {% capture duplicate_detector %}{{duplicate_detector}}|{{doc.prof.email}}{% endcapture %}
+
+            ,{
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "@id": "#{{doc.prof.github}}",
+              "name": "{{doc.prof.name}} {{doc.prof.family_name}}",
+              "jobTitle": "Professor",
+              "memberOf": {
+                "@id": "#algonquin"
+              },
+              "description": "{{doc.prof.name}} teaches in the Web Development courses of the Graphic Design program at Algonquin College"
+              {% if doc.prof.email %}
+                , "email": "{{doc.prof.email}}"
+              {% endif %}
+              {% if doc.prof.url %}
+                , "url": "{{doc.prof.url}}"
+              {% endif %}
+            }
+
+          {% endunless %}
+        {% endif %}
+
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+]

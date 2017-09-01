@@ -15,10 +15,15 @@ no_wrapper: true
     {% assign card_num=0 %}
     <ol class="list-group grid grid-bottom">
       {% for task in page.tasks %}
+        {% assign group_work=true %}
+        {% if forloop.first %}
+          {% assign group_work=false %}
+        {% endif %}
         <li class="unit [ xs-1 xs-1-2 m-1-3 l-1-5 ] gutter-1-4 pad-t pad-b-1-4">
           {% capture card_num %}{{card_num | plus:1}}{% endcapture %}
           {% include card.html data=task collection=page.collection num=card_num %}
         </li>
+        <script type="application/ld+json">{% include metadata/workshop-activity.json title=task.title url=task.url group_work=group_work %}</script>
       {% endfor %}
     </ol>
   </div>
@@ -83,3 +88,5 @@ no_wrapper: true
   </div>
 
 </main>
+
+<script type="application/ld+json">{% include metadata/workshop.json %}</script>

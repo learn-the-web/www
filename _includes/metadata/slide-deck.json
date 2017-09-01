@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "PresentationDigitalDocument",
+  "accessMode": "textual, visual",
+  "accessModeSufficient": "textual",
+  "accessibilityAPI": "ARIA",
+  "accessibilityControl": "fullKeyboardControl, fullMouseControl, fullTouchControl",
+  "accessibilityFeature": "alternativeText, highContrastDisplay, largePrint, readingOrder, structuralNavigation",
+  "accessibilityHazard": "noFlashingHazard, noSoundHazard",
+  "author": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightHolder": {
+    "@id": "#thomasjbradley"
+  },
+  "copyrightYear": "{{site.time | date:'%Y'}}",
+  "dateModified": "{{site.time}}",
+  "educationalAlignment": {
+    "@id": "#higher-education"
+  },
+  "educationalUse": "{% if page.group_work %}Activity{% else %}Lesson{% endif %}",
+  "isAccessibleForFree": true,
+  "learningResourceType": "{% if page.group_work %}Group work{% else %}Presentation{% endif %}",
+  "interactivityType": "{% if page.group_work %}active{% else %}expositive{% endif %}",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "timeRequired": "PT15M",
+  "description": "{{page.desc}}",
+  "name": "{{page.title}}",
+  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "isPartOf": {
+    "@id": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "public"
+  },
+  "hasDigitalDocumentPermission": {
+    "@type": "DigitalDocumentPermission",
+    "grantee": {
+      "@type": "Audience",
+      "audienceType": "public"
+    }
+  }
+}
