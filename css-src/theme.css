@@ -95,6 +95,14 @@ td, th {
   border-color: var(--color-grey-medium);
 }
 
+.table-no-borders td,
+.table-no-borders th {
+  padding-bottom: 0;
+  padding-top: 0;
+
+  border: 0;
+}
+
 [data-state="disabled"] {
   cursor: no-drop;
   opacity: .6;
