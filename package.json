@@ -3,6 +3,7 @@
   "private": true,
   "devDependencies": {
     "cssnano": "^3.7.3",
+    "html-minifier": "^3.5.3",
     "npm-run-all": "^4.0.2",
     "onchange": "^2.5.0",
     "postcss-assets": "^4.1.0",
@@ -23,7 +24,8 @@
   "scripts": {
     "start": "npm-run-all --parallel start-server watch-*",
     "start-server": "jekyll serve --incremental",
-    "build-site": "jekyll build",
+    "minify-site": "html-minifier --file-ext=html --input-dir=_site --output-dir=_site --config-file=.html-minifier.json",
+    "build-site": "jekyll build && npm run minify-site",
     "postcss": "postcss -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano --cssnano.safe",
     "build-css-main": "npm run postcss -- -o css/main.min.css css-src/main.css",
     "build-css-home": "npm run postcss -- -o css/main-home.min.css css-src/main-home.css",
@@ -44,9 +46,9 @@
     "build-js": "npm-run-all --parallel build-js-*",
     "watch-js": "onchange 'js-src/*.js' -- npm run build-js",
     "build": "npm run build-css && npm run build-js && npm run build-site",
-    "deploy:site": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",
-    "deploy:solutions": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/solutions/ thomasjbradley_acltwsolutions@nfsn:/home/protected/includes",
-    "deploy": "npm run deploy:site && npm run deploy:solutions",
+    "deploy-site": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/ keycdn:zones/learntheweb/",
+    "deploy-solutions": "rsync --archive --recursive --delete --delete-excluded --progress --compress --chmod=u=rwX,go=rX ./_site/solutions/ thomasjbradley_acltwsolutions@nfsn:/home/protected/includes",
+    "deploy": "npm run deploy-site && npm run deploy-solutions",
     "build-n-deploy": "npm run build && npm run deploy"
   }
 }
