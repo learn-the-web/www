@@ -71,8 +71,8 @@ skip_links: |
             <tr>
               <td colspan="9">
                 {% if page.datetimes.sections %}
-                  <a href="mailto:{{page.prof.email}}">{{page.prof.name}} {{page.prof.family_name}}</a>
-                  <a class="link-box-no-mark" href="{{page.prof.url}}" rel="external" title="Visit {{page.prof.name}}’s website" aria-label="Visit {{page.prof.name}}’s website"><i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i></a>
+                  <a class="href-no-print" href="mailto:{{page.prof.email}}">{{page.prof.name}} {{page.prof.family_name}}</a>
+                  <a class="link-box-no-mark no-print" href="{{page.prof.url}}" rel="external" title="Visit {{page.prof.name}}’s website" aria-label="Visit {{page.prof.name}}’s website"><i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i></a>
                 {% else %}
                   Self-directed
                 {% endif %}
@@ -398,7 +398,7 @@ skip_links: |
           </ul>
           <p><a href="https://www.algonquincollege.com/policies/policy/aa14-grading-system/" rel="external">Refer to Algonquin’s policy to learn how to calculate your grade point average.</a></p>
         </div>
-        <div class="grid">
+        <div class="grid push">
           <div class="unit [ xs-1 l-1-2 ] gutter-1-4">
             <div class="max-length">
               <h3>Grade designations</h3>
@@ -446,6 +446,9 @@ skip_links: |
             </div>
           </div>
         </div>
+        <div class="max-length gutter-1-4">
+          <p>Students are expected to meet evaluation and completion deadlines as stated in course outline and course section information documents. In circumstances where evaluation and/or completion deadlines are missed or student performance has been affected by a temporary or permanent disability (including mental health), interim or retroactive accommodations may be considered. In such instances, please consult your course faculty member. <a href="https://www.algonquincollege.com/policies/policy/aa21-deferred-evaluation/" rel="external">For other situations where deferral of evaluations may be warranted, please refer to college policy AA21.</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -483,6 +486,59 @@ skip_links: |
     </div>
   {% endif %}
 {% endunless %}
+
+<div class="section-muted pad-t-1-2 pad-b-1-4 gutter-1-4" id="vlo-ees-clr">
+  <hr class="hr-medium">
+  <div class="wrapper">
+    <h2 class="gutter-1-4 exa" data-control="details" data-controls="program-policies" tabindex="0">Program policies</h2>
+    <div class="gutter-1-4 milli force-print" id="program-policies">
+      <div class="max-length">
+        <h3>Respect for confidentiality</h3>
+        <p>Students are required to respect the confidentiality of employer and/or client information, interactions, and practices that occur either on Algonquin College premises, or at an affiliated field co-op placement site. Concerns regarding clients and/or employer practices are to be brought to the attention of the program coordinator, or designated co-op placement supervisor so that they may be resolved collaboratively. Such concerns are not to be raised publicly either verbally, in writing, or in electronic forums. These matters are to be addressed through established program communication pathways.</p>
+        <h3>Evaluation/earning credit</h3>
+        <p>In order to understand the importance of meeting deadlines in the field, students will be required to complete assignments and projects within a given period of time. Due to the nature of the Graphic Design industry, all late assignments, handed in within one hour after deadline (to be determined by the instructor), will be given an F (value of 0 - 49%). Any assignment handed in after these terms, not handed in (NHI) or Incomplete will be given a zero (0). For the students benefit, the work will be corrected and critiqued. Incomplete projects are projects that do not meet all the criteria set out by the instructor for that particular project.</p>
+        <h3>Grading</h3>
+        <p>Quizzes, tests, assignments, projects, will average out to 100% and will not separately account for more than 30%. Grades given out in class, will not be discussed in class at that time. A student who wishes to discuss or appeal the grading of any project, must make an appointment with their instructor at a convenient time for both student and instructor. Grades will only be reviewed and discussed with the instructor who has graded the project. Instructors not involved in the project or assignment will not discuss marking or grades with the student.</p>
+        <h3>Passing &amp; promotion</h3>
+        <p>The Graphic Design program uses two determinants for student advancement to the next level of their studies: one is a minimum passing grade and the the other is a minimum progression grade.</p>
+        <p>The achievement levels are as follows:</p>
+        <ul>
+          <li>Achieve a minimum passing grade of 50% (D-) in all courses across all levels</li>
+          <li>Achieve a minimum cumulative grade of 63% (C / 2.0)</li>
+        </ul>
+        <p>The passing grades will be calculated at the end of respective semester. Any students not meeting these minimum requirements will not be permitted to progress to the next level. Progression in the program also adheres to respective course pre- and co-requisites; students must meet the eligibility requirements for each course at every level. Pre- and co-requisite requirements can be found in the course outlines and in the course descriptions posted online. The Graphic Design program is integrated and most classes in the higher levels depend upon students having the skills and knowledge from courses taken in earlier semesters. Students cannot take these courses without the prerequisite.</p>
+        <h3>Projects</h3>
+        <p>All projects must be handed in according to individual instructors’ specifications. It is the responsibility of the student to get the correct submission instructions from their instructor, for each specific project.</p>
+        <h3>Plagiarism</h3>
+        <p>Plagiarism is the submission of work that is in whole or in part belonging to someone else that you claim as your own. <a href="https://www.algonquincollege.com/policies/policy/plagiarism/" rel="external">You should be aware of the College policy on plagiarism (AA20).</a> Plagiarism will result in disciplinary action by the School of Media and Design as well as a permanent mark on your college record.</p>
+        <h3>Attendance/lateness</h3>
+        <p>Students are expected to attend all scheduled classes. Attendance means arriving on time and staying for the entire class session. In order to succeed in your courses, your attendance and participation are essential. As a common courtesy, students unable to attend a class are asked to notify the instructor before the start of the class. If a student misses class time, they are responsible for getting missed information in that class and assumes all responsibility for any miscommunication that may arise in obtaining missed information and assignments outside of class time. No exceptions.</p>
+        <h3>Problems and complaints</h3>
+        <p>Any problems that arise about a course—for whatever reason—must be first taken up with the instructor of that course. An appointment must be made with that instructor outside of class time and discussed in private. An instructor must not be confronted with the problem during class time so that the class is not disrupted or confronted while the instructor is with another class. If the problem cannot be solved at that time, the student can then make an appointment with one of the Coordinators of the Graphic Design program. If the problem still cannot be resolved and this process has been followed, the student may then make an appointment with the Chair of Design Studies.</p>
+      </div>
+    </div>
+    <h2 class="gutter-1-4 exa" data-control="details" data-controls="college-policies" tabindex="0">College policies</h2>
+    <div class="gutter-1-4 milli force-print" id="college-policies">
+      <div class="max-length">
+        <h3>Email</h3>
+        <p>Algonquin College provides all full-time students with an e-mail account. This is the address that will be used when the College, your professors, or your fellow students communicate important information about your program or course events. It is your responsibility to ensure that you know how to send and receive e-mail using your Algonquin account and to check it regularly.</p>
+        <h3>Students with disabilities</h3>
+        <p>If you are a student with a disability, you are strongly encouraged to make an appointment at the Centre for Accessible Learning to identify your needs. Ideally, this should be done within the first month of your program, so that a Letter of Accommodation (LOA) can be provided to your professors. If you are a returning student, please ensure that professors are given a copy of your LOA each semester.</p>
+        <h3>Retroactive accommodations</h3>
+        <p>Students are expected to meet evaluation and completion deadlines as stated in course outline and course section information documents. In circumstances where evaluation and/or completion deadlines are missed or student performance has been affected by a temporary or permanent disability (including mental health), interim or retroactive accommodations may be considered. In such instances, please consult your course faculty member. For other situations where deferral of evaluations may be warranted, please refer to college policy AA21.</p>
+        <h3>Academic integrity &amp; plagiarism</h3>
+        <p>Adherence to acceptable standards of academic honesty is an important aspect of the learning process at Algonquin College. Academic work submitted by a student is evaluated on the assumption that the work presented by the student is their own, unless designated otherwise. <a href="https://www.algonquincollege.com/policies/policy/academic-discipline/" rel="external">For further details consult Algonquin College Policies AA18: Academic Dishonesty and Discipline and AA20: Plagiarism.</a></p>
+        <h3>Student course feedback</h3>
+        <p>It is Algonquin College’s policy to give students the opportunity to share their course experience by completing a student course feedback survey for each course they take. <a href="https://www.algonquincollege.com/policies/policy/course-assessment/" rel="external">For further details consult Algonquin College Policy AA25: Student Course Feedback.</a></p>
+        <h3>Use of electronic devices in class</h3>
+        <p>With the proliferation of small, personal electronic devices used for communications and data storage, Algonquin College believes there is a need to address their use during classes and examinations. During classes, the use of such devices is disruptive and disrespectful to others. During examinations, the use of such devices may facilitate cheating. <a href="https://www.algonquincollege.com/policies/policy/use-of-electronic-devices-in-the-academic-environment/" rel="external">For further details consult Algonquin College Policy AA32: Use of Electronic Devices in Class.</a></p>
+        <h3>Transfer of credit</h3>
+        <p>It is the student’s responsibility to retain course outlines for possible future use to support applications for transfer of credit to other educational institutions.</p>
+        <p><strong>It is the student’s responsibility to refer to the <a href="http://www.algonquincollege.com/policies/" rel="external">Algonquin College Policies website for the most current information.</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <nav class="section-muted-medium pad-t-1-2 pad-b-1-2 no-print">
   <div class="wrapper gutter-1-2">

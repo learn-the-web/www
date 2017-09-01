@@ -810,6 +810,7 @@ a:focus, [tabindex="0"]:focus {
 
   a[href^="#"]::after,
   a[href^="javascript:"]::after,
+  a.no-print-href::after,
   a.href-no-print::after {
     content: "";
   }
