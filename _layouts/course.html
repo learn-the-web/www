@@ -52,24 +52,57 @@ layout: basic-inside
 
 <div class="header header--light">
   <div class="wrapper gutter-1-2 pad-b">
-    <table class="table-no-borders push-0">
-      <thead>
-        <tr>
-          <th scope="col" colspan="8">Instructor</th>
-          <th scope="col" colspan="6">Course code</th>
-          <th scope="col" colspan="4">Class hours</th>
-          <th scope="col" colspan="6">Prerequisites</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td colspan="8">{{page.prof.name}} {{page.prof.family_name}}</td>
-          <td colspan="6">{{page.course_code}}</td>
-          <td colspan="4">{{page.hours}}</td>
-          <td colspan="6">{% if prev %}Web Dev {{prev}}{% else %}None{% endif %}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="grid">
+      <div class="unit [ xs-1 m-3-5 ]">
+        <table class="table-no-borders push-0">
+          <thead>
+            <tr>
+              <th scope="col" colspan="9">Instructor</th>
+              <th scope="col" colspan="7">Course code</th>
+              <th scope="col" colspan="8">Prerequisites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="9">
+                {% if page.datetimes.sections %}
+                  <a href="mailto:{{page.prof.email}}">{{page.prof.name}} {{page.prof.family_name}}</a>
+                  <a class="link-box-no-mark" href="{{page.prof.url}}" rel="external" title="Visit {{page.prof.name}}’s website" aria-label="Visit {{page.prof.name}}’s website"><i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i></a>
+                {% else %}
+                  Self-directed
+                {% endif %}
+              </td>
+              <td colspan="7">{{page.course_code}}</td>
+              <td colspan="8">
+                {% if page.prereq %}
+                  <a href="/courses/web-dev-{{page.prereq}}/">Web Dev {{page.prereq}}</a>
+                {% else %}
+                  {% if prev and prev != "-1" %}<a href="/courses/web-dev-{{prev}}/">Web Dev {{prev}}</a>{% else %}None{% endif %}
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="unit [ xs-1 m-2-5 ]">
+        <table class="table-no-borders push-0">
+          <thead>
+            <tr>
+              <th scope="col" colspan="8">Classes</th>
+              <th scope="col" colspan="8">Labs</th>
+              <th scope="col" colspan="8">Homework</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="8">{% if page.datetimes.sections %}{{page.hours}} h{% else %}None{% endif %}</td>
+              <td colspan="8">{% if page.datetimes.labs %}15 h{% else %}None{% endif %}</td>
+              <td colspan="8">~{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}} h{% endif %}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -171,7 +204,7 @@ layout: basic-inside
           {% capture week_time %}{{page.datetimes.year}}-W{{page.datetimes.start_week | plus: count}}{% endcapture %}
           {% capture count %}{{count | plus:1 }}{% endcapture %}
           <li class="push-1-2 no-page-break-inside">
-            <i class="week-list-icon icon i-48">
+            <i class="week-list-icon icon i-48" aria-label="Week {{count}}">
               <svg viewBox="0 0 256 256">
                 {% if week.disabled %}
                   <circle fill="#63666a" cx="128" cy="110" r="110" />
@@ -188,9 +221,15 @@ layout: basic-inside
                 <a href="{{week.url}}">{{week.topic}}</a>
               {% endif %}
             </h2>
-            {% if page.datetimes.sections %}
-              <time class="week-times week-list-times italic" datetime="{{week_time}}" hidden aria-hidden="true">{{week_time}}</time>
-            {% endif %}
+            <div class="color-grey-dark italic">
+              {% if page.datetimes.sections %}
+                <time class="week-times" datetime="{{week_time}}">{{week_time}}</time>
+                {% unless week.clr == "" %}—{% endunless %}
+              {% endif %}
+              {% unless week.clr == "" %}
+                <span>CLRs: {{week.clr}}</span>
+              {% endunless %}
+            </div>
             <p class="push-0">{{week.desc}}</p>
             <div class="week-list-tasks-group micro">
               {% if week.slides or week.group_activities %}
@@ -373,9 +412,9 @@ layout: basic-inside
               <table class="push-0">
                 <thead>
                   <tr>
-                    <th scope="row">Percent grade</th>
-                    <th scope="row">Letter grade</th>
-                    <th scope="row">Numeric grade</th>
+                    <th scope="col">Percent grade</th>
+                    <th scope="col">Letter grade</th>
+                    <th scope="col">Numeric grade</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -438,7 +477,7 @@ layout: basic-inside
 <nav class="section-muted-medium pad-t-1-2 pad-b-1-2 no-print">
   <div class="wrapper gutter-1-2">
     <ul class="list-group controls push-0">
-      {% if prev %}
+      {% if prev and page.self_directed != true %}
         <li class="controls-prev pad-t-1-4 pad-b-1-4">
           <a class="btn btn-muted" href="/courses/web-dev-{{prev}}/">
             <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
@@ -452,7 +491,7 @@ layout: basic-inside
           <span class="icon-label">Courses</span>
         </a>
       </li>
-      {% if next %}
+      {% if next and page.self_directed != true %}
         <li class="controls-next pad-t-1-4 pad-b-1-4">
           <a class="btn btn-muted" href="/courses/web-dev-{{next}}/">
             <span class="icon-label">Web Dev {{next}}</span>

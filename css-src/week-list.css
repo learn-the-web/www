@@ -13,10 +13,6 @@
   top: .3em;
 }
 
-.week-list-times {
-  color: var(--color-grey-dark);
-}
-
 .week-list-tasks > li::after {
   content: "·";
   display: inline-block;

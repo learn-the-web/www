@@ -28,7 +28,7 @@
   "learningResourceType": "Course",
   "interactivityType": "mixed",
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-  "timeRequired": "PT{{page.hours | plus:20}}H",
+  "timeRequired": "PT{{page.hours | plus:45}}H",
   "description": "{{page.desc}}",
   "name": "{{page.title}}",
   "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
