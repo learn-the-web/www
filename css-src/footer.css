@@ -29,6 +29,10 @@
   line-height: 1.5;
 }
 
+.copyright-bright {
+  color: color(var(--color-brand) saturation(-40%));
+}
+
 .footer [rel="license"] {
   white-space: nowrap;
 }
