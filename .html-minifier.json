@@ -8,7 +8,6 @@
     "application/ld+json"
   ],
   "quoteCharacter": "\"",
-  "removeAttributeQuotes": true,
   "removeComments": true,
   "removeEmptyAttributes": true,
   "removeRedundantAttributes": true,

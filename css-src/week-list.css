@@ -13,6 +13,22 @@
   top: .3em;
 }
 
+/*
+  Bug fix
+  Safari gets mad at the week list being `display: inline-block` after the HTML is minified
+  Switching it to `display: flex` seems to solve the problem
+*/
+
+.week-list-tasks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.week-list-tasks > li {
+  display: block;
+}
+
 .week-list-tasks > li::after {
   content: "·";
   display: inline-block;
@@ -24,7 +40,7 @@
 .week-list-tasks + .week-list-tasks-outside > li:first-child::before {
   content: "—";
   display: inline-block;
-  margin-left: .1em;
+  margin-left: 0;
   width: 1.4em;
 
   text-align: center;
