@@ -11,7 +11,10 @@
     },
     "description": "Thomas J Bradley, Professor of The Open Web, is in charge of developing & maintaining the Web Development courses in the Graphic Design program at Algonquin College",
     "email": "thomas.bradley@algonquincollege.com",
-    "url": "https://thomasjbradley.ca"
+    "url": "https://thomasjbradley.ca",
+    "sameAs": [
+      "https://github.com/thomasjbradley"
+    ]
   }
 
   {% for collection in site.collections %}
@@ -30,7 +33,10 @@
               "memberOf": {
                 "@id": "#algonquin"
               },
-              "description": "{{doc.prof.name}} teaches in the Web Development courses of the Graphic Design program at Algonquin College"
+              "description": "{{doc.prof.name}} teaches in the Web Development courses of the Graphic Design program at Algonquin College",
+              "sameAs": [
+                "https://github.com/{{doc.prof.github}}"
+              ]
               {% if doc.prof.email %}
                 , "email": "{{doc.prof.email}}"
               {% endif %}

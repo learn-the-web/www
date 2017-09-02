@@ -38,11 +38,20 @@
     "@type": "CollegeOrUniversity",
     "name": "Algonquin College Graphic Design",
     "image": "https://algonquindesign.ca/favicon-152.png",
+    "logo": "https://algonquindesign.ca/favicon-152.png",
     "url": "https://algonquindesign.ca",
     "description": "Ontario college graphic design diploma program teaching students up-to-date courses in print, mobile, web & motion.",
     "address": {
       "@id": "#algonquin-address"
-    }
+    },
+    "sameAs": [
+      "https://www.facebook.com/algonquindesign",
+      "https://twitter.com/algonquindesign",
+      "https://youtube.com/algonquindesignca",
+      "https://www.behance.net/algonquindesign",
+      "http://www.linkedin.com/groups?gid=7434225",
+      "https://algonquindesign.github.io/"
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -50,11 +59,20 @@
     "@id": "#algonquin",
     "name": "Algonquin College Graphic Design",
     "image": "https://algonquindesign.ca/favicon-152.png",
+    "logo": "https://algonquindesign.ca/favicon-152.png",
     "url": "https://algonquindesign.ca",
     "description": "Ontario college graphic design diploma program teaching students up-to-date courses in print, mobile, web & motion.",
     "address": {
       "@id": "#algonquin-address"
-    }
+    },
+    "sameAs": [
+      "https://www.facebook.com/algonquindesign",
+      "https://twitter.com/algonquindesign",
+      "https://youtube.com/algonquindesignca",
+      "https://www.behance.net/algonquindesign",
+      "http://www.linkedin.com/groups?gid=7434225",
+      "https://algonquindesign.github.io/"
+    ]
   },
   {
     "@context": "https://schema.org",

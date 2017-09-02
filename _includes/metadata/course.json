@@ -18,6 +18,9 @@
   "copyrightHolder": {
     "@id": "#thomasjbradley"
   },
+  "provider": {
+    "@id": "#algonquin"
+  },
   "copyrightYear": "{{site.time | date:'%Y'}}",
   "dateModified": "{{site.time}}",
   "educationalAlignment": {
