@@ -69,6 +69,15 @@ a:not([href]),
   border-color: var(--color-grey-dark);
 }
 
+.link-body-color {
+  border-color: rgba(51, 51, 51, .3);
+  color: #333;
+}
+
+.link-body-color:hover {
+  border-color: #333;
+}
+
 hr {
   border-color: var(--color-grey-light);
   border-width: 3px;
@@ -146,15 +155,6 @@ td, th {
 
 .header--light {
   background-color: var(--color-brand-light);
-}
-
-.header--light a {
-  border-color: rgba(51, 51, 51, .4);
-  color: #333;
-}
-
-.header--light a:hover {
-  border-color: #333;
 }
 
 .intro {

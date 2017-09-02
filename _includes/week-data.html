@@ -12,7 +12,7 @@
 {% endif %}
 
 {% if include.data.prof %}
-  <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}@ {{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
+  <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a class="link-body-color" href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}@ {{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
   {% if include.data.prof.hours %}
     {% if include.no_office_hours %}
       <p><em>No office hours this week.</em></p>
@@ -48,7 +48,7 @@
 {% if include.data.prof %}
   <h3 class="mega push-0" tabindex="0">
     <span>Get help — </span>
-    <a class="icon-link not-bold" href="/topics/troubleshooting-checklist/">
+    <a class="link-body-color icon-link not-bold" href="/topics/troubleshooting-checklist/">
       <i class="icon i-16"><svg><use xlink:href="#icon-bug"></use></svg></i>
       <span class="icon-label">Troubleshooting checklist</span>
     </a>
