@@ -69,12 +69,15 @@ a:not([href]),
   border-color: var(--color-grey-dark);
 }
 
-.link-body-color {
+.link-body-color,
+.link-body-color .icon-label {
   border-color: rgba(51, 51, 51, .3);
   color: #333;
 }
 
-.link-body-color:hover {
+.link-body-color:hover,
+.link-body-color:hover .icon-label {
+  border-color: rgba(51, 51, 51, .3);
   border-color: #333;
 }
 

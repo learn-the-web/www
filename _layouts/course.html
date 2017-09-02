@@ -72,7 +72,7 @@ skip_links: |
               <td colspan="9">
                 {% if page.datetimes.sections %}
                   <a class="link-body-color href-no-print" href="mailto:{{page.prof.email}}">{{page.prof.name}} {{page.prof.family_name}}</a>
-                  <a class="link-box-no-mark no-print" href="{{page.prof.url}}" rel="external" title="Visit {{page.prof.name}}’s website" aria-label="Visit {{page.prof.name}}’s website"><i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i></a>
+                  <a class="link-body-color link-box-no-mark no-print" href="{{page.prof.url}}" rel="external" title="Visit {{page.prof.name}}’s website" aria-label="Visit {{page.prof.name}}’s website"><i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i></a>
                 {% else %}
                   Self-directed
                 {% endif %}
@@ -82,7 +82,7 @@ skip_links: |
                 {% if page.prereq %}
                   <a href="/courses/web-dev-{{page.prereq}}/">Web Dev {{page.prereq}}</a>
                 {% else %}
-                  {% if prev and prev != "-1" %}<a href="/courses/web-dev-{{prev}}/">Web Dev {{prev}}</a>{% else %}None{% endif %}
+                  {% if prev and prev != "-1" %}<a class="link-body-color" href="/courses/web-dev-{{prev}}/">Web Dev {{prev}}</a>{% else %}None{% endif %}
                 {% endif %}
               </td>
             </tr>
