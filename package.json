@@ -26,7 +26,7 @@
     "start-server": "jekyll serve --incremental",
     "minify-site": "html-minifier --file-ext=html --input-dir=_site --output-dir=_site --config-file=.html-minifier.json",
     "build-site": "jekyll build && npm run minify-site",
-    "postcss": "postcss -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano --cssnano.safe",
+    "postcss": "postcss --no-maps -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano --cssnano.safe",
     "build-css-main": "npm run postcss -- -o css/main.min.css css-src/main.css",
     "build-css-home": "npm run postcss -- -o css/main-home.min.css css-src/main-home.css",
     "build-css-topics": "npm run postcss -- -o css/main-topics.min.css css-src/main-topics.css",
