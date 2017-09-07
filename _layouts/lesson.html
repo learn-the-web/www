@@ -286,6 +286,18 @@ skip_links: |
                 </ol>
               </div>
             {% endif %}
+            {% if step.tasks %}
+              <div class="mega gutter-1-4 lesson-body-text">
+                <ul class="list-group cheat-list push">
+                  {% for item in step.tasks %}
+                    <li class="checklist-details">
+                      <input class="check-box visually-hidden" type="checkbox" id="{{step.title | slugify}}-{{item | slugify}}-{{forloop.index}}">
+                      <label class="check-label" for="{{step.title | slugify}}-{{item | slugify}}-{{forloop.index}}">{{item | markdownify}}</label>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
             {% if step.after %}
               <div class="mega gutter-1-4 lesson-body-text">{{step.after | markdownify}}</div>
             {% endif %}
