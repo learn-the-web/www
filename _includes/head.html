@@ -10,7 +10,13 @@
 <link href="/fonts/sourcecodepro-bold.woff" rel="preload" as="font">
 <link href="/css/main.min.css?v={{site.version}}" rel="stylesheet">
 <meta name="application-name" content="Learn the Web">
-<link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
+{% if page.favicon or layout.favicon %}
+  <link rel="apple-touch-icon-precomposed" href="{{page.favicon}}{{layout.favicon}}">
+{% elsif page.collection and page.collection != 'topics' %}
+  <link rel="apple-touch-icon-precomposed" href="{{page_data.permalink | replace: '/:path/', ''}}/favicon-152.png">
+{% else %}
+  <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
+{% endif %}
 <meta name="msapplication-TileImage" content="/favicon-144.png">
 <meta name="msapplication-TileColor" content="#00deae">
 <link rel="profile" href="http://osprotocol.com">
