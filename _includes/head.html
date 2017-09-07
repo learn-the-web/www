@@ -1,27 +1,64 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
+
+{% capture the_title %}
+  {% if page.title %}
+    {{page.title}}
+    {% if page.collection and page_data.title != page.title %} · {{page_data.title}}{% endif %}
+  {% else %}
+    {% if details.title %}{{details.title}}{% endif %}
+    {% if include.title %}{{include.title}}{% endif %}
+  {% endif %}
+  · Learn the Web
+{% endcapture %}
+
+{% capture the_favicon %}
+  {% if page.favicon or layout.favicon %}
+    {{page.favicon}}{{layout.favicon}}
+  {% elsif page.collection and page.collection != 'topics' %}
+    {{page_data.permalink | replace: '/:path/', ''}}/favicon-152.png
+  {% else %}
+    /favicon-152.png
+  {% endif %}
+{% endcapture %}
+
 <meta charset="utf-8">
-<title>{% if page.title %}{{page.title}}{% if page.collection and page_data.title != page.title %} · {{page_data.title}}{% endif %}{% else %}{% if details.title %}{{details.title}}{% endif %}{% if include.title %}{{include.title}}{% endif %}{% endif %} · Learn the Web</title>
-<meta name="description" content="{% if page.desc %}{{page.desc}}{% else %}{{details.desc}}{% endif %}">
+
+<title>{{the_title | strip | strip_newlines | replace: '  ': ' ' | replace: '  ': ' ' | replace: '  ': ' '}}</title>
+<meta name="description" content="{% if page.desc %}{{page.desc | strip | strip_newlines}}{% else %}{{details.desc | strip | strip_newlines}}{% endif %}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="manifest" href="/manifest.json">
+
 <link href="/fonts/alegreyasans-regular.woff" rel="preload" as="font">
 <link href="/fonts/alegreyasans-italic.woff" rel="preload" as="font">
 <link href="/fonts/alegreyasans-bold.woff" rel="preload" as="font">
 <link href="/fonts/sourcecodepro-regular.woff" rel="preload" as="font">
 <link href="/fonts/sourcecodepro-bold.woff" rel="preload" as="font">
 <link href="/css/main.min.css?v={{site.version}}" rel="stylesheet">
-<meta name="application-name" content="Learn the Web">
-{% if page.favicon or layout.favicon %}
-  <link rel="apple-touch-icon-precomposed" href="{{page.favicon}}{{layout.favicon}}">
-{% elsif page.collection and page.collection != 'topics' %}
-  <link rel="apple-touch-icon-precomposed" href="{{page_data.permalink | replace: '/:path/', ''}}/favicon-152.png">
-{% else %}
-  <link rel="apple-touch-icon-precomposed" href="/favicon-152.png">
-{% endif %}
+
+<link rel="apple-touch-icon-precomposed" href="{{the_favicon | strip | strip_newlines}}">
 <meta name="msapplication-TileImage" content="/favicon-144.png">
 <meta name="msapplication-TileColor" content="#00deae">
+
 <link rel="profile" href="http://osprotocol.com">
 <meta property="os:repo" content="https://github.com/acgd-learn-the-web">
 <meta property="os:rcs_type" content="git">
 <meta property="os:src" content="git@github.com:acgd-learn-the-web/topics.git">
 <meta property="os:issue" content="https://github.com/acgd-learn-the-web/topics/issues">
-<link rel="manifest" href="/manifest.json">
+
+<meta name="application-name" content="Learn the Web">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_CA">
+<meta property="og:title" content="{{the_title | strip | strip_newlines | replace: '  ': ' ' | replace: '  ': ' ' | replace: '  ': ' '}}">
+<meta property="og:url" content="https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}">
+<meta property="og:image" content="https://learn-the-web.algonquindesign.ca{{the_favicon | strip | strip_newlines}}">
+<meta property="og:site_name" content="Learn the Web">
+<meta property="og:description" content="{% if page.desc %}{{page.desc | strip | strip_newlines}}{% else %}{{details.desc | strip | strip_newlines}}{% endif %}">
+<meta property="og:updated_time" content="{{ site.time | date: '%F %R' }} UTC">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@algonquindesign">
+<meta name="twitter:title" content="{{the_title | strip | strip_newlines | replace: '  ': ' ' | replace: '  ': ' ' | replace: '  ': ' '}}">
+<meta name="twitter:url" content="https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}">
+<meta name="twitter:description" content="{% if page.desc %}{{page.desc | strip | strip_newlines}}{% else %}{{details.desc | strip | strip_newlines}}{% endif %}">
+<meta name="twitter:image" content="https://learn-the-web.algonquindesign.ca{{the_favicon | strip | strip_newlines}}">
