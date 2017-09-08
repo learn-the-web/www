@@ -2,6 +2,7 @@
   "name": "Learn The Web",
   "short_name": "LearnTheWeb",
   "description": "A complete and logical web development series of tutorials and videos for graphic designers.",
+  "categories": ["education"],
   "lang": "en-CA",
   "start_url": "/",
   "display": "minimal-ui",
