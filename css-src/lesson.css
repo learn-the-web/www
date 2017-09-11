@@ -241,14 +241,14 @@
 }
 
 .extra-tutorials {
-  background-color: var(--color-brand-dark);
+  background-color: var(--color-brand-dark-lightened);
   border-bottom: 0;
 
   color: #fff;
 }
 
 .extra-tutorials-sidebar {
-  background-color: var(--color-brand-dark-lightened);
+  background-color: var(--color-brand-dark-semi-lightened);
 }
 
 .extra-tutorials .lesson-body {

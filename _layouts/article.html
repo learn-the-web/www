@@ -39,7 +39,7 @@ skip_links: |
       <meta itemprop="name" content="{{page.title}}">
       <meta itemprop="description" content="{{page.desc}}">
       <meta itemprop="thumbnailUrl" content="https://learn-the-web.algonquindesign.ca/images/video-thumbnail.png">
-      <meta itemprop="uploadDate" content="{{site.time}}">
+      <meta itemprop="uploadDate" content="{{page.last_modified_at | date_to_xmlschema}}">
       <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
       {% if page.video %}
@@ -93,7 +93,7 @@ skip_links: |
   </div>
 
   <div class="grid wrapper relative gutter-1-2">
-    <div class="unit [ xs-1 s-1 m-1 l-1-4 ] {% if !page.livewebsite or page.download or page.github %}pad-t-1-2{% endif %} push">
+    <div class="unit [ xs-1 s-1 m-1 l-1-4 ] {% unless page.livewebsite or page.download or page.github or page.tool or page.checklist or page.cheatsheet %}pad-t-1-2{% endunless %} push">
       <ul class="downloads list-group grid push-1-2" id="resources">
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">

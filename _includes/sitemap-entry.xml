@@ -1,5 +1,6 @@
 <url>
   <loc>http://learn-the-web.algonquindesign.ca{{include.entry.url | replace: 'index.html', ''}}</loc>
+  <lastmod>{{include.entry.last_modified_at | date_to_xmlschema}}</lastmod>
   {% if include.entry.changefreq %}
     <changefreq>{{include.entry.changefreq}}</changefreq>
   {% endif %}

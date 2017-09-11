@@ -15,6 +15,11 @@
 
   <div class="slide-deck-masthead-top push">
     {% include masthead-micro.html %}
+    <div class="gutter-1-2 pad-t-1-2 pad-b-1-2 header-light">
+      <div class="wrapper">
+        <p class="mega push-0">{{page.desc}}</p>
+      </div>
+    </div>
   </div>
 
   {% if site.collections_workshops contains page.collection %}
@@ -135,7 +140,14 @@
 
   <div class="slide-deck-masthead-bottom">
     {% include masthead-micro.html no_wrapper=true %}
+    <div class="grid grid-middle gutter-1-2 pad-t-1-2 pad-b-1-2 header-light">
+      <div class="unit [ xs-1 m-1-2 l-2-5 unit-offset-l-1-5 ]">
+        <p class="mega push-0">{{page.desc}}</p>
+      </div>
+    </div>
   </div>
+
+  <div class="slide-deck-footer">{% include footer.html no-wrapper=true %}</div>
 
   <script>{% include fontfaceobserver.js %}</script>
   <script>{% include alegreya-observer.min.js %}</script>

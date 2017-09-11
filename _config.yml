@@ -1,4 +1,7 @@
-version: 105
+version: 106
+
+plugins:
+  - jekyll-last-modified-at
 
 permalink: pretty
 highlighter: none

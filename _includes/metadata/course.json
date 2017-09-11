@@ -21,8 +21,8 @@
   "provider": {
     "@id": "#algonquin"
   },
-  "copyrightYear": "{{site.time | date:'%Y'}}",
-  "dateModified": "{{site.time}}",
+  "copyrightYear": "{{page.last_modified_at | date:'%Y'}}",
+  "dateModified": "{{page.last_modified_at | date_to_xmlschema}}",
   "educationalAlignment": {
     "@id": "#higher-education"
   },
