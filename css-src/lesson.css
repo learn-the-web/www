@@ -421,8 +421,12 @@
 }
 
 .yellow-sticky {
-  background-color: #FFD30D;
+  background-color: #ffd30d;
+  color: #333;
+}
 
+.green-sticky {
+  background-color: #58d439;
   color: #333;
 }
 
