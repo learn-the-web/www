@@ -169,7 +169,7 @@ skip_links: |
         {% assign step_count = forloop.index %}
         {% assign step_count_even = forloop.index | modulo:2 %}
         <section class="lesson-step grid grid-stretch" data-total="{{forloop.rindex | plus:1}}">
-          <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last and page.hide_markbot %}lesson-body-last{% endif %}">
+          <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last and page.hide_markbot %}lesson-body-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-body-last{% endif %}">
             <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}">
               <i class="lesson-step-num icon i-48">
                 {% if page.pair %}
@@ -302,7 +302,7 @@ skip_links: |
               <div class="mega gutter-1-4 lesson-body-text">{{step.after | markdownify}}</div>
             {% endif %}
           </div>
-          <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %}">
+          <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-notes-last{% endif %}">
             {% if step.notes or step.lines or step.multi_code[0].lines or step.multi_code[1].lines %}
               <ol class="lesson-note-list list-group">
                 {% for note in step.notes %}
@@ -336,8 +336,8 @@ skip_links: |
         {% if forloop.last %}
 
           {% unless page.hide_markbot %}
-            <section class="lesson-step grid grid-stretch">
-              <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last">
+            <section class="lesson-step grid grid-stretch {% if page.markbot_submit %}lesson-step-final{% endif %}">
+              <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last {% if page.markbot_submit %}lesson-body-final{% endif %}">
                 <h2 class="lesson-title zetta push-1-4">
                   <i class="lesson-step-num lesson-step-markbot icon i-48">
                     <svg viewBox="0 0 256 256">
@@ -354,19 +354,28 @@ skip_links: |
                       </g>
                     </svg>
                   </i>
-                  Drop it into Markbot
+                  Drop it into Markbot{% if page.markbot_submit %} & submit{% endif %}
                 </h2>
                 <div class="mega lesson-body-text">
                   <p>Drop the final, coded exercise into Markbot and fix all the errors until Markbot gives you all green.</p>
                   {% if page.markbot_notes %}{{page.markbot_notes | markdownify}}{% endif %}
-                  <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
+                  {% if page.markbot_submit %}
+                    <p><strong>After you’ve fixed all the problems, go ahead and submit the assignment. You’ll immediately get your grade.</strong></p>
+                  {% else %}
+                    <p><strong>Be sure to keep the green check open to show the teacher!</strong></p>
+                  {% endif %}
                 </div>
               </div>
-              <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-last">
+              <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-last {% if page.markbot_submit %}lesson-notes-final{% endif %}">
                 <ol class="lesson-note-list list-group">
                   <li class="lesson-note">
-                    <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Can’t submit</h3>
-                    <div class="gutter-1-2 italic">Markbot won’t let you submit this exercise because it’s getting checked by the teacher during class.</div>
+                    {% if page.markbot_submit %}
+                      <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2">Submit</h3>
+                      <div class="gutter-1-2 italic">Whenever you’ve passed all Markbot’s specific tests go ahead and submit this lesson for marks.</div>
+                    {% else %}
+                      <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">Can’t submit</h3>
+                      <div class="gutter-1-2 italic">Markbot won’t let you submit this exercise because it’s getting checked by the teacher during class.</div>
+                    {% endif %}
                   </li>
                 </ol>
               </div>
