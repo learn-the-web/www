@@ -358,6 +358,7 @@
     $viewer.removeAttribute('hidden', 'true');
     $viewer.setAttribute('aria-hidden', 'false');
     document.querySelector('html').style.overflow = 'hidden';
+    window.scrollTo(0, 0);
     $assignmentWrapper.focus();
   };
 
