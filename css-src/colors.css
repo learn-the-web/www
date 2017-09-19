@@ -66,3 +66,13 @@
   background-color: var(--color-brand-dark-semi-lightened);
   color: #fff;
 }
+
+.section-brand-dark-semi-lightened a {
+  border-color: rgba(255, 255, 255, .5);
+  color: #fff;
+}
+
+.section-brand-dark-semi-lightened a:hover,
+.section-brand-dark-semi-lightened a:focus {
+  border-color: #fff;
+}

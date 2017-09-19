@@ -209,6 +209,10 @@ nav a:focus {
     text-align: right;
   }
 
+  .m-right {
+    text-align: right;
+  }
+
 }
 
 @media only screen and (min-width: 60em) {
