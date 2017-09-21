@@ -14,7 +14,6 @@
       "thumbnailURL": "https://learn-the-web.algonquindesign.ca/images/channel-intro-video.jpg",
       "embedUrl": "https://www.youtube.com/embed/c26Wbq99Ebw"
     },
-    "dateModified": "{{site.time | date_to_xmlschema}}",
     "copyrightYear": "{{site.time | date:'%Y'}}",
     "keywords": "web, design, html, css, course, lessons, graphic design, development, javascript, jekyll, code, learn",
     "author": {
