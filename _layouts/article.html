@@ -39,7 +39,7 @@ skip_links: |
       <meta itemprop="name" content="{{page.title}}">
       <meta itemprop="description" content="{{page.desc}}">
       <meta itemprop="thumbnailUrl" content="https://learn-the-web.algonquindesign.ca/images/video-thumbnail.png">
-      <meta itemprop="uploadDate" content="{{page.last_modified_at | date_to_xmlschema}}">
+      <meta itemprop="uploadDate" content="{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}">
       <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
       {% if page.video %}

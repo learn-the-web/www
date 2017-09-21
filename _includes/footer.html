@@ -36,7 +36,7 @@
         </li>
       </ul>
       <div class="footer-links">
-        <p class="copyright micro push-1-2 italic">Last updated — <a href="https://github.com/acgd-learn-the-web/www/commits/master" rel="external">{{ page.last_modified_at | date: "%F %R" }} UTC</a></p>
+        <p class="copyright micro push-1-2 italic">Last updated — <a href="https://github.com/acgd-learn-the-web/www/commits/master" rel="external">{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}</a></p>
       </div>
     </div>
     <div class="unit [ xs-1 s-1 m-3-5 unit-pull-m-2-5 l-3-5 ]">

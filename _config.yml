@@ -1,8 +1,5 @@
 version: 108
 
-plugins:
-  - jekyll-last-modified-at
-
 permalink: pretty
 highlighter: none
 

@@ -54,7 +54,7 @@
 <meta property="og:image" content="https://learn-the-web.algonquindesign.ca{{the_favicon | strip | strip_newlines}}">
 <meta property="og:site_name" content="Learn the Web">
 <meta property="og:description" content="{% if page.desc %}{{page.desc | strip | strip_newlines}}{% else %}{{details.desc | strip | strip_newlines}}{% endif %}">
-<meta property="og:updated_time" content="{{page.last_modified_at | date_to_xmlschema}}">
+<meta property="og:updated_time" content="{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@algonquindesign">
