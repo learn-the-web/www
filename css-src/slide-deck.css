@@ -242,8 +242,17 @@ iframe {
   display: block;
 }
 
+.slide-notes pre,
 .slide-notes code {
   background-color: rgba(255, 255, 255, .2);
+}
+
+.slide-notes pre::after {
+  display: none;
+}
+
+.slide-notes pre code {
+  background-color: transparent;
 }
 
 .slide-notes a {
