@@ -1,16 +1,14 @@
 {% for check in include.groups %}
   <section class="unit [ xs-1 s-1 m-1-2 l-1-3 ] gutter-1-2">
-    {% if check.full or check.note %}
+    {% if check.full or check.note or check.notes %}
       <h2 class="mega push-0" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</h2>
       {% if check.full %}
         <div class="block push">
           <a href="/topics/{{check.full}}/"><em>Full checklist for {{check.title}}</em></a>
         </div>
       {% endif %}
-      {% if check.note %}
-        <div class="block push">
-          <em>{{check.note}}</em>
-        </div>
+      {% if check.note or check.notes %}
+        <div class="block push italic">{{check.note | markdownify}}{{check.notes | markdownify}}</div>
       {% endif %}
     {% else %}
       <h2 class="mega" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</h2>

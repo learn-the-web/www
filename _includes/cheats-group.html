@@ -1,8 +1,8 @@
 {% for cheat in include.groups %}
   <section class="cheat-section push">
-    {% if cheat.note %}
+    {% if cheat.note or cheat.notes %}
       <h2 class="mega gutter-1-2 push-0" id="{{cheat.title | slugify}}" tabindex="0">{{cheat.title}}</h2>
-      <em class="block gutter-1-2 push">{{cheat.note | markdownify}}</em>
+      <div class="block gutter-1-2 push italic">{{cheat.note | markdownify}}{{cheat.notes | markdownify}}</div>
     {% else %}
       <h2 class="mega gutter-1-2" id="{{cheat.title | slugify}}" tabindex="0">{{cheat.title}}</h2>
     {% endif %}
