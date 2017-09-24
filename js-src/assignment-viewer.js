@@ -266,6 +266,22 @@
     });
   };
 
+  var showInteractionVideo = function () {
+    var allLis = document.querySelectorAll('h2 ~ ul > li');
+
+    [].forEach.call(allLis, function (li) {
+
+      if (/^watch.*video.*interacts/i.test(li.textContent.trim())) {
+        var theUrl = li.querySelector('a').href;
+        var theVideoId = theUrl.trim().replace(/\/$/, '').split('/').pop();
+        var videoEmbedSource = '<div class="embed embed-16by9 push"><iframe class="embed-item" src="https://www.youtube.com/embed/{{id}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe></div>';
+        var videoEmbed = videoEmbedSource.replace(/\{\{id\}\}/, theVideoId);
+
+        li.parentNode.insertAdjacentHTML('afterend', videoEmbed);
+      }
+    });
+  };
+
   var convertTaskLists = function () {
     var lists = document.querySelectorAll('.assignment-content ul');
 
@@ -317,6 +333,7 @@
 
     showContent(readme.html);
     if (screenshots) showScreenshot(screenshots);
+    showInteractionVideo();
     convertTaskLists()
     createColorPalette();
     hideLoaders();
