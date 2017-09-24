@@ -220,8 +220,16 @@ iframe {
 .slide .slide-countdown {
   appearance: none;
 
-  font-size: 14rem;
+  font-size: 6rem;
   line-height: 1;
+}
+
+@media only screen and (min-width: 60em) {
+
+  .slide .slide-countdown {
+    font-size: 14rem;
+  }
+
 }
 
 .hide-show-control {
