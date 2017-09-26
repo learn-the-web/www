@@ -72,12 +72,20 @@ skip_links: |
             <div class="mega gutter-1-4 lesson-body-text">
               {% if page.goal.before %}
                 {{page.goal.before | markdownify}}
-                {% if page.goal.no_image != true %}
+                {% unless page.goal.no_image %}
+                  <p><em>This is what it should look like when it’s done:</em></p>
+                {% endunless %}
+                {% if page.goal.video %}
                   <p><em>This is what it should look like when it’s done:</em></p>
                 {% endif %}
               {% endif %}
-              {% if page.goal.no_image != true %}
+              {% unless page.goal.no_image %}
                 <img itemprop="image" src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
+              {% endunless %}
+              {% if page.goal.video %}
+                <video controls muted loop class="push">
+                  <source src="{{page.goal.video}}" type="video/mp4">
+                </video>
               {% endif %}
             </div>
           </div>
