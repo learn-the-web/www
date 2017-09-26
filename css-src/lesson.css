@@ -27,7 +27,8 @@
   max-width: 30em;
 }
 
-.lesson-body-text img {
+.lesson-body-text img,
+.lesson-body-text video {
   display: block;
   margin-left: calc((48px + .4rem) * -1);
   width: 100vw;
@@ -440,7 +441,8 @@
     border-bottom: 0;
   }
 
-  .lesson-body-text img {
+  .lesson-body-text img,
+  .lesson-body-text video {
     width: calc(100vw - (100vw / 3));
   }
 
