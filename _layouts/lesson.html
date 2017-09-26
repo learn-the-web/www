@@ -83,7 +83,7 @@ skip_links: |
                 <img itemprop="image" src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
               {% endunless %}
               {% if page.goal.video %}
-                <video controls muted loop class="push">
+                <video controls muted loop class="push" preload="metadata" playsinline>
                   <source src="{{page.goal.video}}" type="video/mp4">
                 </video>
               {% endif %}
@@ -311,7 +311,7 @@ skip_links: |
             {% endif %}
             {% if step.after_video %}
               <div class="mega gutter-1-4 lesson-body-text">
-                <video controls muted loop class="push">
+                <video controls muted loop class="push" preload="metadata" playsinline>
                   <source src="{{step.after_video}}" type="video/mp4">
                 </video>
               </div>
