@@ -8,7 +8,7 @@
     {% endif %}
     <ul class="grid list-group cheat-list">
       {% for item in cheat.items %}
-        <li class="unit [ xs-1 s-1 m-1-2 l-1-3 ] gutter-1-2" {% unless item.name != '' %}aria-hidden="true"{% endunless %}>
+        <li class="unit [ xs-1 s-1 m-1-2 {% if item.width == 'double' %}l-2-3{% else %}l-1-3{% endif %} ] gutter-1-2" {% unless item.name != '' %}aria-hidden="true"{% endunless %}>
           {% if item.name %}
             <div class="cheat-head" tabindex="0">{{item.name | markdownify}}</div>
           {% endif %}
