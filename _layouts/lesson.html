@@ -83,8 +83,9 @@ skip_links: |
                 <img itemprop="image" src="{{page.goal.image | default: 'goal.jpg' }}" alt="">
               {% endunless %}
               {% if page.goal.video %}
-                <video controls muted loop class="push" preload="metadata" playsinline>
+                <video {% if page.goal.video_poster %}poster="{{page.goal.video_poster}}"{% endif %} controls muted loop class="push" preload="metadata" playsinline>
                   <source src="{{page.goal.video}}" type="video/mp4">
+                  {% if page.goal.video_poster %}<img src="{{page.goal.video_poster}}" alt="">{% endif %}
                 </video>
               {% endif %}
             </div>
