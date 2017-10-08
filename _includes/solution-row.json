@@ -1,5 +1,5 @@
-{
+{% unless include.is_first %},{% endunless %}{
   "week": "{{include.week}}",
   "title": "{{include.title}}",
   "slug": "{{include.slug}}"
-},
+}
