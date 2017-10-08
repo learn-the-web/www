@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <div class="embed embed-16by9">
-    <iframe class="embed-item" src="https://www.youtube.com/embed/{{include.data.video}}" frameborder="0" allowfullscreen></iframe>
-  </div>
+  <video class="w-1" {% if include.data.poster %}poster="{{include.data.poster}}"{% endif %} controls muted loop preload="metadata" playsinline>
+    <source src="{{include.data.video}}" type="video/mp4">
+    {% if include.data.poster %}<img src="{{include.data.poster}}" alt="">{% endif %}
+  </video>
 </div>
