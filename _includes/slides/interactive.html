@@ -10,7 +10,7 @@
     {% endif %}
     {% if include.data.svg %}
       <span class="slide-code-label">SVG</span>
-      <pre class="language-xml" data-line="{% if include.data.svg_lines[0] %}{% for line in include.data.js_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.js_lines}}{% endif %}"><code class="language-xml">{{include.data.svg | xml_escape}}</code></pre>
+      <pre class="language-xml" data-line="{% if include.data.svg_lines[0] %}{% for line in include.data.svg_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.svg_lines}}{% endif %}"><code class="language-xml">{{include.data.svg | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.css %}
       <span class="slide-code-label">CSS</span>

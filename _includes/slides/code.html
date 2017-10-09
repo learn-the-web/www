@@ -22,6 +22,10 @@
         <span class="slide-code-label">HTML</span>{% if include.data.html_file %} <samp>{{include.data.html_file}}</samp>{% endif %}
         <pre class="language-html" data-line="{% if include.data.html_lines[0] %}{% for line in include.data.html_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.html_lines}}{% endif %}"><code class="language-html">{{include.data.html | xml_escape}}</code></pre>
       {% endif %}
+      {% if include.data.svg %}
+        <span class="slide-code-label">HTML</span>{% if include.data.svg_file %} <samp>{{include.data.svg_file}}</samp>{% endif %}
+        <pre class="language-svg" data-line="{% if include.data.svg_lines[0] %}{% for line in include.data.svg_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.svg_lines}}{% endif %}"><code class="language-xml">{{include.data.svg | xml_escape}}</code></pre>
+      {% endif %}
       {% if include.data.css %}
         <span class="slide-code-label">CSS</span>{% if include.data.css_file %} <samp>{{include.data.css_file}}</samp>{% endif %}
         <pre class="language-css" data-line="{% if include.data.css_lines[0] %}{% for line in include.data.css_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.css_lines}}{% endif %}"><code class="language-css">{{include.data.css | xml_escape}}</code></pre>
