@@ -310,7 +310,7 @@ iframe {
 }
 
 .slide-notes-code-line:last-child :last-child {
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
 @media only screen and (min-width: 60em) {
