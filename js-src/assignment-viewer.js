@@ -135,6 +135,9 @@
 
     try {
       screensJson = JSON.parse(data);
+      // Attempts to capture the 'after' screenshots instead of before
+      // because they’re much more interesting
+      screensJson.reverse();
       screensJson.forEach(function (item) {
         screenshots[item.name.replace(/[^\d]/g, '')] = item.download_url;
       });
