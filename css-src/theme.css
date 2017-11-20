@@ -76,7 +76,9 @@ a:not([href]),
 }
 
 .link-body-color:hover,
-.link-body-color:hover .icon-label {
+.link-body-color:hover .icon-label,
+.link-body-color:focus,
+.link-body-color:focus .icon-label {
   border-color: rgba(51, 51, 51, .3);
   border-color: #333;
 }
@@ -92,6 +94,10 @@ hr {
 
 .hr-dark {
   border-color: var(--color-code-darkest);
+}
+
+.hr-brand-light {
+  border-color: var(--color-brand-light);
 }
 
 .hr-full {

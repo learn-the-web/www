@@ -11,13 +11,24 @@
           </a>
         {% endif %}
       </h2>
-      <div class="push-1-4">
-        {% if include.link == true %}
-        <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.data.title}}</a>
-        {% else %}
-        <strong class="exa text-disabled">{{include.data.title}}</strong>
-        {% endif %}
+      <div class="grid grid-middle pad-t-1-4 pad-b-1-4">
+        <div class="unit [ xs-1-2 ]">
+          <div class="push-1-4">
+            {% if include.link == true %}
+            <a class="exa bold" href="{{include.data.url | replace: 'index.html', ''}}">{{include.data.title}}</a>
+            {% else %}
+            <strong class="exa text-disabled">{{include.data.title}}</strong>
+            {% endif %}
+          </div>
+        </div>
+        <div class="unit [ xs-1-2 ] text-right">
+          <a class="btn btn-muted milli" href="" aria-label="Open {{include.data.title}}">
+            <span class="icon-label">{% if include.btn_title %}{{include.btn_title}}{% else %}Open course{% endif %}</span>
+            <i class="icon i-20 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+          </a>
+        </div>
       </div>
+      <hr class="{{include.hr_class}} push-1-4">
       <p class="push-0">{{include.data.desc}}</p>
       {% if include.show_tasks %}
         <ol class="week-list-tasks list-group-inline micro push-0">
@@ -32,6 +43,51 @@
             </li>
           {% endfor %}
         </ol>
+      {% else %}
+        {% assign found_projects="" %}
+        {% assign total_videos = 0 %}
+        {% assign total_activities = 0 %}
+        {% assign total_lessons = 0 %}
+        {% assign total_exercises = 0 %}
+        {% assign total_projects = 0 %}
+        {% assign collection = site.collections | where: "label", include.collection_id | first %}
+
+        {% for doc in collection.docs %}
+          {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
+          {% for tut in doc.video_tutorials %}
+            {% if tut.videos %}
+              {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+            {% endif %}
+          {% endfor %}
+          {% for exercise in doc.tasks %}
+            {% if exercise.graded-as %}
+              {% unless found_projects contains exercise.graded-as %}
+                {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+                {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+              {% endunless %}
+            {% else %}
+              {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+              {% case exercise.type %}
+                {% when "activity" %}
+                  {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+                {% when "lesson" %}
+                  {% capture total_lessons %}{{total_lessons | plus:1}}{% endcapture %}
+                {% else %}
+                  {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+              {% endcase %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {% if include.link == true %}
+          <ol class="week-list-tasks list-group-inline milli italic pad-t-1-4 push-0">
+            <li>{{collection.max_weeks}} week{% if collection.max_weeks != "1" %}s{% endif %}</li>
+            <li>{{total_videos}} video playlist{% if total_videos != "1" %}s{% endif %}</li>
+            <li>{{total_activities}} activit{% if total_videos == "1" %}y{% else %}ies{% endif %}</li>
+            <li>{{total_lessons}} step-by-step lesson{% if total_lessons != "1" %}s{% endif %}</li>
+            <li>{{total_exercises}} exercise{% if total_exercises != "1" %}s{% endif %}</li>
+            <li>{{total_projects}} big project{% if total_projects != "1" %}s{% endif %}</li>
+          </ol>
+        {% endif %}
       {% endif %}
     </div>
   </div>

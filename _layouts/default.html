@@ -4,16 +4,17 @@
 <head>
   {% include head.html %}
   {% if page.url == "/topics/index.html" %}
-  <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
-  <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
-  <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
-  <link href="/topics/" rel="prerender">
-  <link href="/courses/" rel="prerender">
+    <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/topics/" rel="prerender">
+    <link href="/courses/" rel="prerender">
   {% endif %}
   {{layout.head}}
   {{page.head}}
+  {% include next-prev-link-tags.html %}
 </head>
 <body {% if page.hasCourseNav %}class="body-no-border"{% endif %}>
 

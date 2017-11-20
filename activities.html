@@ -8,17 +8,6 @@ head: |
   <link href="/css/main-topics.min.css" rel="stylesheet">
 skip_links: |
   <li><a href="#activity-list">Skip to activity list</a></li>
-
-# A hacky way to put unused activities on this page
-# Should probably move this to `data`
-# unused_activities:
-#   title: "Fun & games"
-#   docs:
-#     - layout: week
-#       tasks:
-#         - title: "Specificity Spy"
-#           url: "https://activities.learn-the-web.algonquindesign.ca/specificity-spy/"
-#           type: activity
 ---
 
 {% include icons-topics.html %}
@@ -57,8 +46,4 @@ skip_links: |
 
     {% include activity-section.html slug=the_slug icon=the_number collection=collection is-last=is_last link=link %}
   {% endfor %}
-
-  {% if page.unused_activities %}
-    {% include activity-section.html slug=the_slug icon="infinite" collection=page.unused_activities is-last=true link=false %}
-  {% endif %}
 </div>

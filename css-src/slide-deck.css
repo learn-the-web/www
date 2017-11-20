@@ -389,6 +389,7 @@ iframe {
   }
 
   .slide-code {
+    height: 100%;
     margin-bottom: 0;
   }
 

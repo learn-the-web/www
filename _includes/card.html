@@ -122,7 +122,7 @@
   {% capture assignment_viewer %}id="{{include.data.url | split: "/" | unique | last}}" data-control="assignment-viewer"{% endcapture %}
 {% endif %}
 
-<a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute no-page-break-inside" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled"{% endif %} {% if include.data.disabled %}data-state="disabled"{% endif %} {{assignment_viewer}}>
+<a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute no-page-break-inside" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled" tabindex="-1"{% endif %} {% if include.data.disabled %}data-state="disabled" tabindex="-1"{% endif %} {{assignment_viewer}}>
   {% if include.num %}
     <i class="card-num icon i-32">
       <svg viewBox="0 0 256 256">

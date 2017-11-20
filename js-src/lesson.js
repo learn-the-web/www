@@ -7,46 +7,45 @@
 (function () {
   'use strict';
 
-  var totalSteps = parseInt(document.querySelector('.lesson-step[data-total]').dataset.total, 10);
+  var stepJumpElems = document.querySelectorAll('[data-step-jump]');
+  var stepJumpIds = [];
+  var totalSteps = 0;
+  var currentJumpLocation = -1;
+
+  stepJumpElems.forEach(function (elem) {
+    stepJumpIds.push(elem.id);
+  });
+
+  totalSteps = stepJumpIds.length - 1;
 
   document.documentElement.addEventListener('keydown', function (e) {
-    var
-      currentHash = window.location.hash,
-      currentLocation = 0
-    ;
-
-    if (!currentHash) {
-      currentLocation = 0;
-    } else {
-      currentLocation = parseInt(currentHash.replace(/\#step\-/, ''), 10);
-    }
+    if (window.location.hash) currentJumpLocation = stepJumpIds.indexOf(window.location.hash.replace(/#/, ''));
 
     switch (e.keyCode) {
       case 39: // right
-      // case 40: // down
       case 74: // j
         e.preventDefault();
 
-        if (currentLocation < totalSteps) {
-          currentLocation++;
-          window.location.hash = 'step-' + currentLocation;
+        if (currentJumpLocation < totalSteps) {
+          currentJumpLocation++;
+          window.location.hash = stepJumpIds[currentJumpLocation];
+          stepJumpElems[currentJumpLocation].focus();
         }
 
         break;
       case 37: // left
-      // case 38: // up
       case 75: // k
         e.preventDefault();
 
-        if (currentLocation > 1) {
-          currentLocation--;
-          window.location.hash = 'step-' + currentLocation;
+        if (currentJumpLocation > 0) {
+          currentJumpLocation--;
+          window.location.hash = stepJumpIds[currentJumpLocation];
+          stepJumpElems[currentJumpLocation].focus();
         }
 
         break;
     }
   });
-
 }());
 
 /*
@@ -58,13 +57,11 @@
 (function () {
   'use strict';
 
-  var
-    imageStepsForm = document.querySelector('.image-steps-form'),
-    startingActiveId,
-    makeActive = function (id) {
-      document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps-label-active');
-    }
-  ;
+  var imageStepsForm = document.querySelector('.image-steps-form');
+  var startingActiveId;
+  var makeActive = function (id) {
+    document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps-label-active');
+  };
 
   if (!imageStepsForm) return;
 
@@ -86,20 +83,16 @@
 (function () {
   'use strict';
 
-  var
-    iframeVideo = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
-    iframePlaylist = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>',
-    playBtn = document.querySelector('.play-btn')
-  ;
+  var iframeVideo = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>';
+  var iframePlaylist = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>';
+  var playBtn = document.querySelector('.play-btn');
 
   if (!playBtn) return;
 
   playBtn.addEventListener('click', function (e) {
-    var
-      videoId, iframe,
-      videoEmbed = document.querySelector('.video-embed'),
-      embedItem
-    ;
+    var videoId, iframe;
+    var videoEmbed = document.querySelector('.video-embed');
+    var embedItem;
 
     e.preventDefault();
 
@@ -123,5 +116,76 @@
       embedItem.classList.remove('video-embed-item-loading');
     });
   });
+}());
 
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   TASK LISTS IN BODY TEXT
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+  var lists = document.querySelectorAll('.lesson-body-text ul');
+
+  if (!lists) return;
+
+  [].forEach.call(lists, function (list, textIndex) {
+    [].forEach.call(list.children, function (li, liIndex) {
+      var newLabel, newInput, id = 'text-' + textIndex + '-' + liIndex;
+
+      if (li.textContent.trim().match(/^\[[ x]\]/)) {
+        if (liIndex == 0) {
+          li.parentNode.classList.add('list-group');
+          li.parentNode.classList.add('cheat-list');
+        }
+
+        newLabel = document.createElement('label');
+        newLabel.textContent = li.textContent.trim().replace(/^\[[ x]\]/, '');
+        newLabel.setAttribute('for', id);
+        newLabel.classList.add('check-label');
+        newInput = document.createElement('input');
+        newInput.type = 'checkbox';
+        newInput.id = id;
+        newInput.classList.add('check-box');
+        newInput.classList.add('visually-hidden');
+
+        if (li.textContent.trim().match(/^\[[x]\]/)) newInput.checked = true;
+
+        li.textContent = '';
+        li.classList.add('check-list-details')
+        li.appendChild(newInput);
+        li.appendChild(newLabel);
+      }
+    });
+  });
+}());
+
+
+/*
+ ++++++++++++++++++++++++++++++++++++++++++
+   IMAGE STEP SWIPING
+ ++++++++++++++++++++++++++++++++++++++++++
+*/
+
+(function () {
+  'use strict';
+
+  var imageSteps = document.querySelectorAll('.image-step');
+
+  if (!imageSteps) return;
+
+  [].forEach.call(imageSteps, function (elem) {
+    swiper(elem, function (opts) {
+      var btnToClick;
+
+      if (opts.direction == 'right') {
+        btnToClick = opts.target.querySelector('.image-step-prev');
+        btnToClick.click();
+      } else {
+        btnToClick = opts.target.querySelector('.image-step-next');
+        btnToClick.click();
+      }
+    });
+  });
 }());

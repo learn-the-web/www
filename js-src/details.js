@@ -35,6 +35,7 @@
     btn.classList.add('btn-invisible');
     btn.classList.add('tera');
     btn.classList.add('font-os');
+    btn.classList.add('no-print');
     btn.innerHTML = '+';
     btn.setAttribute('title', 'Expand details');
     btn.setAttribute('aria-label', 'Expand details');

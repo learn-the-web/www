@@ -1,11 +1,19 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 
+{% if site.collections_workshops contains page.collection %}
+  {% assign url_chunk = "workshops" %}
+  {% assign is_workshop = true %}
+{% else %}
+  {% assign url_chunk = "courses" %}
+  {% assign is_workshop = false %}
+{% endif %}
+
 <header class="masthead-micro">
   <div class="grid grid-middle gutter-1-2 {% unless include.no_wrapper %}wrapper{% endunless %}">
     <div class="unit [ xs-1 m-1-2 l-1-5 ] no-print">
-      <a class="logo link-box" href="/">
-        <img class="img-flex" src="/images/logo.svg" alt="">
+      <a class="logo link-box" href="/" aria-label="Learn the Web homepage">
+        <img class="img-flex" src="/images/logo.svg" alt="Learn the Web">
       </a>
     </div>
     <div class="masthead-micro-title unit [ xs-1 m-1-2 l-2-5 ]">
@@ -26,8 +34,7 @@
       {% capture next %}{{number | plus:1}}{% endcapture %}
       {% capture next_size %}{{next | size}}{% endcapture %}
       {% capture next_link %}{% if next_size == "1" %}0{% endif %}{{next}}{% endcapture %}
-      {% capture max_weeks %}{{site.max_weeks | plus:1}}{% endcapture %}
-      {% if page.last_week %}{% assign next = max_weeks %}{% endif %}
+      {% capture max_weeks %}{{page_data.max_weeks | plus:1}}{% endcapture %}
 
       <nav class="masthead-next unit [ xs-1 l-2-5 ] no-print">
         <ul class="list-group-inline push-0">
@@ -78,14 +85,14 @@
       <nav class="masthead-next unit [ xs-1 l-2-5 ] no-print">
         <ol class="list-group-inline push-0">
           <li>
-            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
+            <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
               <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
               <span class="icon-label">{{page_data.title}}</span>
             </a>
           </li>
           {% if lesson_week != 0 %}
             <li>
-              <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/week-{{lesson_week_padded}}/">
+              <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/week-{{lesson_week_padded}}/">
                 <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
                 <span class="icon-label">Week {{lesson_week_padded}}</span>
               </a>
@@ -107,6 +114,12 @@
               {% break %}
             {% endif %}
           {% endfor %}
+          {% for task in week.group_activities %}
+            {% if task.url == page.slug %}
+              {% assign lesson_week = count %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
         {% endif %}
       {% endfor %}
 
@@ -120,17 +133,19 @@
       <nav class="masthead-next unit [ xs-1 l-2-5 ] no-print">
         <ol class="list-group-inline push-0">
           <li>
-            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/">
+            <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
               <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
               <span class="icon-label">{{page_data.title}}</span>
             </a>
           </li>
-          <li>
-            <a class="btn btn-ghost micro" href="/courses/{{page.collection}}/week-{{lesson_week_padded}}/">
-              <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
-              <span class="icon-label">Week {{lesson_week_padded}}</span>
-            </a>
-          </li>
+          {% unless is_workshop %}
+            <li>
+              <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/week-{{lesson_week_padded}}/">
+                <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
+                <span class="icon-label">Week {{lesson_week_padded}}</span>
+              </a>
+            </li>
+          {% endunless %}
         </ol>
       </nav>
     {% endif %}

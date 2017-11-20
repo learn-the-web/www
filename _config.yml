@@ -1,4 +1,4 @@
-version: 113
+version: 114
 
 permalink: pretty
 highlighter: none
@@ -26,31 +26,37 @@ collections:
     output: true
     permalink: /courses/web-dev-1/:path/
     title: "Web Dev 1"
+    max_weeks: 15
   web-dev-2:
     output: true
     permalink: /courses/web-dev-2/:path/
     title: "Web Dev 2"
+    max_weeks: 15
   web-dev-3:
     output: true
     permalink: /courses/web-dev-3/:path/
     title: "Web Dev 3"
+    max_weeks: 15
   web-dev-4:
     output: true
     permalink: /courses/web-dev-4/:path/
     title: "Web Dev 4"
+    max_weeks: 15
   web-dev-5:
     output: true
     permalink: /courses/web-dev-5/:path/
     title: "Web Dev 5"
+    max_weeks: 15
   web-dev-6:
     output: true
     permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
-    disabled: true
+    max_weeks: 9
   javascript:
     output: true
     permalink: /courses/javascript/:path/
-    title: "Javascript"
+    title: "JavaScript"
+    max_weeks: 8
   jekyll:
     output: true
     permalink: /courses/jekyll/:path/
@@ -140,8 +146,6 @@ collections_workshops:
   - think-like-a-programmer
   - jquery-jq-what
   - svg-heart-js
-
-max_weeks: 15
 
 next_week:
   title: "Preview next week"

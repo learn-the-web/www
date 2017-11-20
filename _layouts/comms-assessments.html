@@ -82,7 +82,14 @@
           {% endunless %}
         {% else %}
           {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-          {% include comms/assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr %}
+          {% assign the_prefix = "Exercise" %}
+          {% case exercise.type %}
+            {% when "lesson" %}
+              {% assign the_prefix = "Lesson" %}
+            {% when "activity" %}
+              {% assign the_prefix = "Activity" %}
+          {% endcase %}
+          {% include comms/assessments-row.html prefix=the_prefix title=exercise.title value=exercises_per clrs=doc.clr %}
         {% endif %}
       {% endfor %}
     {% endfor %}

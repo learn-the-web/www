@@ -66,6 +66,12 @@
   display: block;
   position: relative;
   padding-left: 1.4em;
+  cursor: pointer;
+}
+
+.check-box:focus ~ .check-label {
+  outline: 3px solid #000;
+  outline-offset: 1px;
 }
 
 .check-label p {
@@ -85,6 +91,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 
   color: #000;
   font-size: 15px;

@@ -32,7 +32,7 @@ skip_links: |
     {% endif %}
 
     {% assign data = collection.docs | where: "layout", "course" | first %}
-    {% include course-section.html number=forloop.index data=data link=link %}
+    {% include course-section.html number=forloop.index data=data link=link collection_id=collection_id %}
   {% endfor %}
 </div>
 
@@ -55,7 +55,7 @@ skip_links: |
       {% endif %}
 
       {% assign data = collection.docs | where: "layout", "course" | first %}
-      {% include course-section.html number="infinite" data=data link=link %}
+      {% include course-section.html number="infinite" data=data link=link collection_id=collection_id hr_class="hr-medium" %}
     {% endfor %}
   </div>
 </div>
@@ -80,7 +80,7 @@ skip_links: |
 
       {% assign data = collection.docs | where: "layout", "workshop" | first %}
       {% capture url_prefix %}workshops/{{collection_id}}{% endcapture %}
-      {% include course-section.html number="star" data=data link=link show_tasks=true url_prefix=url_prefix %}
+      {% include course-section.html number="star" data=data link=link show_tasks=true url_prefix=url_prefix btn_title="Open workshop" hr_class="hr-dark" %}
     {% endfor %}
   </div>
 </div>

@@ -38,7 +38,7 @@ no_wrapper: true
               {% for link in page.video_tutorials %}
                 <li>
                   {% if link.highlight %}<strong>{% endif %}
-                    {% if link.url contains "http://" or link.url contains "https://" %}
+                    {% if link.url contains "/" %}
                       <a href="{{link.url}}">{{link.title}} »</a>
                     {% else %}
                       <a {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}>{{link.title}}</a>

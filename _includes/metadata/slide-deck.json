@@ -1,3 +1,10 @@
+{% if site.collections_workshops contains page.collection %}
+  {% assign url_chunk = "workshops" %}
+  {% assign is_workshop = true %}
+{% else %}
+  {% assign url_chunk = "courses" %}
+  {% assign is_workshop = false %}
+{% endif %}
 {
   "@context": "https://schema.org",
   "@type": "PresentationDigitalDocument",
@@ -28,7 +35,7 @@
   "name": "{{page.title}}",
   "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
   "isPartOf": {
-    "@id": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/"
+    "@id": "https://learn-the-web.algonquindesign.ca/{{url_chunk}}/{{page.collection}}/"
   },
   "audience": {
     "@type": "Audience",

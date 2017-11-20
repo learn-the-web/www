@@ -180,7 +180,14 @@ skip_links: |
                 {% endif %}
                 {% assign disabled = true %}
                 {% if exercise.url %}{% unless exercise.disabled %}{% assign disabled = false %}{% endunless %}{% endif %}
-                {% include assessments-row.html prefix="Exercise" title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
+                {% assign the_prefix = "Exercise" %}
+                {% case exercise.type %}
+                  {% when "lesson" %}
+                    {% assign the_prefix = "Lesson" %}
+                  {% when "activity" %}
+                    {% assign the_prefix = "Activity" %}
+                {% endcase %}
+                {% include assessments-row.html prefix=the_prefix title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
               {% endif %}
             {% endfor %}
           {% endfor %}

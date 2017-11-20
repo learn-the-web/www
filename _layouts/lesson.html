@@ -65,7 +65,7 @@ skip_links: |
       {% if page.goal %}
         <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if page.important %}lesson-body-no-border{% endif %}">
-            <h2 class="lesson-title zetta push-1-4">
+            <h2 class="lesson-title zetta push-1-4" id="step-goal" data-step-jump="step-goal" tabindex="0">
               <i class="lesson-step-num icon i-48"><svg><use xlink:href="#icon-victory" /></svg></i>
               Goal
             </h2>
@@ -108,7 +108,7 @@ skip_links: |
       {% if page.important %}
         <aside class="lesson-step lesson-step-final grid grid-stretch">
           <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
-            <h2 class="lesson-title zetta push-1-4">
+            <h2 class="lesson-title zetta push-1-4" id="step-important" data-step-jump="step-important" tabindex="0">
               <i class="lesson-step-num icon i-48">
                 <svg id="Layer_1" width="256" height="256" viewBox="0 0 256 256">
                   <path d="M226.8 167.2L135.9 9.5a9.1 9.1 0 0 0-15.7-.1l-91 157.8a9.2 9.2 0 0 0 7.9 13.8h181.8a9.2 9.2 0 0 0 7.9-13.8z"/>
@@ -134,7 +134,7 @@ skip_links: |
       {% if page.fork %}
         <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
-            <h2 class="lesson-title zetta push-1-4">
+            <h2 class="lesson-title zetta push-1-4" id="step-fork" data-step-jump="step-fork" tabindex="0">
               <i class="lesson-step-num icon i-48">
                 <svg width="256" height="256" viewBox="0 0 256 256">
                   <circle cx="128" cy="110" r="110"/>
@@ -177,7 +177,7 @@ skip_links: |
       {% if page.download %}
         <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
-            <h2 class="lesson-title zetta push-1-4">
+            <h2 class="lesson-title zetta push-1-4" id="step-download" data-step-jump="step-download" tabindex="0">
               <i class="lesson-step-num icon i-48">
                 <svg width="256" height="256" viewBox="0 0 256 256">
                   <circle cx="128" cy="110" r="110"/>
@@ -189,7 +189,11 @@ skip_links: |
             <div class="mega gutter-1-4 lesson-body-text">
               <p>We’ll need some extra files that are too large to be in a Git repository to complete this lesson.</p>
               <p class="tera"><strong><a href="{{page.download.url}}">Download the “{{page.slug}}” files.</a></strong></p>
-              <p><em>If the files are Illustrator (<code>.ai</code>) files or Photoshop (<code>.psd</code>) files go ahead and export them following our standard procedures.</em></p>
+              {% if page.download.export_notes %}
+                <p><em>{{page.download.export_notes}}</em></p>
+              {% else %}
+                <p><em>If the files are Illustrator (<code>.ai</code>) files or Photoshop (<code>.psd</code>) files go ahead and export them following our standard procedures.</em></p>
+              {% endif %}
             </div>
           </div>
           <div class="lesson-notes unit [ xs-1 m-1-3 ]">
@@ -216,9 +220,9 @@ skip_links: |
       {% for step in page.steps %}
         {% assign step_count = forloop.index %}
         {% assign step_count_even = forloop.index | modulo:2 %}
-        <section class="lesson-step grid grid-stretch" data-total="{{forloop.rindex | plus:1}}">
+        <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if forloop.last and page.hide_markbot %}lesson-body-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-body-last{% endif %}">
-            <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}">
+            <h2 class="lesson-title zetta push-1-4" id="step-{{forloop.index}}" data-step-jump="step-{{forloop.index}}" tabindex="0">
               <i class="lesson-step-num icon i-48">
                 {% if page.pair %}
                   {% if step_count_even == 0 %}
@@ -357,7 +361,7 @@ skip_links: |
               </div>
             {% endif %}
           </div>
-          <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-notes-last{% endif %}">
+          <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-notes-last{% endif %} {% if forloop.last and page.quiz %}lesson-notes-last{% endif %}">
             {% if step.notes or step.lines or step.multi_code[0].lines or step.multi_code[1].lines %}
               <ol class="lesson-note-list list-group">
                 {% for note in step.notes %}
@@ -393,7 +397,7 @@ skip_links: |
           {% unless page.hide_markbot %}
             <section class="lesson-step grid grid-stretch {% if page.markbot_submit %}lesson-step-final{% endif %}">
               <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-last {% if page.markbot_submit %}lesson-body-final{% endif %}">
-                <h2 class="lesson-title zetta push-1-4">
+                <h2 class="lesson-title zetta push-1-4" id="step-markbot" data-step-jump="step-markbot" tabindex="0">
                   <i class="lesson-step-num lesson-step-markbot icon i-48">
                     <svg viewBox="0 0 256 256">
                       <defs>
@@ -437,10 +441,56 @@ skip_links: |
             </section>
           {% endunless %}
 
+          {% if page.quiz %}
+            <section class="lesson-step lesson-step-final grid grid-stretch">
+              <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 lesson-body-final">
+                <h2 class="lesson-title zetta push-1-4" id="step-activity" data-step-jump="step-activity" tabindex="0">
+                  <i class="lesson-step-num icon i-48">
+                    <svg viewBox="0 0 256 256">
+                      <circle cx="128" cy="110" r="110" />
+                      <path fill="#fff" transform="scale(.7) translate(40, 24)" d="M95 164.8c6-12.5 13-26 21.2-41s17.5-29.8 28-44.6c10.3-14.8 18-24.6 22.6-29.5 4.8-4.8 8.8-8.7 12-11.5 3.4-2.8 9.2-5 17.6-6.2 8.4-1.3 14.7-2 19-2 3 0 5.3 1 7 2.6 2 1.8 2.8 4 2.8 7 0 2-.5 4-1.6 5.6-1 1.6-3.3 4-6.6 7-16 14.8-32.7 35.8-50 63-17.4 27.4-31.2 53.8-41.4 79.4-4.8 11.7-8 18.6-9.3 20.6-1.4 2-3.5 4-6.4 5.7-3 1.7-8.8 2.5-17.7 2.5-7 0-11.5-.4-13.4-1.3s-3.6-1.8-4.6-2.7c-1-1-4-5.2-9-12.7-5-8-12.6-17.2-22.3-28-5.5-6.2-8.3-11.4-8.3-15.5 0-6 3.2-11.3 9.6-15.8 6.4-4.5 12-6.7 17-6.7 5.3 0 11 2.2 17 6.5 6.3 4.4 11.8 10.2 16.7 17.5z" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </i>
+                  Test your knowledge
+                </h2>
+                <div class="mega gutter-1-4 lesson-body-text">
+                  <p>Complete this quick activity to confirm all the knowledge you just learned in the above lesson. Repetition helps you learn.</p>
+                  <!-- <p><em>Submit the quiz when you’ve reached the congratulations message.</em></p> -->
+                  <p><em>Be sure to call the teacher over and show them that you’ve completed all the questions to get your mark.</em></p>
+                  {% if page.quiz.notes %}{{page.quiz.notes | markdownify}}{% endif %}
+                  <div class="push">
+                    <a class="btn btn-light" href="{{page.quiz.url}}">
+                      <span class="icon-label">Start the activity</span>
+                      <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-notes unit [ xs-1 m-1-3 ] lesson-notes-final">
+                <ol class="lesson-note-list list-group">
+                  <li class="lesson-note">
+                    <!-- <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 green-sticky">Submit</h3> -->
+                    <!-- <div class="gutter-1-2 italic">When you’ve reached the congratulations message be sure to submit the quiz for a grade.</div> -->
+                    <h3 class="lesson-note-label lesson-note-label-final kilo push-0 inline-block gutter-1-2 red-sticky">Red sticky note</h3>
+                    <div class="gutter-1-2 italic">This is a good use of your red sticky note.</div>
+                  </li>
+                  {% if page.quiz.notes %}
+                    {% for note in page.quiz.notes %}
+                      <li class="lesson-note">
+                        <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                        <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+                </ol>
+              </div>
+            </section>
+          {% endif %}
+
           {% unless page.hide_show_for_marks %}
             <aside class="lesson-step lesson-step-final grid grid-stretch">
               <div class="lesson-body lesson-body-final unit [ xs-1 m-2-3 ] pad-t-1-2">
-                <h2 class="lesson-title zetta push-1-4">
+                <h2 class="lesson-title zetta push-1-4" id="step-show" data-step-jump="step-show" tabindex="0">
                   <i class="lesson-step-num icon i-48">
                     <svg viewBox="0 0 256 256">
                       <circle cx="128" cy="110" r="110" />
@@ -471,7 +521,7 @@ skip_links: |
     {% if page.extra_tutorials %}
       <section class="lesson-step grid grid-stretch extra-tutorials">
         <div class="lesson-body extra-tutorials unit [ xs-1 m-2-3 ] pad-t">
-          <h2 class="">Related videos, tutorials & slides</h2>
+          <h2 tabindex="0" id="step-related" data-step-jump="step-related">Related videos, tutorials & slides</h2>
           <ul class="milli">
             {% for link in page.extra_tutorials %}
               <li>
@@ -487,7 +537,7 @@ skip_links: |
             {% endfor %}
           </ul>
         </div>
-        <div class="lesson-notes extra-tutorials extra-tutorials-sidebar unit [ xs-1 m-1-3 ]">&nbsp;</div>
+        <div class="lesson-notes extra-tutorials extra-tutorials-sidebar unit [ xs-hidden m-1-3 ]">&nbsp;</div>
       </section>
     {% endif %}
 

@@ -449,6 +449,10 @@
     width: 100%;
   }
 
+  .topic-info {
+    padding-right: 1.5rem;
+  }
+
   .topics a[data-visited]::after {
     height: 13px;
     width: 13px;

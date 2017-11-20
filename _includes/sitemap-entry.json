@@ -1,0 +1,10 @@
+{% unless first_entry %},{% endunless %} {
+  "loc": "https://learn-the-web.algonquindesign.ca{{include.entry.url | replace: 'index.html', ''}}",
+  "lastmod": "{% capture lastmod_date %}{% last_modified {{ include.entry.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}"
+  {% if include.entry.changefreq %}
+    , "changefreq": "{{include.entry.changefreq}}"
+  {% endif %}
+  {% if include.entry.priority %}
+    , "priority": "{{include.entry.priority}}"
+  {% endif %}
+}

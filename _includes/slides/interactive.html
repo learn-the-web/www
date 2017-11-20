@@ -17,7 +17,7 @@
       <pre class="language-css" data-line="{% if include.data.css_lines[0] %}{% for line in include.data.css_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.css_lines}}{% endif %}"><code class="language-css">{{include.data.css | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.js %}
-      <span class="slide-code-label">Javascript</span>
+      <span class="slide-code-label">JavaScript</span>
       <pre class="language-js" data-line="{% if include.data.js_lines[0] %}{% for line in include.data.js_lines %}{{line.num}},{% endfor %}{% else %}{{include.data.js_lines}}{% endif %}"><code class="language-js">{{include.data.js | xml_escape}}</code></pre>
     {% endif %}
     {% if include.data.html_hidden %}

@@ -1,0 +1,21 @@
+---
+layout: sitemap-json
+---
+
+{% assign first_entry = true %}
+
+{% for page in site.pages %}
+  {% if page.layout and page.layout != "sitemap" and page.layout != "notfound" %}
+    {% if page.url contains "comms" or page.url contains ".json" or page.url contains ".php" %}{% continue %}{% endif %}
+    {% include sitemap-entry.json entry=page first_entry=first_entry %}
+    {% assign first_entry = false %}
+  {% endif %}
+{% endfor %}
+
+{% for collection in site.collections %}
+  {% for doc in collection.docs %}
+    {% if doc.url contains "comms" or doc.url contains ".json" or page.url contains ".php" %}{% continue %}{% endif %}
+    {% include sitemap-entry.json entry=doc first_entry=first_entry %}
+    {% assign first_entry = false %}
+  {% endfor %}
+{% endfor %}

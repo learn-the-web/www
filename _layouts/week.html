@@ -6,7 +6,6 @@ skip_links: |
   <li><a href="#outside-class">Skip to outside class</a></li>
   <li><a href="#during-class-exercises">Skip to during class exercises</a></li>
   <li><a href="#outside-class-exercies">Skip to outside class exercises</a></li>
-
 ---
 
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
@@ -250,7 +249,7 @@ skip_links: |
               {% else %}
                 {% assign card_data=site.next_week %}
               {% endif %}
-              {% if next_url < 9 %}
+              {% if next_url <= 9 %}
                 {% capture next_url %}week-0{{next_url}}{% endcapture %}
               {% else %}
                 {% capture next_url %}week-{{next_url}}{% endcapture %}
