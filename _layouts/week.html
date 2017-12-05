@@ -114,7 +114,12 @@ skip_links: |
                 {% if link.url contains "/" %}
                   {% assign url_prefix="" %}
                 {% endif %}
-                <li><a {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %} {% if link.disabled %}data-state="disabled"{% endif %}>{{link.title}}</a></li>
+                <li>
+                  <a {% if link.url %}href="{{url_prefix}}{{link.url}}"{% else %}data-state="disabled"{% endif %} {% if link.disabled %}data-state="disabled"{% endif %}>
+                    <i class="icon i-16 push-r-1-8"><svg><use xlink:href="#icon-slide-deck"></use></svg></i>
+                    <span class="icon-label">{{link.title}}</span>
+                  </a>
+                </li>
               {% endfor %}
             </ul>
           {% endif %}
