@@ -57,11 +57,6 @@ collections:
     permalink: /courses/javascript/:path/
     title: "JavaScript"
     max_weeks: 8
-  jekyll:
-    output: true
-    permalink: /courses/jekyll/:path/
-    title: "Jekyll"
-    disabled: true
   think-like-a-programmer:
     output: true
     permalink: /workshops/think-like-a-programmer/:path/
@@ -120,11 +115,6 @@ defaults:
       type: "javascript"
     values:
       layout: week-self-directed
-  - scope:
-      path: ""
-      type: "jekyll"
-    values:
-      layout: week-self-directed
 
 ########################################
 # WEBSITE SPECIFIC CONFIG
@@ -140,7 +130,6 @@ collections_courses:
 
 collections_selfdirected:
   - javascript
-  - jekyll
 
 collections_workshops:
   - think-like-a-programmer
