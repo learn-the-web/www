@@ -148,8 +148,8 @@ skip_links: |
               Fork &amp; clone
             </h2>
             <div class="mega gutter-1-4 lesson-body-text">
-              <p>Start the lesson by forking and cloning the <code>{{page.slug}}</code> repository.</p>
-              <p class="tera"><strong><a href="{{page.fork.url}}{% unless page.fork.url contains '/fork' %}/fork{% endunless %}">Fork &amp; clone the “{{page.slug}}” repo.</a></strong></p>
+              <p>Start the lesson by forking and cloning the <code>{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}</code> repository.</p>
+              <p class="tera"><strong><a href="{{page.fork.url}}{% unless page.fork.url contains '/fork' %}/fork{% endunless %}">Fork &amp; clone the “{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}” repo.</a></strong></p>
               <p><em>The repository will have some starter files to get you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
             </div>
           </div>
