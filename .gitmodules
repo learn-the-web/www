@@ -19,9 +19,6 @@
 [submodule "_web-dev-6"]
   path = _web-dev-6
   url = git@github.com:acgd-webdev-6/curriculum.git
-[submodule "_shared"]
-  path = _shared
-  url = git@github.com:acgd-webdev-shared/curriculum.git
 [submodule "_javascript"]
   path = _javascript
   url = git@github.com:acgd-webdev-javascript/curriculum.git
@@ -34,3 +31,6 @@
 [submodule "_svg-heart-js"]
   path = _svg-heart-js
   url = git@github.com:acgd-webdev-workshops/svg-heart-js.git
+[submodule "_shared"]
+	path = _shared
+	url = git@github.com:acgd-webdev-shared/curriculum.git
