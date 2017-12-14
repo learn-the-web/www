@@ -52,6 +52,10 @@ collections:
     permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
     max_weeks: 9
+  shared:
+    output: true
+    permalink: /courses/shared/:path/
+    title: "Shared Resources"
   javascript:
     output: true
     permalink: /courses/javascript/:path/
