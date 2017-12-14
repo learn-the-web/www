@@ -110,13 +110,22 @@
                 <i class="icon i-16"><svg><use xlink:href="#icon-right" /></svg></i>
               </a>
             </li>
-            <li class="text-right gutter-1-4">
-              <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
-                <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
-                <span class="icon-label">{{page_data.title}}</span>
-              </a>
-            </li>
-            {% unless is_workshop %}
+            {% if page.collection contains "shared" %}
+              <li class="text-right gutter-1-4">
+                <a class="btn btn-ghost micro" href="/courses/">
+                  <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+                  <span class="icon-label">Courses</span>
+                </a>
+              </li>
+            {% else %}
+              <li class="text-right gutter-1-4">
+                <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/">
+                  <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-nav" /></svg></i>
+                  <span class="icon-label">{{page_data.title}}</span>
+                </a>
+              </li>
+            {% endif %}
+            {% unless is_workshop or page.collection contains "shared" %}
               <li class="text-right gutter-1-4">
                 <a class="btn btn-ghost micro" href="/{{url_chunk}}/{{page.collection}}/week-{{slide_week_padded}}/">
                   <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
