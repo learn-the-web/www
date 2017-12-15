@@ -27,8 +27,10 @@
 <meta name="description" content="{% if page.desc %}{{page.desc | strip | strip_newlines}}{% else %}{{details.desc | strip | strip_newlines}}{% endif %}">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 <link rel="author" href="/humans.txt">
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.webmanifest">
 
 <link href="/fonts/alegreyasans-regular.woff" rel="preload" as="font">
 <link href="/fonts/alegreyasans-italic.woff" rel="preload" as="font">
