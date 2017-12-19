@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start-server watch-*",
-    "start-server": "jekyll serve --incremental",
+    "start-server": "jekyll serve --incremental --ssl-key=_certs/https-key.pem --ssl-cert=_certs/https-cert.pem",
     "minify-site": "html-minifier --file-ext=html --input-dir=_site --output-dir=_site --config-file=.html-minifier.json",
     "build-site": "jekyll build && npm run minify-site",
     "postcss": "postcss --no-maps -u postcss-import -u postcss-cssnext --postcss-cssnext.browsers 'last 2 versions' -u postcss-assets -u cssnano --cssnano.safe",
