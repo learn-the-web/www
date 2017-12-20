@@ -417,6 +417,11 @@
   background: transparent url("images/switch.svg") no-repeat left top / 42px auto;
 }
 
+.lesson-person {
+  width: 48px;
+  left: 3px;
+}
+
 .red-sticky {
   background-color: #fb3a64;
 }

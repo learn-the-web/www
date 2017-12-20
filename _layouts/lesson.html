@@ -248,6 +248,14 @@ skip_links: |
               {% endif %}
               </div>
             {% endif %}
+            {% if step.person %}
+              <strong class="lesson-person absolute text-center" aria-label="Step should be completed by “{{step.person.label}}”">
+                <i class="icon i-32">
+                  <svg><use xlink:href="#icon-{{step.person.icon}}" /></svg>
+                </i>
+                <span class="block micro">{{step.person.label}}</span>
+              </strong>
+            {% endif %}
             {% if step.before %}
               <div class="mega gutter-1-4 lesson-body-text">{{step.before | markdownify}}</div>
             {% endif %}
