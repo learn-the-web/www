@@ -145,6 +145,11 @@ skip_links: |
         <tbody>
           {% assign count = 0 %}
           {% assign week_count = 0 %}
+          {% assign count_videos = 0 %}
+          {% assign count_activities = 0 %}
+          {% assign count_lessons = 0 %}
+          {% assign count_exercises = 0 %}
+          {% assign count_projects = 0 %}
           {% for doc in page_data.docs %}
             {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
             {% capture week_count %}{{week_count | plus: 1}}{% endcapture %}
@@ -152,6 +157,7 @@ skip_links: |
               {% if tut.videos and page.grades.videos %}
                 {% capture count %}{{count | plus: 1}}{% endcapture %}
                 {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+                {% assign count_videos = count_videos | plus:1 %}
                 {% include assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr week=doc.title url=url %}
               {% endif %}
             {% endfor %}
@@ -162,6 +168,7 @@ skip_links: |
                   {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
                   {% assign slug = exercise.url | split: "/" | unique | last %}
                   {% assign disabled = true %}
+                  {% assign count_projects = count_projects | plus:1 %}
                   {% if exercise.url %}{% unless exercise.disabled %}{% assign disabled = false %}{% endunless %}{% endif %}
                   {% include assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr week=doc.title url=doc.url slug=slug disabled=disabled %}
                 {% endunless %}
@@ -180,12 +187,16 @@ skip_links: |
                 {% endif %}
                 {% assign disabled = true %}
                 {% if exercise.url %}{% unless exercise.disabled %}{% assign disabled = false %}{% endunless %}{% endif %}
-                {% assign the_prefix = "Exercise" %}
                 {% case exercise.type %}
                   {% when "lesson" %}
                     {% assign the_prefix = "Lesson" %}
+                    {% assign count_lessons = count_lessons | plus:1 %}
                   {% when "activity" %}
                     {% assign the_prefix = "Activity" %}
+                    {% assign count_activities = count_activities | plus:1 %}
+                  {% else %}
+                    {% assign the_prefix = "Exercise" %}
+                    {% assign count_exercises = count_exercises | plus:1 %}
                 {% endcase %}
                 {% include assessments-row.html prefix=the_prefix title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
               {% endif %}
@@ -198,6 +209,17 @@ skip_links: |
             <td colspan="3"><strong>100%</strong></td>
             <td colspan="4"><strong>{{week_count}} weeks</strong></td>
             <td colspan="5"></td>
+          </tr>
+          <tr>
+            <td colspan="24">
+              <em>
+                {% if page.grades.videos %}{{count_videos}} video{% unless count_videos == 1 %}s{% endunless %},{% endif %}
+                {{count_activities}} activit{% unless count_activities == 1 %}ies{% else %}y{% endunless %},
+                {{count_lessons}} lesson{% unless count_lessons == 1 %}s{% endunless %},
+                {{count_exercises}} exercise{% unless count_exercises == 1 %}s{% endunless %},
+                {{count_projects}} project{% unless count_projects == 1 %}s{% endunless %}
+              </em>
+            </td>
           </tr>
         </tfoot>
       </table>
