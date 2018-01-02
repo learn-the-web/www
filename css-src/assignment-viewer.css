@@ -110,6 +110,10 @@
   font-size: 85%;
 }
 
+.assignment-viewer-table-wrapper table {
+  min-width: 35em;
+}
+
 .assignment-header {
   flex-shrink: 0;
   position: relative;
@@ -240,6 +244,10 @@
 
   .assignment-close-btn span {
     font-size: 3rem;
+  }
+
+  .assignment-viewer-table-wrapper {
+    overflow: visible;
   }
 
 }

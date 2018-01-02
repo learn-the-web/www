@@ -105,8 +105,13 @@
   };
 
   var formatMarkdown = function (href, markdown) {
+    // Remove attributes from the <h1> tags
     markdown = markdown.replace(/<h1[^>]*>[^<]+<\/h1>/, '').trim();
+    // Point images to GitHub raw & make flexible
     markdown = markdown.replace('<img src="', '<img class="img-flex" src="' + href + '/raw/gh-pages/');
+    // Add wrapper around tables
+    markdown = markdown.replace(/<table/g, '<div class="assignment-viewer-table-wrapper scrollable"><table');
+    markdown = markdown.replace(/<\/table>/g, '</table></div>');
 
     return markdown;
   };
