@@ -17,6 +17,10 @@
   top: 0;
 }
 
+.lesson-body {
+  position: relative;
+}
+
 .lesson-body-final {
   background-color: var(--color-grey-medium);
 }
@@ -418,8 +422,9 @@
 }
 
 .lesson-person {
-  width: 48px;
   left: 3px;
+  top: 48px;
+  width: 48px;
 }
 
 .red-sticky {
@@ -462,6 +467,10 @@
 
   .lesson-step-num {
     top: .25em;
+  }
+
+  .lesson-person {
+    top: calc(.6em + 48px);
   }
 
   .lesson-step-markbot {
