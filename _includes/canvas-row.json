@@ -15,8 +15,7 @@
   "points_possible": {{include.points}},
   "submission_types": "none",
   "allowed_extensions": ["{{include.markbot_slug}}"],
-  "published": true,
-  "muted": true
+  "published": true
   {% if include.datetimes %}
   ,"assignment_overrides": [
     {% for section in include.datetimes.sections %}

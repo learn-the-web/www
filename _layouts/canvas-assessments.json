@@ -47,12 +47,19 @@
       {% endunless %}
     {% else %}
       {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-      {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
+      {% if exercise.due_week %}
+        {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+      {% else %}
+        {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
+      {% endif %}
+      {% if exercise.due_time %}
+        {% assign due_time = exercise.due_time %}
+      {% endif %}
       {% if exercise.url contains "github.com" %}
         {% assign slug = exercise.url | split: "/" | unique | last %}
         {% assign markbot_slug = slug %}
         {% assign url = doc.url %}
-      {% elsif exercise.url contains "http" %}
+      {% elsif exercise.url contains "http" or exercise.url contains "/" %}
         {% assign slug = "" %}
         {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
         {% assign url = exercise.url %}
@@ -63,7 +70,15 @@
       {% endif %}
       {% assign disabled = true %}
       {% if exercise.url %}{% assign disabled = false %}{% endif %}
-      {% include canvas-row.json title=exercise.title group=canvas_ids.exercises grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset %}
+      {% case exercise.type %}
+        {% when "lesson" %}
+          {% assign the_canvas_group = canvas_ids.activities %}
+        {% when "activity" %}
+          {% assign the_canvas_group = canvas_ids.activities %}
+        {% else %}
+          {% assign the_canvas_group = canvas_ids.exercises %}
+      {% endcase %}
+      {% include canvas-row.json title=exercise.title group=the_canvas_group grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=due_time %}
       {% assign first_entry = false %}
     {% endif %}
 

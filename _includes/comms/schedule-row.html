@@ -30,14 +30,18 @@
         {% endunless %}
       {% else %}
         {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-        {% assign the_prefix = "Exercise" %}
         {% case exercise.type %}
           {% when "lesson" %}
             {% assign the_prefix = "Lesson" %}
+            {% assign the_value = activities_per %}
           {% when "activity" %}
             {% assign the_prefix = "Activity" %}
+            {% assign the_value = activities_per %}
+          {% else %}
+            {% assign the_prefix = "Exercise" %}
+            {% assign the_value = exercises_per %}
         {% endcase %}
-        {% include comms/schedule-assessment.html prefix=the_prefix title=exercise.title value=exercises_per %}
+        {% include comms/schedule-assessment.html prefix=the_prefix title=exercise.title value=the_value %}
       {% endif %}
     {% endfor %}
   </td>

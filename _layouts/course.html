@@ -9,6 +9,7 @@ skip_links: |
 
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 
+{% assign total_activities=0 %}
 {% assign total_exercises=0 %}
 {% assign total_videos=0 %}
 {% assign total_projects=0 %}
@@ -29,15 +30,24 @@ skip_links: |
       {% endunless %}
     {% else %}
       {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-      {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% case exercise.type %}
+        {% when "lesson" %}
+          {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+        {% when "activity" %}
+          {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+        {% else %}
+          {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% endcase %}
     {% endif %}
   {% endfor %}
 {% endfor %}
 
+{% assign total_activities_float = total_activities | times: 1.0 %}
 {% assign total_exercises_float = total_exercises | times: 1.0 %}
 {% assign total_videos_float = total_videos | times: 1.0 %}
 {% assign total_projects_float = total_projects | times: 1.0 %}
 
+{% assign activities_per = page.grades.activities | divided_by: total_activities_float | round: 1 %}
 {% assign exercises_per = page.grades.exercises | divided_by: total_exercises_float | round: 1 %}
 {% assign videos_per = page.grades.videos | divided_by: total_videos_float | round: 1 %}
 {% assign projects_per = page.grades.projects | divided_by: total_projects_float | round: 1 %}
@@ -102,7 +112,7 @@ skip_links: |
             <tr>
               <td colspan="8">{% if page.datetimes.sections %}{{page.hours}} h{% else %}None{% endif %}</td>
               <td colspan="8">{% if page.datetimes.labs %}15 h{% else %}None{% endif %}</td>
-              <td colspan="8">~{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}}{% endif %} h</td>
+              <td colspan="8">~{% if page.homework %}{{page.homework}}{% else %}{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}}{% endif %}{% endif %} h</td>
             </tr>
           </tbody>
         </table>
@@ -190,15 +200,18 @@ skip_links: |
                 {% case exercise.type %}
                   {% when "lesson" %}
                     {% assign the_prefix = "Lesson" %}
+                    {% assign the_value = activities_per %}
                     {% assign count_lessons = count_lessons | plus:1 %}
                   {% when "activity" %}
                     {% assign the_prefix = "Activity" %}
+                    {% assign the_value = activities_per %}
                     {% assign count_activities = count_activities | plus:1 %}
                   {% else %}
                     {% assign the_prefix = "Exercise" %}
+                    {% assign the_value = exercises_per %}
                     {% assign count_exercises = count_exercises | plus:1 %}
                 {% endcase %}
-                {% include assessments-row.html prefix=the_prefix title=exercise.title value=exercises_per clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
+                {% include assessments-row.html prefix=the_prefix title=exercise.title value=the_value clrs=doc.clr week=doc.title url=url slug=slug disabled=disabled %}
               {% endif %}
             {% endfor %}
           {% endfor %}
@@ -376,7 +389,7 @@ skip_links: |
 
 {% unless page.hide-marking-scheme %}
   <div class="section-muted pad-t pad-b-1-2 gutter-1-4" id="marking-scheme">
-    {% if page.grades.videos %}
+    {% if page.grades.videos or page.grades.activities %}
       {% assign column_width = "1-3" %}
     {% else %}
       {% assign column_width = "1-2" %}
@@ -384,36 +397,44 @@ skip_links: |
     <div class="wrapper">
       <h2 class="gutter-1-4 exa push-1-2"><span tabindex="0">Marking scheme</span></h2>
       <div class="grid push-1-2">
-        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
-          <h3 class="push-0"><span tabindex="0">Exercises — {{page.grades.exercises}}%</span></h3>
-          <p class="mega"><em>{{total_exercises}} exercises @ {{exercises_per}}% each.</em></p>
+        {% if page.grades.activities %}
+        <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
+          <h3 class="push-0"><span tabindex="0">Activities & lessons</span></h3>
+          <p class="mega"><strong>{{page.grades.activities}}%</strong> — <em>{{total_activities}} @ {{activities_per}}% each</em></p>
           <ul class="push-0">
-            <li>Complete/incomplete — marked in class or automated.</li>
-            <li>Personal feedback given at specific intervals.</li>
-            <li>Formative assessment.</li>
+            <li>Complete/incomplete</li>
+            <li>Formative assessment</li>
+          </ul>
+        </div>
+        {% endif %}
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
+          <h3 class="push-0"><span tabindex="0">Exercises</span></h3>
+          <p class="mega"><strong>{{page.grades.exercises}}%</strong> — <em>{{total_exercises}} @ {{exercises_per}}% each</em></p>
+          <ul class="push-0">
+            <li>Complete/incomplete</li>
+            <li>Formative assessment</li>
           </ul>
         </div>
         {% if page.grades.videos %}
         <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
-          <h3 class="push-0"><span tabindex="0">Videos — {{page.grades.videos}}%</span></h3>
-          <p class="mega"><em>{{total_videos}} video playlists @ {{videos_per}}% each.</em></p>
+          <h3 class="push-0"><span tabindex="0">Videos</span></h3>
+          <p class="mega"><strong>{{page.grades.videos}}%</strong> — <em>{{total_videos}} @ {{videos_per}}% each</em></p>
           <ul class="push-0">
-            <li>Complete/incomplete — checked in lab/class time.</li>
-            <li>Must reach 80% of playlist duration to receive pass.</li>
-            <li>Formative assessment.</li>
+            <li>Complete/incomplete</li>
+            <li>Must reach 80% of playlist duration to receive pass</li>
+            <li>Formative assessment</li>
           </ul>
         </div>
         {% endif %}
         <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
           <h3 class="push-0">
-            <span class="icon-label" tabindex="0">Big projects — {{page.grades.projects}}%</span>
+            <span class="icon-label" tabindex="0">Big projects</span>
             <i class="icon i-20"><svg><use xlink:href="#icon-star"></use></svg></i>
           </h3>
-          <p class="mega"><em>{{total_projects}} milestones @ {{projects_per}}% each.</em></p>
+          <p class="mega"><strong>{{page.grades.projects}}%</strong> — <em>{{total_projects}} @ {{projects_per}}% each</em></p>
           <ul class="push-0">
-            <li>Letter grade.</li>
-            <li>Proof you learned everything.</li>
-            <li>Summative assessment.</li>
+            <li>Proof you learned everything</li>
+            <li>Summative assessment</li>
           </ul>
         </div>
       </div>

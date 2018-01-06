@@ -9,18 +9,21 @@
 </head>
 <body>
 
+{% assign weight_activities=0 %}
 {% assign weight_exercises=0 %}
 {% assign weight_videos=0 %}
 {% assign weight_projects=0 %}
 
 {% for doc in page_data.docs %}
   {% if doc.slug == "index" %}
+    {% assign weight_activities = doc.grades.activities %}
     {% assign weight_exercises = doc.grades.exercises %}
     {% assign weight_videos = doc.grades.videos %}
     {% assign weight_projects = doc.grades.projects %}
     {% endif %}
 {% endfor %}
 
+{% assign total_activities=0 %}
 {% assign total_exercises = 0 %}
 {% assign total_videos = 0 %}
 {% assign total_projects = 0 %}
@@ -41,15 +44,24 @@
       {% endunless %}
     {% else %}
       {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-      {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% case exercise.type %}
+        {% when "lesson" %}
+          {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+        {% when "activity" %}
+          {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+        {% else %}
+          {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% endcase %}
     {% endif %}
   {% endfor %}
 {% endfor %}
 
+{% assign total_activities_float = total_activities | times: 1.0 %}
 {% assign total_exercises_float = total_exercises | times: 1.0 %}
 {% assign total_videos_float = total_videos | times: 1.0 %}
 {% assign total_projects_float = total_projects | times: 1.0 %}
 
+{% assign activities_per = weight_activities | divided_by: total_activities_float | round: 1 %}
 {% assign exercises_per = weight_exercises | divided_by: total_exercises_float | round: 1 %}
 {% assign videos_per = weight_videos | divided_by: total_videos_float | round: 1 %}
 {% assign projects_per = weight_projects | divided_by: total_projects_float | round: 1 %}
@@ -82,14 +94,18 @@
           {% endunless %}
         {% else %}
           {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-          {% assign the_prefix = "Exercise" %}
           {% case exercise.type %}
             {% when "lesson" %}
               {% assign the_prefix = "Lesson" %}
+              {% assign the_value = activities_per %}
             {% when "activity" %}
               {% assign the_prefix = "Activity" %}
+              {% assign the_value = activities_per %}
+            {% else %}
+              {% assign the_prefix = "Exercise" %}
+              {% assign the_value = exercises_per %}
           {% endcase %}
-          {% include comms/assessments-row.html prefix=the_prefix title=exercise.title value=exercises_per clrs=doc.clr %}
+          {% include comms/assessments-row.html prefix=the_prefix title=exercise.title value=the_value clrs=doc.clr %}
         {% endif %}
       {% endfor %}
     {% endfor %}
