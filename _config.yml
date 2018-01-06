@@ -16,6 +16,8 @@ exclude:
   - images-embed
   - _*/README.md
   - _*/UNLICENSE
+  - *.lock
+  - Gemfile*
 
 collections:
   topics:
