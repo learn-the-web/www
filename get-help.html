@@ -5,6 +5,7 @@ desc: "Web development can be complex and hard — but you’ll eventually get i
 priority: 0.2
 hide_markbot: true
 hide_algonquin: true
+hide_labs: true
 ---
 
 <div class="section-muted">
@@ -12,7 +13,8 @@ hide_algonquin: true
     <h2 class="giga push-1-2"><abbr title="Too long; didn’t read">TL;DR</abbr></h2>
     <ol class="push-0 mega">
       <li><a href="#watch-videos">Watch all the videos</a></li>
-      <li><a href="#attend-labs">Attend all the labs</a></li>
+      {% unless page.hide_labs %}<li><a href="#attend-labs">Attend all the labs</a></li>{% endunless %}
+      {% unless page.hide_worksops %}<li><a href="#attend-workshops">Attend all the workshops</a></li>{% endunless %}
       <li><a href="#tag-on-github">Tag your teacher on GitHub</a></li>
       <li><a href="#office-hours">Stop by office hours</a></li>
       <li><a href="#tutor">Get a tutor</a></li>
@@ -28,7 +30,7 @@ hide_algonquin: true
     <hr>
   </div>
 
-  <div class="gutter-1-4">
+  <section class="gutter-1-4">
     <h2 class="gutter-1-4" id="watch-videos"><span class="hang-punc">1</span> Watch <em>all</em> the videos</h2>
     <div class="grid">
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
@@ -49,54 +51,103 @@ hide_algonquin: true
       </div>
     </div>
     <div class="gutter-1-4"><hr></div>
-  </div>
+  </section>
 
+  <hr>
 
-  <div class="gutter-1-4">
-    <h2 class="gutter-1-4" id="attend-labs"><span class="hang-punc">2</span> Attend <em>all</em> the labs</h2>
-    <div class="grid">
-      <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
-        <p><strong>Attendance at the 1-hour labs outside class—if you have them scheduled—is essentially mandatory. You should be attending all labs.</strong></p>
-        <p>The labs are a <em>perfect time to ask questions</em> of your peers and the TAs. If you don’t have work to do then help your peers—helping others is one of the best ways to truly learn the material.</p>
-        <h3>Attend multiple labs</h3>
-        <p>If you didn’t get all the help you needed from your scheduled lab, attend a lab for one of the other sections—attend all three even!</p>
-        <h3 id="lab-stickies">Lab sticky note system</h3>
-        <p>Labs will follow a slightly modified sticky note system, pictured below.</p>
-        <img class="img-flex push" src="/images/lab-stickies.svg" alt="" aria-details="lab-stickies">
-        <dl class="list-group-inline" id="lab-stickies">
-          <dt class="bold">Green</dt>
-          <dd class="push-0"><em>No help needed</em>—working or watching</dd>
-          <dt class="bold">Yellow</dt>
-          <dd class="push-0"><em>Help needed</em>—anybody can help out</dd>
-          <dt class="bold">Red</dt>
-          <dd class="push-0"><em>Help from TA</em>—always has priority</dd>
-          <dt class="bold">(None)</dt>
-          <dd class="push-0"><em>Success!</em>—helping others</dd>
-        </dl>
-      </div>
-      <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
-        {% for collection in site.collections %}
-          {% for doc in collection.docs %}
-            {% if doc.slug == "index" %}
-              {% if doc.datetimes.labs %}
-                <h3 class="mega push-0">{{doc.title}} lab times</h3>
-                <ol class="hours list-group">
-                  {% for lab in doc.datetimes.labs %}
-                    <li>{% include day-number-to-text.html day=lab.day %} {% include 24-hour-to-12.html time=lab.start_time %}–{% include 24-hour-to-12.html time=lab.end_time %} @ {{lab.room}}</li>
-                  {% endfor %}
-                </ol>
+  {% unless page.hide_labs %}
+    <section class="gutter-1-4">
+      <h2 class="gutter-1-4" id="attend-labs"><span class="hang-punc">2</span> Attend <em>all</em> the labs</h2>
+      <div class="grid">
+        <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
+          <p><strong>Attendance at the 1-hour labs outside class—if you have them scheduled—is essentially mandatory. You should be attending all labs.</strong></p>
+          <p>The labs are a <em>perfect time to ask questions</em> of your peers and the TAs. If you don’t have work to do then help your peers—helping others is one of the best ways to truly learn the material.</p>
+          <h3>Attend multiple labs</h3>
+          <p>If you didn’t get all the help you needed from your scheduled lab, attend a lab for one of the other sections—attend all three even!</p>
+          <h3 id="lab-stickies">Lab sticky note system</h3>
+          <p>Labs will follow a slightly modified sticky note system, pictured below.</p>
+          <img class="img-flex push" src="/images/lab-stickies.svg" alt="" aria-details="lab-stickies">
+          <dl class="list-group-inline" id="lab-stickies">
+            <dt class="bold">Green</dt>
+            <dd class="push-0"><em>No help needed</em>—working or watching</dd>
+            <dt class="bold">Yellow</dt>
+            <dd class="push-0"><em>Help needed</em>—anybody can help out</dd>
+            <dt class="bold">Red</dt>
+            <dd class="push-0"><em>Help from TA</em>—always has priority</dd>
+            <dt class="bold">(None)</dt>
+            <dd class="push-0"><em>Success!</em>—helping others</dd>
+          </dl>
+        </div>
+        <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
+          {% for collection in site.collections %}
+            {% for doc in collection.docs %}
+              {% if doc.slug == "index" %}
+                {% if doc.datetimes.labs %}
+                  <h3 class="mega push-0">{{doc.title}} lab times</h3>
+                  <ol class="hours list-group">
+                    {% for lab in doc.datetimes.labs %}
+                      <li>{% include day-number-to-text.html day=lab.day %} {% include 24-hour-to-12.html time=lab.start_time %}–{% include 24-hour-to-12.html time=lab.end_time %} @ {{lab.room}}</li>
+                    {% endfor %}
+                  </ol>
+                {% endif %}
+
+                {% break %}
               {% endif %}
-
-              {% break %}
-            {% endif %}
+            {% endfor %}
           {% endfor %}
-        {% endfor %}
+        </div>
       </div>
-    </div>
-    <div class="gutter-1-4"><hr></div>
-  </div>
+      <div class="gutter-1-4"><hr></div>
+    </section>
+  {% endunless %}
 
-  <div class="gutter-1-4">
+  {% unless page.hide_workshops %}
+    <section class="gutter-1-4">
+      <h2 class="gutter-1-4" id="attend-workshops"><span class="hang-punc">2</span> Attend <em>all</em> the workshops</h2>
+      <div class="grid">
+        <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
+          <p><strong>Attendance at the 3-hour workshops outside class—if you have low grades—is essentially mandatory. You should be attending all workshops.</strong></p>
+          <p>The workshops are a <em>perfect time to ask questions</em> of your peers and the teacher & TAs. If you don’t have work to do then help your peers—helping others is one of the best ways to truly learn the material.</p>
+          <h3 id="lab-stickies">Workshop sticky note system</h3>
+          <p>Workshops will follow the standard sticky note system, pictured below.</p>
+          <img class="img-flex push" src="/images/workshop-stickies.svg" alt="" aria-details="lab-stickies">
+          <dl class="list-group-inline" id="lab-stickies">
+            <dt class="bold">Green</dt>
+            <dd class="push-0"><em>No help needed</em>—working or watching</dd>
+            <dt class="bold">Yellow</dt>
+            <dd class="push-0"><em>Help needed</em>—anybody can help out</dd>
+            <dt class="bold">Red</dt>
+            <dd class="push-0"><em>Help from teacher</em>—always has priority</dd>
+            <dt class="bold">(None)</dt>
+            <dd class="push-0"><em>Success!</em>—helping others</dd>
+          </dl>
+        </div>
+        <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
+          {% for collection in site.collections %}
+            {% for doc in collection.docs %}
+              {% if doc.slug == "index" %}
+                {% if doc.datetimes.workshops %}
+                  <h3 class="mega push-0">{{doc.title}} workshop times</h3>
+                  <ol class="hours list-group">
+                    {% for workshop in doc.datetimes.workshops %}
+                      <li>{{workshop}}</li>
+                    {% endfor %}
+                  </ol>
+                {% endif %}
+
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="gutter-1-4"><hr></div>
+    </section>
+  {% endunless %}
+
+  <hr>
+
+  <section class="gutter-1-4">
     <h2 class="gutter-1-4" id="tag-on-github"><span class="hang-punc">3</span> Tag your teacher on GitHub</h2>
     <div class="grid">
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
@@ -126,9 +177,11 @@ hide_algonquin: true
       </div>
     </div>
     <div class="gutter-1-4"><hr></div>
-  </div>
+  </section>
 
-  <div class="gutter-1-4">
+  <hr>
+
+  <section class="gutter-1-4">
     <h2 class="gutter-1-4" id="office-hours"><span class="hang-punc">4</span> Stop by office hours</h2>
     <div class="grid">
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
@@ -172,9 +225,11 @@ hide_algonquin: true
       </div>
     </div>
     <div class="gutter-1-4"><hr></div>
-  </div>
+  </section>
 
-  <div class="gutter-1-4">
+  <hr>
+
+  <section class="gutter-1-4">
     <h2 class="gutter-1-4" id="tutor"><span class="hang-punc">5</span> Get a tutor</h2>
     <div class="grid">
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
@@ -187,18 +242,20 @@ hide_algonquin: true
         <h3 class="mega push-0">This term’s tutors:</h3>
         <!-- <p><em>Still in the process of being hired…</em></p> -->
         <ul>
-          <li><a href="mailto:doug0139@algonquinlive.com">Hannah Douglas, 3rd year</a></li>
-          <li><a href="mailto:obri0205@algonquinlive.com">Kayla Obritsch, 3rd year</a></li>
-          <li><a href="mailto:peix0012@algonquinlive.com">Matt Peixoto, 3rd year</a></li>
-          <li><a href="mailto:alve0026@algonquinlive.com">Raquel Alves Araujo Ferreira, 2nd year</a></li>
-          <li><a href="mailto:srid0002@algonquinlive.com">Shrinidhi Sridhar, 2nd year</a></li>
+          <li><a href="mailto:doug0139@algonquinlive.com">Hannah Douglas</a></li>
+          <li><a href="mailto:obri0205@algonquinlive.com">Kayla Obritsch</a></li>
+          <li><a href="mailto:peix0012@algonquinlive.com">Matt Peixoto</a></li>
+          <li><a href="mailto:alve0026@algonquinlive.com">Raquel Alves Araujo Ferreira</a></li>
+          <li><a href="mailto:srid0002@algonquinlive.com">Shrinidhi Sridhar</a></li>
         </ul>
       </div>
     </div>
     <div class="gutter-1-4"><hr></div>
-  </div>
+  </section>
 
-  <div class="gutter-1-4">
+  <hr>
+
+  <section class="gutter-1-4">
     <h2 class="gutter-1-4" id="email"><span class="hang-punc">6</span> Email your teacher</h2>
     <div class="grid">
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
@@ -226,6 +283,6 @@ hide_algonquin: true
         </ul>
       </div>
     </div>
-  </div>
+  </section>
 
 </div>

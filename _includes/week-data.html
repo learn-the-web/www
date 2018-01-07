@@ -11,6 +11,19 @@
   {% endif %}
 {% endif %}
 
+{% if include.data.datetimes.workshops %}
+  <h3 class="mega push-0" tabindex="0">Workshop dates <em class="normal">— @ {{include.data.datetimes.workshop_room}}</em></h3>
+  {% if include.no_office_hours %}
+    <p><em>No workshops this week.</em></p>
+  {% else %}
+    <ol class="hours list-group">
+      {% for workshop in include.data.datetimes.workshops %}
+        <li>{{workshop}}</li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+{% endif %}
+
 {% if include.data.prof %}
   <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a class="link-body-color" href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}@&nbsp;{{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
   {% if include.data.prof.hours %}
