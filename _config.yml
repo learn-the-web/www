@@ -4,20 +4,20 @@ permalink: pretty
 highlighter: none
 
 exclude:
-  - README.md
-  - LICENSE
-  - gulpfile.js
-  - package.json
-  - tmp
-  - node_modules
-  - css-src
-  - js-src
-  - vendor
-  - images-embed
-  - _*/README.md
-  - _*/UNLICENSE
-  - *.lock
-  - Gemfile*
+  - "README.md"
+  - "LICENSE"
+  - "gulpfile.js"
+  - "package.json"
+  - "tmp"
+  - "node_modules"
+  - "css-src"
+  - "js-src"
+  - "vendor"
+  - "images-embed"
+  - "_*/README.md"
+  - "_*/UNLICENSE"
+  - "*.lock"
+  - "Gemfile*"
 
 collections:
   topics:
