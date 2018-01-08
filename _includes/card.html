@@ -107,6 +107,10 @@
   {% endcase %}
 {% endif %}
 
+{% if include.data.icon %}
+  {% assign icon = include.data.icon %}
+{% endif %}
+
 {% if include.data.graded-as %}
   {% assign worth = include.projects_per %}
   {% assign grading_type = "Letter grade" %}
