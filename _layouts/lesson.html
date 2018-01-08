@@ -132,6 +132,7 @@ skip_links: |
       {% endif %}
 
       {% if page.fork %}
+        {% capture the_fork_url %}{{page.fork.url}}{% unless page.fork.url contains '/fork' %}/fork{% endunless %}{% endcapture %}
         <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2">
             <h2 class="lesson-title zetta push-1-4" id="step-fork" data-step-jump="step-fork" tabindex="0">
@@ -149,7 +150,7 @@ skip_links: |
             </h2>
             <div class="mega gutter-1-4 lesson-body-text">
               <p>Start the lesson by forking and cloning the <code>{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}</code> repository.</p>
-              <p class="tera"><strong><a href="{{page.fork.url}}{% unless page.fork.url contains '/fork' %}/fork{% endunless %}">Fork &amp; clone the “{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}” repo.</a></strong></p>
+              <p class="tera"><strong><a href="{{the_fork_url | replace:'//fork', '/fork'}}">Fork &amp; clone the “{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}” repo.</a></strong></p>
               <p><em>The repository will have some starter files to get you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
             </div>
           </div>
