@@ -1,9 +1,9 @@
 {% if include.data.datetimes.labs %}
   <h3 class="mega push-0" tabindex="0">Lab times <em class="normal">— attendance suggested</em></h3>
   {% if include.no_office_hours %}
-    <p><em>No labs this week.</em></p>
+    <p class="push-1-2"><em>No labs this week.</em></p>
   {% else %}
-    <ol class="hours list-group">
+    <ol class="hours list-group push-1-2">
       {% for lab in include.data.datetimes.labs %}
         <li>{% include day-number-to-text.html day=lab.day %} {% include 24-hour-to-12.html time=lab.start_time %} – {% include 24-hour-to-12.html time=lab.end_time %} @&nbsp;{{lab.room}}</li>
       {% endfor %}
@@ -14,9 +14,9 @@
 {% if include.data.datetimes.workshops %}
   <h3 class="mega push-0" tabindex="0">Workshop dates <em class="normal">— @ {{include.data.datetimes.workshop_room}}</em></h3>
   {% if include.no_office_hours %}
-    <p><em>No workshops this week.</em></p>
+    <p class="push-1-2"><em>No workshops this week.</em></p>
   {% else %}
-    <ol class="hours list-group">
+    <ol class="hours list-group push-1-2">
       {% for workshop in include.data.datetimes.workshops %}
         <li>{{workshop}}</li>
       {% endfor %}
@@ -28,16 +28,16 @@
   <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a class="link-body-color" href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}@&nbsp;{{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
   {% if include.data.prof.hours %}
     {% if include.no_office_hours %}
-      <p><em>No office hours this week.</em></p>
+      <p class="push-1-2"><em>No office hours this week.</em></p>
     {% else %}
-      <ol class="hours list-group">
+      <ol class="hours list-group push-1-2">
         {% for hour in include.data.prof.hours %}
           <li>{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %} – {% include 24-hour-to-12.html time=hour.end_time %}</li>
         {% endfor %}
       </ol>
     {% endif %}
   {% else %}
-    <p><em>By appointment only.</em></p>
+    <p class="push-1-2"><em>By appointment only.</em></p>
   {% endif %}
 {% endif %}
 
@@ -45,9 +45,9 @@
   <h3 class="mega push-0" tabindex="0">Class times <em class="normal">— {{include.data.title}}</em></h3>
   {% if include.data.datetimes.sections %}
     {% if include.no_classes %}
-      <p><em>No classes this week.</em></p>
+      <p class="push-1-2"><em>No classes this week.</em></p>
     {% else %}
-      <ol class="hours list-group">
+      <ol class="hours list-group push-1-2">
         {% for class in include.data.datetimes.sections %}
           <li>{% include day-number-to-text.html day=class.day %} {% include 24-hour-to-12.html time=class.start_time %} – {% include 24-hour-to-12.html time=class.end_time %} @&nbsp;{{class.room}}</li>
         {% endfor %}
