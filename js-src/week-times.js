@@ -26,7 +26,7 @@
       day: 'numeric',
     });
 
-    return formatter.format(date).replace(/\s/, '. ');
+    return formatter.format(date);
   };
 
   if (!weekListTimes) return;
