@@ -3,8 +3,13 @@
     <ol class="simple-nav list-group-inline">
       {% for item in include.groups %}
         <li>
-          <a href="#{{item.title | slugify}}">{{item.title}}</a>
+          {% if item.groups %}<strong>{% endif %}
+            <a href="#{{item.title | slugify}}">{{item.title}}</a>
+          {% if item.groups %}</strong>{% endif %}
         </li>
+        {% for subitem in item.groups %}
+          <li><a href="#{{subitem.title | slugify}}">{{subitem.title}}</a></li>
+        {% endfor %}
       {% endfor %}
     </ol>
   </nav>

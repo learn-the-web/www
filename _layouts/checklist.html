@@ -25,11 +25,16 @@ favicon: "/favicon-checklist.png"
 
   <article class="checklist">
     {% include simple-header.html title=page.title %}
-    {% include simple-nav.html groups=page.groups %}
 
-    <div class="grid">
-      {% include checks-group.html groups=page.groups %}
-    </div>
+    {% if page.sections %}
+      {% include simple-nav.html groups=page.sections %}
+      {% include checks-section.html sections=page.sections %}
+    {% else %}
+      {% include simple-nav.html groups=page.groups %}
+      <div class="grid">
+        {% include checks-group.html groups=page.groups %}
+      </div>
+    {% endif %}
   </article>
 
 </main>

@@ -1,0 +1,14 @@
+{% for section in include.sections %}
+  <section class="cheat-section push">
+    {% if cheat.note or cheat.notes %}
+      <h2 class="peta gutter-1-2 push-0" id="{{section.title | slugify}}" tabindex="0">{{section.title}}</h2>
+      <div class="block gutter-1-2 push italic">{{section.note | markdownify}}{{section.notes | markdownify}}</div>
+    {% else %}
+      <h2 class="peta gutter-1-2" id="{{section.title | slugify}}" tabindex="0">{{section.title}}</h2>
+    {% endif %}
+
+    <div class="grid">
+      {% include checks-group.html groups=section.groups wrapper_elem='div' header_elem='h3' %}
+    </div>
+  </section>
+{% endfor %}
