@@ -1,0 +1,79 @@
+---
+layout: basic-inside
+title: "Feedback"
+desc: "We always want to improve the materials, website, delivery—and ourselves. Your honest feedback is very helpful & valuable."
+priority: 0.1
+hide_markbot: true
+hide_algonquin: true
+---
+
+<div class="wrapper pad-t pad-b-2 gutter-1-2">
+  <h2>Anonymous feedback</h2>
+
+  <form class="max-length not-centered" action="https://formspree.io/bradlet@algonquincollege.com" method="post">
+
+    <div class="push">
+      <label class="bold" for="course">Course</label>
+      <select name="course" id="course" required>
+        <option value=""></option>
+        <optgroup label="Core courses">
+          {% for collection_id in site.collections_courses %}
+            {% assign collection = site.collections | where: "label", collection_id | first %}
+            <option value="{{collection_id}}">{{collection.title}}</option>
+          {% endfor %}
+        </optgroup>
+        <optgroup label="Self-directed courses">
+          {% for collection_id in site.collections_selfdirected %}
+            {% assign collection = site.collections | where: "label", collection_id | first %}
+            <option value="{{collection_id}}">{{collection.title}}</option>
+          {% endfor %}
+        </optgroup>
+        <optgroup label="Workshops">
+          {% for collection_id in site.collections_workshops %}
+            {% assign collection = site.collections | where: "label", collection_id | first %}
+            <option value="{{collection_id}}">{{collection.title}}</option>
+          {% endfor %}
+        </optgroup>
+      </select>
+    </div>
+
+    <fieldset class="push">
+      <legend class="gutter-1-8">How would you rate this course?</legend>
+      <input type="radio" id="rating-1" name="rating" value="1" required>
+      <label for="rating-1" class="push-r-1-2">Terrible</label>
+      <input type="radio" id="rating-2" name="rating" value="2" required>
+      <label for="rating-2" class="push-r-1-2">Poor</label>
+      <input type="radio" id="rating-3" name="rating" value="3" required>
+      <label for="rating-3" class="push-r-1-2">Okay</label>
+      <input type="radio" id="rating-4" name="rating" value="4" required>
+      <label for="rating-4" class="push-r-1-2">Good</label>
+      <input type="radio" id="rating-5" name="rating" value="5" required>
+      <label for="rating-5" class="push-r-1-2">Fantastic</label>
+    </fieldset>
+
+    <div class="push">
+      <label class="bold" for="course-fav">What was your favourite part about the course?</label>
+      <textarea id="course-fav" name="course-favourites" required></textarea>
+    </div>
+
+    <div class="push">
+      <label class="bold" for="course-improve">What would improve the course?</label>
+      <textarea id="course-improve" name="course-improvements" required></textarea>
+    </div>
+
+    <div class="push">
+      <label class="bold" for="teacher-well">What did you like most about the teacher?</label>
+      <textarea id="teacher-well" name="teacher-positives" required></textarea>
+    </div>
+
+    <div class="push">
+      <label class="bold" for="teacher-improve">What could the teacher improve upon?</label>
+      <textarea id="teacher-improve" name="teacher-improvements" required></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="Learn the Web Feedback!">
+    <input type="hidden" name="_format" value="plain">
+    <input type="hidden" name="_next" value="https://learn-the-web.algonquindesign.ca/feedback/thanks/">
+    <button class="btn" type="submit">Send anonymous feedback</button>
+  </form>
+</div>

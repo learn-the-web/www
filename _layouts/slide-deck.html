@@ -77,7 +77,7 @@
           {% if slide.numbered %}<strong class="slide-numbered exa bold text-center absolute pin-bc" aria-label="Slide question {{slide.numbered}}" tabindex="0">{{slide.numbered}}</strong>{% endif %}
         </div>
         {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines %}
-          <input type="checkbox" class="hide-show-control" id="hide-show-notes-{{forloop.index}}">
+          <input type="checkbox" class="hide-show-control hide-custom-input" id="hide-show-notes-{{forloop.index}}">
           <label class="hide-show-btn" for="hide-show-notes-{{forloop.index}}">
             <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
             <i class="icon i-24 notes-hide" title="Hide notes" aria-label="Hide notes"><svg><use xlink:href="#icon-info-close"></use></svg></i>

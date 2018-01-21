@@ -37,6 +37,11 @@
   white-space: nowrap;
 }
 
+.footer-feedback {
+  color: rgba(255, 255, 255, .9);
+  border-bottom: 2px solid var(--color-brand-dark-lightened);
+}
+
 @media only screen and (min-width: 38em) {
 
   .footer {

@@ -141,6 +141,10 @@
   border-radius: 4px;
 }
 
+[type="checkbox"] + .nav-label {
+  display: block;
+}
+
 .i-nav {
   margin-right: 0.25em;
   width: 20px;
@@ -335,7 +339,7 @@
     border-radius: 0;
   }
 
-  .nav-label,
+  [type="checkbox"] + .nav-label,
   .nav-check {
     display: none;
   }
