@@ -24,6 +24,9 @@
     {% else %}
       <{{header_elem}} class="mega" id="{{check.title | slugify}}" tabindex="0">{{check.title}}</{{header_elem}}>
     {% endif %}
+    {% if check.noteImg or check.notesImg %}
+      <div class="block push italic">{{check.noteImg | markdownify}}{{check.notesImg | markdownify}}</div>
+    {% endif %}
     <ul class="list-group cheat-list push">
       {% for item in check.items %}
         {% if check.notCheckList %}
@@ -36,5 +39,8 @@
         {% endif %}
       {% endfor %}
     </ul>
+    {% if check.noteAfter or check.notesAfter %}
+      <div class="block italic">{{check.noteAfter | markdownify}}{{check.notesAfter | markdownify}}</div>
+    {% endif %}
   </{{wrapper_elem}}>
 {% endfor %}
