@@ -79,39 +79,16 @@
 }
 
 .check-box ~ .check-label::before {
-  content: " ";
   left: 0;
-  height: 16px;
+  height: 1rem;
   position: absolute;
-  top: 6px;
+  top: .2rem;
   z-index: 99;
-  width: 16px;
+  width: 1rem;
 
-  background-image: inline("../images-embed/check-box.svg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   cursor: pointer;
 
   color: #000;
-  font-size: 15px;
-}
-
-.check-box:checked ~ .check-label::after {
-  content: " ";
-  left: 1px;
-  height: 18px;
-  position: absolute;
-  top: 0;
-  z-index: 100;
-  width: 18px;
-
-  background-image: inline("../images-embed/check-checked.svg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  color: var(--color-grey);
   font-size: 15px;
 }
 
