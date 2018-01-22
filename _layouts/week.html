@@ -146,6 +146,18 @@ skip_links: |
             </ul>
           {% endif %}
 
+          {% if page.todos %}
+            <h3 class="mega push-1-4" tabindex="0">Weekly todos</h3>
+            <ul class="list-group cheat-list push">
+              {% for item in page.todos %}
+                <li class="checklist-details">
+                  <input class="check-box visually-hidden" type="checkbox" id="{{step.title | slugify}}-{{item | slugify}}-{{forloop.index}}">
+                  <label class="check-label" for="{{step.title | slugify}}-{{item | slugify}}-{{forloop.index}}">{{item | markdownify}}</label>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
           {% if page.next_week_notes %}
             <h3 class="mega push-1-4" tabindex="0">Notes for next week</h3>
             <ul class="italic milli">
