@@ -12,7 +12,7 @@ GEM
     ffi (1.9.18)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
-    i18n (0.9.1)
+    i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     jekyll (3.7.0)
       addressable (~> 2.4)
@@ -60,4 +60,4 @@ DEPENDENCIES
   jekyll
 
 BUNDLED WITH
-   1.16.1
+   1.16.0
