@@ -39,8 +39,10 @@
   z-index: 100;
 }
 
+.cheat-list ul,
+.cheat-list ol,
 .cheat-list p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .cheat-head {
