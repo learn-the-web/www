@@ -111,7 +111,7 @@ skip_links: |
           <tbody>
             <tr>
               <td colspan="8">{% if page.datetimes.sections %}{{page.hours}} h{% else %}None{% endif %}</td>
-              <td colspan="8">{% if page.datetimes.labs %}15 h{% else %}None{% endif %}</td>
+              <td colspan="8">{% if page.datetimes.labs or page.datetimes.worklabs %}15 h{% else %}None{% endif %}</td>
               <td colspan="8">~{% if page.homework %}{{page.homework}}{% else %}{% if page.datetimes.sections %}45{% else %}{{page.hours | plus:45}}{% endif %}{% endif %} h</td>
             </tr>
           </tbody>

@@ -11,14 +11,14 @@
   {% endif %}
 {% endif %}
 
-{% if include.data.datetimes.workshops %}
-  <h3 class="mega push-0" tabindex="0">Workshop dates</h3>
+{% if include.data.datetimes.worklabs %}
+  <h3 class="mega push-0" tabindex="0">Work lab dates</h3>
   {% if include.no_office_hours %}
-    <p class="push-1-2"><em>No workshops this week.</em></p>
+    <p class="push-1-2"><em>No work labs this week.</em></p>
   {% else %}
     <ol class="hours list-group push-1-2">
-      {% for workshop in include.data.datetimes.workshops %}
-        <li>{{workshop}}</li>
+      {% for worklab in include.data.datetimes.worklabs %}
+        <li>{{worklab}}</li>
       {% endfor %}
     </ol>
   {% endif %}

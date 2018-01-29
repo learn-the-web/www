@@ -14,7 +14,7 @@ hide_labs: true
     <ol class="push-0 mega">
       <li><a href="#watch-videos">Watch all the videos</a></li>
       {% unless page.hide_labs %}<li><a href="#attend-labs">Attend all the labs</a></li>{% endunless %}
-      {% unless page.hide_worksops %}<li><a href="#attend-workshops">Attend all the workshops</a></li>{% endunless %}
+      {% unless page.hide_worklabs %}<li><a href="#attend-worklabs">Attend all the work labs</a></li>{% endunless %}
       <li><a href="#tag-on-github">Tag your teacher on GitHub</a></li>
       <li><a href="#office-hours">Stop by office hours</a></li>
       <li><a href="#tutor">Get a tutor</a></li>
@@ -103,14 +103,14 @@ hide_labs: true
 
   {% unless page.hide_workshops %}
     <section class="gutter-1-4">
-      <h2 class="gutter-1-4" id="attend-workshops"><span class="hang-punc">2</span> Attend <em>all</em> the workshops</h2>
+      <h2 class="gutter-1-4" id="attend-worklabs"><span class="hang-punc">2</span> Attend <em>all</em> the work labs</h2>
       <div class="grid">
         <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
-          <p><strong>Attendance at the 3-hour workshops outside class—if you have low grades—is essentially mandatory. You should be attending all workshops.</strong></p>
-          <p>The workshops are a <em>perfect time to ask questions</em> of your peers and the teacher & TAs. If you don’t have work to do then help your peers—helping others is one of the best ways to truly learn the material.</p>
-          <h3 id="lab-stickies">Workshop sticky note system</h3>
-          <p>Workshops will follow the standard sticky note system, pictured below.</p>
-          <img class="img-flex push" src="/images/workshop-stickies.svg" alt="" aria-details="lab-stickies">
+          <p><strong>Attendance at the 3-hour work labs outside class—if you have low grades—is essentially mandatory. You should be attending all work labs.</strong></p>
+          <p>The work labs are a <em>perfect time to ask questions</em> of your peers and the teacher & TAs. If you don’t have work to do then help your peers—helping others is one of the best ways to truly learn the material.</p>
+          <h3 id="lab-stickies">Work lab sticky note system</h3>
+          <p>Work labs will follow the standard sticky note system, pictured below.</p>
+          <img class="img-flex push" src="/images/worklab-stickies.svg" alt="" aria-details="lab-stickies">
           <dl class="list-group-inline" id="lab-stickies">
             <dt class="bold">Green</dt>
             <dd class="push-0"><em>No help needed</em>—working or watching</dd>
@@ -126,11 +126,11 @@ hide_labs: true
           {% for collection in site.collections %}
             {% for doc in collection.docs %}
               {% if doc.slug == "index" %}
-                {% if doc.datetimes.workshops %}
-                  <h3 class="mega push-0">{{doc.title}} workshop times</h3>
+                {% if doc.datetimes.worklabs %}
+                  <h3 class="mega push-0">{{doc.title}} work lab times</h3>
                   <ol class="hours list-group">
-                    {% for workshop in doc.datetimes.workshops %}
-                      <li>{{workshop}}</li>
+                    {% for worklab in doc.datetimes.worklabs %}
+                      <li>{{worklab}}</li>
                     {% endfor %}
                   </ol>
                 {% endif %}
