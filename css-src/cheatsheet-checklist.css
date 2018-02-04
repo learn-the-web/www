@@ -41,7 +41,9 @@
 
 .cheat-list ul,
 .cheat-list ol,
-.cheat-list p {
+.cheat-list p,
+.cheat-list code,
+.cheat-list pre {
   margin-bottom: 0;
 }
 
