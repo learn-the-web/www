@@ -30,9 +30,9 @@
     <ul class="list-group cheat-list push">
       {% for item in check.items %}
         {% if check.notCheckList %}
-          <li class="checklist-details push">{{item | markdownify}}</li>
+          <li class="checklist-details">{{item | markdownify}}</li>
         {% else %}
-          <li class="checklist-details push">
+          <li class="checklist-details">
             <input class="check-box visually-hidden" type="checkbox" id="{{check.title | slugify}}-{{forloop.index}}">
             <label class="check-label" for="{{check.title | slugify}}-{{forloop.index}}">{{item | markdownify}}</label>
           </li>
