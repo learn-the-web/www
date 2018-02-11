@@ -1,0 +1,48 @@
+---
+layout: default
+skip_links: |
+  <li><a href="#groups">Skip to flowchart</a></li>
+favicon: "/favicon-flowchart.png"
+---
+
+{% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
+
+{% assign results = site.topics | where: "url", "/topics/index.html" %}
+{% assign toc = results[0].toc %}
+
+{% for toc_section in toc %}
+  {% for toc_item in toc_section[1] %}
+    {% capture the_slug %}{{toc_item.slug}}/{% endcapture %}
+    {% if page.url contains the_slug %}
+      {% assign toc_pages = toc_section[1] %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% include inside-nav.html %}
+
+<main class="relative" role="main">
+
+  <article class="">
+    {% include simple-header.html title=page.title %}
+
+    <div class="wrapper gutter-1-2 pad-t pad-b-2">
+      <ol class="list-group giga flowchart push-0">
+        {% for task in page.tasks %}
+          <li class="{% unless forloop.last %}pad-b{% endunless %} {% if task.optional %}flowchart-optional{% endif %}">
+            <input type="checkbox" id="{{task.title | slugify}}-{{forloop.index}}">
+            <label class="bold" for="{{task.title | slugify}}-{{forloop.index}}">{{task.title}}</label>
+            {% if task.desc %}
+              <div class="flowchart-desc kilo max-length not-centered">{{task.desc | markdownify}}</div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+
+  </article>
+
+</main>
+
+{% include prev-next-nav.html data=toc_pages theslug=slug %}
+{% include all-cheat-sheets-checklists.html %}

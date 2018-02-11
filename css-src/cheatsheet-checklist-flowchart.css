@@ -1,0 +1,180 @@
+.cheatsheet-header {
+  background-color: var(--color-brand);
+
+  color: #000;
+}
+
+.simple-nav > li::after {
+  content: "·";
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  color: var(--color-grey);
+}
+
+.simple-nav > li:last-child::after {
+  content: none;
+  display: none;
+}
+
+.simple-nav-wrap,
+.cheat-section {
+  border-bottom: 3px solid var(--color-grey-light);
+}
+
+.cheat-section:last-child {
+  border-bottom: 0;
+}
+
+.cheatsheet img,
+.checklist img {
+  display: block;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.cheat-head:focus {
+  outline: 3px solid #000;
+  position: relative;
+  z-index: 100;
+}
+
+.cheat-list ul,
+.cheat-list ol,
+.cheat-list p,
+.cheat-list code,
+.cheat-list pre {
+  margin-bottom: 0;
+}
+
+.cheat-head {
+  color: #000;
+}
+
+.cheat-head code {
+  background-color: var(--color-code-dark);
+  white-space: pre-wrap;
+}
+
+.cheat-details p code {
+  white-space: normal;
+}
+
+.cheat-details {
+  margin-left: 1rem;
+
+  color: var(--color-grey-dark);
+}
+
+.check-label {
+  display: block;
+  position: relative;
+  padding-left: 1.4em;
+  cursor: pointer;
+}
+
+.check-box:focus ~ .check-label {
+  outline: 3px solid #000;
+  outline-offset: 1px;
+}
+
+.check-label p {
+  display: inline;
+}
+
+.check-box ~ .check-label::before {
+  left: 0;
+  height: 1rem;
+  position: absolute;
+  top: .2rem;
+  z-index: 99;
+  width: 1rem;
+
+  cursor: pointer;
+
+  color: #000;
+  font-size: 15px;
+}
+
+.cheat-details hr {
+  margin: 0;
+}
+
+.flowchart {
+  counter-reset: flowchart;
+}
+
+.flowchart > li {
+  padding-left: 2.5rem;
+  position: relative;
+  background: none 2.5rem calc(100% - .1em) / 2.2rem auto no-repeat transparent;
+  background-image: inline("../images-embed/flowchart-arrow.svg");
+}
+
+.flowchart > .flowchart-optional {
+  background-image: inline("../images-embed/flowchart-arrow-optional.svg");
+}
+
+.flowchart > li:last-child {
+  background-image: none;
+}
+
+.flowchart > li::before {
+  content: counter(flowchart);
+  margin: 0;
+  position: absolute;
+  left: 0;
+  width: 2rem;
+
+  color: var(--color-brand-dark);
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: right;
+}
+
+.flowchart label {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.flowchart label::before {
+  left: 0;
+  position: absolute;
+
+  border-radius: 50%;
+  border-width: .2em;
+}
+
+.flowchart-optional  label::before {
+  border-color: var(--color-grey);
+}
+
+.flowchart > li:first-child label::before,
+.flowchart > li:last-child label::before {
+  border-color: #000;
+}
+
+.flowchart-optional label::after {
+  content: "Optional";
+  display: inline-block;
+  margin-left: 0.7rem;
+  padding: .2rem 0.4rem;
+  position: relative;
+  top: -0.2rem;
+
+  border-radius: 3px;
+  background-color: hsla(24,7%,70%,0.3);
+
+  color: rgba(0,0,0,0.4);
+  line-height: 1.5;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+}
+
+.flowchart-desc {
+  padding-left: 2.5rem;
+}
+
+.flowchart-desc :last-child {
+  margin-bottom: 0;
+}

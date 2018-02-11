@@ -30,7 +30,7 @@
           {% endfor %}
         </ol>
 
-        <ol class="list-group-inline push-0">
+        <ol class="list-group-inline push-1-2">
           {% for item in include.data %}
             {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
             {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
@@ -40,6 +40,22 @@
             <li class="push-r-1-2 push-1-4">
               <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
                 <img class="icon i-32" src="/images/icon-checklist.svg" alt="">
+                <span class="icon-label">{{details.title}}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ol>
+
+        <ol class="list-group-inline push-0">
+          {% for item in include.data %}
+            {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+            {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
+            {% assign details = results[0] %}
+            {% unless item.flowchart %}{% continue %}{% endunless %}
+            {% capture count %}{{count | plus:1 }}{% endcapture %}
+            <li class="push-r-1-2 push-1-4">
+              <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
+                <img class="icon i-32" src="/images/icon-flowchart.svg" alt="">
                 <span class="icon-label">{{details.title}}</span>
               </a>
             </li>

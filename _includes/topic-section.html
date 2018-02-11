@@ -15,7 +15,7 @@
               {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
               {% assign details = results[0] %}
               {% if item.hidden != true %}
-                <li class="indent{{item.indent}} {% if item.disabled %}topic-disabled{% endif %} {% if item.fullsite %}topic-flag topic-fullsite{% endif %} {% if item.checklist %}topic-flag topic-checklist{% endif %} {% if item.cheatsheet %}topic-flag topic-cheatsheet{% endif %} {% if item.tool %}topic-flag topic-tool{% endif %}" id="{{item.slug}}" data-tags="{{details.tags}}{{item.tool_tags}}">
+                <li class="indent{{item.indent}} {% if item.disabled %}topic-disabled{% endif %} {% if item.fullsite %}topic-flag topic-fullsite{% endif %} {% if item.checklist %}topic-flag topic-checklist{% endif %} {% if item.cheatsheet %}topic-flag topic-cheatsheet{% endif %} {% if item.tool %}topic-flag topic-tool{% endif %} {% if item.flowchart %}topic-flag topic-flowchart{% endif %}" id="{{item.slug}}" data-tags="{{details.tags}}{{item.tool_tags}}">
                   {% if item.disabled %}<span class="topic-text">{% else %}<a class="topic-text" href="{% if item.tool %}{{item.tool}}{% else %}/topics/{{item.slug}}/{% endif %}">{% endif %}
                     {% if item.highlight %}<strong class="topic-text-content">{% else %}<span class="topic-text-content">{% endif %}
                       {{details.title}}{% if item.tool %}{{item.tool_title}} »{% endif %}
