@@ -132,6 +132,21 @@
   text-align: right;
 }
 
+.flowchart > li:first-child::after,
+.flowchart > li:last-child::after {
+  content: " ";
+  left: 2.5rem;
+  position: absolute;
+  top: -.5rem;
+  width: 1.8em;
+
+  border-top: .2em solid #000;
+}
+
+.flowchart > li:last-child::after {
+  top: 2em;
+}
+
 .flowchart label {
   position: relative;
   padding-left: 2.5rem;
@@ -154,8 +169,7 @@
   border-color: #000;
 }
 
-.flowchart-optional label::after {
-  content: "Optional";
+.flowchart-label {
   display: inline-block;
   margin-left: 0.7rem;
   padding: .2rem 0.4rem;
@@ -177,4 +191,18 @@
 
 .flowchart-desc :last-child {
   margin-bottom: 0;
+}
+
+.flowchart-repeat {
+  left: 0;
+  height: 2.2rem;
+  overflow: hidden;
+  position: absolute;
+  top: 2.3rem;
+  width: 2.2rem;
+
+  background: none center center / 2.2rem 2.2rem no-repeat transparent;
+  background-image: inline("../images-embed/flowchart-repeat.svg");
+
+  text-indent: 100%;
 }

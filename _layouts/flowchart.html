@@ -31,7 +31,11 @@ favicon: "/favicon-flowchart.png"
         {% for task in page.tasks %}
           <li class="{% unless forloop.last %}pad-b{% endunless %} {% if task.optional %}flowchart-optional{% endif %}">
             <input type="checkbox" id="{{task.title | slugify}}-{{forloop.index}}">
-            <label class="bold" for="{{task.title | slugify}}-{{forloop.index}}">{{task.title}}</label>
+            <label class="bold" for="{{task.title | slugify}}-{{forloop.index}}">
+              {{task.title}}
+              {% if task.optional %}<span class="flowchart-label" aria-label="Execute step only if necessary" title="Execute step only if necessary">Optional</span>{% endif %}
+              {% if task.repeat %}<span class="flowchart-repeat ir" aria-label="Repeat step as necessary" title="Repeat step as necessary">Repeat step as necessary</span>{% endif %}
+            </label>
             {% if task.desc %}
               <div class="flowchart-desc kilo max-length not-centered">{{task.desc | markdownify}}</div>
             {% endif %}
