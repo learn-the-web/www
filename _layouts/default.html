@@ -1,14 +1,16 @@
+{% jsonball package from file package.json %}
+
 {% capture slug %}{{page.url | replace_first: "/topics/", "" | replace: "/", ""}}{% endcapture %}
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
   {% include head.html %}
   {% if page.url == "/topics/index.html" %}
-    <link href="/css/main-topics.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/css/main-topics.min.css?v={{package.version}}" rel="stylesheet">
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
-    <link href="/css/main-article.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/css/main-article.min.css?v={{package.version}}" rel="stylesheet">
   {% elsif page.url == "/" %}
-    <link href="/css/main-home.min.css?v={{site.version}}" rel="stylesheet">
+    <link href="/css/main-home.min.css?v={{package.version}}" rel="stylesheet">
     <link href="/topics/" rel="prerender">
     <link href="/courses/" rel="prerender">
   {% endif %}
@@ -34,11 +36,11 @@
   <script>var slug = '{{page.url | split: '/' | uniq | last}}';</script>
   <script>{% include fontfaceobserver.js %}</script>
   <script>{% include alegreya-observer.min.js %}</script>
-  <script src="/js/common.min.js?v={{site.version}}" async></script>
+  <script src="/js/common.min.js?v={{package.version}}" async></script>
   {% if page.url == "/topics/index.html" %}
-    <script src="/js/topics.min.js?v={{site.version}}" async></script>
+    <script src="/js/topics.min.js?v={{package.version}}" async></script>
   {% elsif page.url contains "/topics/" or page.url contains "/get-help/" %}
-    <script src="/js/article.min.js?v={{site.version}}" defer></script>
+    <script src="/js/article.min.js?v={{package.version}}" defer></script>
     <script>{% include source-code-pro-observer.min.js %}</script>
     <script>
       var path = window.location.pathname.replace('/topics/', '').replace('/', '');

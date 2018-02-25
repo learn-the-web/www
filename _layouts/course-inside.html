@@ -1,3 +1,5 @@
+{% jsonball package from file package.json %}
+
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 {% capture number %}{{page.url | replace: page.collection, '' | replace: '/', '' | replace: 'week-0', '' | replace: 'week-', '' | replace: 'courses', ''}}{% endcapture %}
 {% capture title %}{% if page.title %}{{page.title}}{% else %}Week {{number}}{% endif %} · {{page_data.title}}{% endcapture %}
@@ -6,7 +8,7 @@
 <html lang="en-ca">
 <head>
   {% include head.html title=title %}
-  <link href="/css/main-course.min.css?v={{site.version}}" rel="stylesheet">
+  <link href="/css/main-course.min.css?v={{package.version}}" rel="stylesheet">
   {{page.head}}
   {% include next-prev-link-tags.html %}
 </head>
@@ -28,7 +30,7 @@
   <script>{% include fontfaceobserver.js %}</script>
   <script>{% include alegreya-observer.min.js %}</script>
   <script>{% include source-code-pro-observer.min.js %}</script>
-  <script src="/js/course.min.js?v={{site.version}}"></script>
+  <script src="/js/course.min.js?v={{package.version}}"></script>
   {% if page.layout contains "week" %}
     <script src="/js/assignment-viewer.min.js" async></script>
   {% endif %}

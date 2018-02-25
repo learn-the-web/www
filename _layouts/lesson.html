@@ -5,6 +5,7 @@ skip_links: |
   <li><a href="#steps">Skip to lesson steps</a></li>
 ---
 
+{% jsonball package from file package.json %}
 {% include metadata/thomasjbradley.html %}
 
 <div itemscope itemtype="http://schema.org/HowTo">
@@ -557,4 +558,4 @@ skip_links: |
 
 {% include footer.html no-wrapper=true %}
 
-<script src="/js/lesson.min.js?v={{site.version}}"></script>
+<script src="/js/lesson.min.js?v={{package.version}}"></script>

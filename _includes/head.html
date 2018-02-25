@@ -1,3 +1,5 @@
+{% jsonball package from file package.json %}
+
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 
 {% capture the_title %}
@@ -37,7 +39,7 @@
 <link href="/fonts/alegreyasans-bold.woff" rel="preload" as="font">
 <link href="/fonts/sourcecodepro-regular.woff" rel="preload" as="font">
 <link href="/fonts/sourcecodepro-bold.woff" rel="preload" as="font">
-<link href="/css/main.min.css?v={{site.version}}" rel="stylesheet">
+<link href="/css/main.min.css?v={{package.version}}" rel="stylesheet">
 
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="{{the_favicon | strip | strip_newlines}}">
