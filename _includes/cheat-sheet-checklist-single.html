@@ -1,0 +1,26 @@
+<li class="push-r-1-2 push-1-2">
+  <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
+    <img class="icon i-32" src="/images/icon-{{include.icon}}.svg" alt="">
+    <span class="icon-label giga">{{include.details.title}}</span>
+  </a>
+  <div class="cheat-sheet-checklist-tags max-length">
+    {% if include.details.sections %}
+      <small>
+        {% for section in include.details.sections %}
+          {{section.title}},
+          {% for keyword in section.groups %}{{keyword.title}}{% unless forloop.last %}, {% endunless %}{% else %}&nbsp;{% endfor %}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </small>
+    {% endif %}
+
+    {% if include.details.groups %}<small>{% for keyword in include.details.groups %}{{keyword.title}}{% unless forloop.last %}, {% endunless %}{% endfor %}</small>{% endif %}
+
+    {% if include.details.tasks %}
+    <ol class="cheat-sheet-checklist-tasks list-group-inline milli push-1-2">
+      {% for task in include.details.tasks %}
+        <li class="push-r-1-4"><span class="micro">{{forloop.index}}.</span>&nbsp;{{task.title}}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </div>
+</li>

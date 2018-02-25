@@ -12,58 +12,64 @@
         {% endif %}
       </h2>
       <div class="activity-list">
-        {% assign count = 0 %}
+        {% assign total_cheatsheets = 0 %}
+        {% assign total_checklists = 0 %}
+        {% assign total_flowcharts = 0 %}
 
-        <ol class="list-group-inline push-1-2">
-          {% for item in include.data %}
-            {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
-            {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
-            {% assign details = results[0] %}
-            {% unless item.cheatsheet %}{% continue %}{% endunless %}
-            {% capture count %}{{count | plus:1 }}{% endcapture %}
-            <li class="push-r-1-2 push-1-4">
-              <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
-                <img class="icon i-32" src="/images/icon-cheat-sheet.svg" alt="">
-                <span class="icon-label">{{details.title}}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ol>
+        {% for item in include.data %}
+          {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+          {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
+          {% assign details = results[0] %}
 
-        <ol class="list-group-inline push-1-2">
-          {% for item in include.data %}
-            {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
-            {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
-            {% assign details = results[0] %}
-            {% unless item.checklist %}{% continue %}{% endunless %}
-            {% capture count %}{{count | plus:1 }}{% endcapture %}
-            <li class="push-r-1-2 push-1-4">
-              <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
-                <img class="icon i-32" src="/images/icon-checklist.svg" alt="">
-                <span class="icon-label">{{details.title}}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ol>
+          {% if item.cheatsheet %}
+            {% assign total_cheatsheets = total_cheatsheets | plus:1 %}
+          {% endif %}
+          {% if item.checklist %}
+            {% assign total_checklists = total_checklists | plus:1 %}
+          {% endif %}
+          {% if item.flowchart %}
+            {% assign total_flowcharts = total_flowcharts | plus:1 %}
+          {% endif %}
+        {% endfor %}
 
-        <ol class="list-group-inline push-0">
-          {% for item in include.data %}
-            {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
-            {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
-            {% assign details = results[0] %}
-            {% unless item.flowchart %}{% continue %}{% endunless %}
-            {% capture count %}{{count | plus:1 }}{% endcapture %}
-            <li class="push-r-1-2 push-1-4">
-              <a class="link-box link-box-no-mark icon-link {% if item.disabled %}link-disabled{% endif %}" href="/topics/{{item.slug}}/">
-                <img class="icon i-32" src="/images/icon-flowchart.svg" alt="">
-                <span class="icon-label">{{details.title}}</span>
-              </a>
-            </li>
-          {% endfor %}
-        </ol>
+        {% if total_cheatsheets > 0 %}
+          <ol class="cheat-sheet-checklist-list list-group push-1-2">
+            {% for item in include.data %}
+              {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+              {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
+              {% assign details = results[0] %}
+              {% unless item.cheatsheet %}{% continue %}{% endunless %}
+              {% include cheat-sheet-checklist-single.html icon="cheat-sheet" details=details %}
+            {% endfor %}
+          </ol>
+        {% endif %}
 
-        {% if count == 0 %}
-          <p class="push-1-4 text-disabled pad-t-2 pad-b-2"><em>Sorry, there aren’t any cheat sheets or checklists for this course yet.</em></p>
+        {% if total_checklists > 0 %}
+          <ol class="cheat-sheet-checklist-list list-group push-1-2">
+            {% for item in include.data %}
+              {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+              {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
+              {% assign details = results[0] %}
+              {% unless item.checklist %}{% continue %}{% endunless %}
+              {% include cheat-sheet-checklist-single.html icon="checklist" details=details %}
+            {% endfor %}
+          </ol>
+        {% endif %}
+
+        {% if total_flowcharts > 0 %}
+          <ol class="cheat-sheet-checklist-list list-group push-0">
+            {% for item in include.data %}
+              {% capture the_slug %}/topics/{{item.slug}}/{% endcapture %}
+              {% assign results = site.topics | where_exp: "doc", "doc.url == the_slug" %}
+              {% assign details = results[0] %}
+              {% unless item.flowchart %}{% continue %}{% endunless %}
+              {% include cheat-sheet-checklist-single.html icon="flowchart" details=details %}
+            {% endfor %}
+          </ol>
+        {% endif %}
+
+        {% if total_cheatsheets <= 0 and total_checklists <= 0 and total_flowcharts <= 0 %}
+          <p class="push-1-4 text-disabled pad-t-2 pad-b-2"><em>Sorry, there aren’t any cheat sheets, checklists or flowcharts for this course yet.</em></p>
         {% endif %}
       </div>
     </div>

@@ -433,6 +433,27 @@
   min-height: 6em;
 }
 
+.activity-list ul:last-child,
+.activity-list ol:last-child {
+  margin-bottom: 0;
+}
+
+.cheat-sheet-checklist-list {
+
+}
+
+.cheat-sheet-checklist-list :last-child{
+  margin-bottom: 0;
+}
+
+.cheat-sheet-checklist-tags {
+  padding-left: calc(32px + .2em);
+}
+
+.cheat-sheet-checklist-tasks > li {
+  display: inline;
+}
+
 @media only screen and (min-width: 38em) {
 
   .topic-wrap {
