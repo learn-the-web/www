@@ -206,7 +206,8 @@ iframe {
 }
 
 .slide-numbered {
-  bottom: -0.8em;
+  bottom: auto;
+  top: -.8em;
   width: 1.6em;
   z-index: 1100;
 
@@ -228,6 +229,11 @@ iframe {
 
   .slide .slide-countdown {
     font-size: 14rem;
+  }
+
+  .slide-numbered {
+    bottom: -0.8em;
+    top: auto;
   }
 
 }
@@ -272,7 +278,7 @@ iframe {
   border-color: #fff;
 }
 
-.hide-show-btn {
+label.hide-show-btn {
   display: none;
   right: .5em;
   position: absolute;
@@ -425,7 +431,7 @@ iframe {
     z-index: 799;
   }
 
-  .hide-show-btn {
+  label.hide-show-btn {
     display: block;
   }
 
