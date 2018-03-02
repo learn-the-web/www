@@ -28,9 +28,9 @@
 [submodule "_jquery-jq-what"]
   path = _jquery-jq-what
   url = git@github.com:acgd-webdev-workshops/jquery-jq-what.git
-[submodule "_svg-heart-js"]
-  path = _svg-heart-js
-  url = git@github.com:acgd-webdev-workshops/svg-heart-js.git
 [submodule "_shared"]
-	path = _shared
-	url = git@github.com:acgd-webdev-shared/curriculum.git
+  path = _shared
+  url = git@github.com:acgd-webdev-shared/curriculum.git
+[submodule "_the-dom-i-kno"]
+  path = _the-dom-i-kno
+  url = git@github.com:acgd-webdev-workshops/the-dom-i-kno.git
