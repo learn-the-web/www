@@ -14,11 +14,10 @@ The wrapper and templates for the website.
   - [Web Dev 6](https://github.com/acgd-webdev-6/curriculum)
 - The self-directed course curriculums are in their own sub modules:
   - [JavaScript](https://github.com/acgd-webdev-javascript/curriculum)
-  - [Jekyll](https://github.com/acgd-webdev-jekyll/curriculum)
 - The one-time workshops are in their own sub modules:
   - [think == programmer](https://github.com/acgd-webdev-workshops/think-like-a-programmer)
   - [jQuery, jQ-what‽](https://github.com/acgd-webdev-workshops/jquery-jq-what)
-  - [SVG❤JS](https://github.com/acgd-webdev-workshops/svg-heart-js)
+  - [The DOM-I-(k)no’](https://github.com/acgd-webdev-workshops/the-dom-i-kno)
 - Check out all the activites and quizzes in the [activities repo](https://github.com/acgd-learn-the-web/activities)
 
 ---
@@ -26,7 +25,8 @@ The wrapper and templates for the website.
 ## License & Copyright
 
 © Algonquin College Graphic Design — <http://algonquindesign.ca/>.<br>
-All *code* licensed under the [MIT license](LICENSE).<br>
+All *code* for this website licensed under the [MIT license](LICENSE).<br>
+All *tutorial code* licensed under the [CC0 Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).<br>
 All *text, imagery, design, tutorials & videos* licensed under the [CC BY-NC-SA License](http://creativecommons.org/licenses/by-nc-sa/4.0/).<br>
 Unless otherwise noted.
 
