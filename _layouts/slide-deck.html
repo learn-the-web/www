@@ -78,7 +78,7 @@
           {% include slides/{{slide_type}}.html data=slide collection_label=page.collection id=forloop.index %}
           {% if slide.numbered %}<strong class="slide-numbered exa bold text-center absolute pin-bc" aria-label="Slide question {{slide.numbered}}" tabindex="0">{{slide.numbered}}</strong>{% endif %}
         </div>
-        {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines or slide.col1.js_lines or slide.col2.js_lines %}
+        {% if slide.notes or slide.html_lines or slide.svg_lines or slide.css_lines or slide.js_lines or slide.markdown_lines or slide.yaml_lines or slide.col1.js_lines or slide.col2.js_lines or slide.col1.jq_lines or slide.col2.jq_lines %}
           <input type="checkbox" class="hide-show-control hide-custom-input" id="hide-show-notes-{{forloop.index}}">
           <label class="hide-show-btn" for="hide-show-notes-{{forloop.index}}">
             <i class="icon i-24 notes-show" title="Show notes" aria-label="Show notes"><svg><use xlink:href="#icon-info"></use></svg></i>
@@ -96,6 +96,8 @@
                 {% if slide.js_lines[0] %}{% for line in slide.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="JavaScript" %}{% endif %}{% endfor %}{% endif %}
                 {% if slide.col1.js_lines[0] %}{% for line in slide.col1.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="JavaScript" %}{% endif %}{% endfor %}{% endif %}
                 {% if slide.col2.js_lines[0] %}{% for line in slide.col2.js_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="JavaScript" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.col1.jq_lines[0] %}{% for line in slide.col1.jq_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="JavaScript" %}{% endif %}{% endfor %}{% endif %}
+                {% if slide.col2.jq_lines[0] %}{% for line in slide.col2.jq_lines %}{% if line.text %}{% include slide-code-line.html line=line prefix="JavaScript" %}{% endif %}{% endfor %}{% endif %}
               </div>
             </div>
           </aside>
