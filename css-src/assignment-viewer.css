@@ -142,6 +142,17 @@
   margin-bottom: 0;
 }
 
+.assignment-content ul label {
+  padding-left: 2.2em;
+  position: relative;
+  margin-bottom: .7em;
+}
+
+.assignment-content ul [type="checkbox"] + label::before {
+  position: absolute;
+  left: 0;
+}
+
 .assignment-footer {
   flex-shrink: 0;
   background-color: var(--color-code-dark);
