@@ -62,18 +62,6 @@
     text-align: right;
   }
 
-}
-
-@media only screen and (min-width: 60em) {
-
-  .masthead-micro-title {
-    text-align: left;
-  }
-
-}
-
-@media only screen and (max-width: 38em) {
-
   .masthead {
     padding-left: 0;
     padding-right: 0;
@@ -86,7 +74,16 @@
 
 }
 
-@media only screen and (max-width: 60em) {
+@media only screen and (min-width: 60em) {
+
+  .masthead-micro-title {
+    text-align: left;
+  }
+
+  .masthead-next {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 
   .top-nav .nav-home {
     display: none;
