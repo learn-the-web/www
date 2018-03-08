@@ -71,6 +71,7 @@
   var populateButton = function (type, href) {
     enableButton();
 
+    $btn.dataset.submissionType = type;
     $btn.innerHTML = getButtonLabel(type);
     $btn.href = href + '/fork';
 
@@ -336,7 +337,7 @@
       hideFooterExtras();
     }
 
-    if (readme.submit) $btn.href = readme.submit;
+    if (readme.submit && $btn.dataset.submissionType == 'online') $btn.href = readme.submit;
     if (readme.download) showDownloadButton(readme.download);
 
     showContent(readme.html);
