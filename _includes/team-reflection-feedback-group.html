@@ -1,0 +1,38 @@
+<fieldset class="push">
+  <legend class="gutter-1-8 tera">{{include.title_noun}} teamwork reflection</legend>
+  <p class="mega">{{include.intro}}</p>
+
+  <label class="bold giga" for="name-{{include.id}}">{{include.name_noun}} name</label>
+  <input class="giga push" name="name-{{include.id}}" {% if include.required == 'true' %}required{% endif %}>
+
+  <fieldset class="push-1-2">
+    <legend class="gutter-1-8">What grade would you give {{include.grade_noun}}?</legend>
+    <ul class="list-group push-0">
+      <li class="push-1-4">
+        <input type="radio" id="grade-{{include.id}}-1" name="grade-{{include.id}}" value="0 (F)" {% if include.required == 'true' %}required{% endif %}>
+        <label for="grade-{{include.id}}-1" class="push-r-1-2"><strong>F</strong> (Failure)</label>
+      </li>
+      <li class="push-1-4">
+        <input type="radio" id="grade-{{include.id}}-2" name="grade-{{include.id}}" value="60 (C)" {% if include.required == 'true' %}required{% endif %}>
+        <label for="grade-{{include.id}}-2" class="push-r-1-2"><strong>C</strong> (Poor)</label>
+      </li>
+      <li class="push-1-4">
+        <input type="radio" id="grade-{{include.id}}-3" name="grade-{{include.id}}" value="70 (B)" {% if include.required == 'true' %}required{% endif %}>
+        <label for="grade-{{include.id}}-3" class="push-r-1-2"><strong>B</strong> (Okay)</label>
+      </li>
+      <li class="push-1-4">
+        <input type="radio" id="grade-{{include.id}}-4" name="grade-{{include.id}}" value="80 (A)" {% if include.required == 'true' %}required{% endif %}>
+        <label for="grade-{{include.id}}-4" class="push-r-1-2"><strong>A</strong> (Good)</label>
+      </li>
+      <li class="push-1-4">
+        <input type="radio" id="grade-{{include.id}}-5" name="grade-{{include.id}}" value="95 (A+)" {% if include.required == 'true' %}required{% endif %}>
+        <label for="grade-{{include.id}}-5" class="push-r-1-2"><strong>A+</strong> (Excellent)</label>
+      </li>
+    </ul>
+  </fieldset>
+
+  <div>
+    <label class="bold" for="reflection-{{include.id}}">Write a reflection on why {{include.reflection_noun}} deserve the assigned grade</label>
+    <textarea id="reflection-{{include.id}}" name="reflection-{{include.id}}" {% if include.required == 'true' %}required{% endif %}></textarea>
+  </div>
+</fieldset>
