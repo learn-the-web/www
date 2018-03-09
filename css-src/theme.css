@@ -170,10 +170,6 @@ td, th {
   max-width: 26em;
 }
 
-.top-nav {
-  text-align: center;
-}
-
 nav a:active,
 nav a:focus {
   position: relative;
@@ -210,10 +206,6 @@ nav a:focus {
 }
 
 @media only screen and (min-width: 38em) {
-
-  .top-nav {
-    text-align: right;
-  }
 
   .m-right {
     text-align: right;

@@ -11,10 +11,12 @@
 }
 
 .topic-heading {
-  margin-left: -1.5rem;
-
   color: var(--color-brand-dark);
   text-align: center;
+}
+
+.topic-wrap-indented .topic-heading {
+  margin-left: -1.5rem;
 }
 
 .topic-heading a {
@@ -190,18 +192,16 @@
   border-width: 0;
 }
 
-.topic-text:focus,
-.topic-text:hover {
-  border-width: 0.1em;
-}
-
 .topic-text-content {
-  display: block;
   overflow: hidden;
-  width: 100%;
 
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.topic-text:focus .topic-text-content,
+.topic-text:hover .topic-text-content {
+  background-image: linear-gradient(to top, currentcolor 0, currentcolor .1em, transparent .101em, transparent 100%);
 }
 
 .topic-disabled {

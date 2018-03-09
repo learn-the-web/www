@@ -37,6 +37,34 @@
   border-color: var(--color-brand-light);
 }
 
+.top-nav {
+  text-align: center;
+}
+
+.top-nav .icon {
+  margin-left: .325rem;
+}
+
+.top-nav .icon-label {
+  display: none;
+}
+
+.top-nav .nav-home {
+  display: none;
+}
+
+@media only screen and (min-width: 27em) {
+
+  .top-nav .icon {
+    margin-left: 0;
+  }
+
+  .top-nav .icon-label {
+    display: inline-block;
+  }
+
+}
+
 @media only screen and (min-width: 38em) {
 
   .logo {
@@ -67,9 +95,17 @@
     padding-right: 0;
   }
 
+  .top-nav {
+    text-align: right;
+  }
+
   .top-nav .i-24 {
     height: 18px;
     width: 18px;
+  }
+
+  .top-nav .nav-home {
+    display: inline-block;
   }
 
 }
