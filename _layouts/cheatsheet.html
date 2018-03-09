@@ -30,6 +30,18 @@ favicon: "/favicon-cheat-sheet.png"
     {% include cheats-group.html groups=page.groups %}
   </article>
 
+  {% if page.related %}
+    <hr>
+    <aside class="wrapper gutter-1-2 pad-b-1-2">
+      <h2 class="tera push-1-2">Related cheat sheets & checklists</h2>
+      <ul class="mega">
+        {% for rel in page.related %}
+          <li><a href="/topics/{{rel.url}}">{{rel.title}}</a></li>
+        {% endfor %}
+      </ul>
+    </aside>
+  {% endif %}
+
 </main>
 
 {% include prev-next-nav.html data=toc_pages theslug=slug %}
