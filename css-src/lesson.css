@@ -165,6 +165,15 @@
   border-color: var(--color-code-darkest);
 }
 
+.lesson-note img {
+  display: block;
+  margin-bottom: 1.3rem;
+  width: 100%;
+
+  background-color: var(--color-code);
+  border-radius: 4px;
+}
+
 .play-btn {
   left: calc(48px + .4rem);;
   position: absolute;
