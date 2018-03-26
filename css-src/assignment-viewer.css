@@ -189,6 +189,16 @@
   transform: translateY(-50%);
 }
 
+.assignment-content ul label {
+  padding-left: 1.6em;
+}
+
+.assignment-content ul label::before {
+  height: 1.2em;
+  width: 1.2em;
+  top: .1em;
+}
+
 .assignment-scroll-down {
   bottom: .75rem;
   position: absolute;
