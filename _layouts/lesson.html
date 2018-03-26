@@ -102,6 +102,24 @@ skip_links: |
                 {% endfor %}
               </ol>
             {% endif %}
+            {% if page.goal.person_legend %}
+              <ol class="lesson-note-list list-group">
+                <li class="lesson-note">
+                  <h3 class="lesson-note-label kilo push-1-2 inline-block gutter-1-2">Legend</h3>
+                  <div class="gutter-1-2 italic">
+                    <ul class="list-group not-italic">
+                      {% for legend in page.goal.person_legend %}
+                        <li>
+                          <i class="icon i-32"><svg><use xlink:href="#icon-{{legend.icon}}" /></svg></i>
+                          <span class="icon-label bold">{{legend.label}}</span>
+                          <p class="push-1-2 milli">{{legend.desc}}</p>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>
+              </ol>
+            {% endif %}
           </div>
         </section>
       {% endif %}
