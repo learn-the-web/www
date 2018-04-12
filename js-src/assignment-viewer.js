@@ -33,6 +33,7 @@
   var labels = {
     code: document.querySelector('[property="assignment-code"]').getAttribute('content'),
     online: document.querySelector('[property="assignment-online"]').getAttribute('content'),
+    ghissue: document.querySelector('[property="assignment-ghissue"]').getAttribute('content'),
     show: document.querySelector('[property="assignment-show"]').getAttribute('content'),
   }
 
@@ -75,7 +76,7 @@
     $btn.innerHTML = getButtonLabel(type);
     $btn.href = href + '/fork';
 
-    if (type == 'show') disableButton();
+    if (type == 'show' || type == 'ghissue') disableButton();
   };
 
   var hideDownloadButton = function () {
