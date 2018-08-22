@@ -32,6 +32,7 @@
 
   var labels = {
     code: document.querySelector('[property="assignment-code"]').getAttribute('content'),
+    'download-markbot': document.querySelector('[property="assignment-download-markbot"]').getAttribute('content'),
     online: document.querySelector('[property="assignment-online"]').getAttribute('content'),
     ghissue: document.querySelector('[property="assignment-ghissue"]').getAttribute('content'),
     show: document.querySelector('[property="assignment-show"]').getAttribute('content'),
@@ -339,7 +340,8 @@
     }
 
     if (readme.submit && $btn.dataset.submissionType == 'online') $btn.href = readme.submit;
-    if (readme.download) showDownloadButton(readme.download);
+    if (readme.download && $btn.dataset.submissionType == 'download-markbot') $btn.href = readme.download;
+    if (readme.download && $btn.dataset.submissionType !== 'download-markbot') showDownloadButton(readme.download);
 
     showContent(readme.html);
     if (screenshots) showScreenshot(screenshots);

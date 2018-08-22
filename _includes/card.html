@@ -16,6 +16,7 @@
 {% assign button_online = "Submit online" %}
 {% assign button_ghissue = "Create Issue" %}
 {% assign button_code = "Write code" %}
+{% assign button_do_work = "Do work" %}
 {% assign button_slide_deck = "See slide deck" %}
 
 {% case include.data.type %}
@@ -59,6 +60,11 @@
   {% when "videos" %}
     {% assign icon = "play-reversed" %}
     {% assign button = button_videos %}
+  {% when "download-markbot" %}
+    {% assign icon = "code" %}
+    {% assign submit = submit_code %}
+    {% assign submission_type = "download-markbot" %}
+    {% assign button = button_code %}
   {% else %}
     {% assign icon = "code" %}
     {% assign submit = submit_code %}
@@ -109,6 +115,8 @@
       {% assign button = button_online %}
     {% when "code" %}
       {% assign button = button_code %}
+    {% when "do-work" %}
+      {% assign button = button_do_work %}
     {% else %}
       {% assign button = include.data.submit %}
   {% endcase %}
