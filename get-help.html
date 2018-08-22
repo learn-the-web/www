@@ -6,6 +6,7 @@ priority: 0.2
 hide_markbot: true
 hide_algonquin: true
 hide_labs: true
+hide_worklabs: true
 ---
 
 <div class="section-muted">
@@ -53,9 +54,9 @@ hide_labs: true
     <div class="gutter-1-4"><hr></div>
   </section>
 
-  <hr>
-
   {% unless page.hide_labs %}
+    <hr>
+
     <section class="gutter-1-4">
       <h2 class="gutter-1-4" id="attend-labs"><span class="hang-punc">2</span> Attend <em>all</em> the labs</h2>
       <div class="grid">
@@ -101,7 +102,9 @@ hide_labs: true
     </section>
   {% endunless %}
 
-  {% unless page.hide_workshops %}
+  {% unless page.hide_worklabs %}
+    <hr>
+
     <section class="gutter-1-4">
       <h2 class="gutter-1-4" id="attend-worklabs"><span class="hang-punc">2</span> Attend <em>all</em> the work labs</h2>
       <div class="grid">
@@ -236,7 +239,7 @@ hide_labs: true
         <p>If you’re really struggling and next extra help outside class you can book time with tutors. The tutors are students from the course who have already completed the class you’re currently taking.</p>
         <p><strong>When searching on Algonquin’s Peer Tutoring site only search for the tutor’s name. You probably won’t find your course.</strong></p>
         <p><em>The tutors cost you $6 per hour.</em></p>
-        <p><strong><a href="https://www.algonquincollege.com/peer-tutoring/find-peer-tutoring-on-your-campus/" rel="external">Book a tutor through Algonquin’s Peer Tutoring Centre.</a></strong></p>
+        <p><strong><a href="https://algonquincollege.libguides.com/slc/peer-tutoring" rel="external">Book a tutor through Algonquin’s Peer Tutoring Centre.</a></strong></p>
       </div>
       <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
         <h3 class="mega push-0">This term’s tutors:</h3>
