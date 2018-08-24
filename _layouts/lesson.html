@@ -171,6 +171,7 @@ skip_links: |
               <p>Start the lesson by forking and cloning the <code>{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}</code> repository.</p>
               <p class="tera"><strong><a href="{{the_fork_url | replace:'//fork', '/fork'}}">Fork &amp; clone the “{% if page.fork.repo %}{{page.fork.repo}}{% else %}{{page.slug}}{% endif %}” repo.</a></strong></p>
               <p><em>The repository will have some starter files to get you on your way{% unless page.hide_markbot %} and include requirements for Markbot so you can be sure you’ve completed the lesson{% endunless %}.</em></p>
+              {% if page.fork.after %}{{page.fork.after | markdownify}}{% endif %}
             </div>
           </div>
           <div class="lesson-notes unit [ xs-1 m-1-3 ]">
