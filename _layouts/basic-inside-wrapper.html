@@ -1,0 +1,13 @@
+---
+layout: basic-inside
+---
+
+<div class="wrapper pad-t pad-b gutter-1-2">
+  {% if page.narrow %}
+    <div class="max-length not-centered">
+  {% endif %}
+      {{content}}
+  {% if page.narrow %}
+    </div>
+  {% endif %}
+</div>
