@@ -152,7 +152,7 @@ Thomas J Bradley
 <br>[bradlet@algonquincollege.com](mailto:bradlet@algonquincollege.com)
 <br>Ottawa, Ontario, Canada
 
-[Or better yet, you can contribute a commit on GitHub!]()
+[Or better yet, you can contribute a commit on GitHub!](https://github.com/acgd-learn-the-web/www/blob/master/privacy-cookies.md)
 
 ---
 
