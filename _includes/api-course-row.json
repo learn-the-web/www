@@ -1,0 +1,37 @@
+{% assign url_prefix = "" %}
+{% unless include.url contains "http" %}
+  {% assign url_prefix = "https://learn-the-web.algonquindesign.ca" %}
+{% endunless %}
+
+{% capture url %}{{url_prefix}}{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}{% endcapture %}
+
+{% case include.group %}
+  {% when 'activity' %}
+    {% assign uri_group='activities' %}
+  {% when 'video' %}
+    {% assign uri_group='videoes' %}
+  {% else %}
+    {% assign uri_group='exercises' %}
+{% endcase %}
+
+{% if include.first == false %},{% endif %}{
+  "uri": "ca.learn-the-web.{{uri_group}}.{{include.markbot_slug}}",
+  "id": "{{include.markbot_slug}}",
+  "course": "{{include.course}}",
+  "name": "{{include.title}}",
+  "url": "{{url}}",
+  "assessment_type": "{{include.group}}",
+  "grading_type": "{{include.grading_type}}",
+  "points_possible": {{include.points}}
+  {% if include.datetimes %}
+  ,"due_dates": [
+    {% for section in include.datetimes.sections %}
+      {% capture due_hour %}{% unless include.due_offset == "0" %}{% if section.start_time < 10 %}0{% endif %}{{section.start_time}}{% else %}{% if section.end_time < 10 %}0{% endif %}{{section.end_time}}{% endunless %}{% endcapture %}
+      {
+        "course_section": "{{section.section_number}}",
+        "due": "{{include.datetimes.year}}-W{{include.week_number | plus: include.due_offset }}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{{due_hour}}:00{% endif %}"
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+  {% endif %}
+}

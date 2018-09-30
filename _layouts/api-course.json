@@ -1,0 +1,150 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+{% assign found_projects = "" %}
+{% assign first_entry = true %}
+{% assign datetimes = false %}
+{% assign week_count = -1 %}
+{% assign course_details = false %}
+
+{% assign total_videos = 0 %}
+{% assign total_activities = 0 %}
+{% assign total_lessons = 0 %}
+{% assign total_exercises = 0 %}
+{% assign total_projects = 0 %}
+
+{% for doc in page_data.docs %}
+  {% if doc.slug == "index" %}
+    {% assign weight_activities = doc.grades.activities %}
+    {% assign weight_exercises = doc.grades.exercises %}
+    {% assign weight_videos = doc.grades.videos %}
+    {% assign weight_projects = doc.grades.projects %}
+    {% if doc.datetimes %}
+      {% assign datetimes = doc.datetimes %}
+    {% endif %}
+    {% assign course_details = doc %}
+  {% endif %}
+{% endfor %}
+
+{
+  "course": "{{page.collection}}",
+  "title": "{{course_details.title}}",
+  {% if course_details.short_title %}"short_title": "{{course_details.short_title}}",{% endif %}
+  "description": "{{course_details.desc}}",
+  "url": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/",
+  "course_code": "{{course_details.course_code}}",
+  "year": {% if course_details.datetimes.year %}{{course_details.datetimes.year}}{% else %}{{site.time | date:'%Y'}}{% endif %},
+  "start_week": {% if course_details.datetimes.start_week %}{{course_details.datetimes.start_week}}{% else %}1{% endif %},
+  "professor": {
+    "name": "{{course_details.prof.name}}",
+    "email": "{{course_details.prof.email}}",
+    "url": "{{course_details.prof.url}}",
+    "github": "{{course_details.prof.github}}",
+    "office": {% if course_details.prof.office %}"{{course_details.prof.office}}"{% else %}false{% endif %},
+    "office_hours": [
+      {% for hour in course_details.prof.hours %}
+        {
+          "day": {{hour.day}},
+          "start_time": {{hour.start_time}},
+          "end_time": {{hour.end_time}}
+        }
+        {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  },
+  "grading_scheme": {
+    "activities": 10,
+    "exercises": 60,
+    "projects": 15,
+    "videos": 15
+  },
+  "grading_scheme_algonquin": {
+    "activities": {{weight_activities}},
+    "exercises": {{weight_exercises}},
+    "projects": {{weight_projects}},
+    {% if weight_videos > 0 %}
+    "videos": {{weight_videos}}
+    {% else %}
+    "videos": 0
+    {% endif %}
+  },
+  "assessments": [
+{% for doc in page_data.docs %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
+
+  {% assign week_count = week_count | plus:1 %}
+  {% assign week_number = datetimes.start_week | plus:week_count %}
+
+  {% for tut in doc.video_tutorials %}
+    {% if tut.videos %}
+      {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+      {% include api-course-row.json title=tut.title group="video" grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url course=page.collection %}
+      {% assign first_entry = false %}
+      {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+    {% endif %}
+  {% endfor %}
+
+  {% for exercise in doc.tasks %}
+    {% if exercise.graded-as %}
+      {% unless found_projects contains exercise.graded-as %}
+        {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+        {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+        {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+        {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign markbot_slug = slug %}
+        {% assign disabled = true %}
+        {% if exercise.url %}{% assign disabled = false %}{% endif %}
+        {% include api-course-row.json title=exercise.title group="project" grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=exercise.due_time course=page.collection %}
+        {% assign first_entry = false %}
+      {% endunless %}
+    {% else %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% if exercise.due_week %}
+        {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+      {% else %}
+        {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
+      {% endif %}
+      {% if exercise.due_time %}
+        {% assign due_time = exercise.due_time %}
+      {% endif %}
+      {% if exercise.url contains "github.com" %}
+        {% assign slug = exercise.url | split: "/" | unique | last %}
+        {% assign markbot_slug = slug %}
+        {% assign url = doc.url %}
+      {% elsif exercise.url contains "http" or exercise.url contains "/" %}
+        {% assign slug = "" %}
+        {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
+        {% assign url = exercise.url %}
+      {% else %}
+        {% assign slug = "" %}
+        {% assign markbot_slug = exercise.url %}
+        {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
+      {% endif %}
+      {% case exercise.type %}
+        {% when "activity" %}
+          {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+        {% when "lesson" %}
+          {% capture total_lessons %}{{total_lessons | plus:1}}{% endcapture %}
+        {% else %}
+          {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+      {% endcase %}
+      {% assign disabled = true %}
+      {% if exercise.url %}{% assign disabled = false %}{% endif %}
+      {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
+      {% include api-course-row.json title=exercise.title group=exercise_type grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=due_time course=page.collection %}
+      {% assign first_entry = false %}
+    {% endif %}
+
+  {% endfor %}
+{% endfor %}
+],
+"totals": {
+  "weeks": {{week_count | plus:1}},
+  "hours": {{course_details.hours}},
+  "homework": {% if course_details.homework %}{{course_details.homework}}{% else %}{% if course_details.datetimes.sections %}45{% else %}{{course_details.hours | plus:45}}{% endif %}{% endif %},
+  "labs": {% if course_details.datetimes.labs or course_details.datetimes.worklabs %}15 h{% else %}0{% endif %},
+  "videos": {{total_videos}},
+  "lessons": {{total_lessons}},
+  "activities": {{total_activities}},
+  "exercises": {{total_exercises}},
+  "projects": {{total_projects}}
+}
+}
