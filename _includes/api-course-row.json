@@ -9,7 +9,7 @@
   {% when 'activity' %}
     {% assign uri_group='activities' %}
   {% when 'video' %}
-    {% assign uri_group='videoes' %}
+    {% assign uri_group='videos' %}
   {% else %}
     {% assign uri_group='exercises' %}
 {% endcase %}
