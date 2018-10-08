@@ -23,15 +23,28 @@ We’re going to use some shorthand to make this easier to read. When we say “
 
 ## Country of origin
 
-**Recognize that is website is run by an entity within Canada and that much of the content & data is stored outside of Canadian borders.**
+**Recognize that this website is run by an entity within Canada and that much of the content & data is stored outside of Canadian borders.**
 
 ---
 
 ## Personal information
 
-We do not collect personal information or use any personal information.
+**Without creating an [account to track your progress](https://progress.learn-the-web.algonquindesign.ca/), we do not collect personal information or use any personal information.**
 
-### Feedback forms
+### Progressinator & personal information
+
+When signing up for a Progressinator account we receive the following information from GitHub:
+
+- Your full name, as specified on your GitHub profile
+- Your GitHub username
+- Your private email address, as specified on your GitHub profile
+
+- [**GitHub**](https://github.com/) — *full name, username & email address*
+  <br>[Refer to GitHub’s privacy policy for detailed information.](https://help.github.com/articles/github-privacy-statement/)
+
+**This information is never transmitted beyond our local databases & web servers. Nor is it ever transmitted without HTTPS encryption.**
+
+### Feedback forms & personal information
 
 We have two feedback forms: an [anonymous course feedback form](https://learn-the-web.algonquindesign.ca/feedback/) & a [team project reflection form](https://learn-the-web.algonquindesign.ca/courses/shared/team-reflection/). Both forms are submitted using Formspree.
 
@@ -39,7 +52,7 @@ We have two feedback forms: an [anonymous course feedback form](https://learn-th
   <br>[Refer to Formspree’s privacy policy for detailed information](http://docs.formspree.io/files/privacy.pdf)
   <br>Information submitted through email forms is retained by Formspree servers for one month & transmitted through email to our accounts.
 
-**The anonymous course feedback form collects no personal information.** This anonymous information is transmitted for Formspree’s servers and forwarded to our email accounts. This information may be kept in our email accounts for an unknown period of time.
+**The anonymous course feedback form collects no personal information.** This anonymous information is transmitted to Formspree’s servers and forwarded to our email accounts. This information may be kept in our email accounts for an unknown period of time.
 
 **The team reflection feedback form collects only names of you and your team members.** This information is transmitted to Formspree servers and forwarded to our email accounts. This information will be retained until final grades for the term are submitted, about two weeks after term end, at which point the information will be deleted from our email accounts.
 
@@ -47,7 +60,13 @@ We have two feedback forms: an [anonymous course feedback form](https://learn-th
 
 ## Security
 
-All communication with the site is sent over HTTPS.
+**All communication with the site is sent over HTTPS.**
+
+### Progressinator application
+
+The Progressinator application uses your GitHub credentials as the authentication method. **We never receive your GitHub password.** All communication with GitHub’s servers is encrypted with HTTPS.
+
+- [**GitHub**](https://github.com/) — social authentication for Progressinator application—we never get access to your GitHub password.
 
 ### Teacher & TA area
 
@@ -61,7 +80,18 @@ User login information will be provided by one of our administrators. No persona
 
 ## Cookies
 
-We do not store cookies on your computer nor track your movements with analytics.
+**Without creating an [account to track your progress](https://progress.learn-the-web.algonquindesign.ca/), we do not store cookies on your computer nor track your movements with analytics.**
+
+### Progressinator & cookies
+
+In order to remember who you are and prevent security problems, the Progressinator application will create the following cookies:
+
+- `sessionid` — Tracks that you are signed into your Progressinator account
+- `csrftoken` — Helps with security by providing a unique token for every single request
+
+*These cookies are available to all our pages, even outside Progressinator, to facilitate progress tracking and grading of different activities and exercises.*
+
+**These cookies cannot be opted out of and are required for operation of Progressinator application.**
 
 ### Third-party cookies
 
@@ -74,7 +104,7 @@ Some external service providers, used by the website, will create cookies on you
 - [**YouTube**](https://www.youtube.com/)
   <br>YouTube will set a bunch of cookies related to viewing embedded videos and functionality of the YouTube API. These cookies will only be stored after starting to play a YouTube video—user initiation is required to trigger YouTube cookies.
   <br>[Refer to YouTube’s privacy policy for detailed information.](https://policies.google.com/privacy)
-  <br>We use the YouTube API to read video progress and will only store the progress information on your personal computer.
+  <br>We use the YouTube API to read video progress. If you have a Progressinator account this information will be sent to track your video watching progress. If you are not signed into a Progressinator account we will only store the progress information on your personal computer.
 
 **These cookies cannot be opted out of and are required for operation of the website.**
 
@@ -82,7 +112,7 @@ Some external service providers, used by the website, will create cookies on you
 
 ## Analytics
 
-We do not record any analytics about page views or track your movements across pages on a localized server.
+We do not record any analytics about page views or track your movements across pages on a remote server.
 
 ### Hosting provider server logs
 
@@ -107,6 +137,9 @@ Some of our hosting providers track pieces of data when you access pages:
 - [**NearlyFreeSpeech**](https://www.nearlyfreespeech.net/) — *secure area website host*
   <br>No tracking beyond maintaining a session for user access to the secure teacher area.
 
+- [**Heroku**](https://www.heroku.com/) — *Progressinator application host*
+  <br>No tracking outside of what our applications capture.
+
 - [**YouTube**](https://www.youtube.com/) — *video hosting*
   <br>[Refer to YouTube’s privacy policy for detailed information.](https://policies.google.com/privacy)
   <br>YouTube videos (and therefore cookies & analytics) are not loaded automatically, you must press the play button, at which point YouTube’s cookies and analytics will be loaded.
@@ -123,7 +156,31 @@ Some of our hosting providers track pieces of data when you access pages:
 
 ## Stored data
 
-We store information *on your computer* to track your progress, e.g. remember which pages you visited. **This information isn’t transmitted or stored on a server—it’s only available on your own machine.**
+The location and information we store differs based on whether or not you have a Progressinator account.
+
+### With a Progressinator account
+
+We store, within our databases, located in the [Eastern US on Amazon Web Services](https://aws.amazon.com/about-aws/global-infrastructure/) machines, [personal information](#progressinator--personal-information) as well as progress through the courses.
+
+Each assessment (videos, exercises, activities, etc.) stores the following information—**and associates it with your user account:**
+
+- The date the assessment was submitted;
+- Who or what submitted the assessment, Markbot or your teacher;
+- The grade you received on your assessment, as a percentage;
+- Whether or not the automated cheat detection systems were triggered;
+- Extra details pertaining to the specific assessment, e.g. completion time, teacher comments, number of commits, number of correct answers, etc.
+
+On your computer *only*, we store:
+
+- The topic pages you’ve visited,
+- Whether to load the custom web fonts or not,
+- Cached versions of the assignments loaded from GitHub.
+
+*Clearing your local & session storage will completely remove this local information.*
+
+### Without a Progressinator account
+
+We store information *on your computer* to track your progress, e.g. remember which pages you visited. *This information isn’t transmitted or stored on a server—it’s only available on your own machine.*
 
 On your computer *only*, we store:
 
@@ -132,7 +189,20 @@ On your computer *only*, we store:
 - Whether to load the custom web fonts or not,
 - Cached versions of the assignments loaded from GitHub.
 
-*Clearing your local & session storage will completely remove the information.*
+*Clearing your local & session storage will completely remove this local information.*
+
+---
+
+## Markbot
+
+The desktop Markbot application stores the following personal information:
+
+- Your GitHub username
+- A unique API token assigned to you by the Progressinator application
+
+*These two pieces of information are sent to the Progressinator application, only over encrypted HTTPS, to record your assessment progress.* Markbot also sends other ancillary information, e.g. completion time, number of commits, automated cheat detection, etc. with every grade submission.
+
+**These pieces of information must be sent by Markbot to facilitate application functionality.**
 
 ---
 
@@ -156,4 +226,4 @@ Thomas J Bradley
 
 ---
 
-Effective date: **August 31, 2018**
+Effective date: **October 8, 2018**
