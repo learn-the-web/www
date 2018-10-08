@@ -52,12 +52,14 @@
   },
   "grading_scheme": {
     "activities": 10,
+    "activities_plus_lessons": 10,
     "exercises": 60,
     "projects": 15,
     "videos": 15
   },
   "grading_scheme_algonquin": {
     "activities": {{weight_activities}},
+    "activities_plus_lessons": {{weight_activities}},
     "exercises": {{weight_exercises}},
     "projects": {{weight_projects}},
     {% if weight_videos > 0 %}
@@ -144,6 +146,7 @@
   "videos": {{total_videos}},
   "lessons": {{total_lessons}},
   "activities": {{total_activities}},
+  "activities_plus_lessons": {{total_activities | plus:total_lessons}},
   "exercises": {{total_exercises}},
   "projects": {{total_projects}}
 }
