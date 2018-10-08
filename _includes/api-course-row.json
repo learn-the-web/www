@@ -8,10 +8,19 @@
 {% case include.group %}
   {% when 'activity' %}
     {% assign uri_group='activities' %}
+    {% assign exercise_type = 'activity' %}
   {% when 'video' %}
     {% assign uri_group='videos' %}
+    {% assign exercise_type = 'video' %}
+  {% when 'lesson' %}
+    {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'lesson' %}
+  {% when 'project' %}
+    {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'project' %}
   {% else %}
     {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'exercise' %}
 {% endcase %}
 
 {% if include.first == false %},{% endif %}{
@@ -20,7 +29,7 @@
   "course": "{{include.course}}",
   "name": "{{include.title}}",
   "url": "{{url}}",
-  "assessment_type": "{{include.group}}",
+  "assessment_type": "{{exercise_type}}",
   "grading_type": "{{include.grading_type}}",
   "points_possible": {{include.points}}
   {% if include.datetimes %}
