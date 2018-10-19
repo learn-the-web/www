@@ -142,7 +142,7 @@
   "weeks": {{week_count | plus:1}},
   "hours": {{course_details.hours}},
   "homework": {% if course_details.homework %}{{course_details.homework}}{% else %}{% if course_details.datetimes.sections %}45{% else %}{{course_details.hours | plus:45}}{% endif %}{% endif %},
-  "labs": {% if course_details.datetimes.labs or course_details.datetimes.worklabs %}15 h{% else %}0{% endif %},
+  "labs": {% if course_details.datetimes.labs or course_details.datetimes.worklabs %}15{% else %}0{% endif %},
   "videos": {{total_videos}},
   "lessons": {{total_lessons}},
   "activities": {{total_activities}},
