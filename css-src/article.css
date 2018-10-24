@@ -281,6 +281,17 @@
   right: 0;
 }
  */
+
+.tutorial-alert {
+  background-color: var(--color-warning-light);
+  border: .1em solid var(--color-warning);
+  border-radius: 8px;
+}
+
+.tutorial-alert :last-child {
+  margin-bottom: 0;
+}
+
 @media only screen and (min-width: 38em) {
 
   .play-btn {

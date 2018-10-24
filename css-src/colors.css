@@ -20,6 +20,16 @@
   --color-code-darker: #e6e3e2;
   --color-code-darker-darkest-mid: #e3e0de;
   --color-code-darkest: #dfdcda;
+
+  --color-positive: #6dd110;
+  --color-positive-light: #c1e89b;
+  --color-positive-dark: #417d0a;
+  --color-negative: #f33;
+  --color-negative-light: #ff9494;
+  --color-negative-dark: #991f1f;
+  --color-warning: #ffd30d;
+  --color-warning-light: #ffefab;
+  --color-warning-dark: #b09000;
 }
 
 .brand {
