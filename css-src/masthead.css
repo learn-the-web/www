@@ -28,8 +28,7 @@
 }
 
 .masthead-micro .logo {
-  margin-bottom: 0.6rem;
-  margin-top: 0.6rem;
+  margin: 0.6rem 0;
 }
 
 .nav-current {
@@ -51,6 +50,22 @@
 
 .top-nav .nav-home {
   display: none;
+}
+
+.masthead-toolbar {
+  display: flex;
+  justify-content: center;
+}
+
+.masthead-toolbar .btn {
+  white-space: nowrap;
+}
+
+.toolbar-progress {
+  margin-right: auto;
+  position: absolute;
+  right: .3rem;
+  top: .6rem;
 }
 
 @media only screen and (min-width: 27em) {
@@ -88,6 +103,10 @@
     margin-bottom: .5rem;
     margin-top: -.5rem;
     text-align: right;
+  }
+
+  .toolbar-progress {
+    position: static;
   }
 
   .masthead {
