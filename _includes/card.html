@@ -1,3 +1,15 @@
+{% assign page_data = site.collections | where: "label", page.collection | first %}
+{% assign datetimes = false %}
+
+{% for doc in page_data.docs %}
+  {% if doc.slug == "index" %}
+    {% if doc.datetimes %}
+      {% assign datetimes = doc.datetimes %}
+    {% endif %}
+    {% assign course_details = doc %}
+  {% endif %}
+{% endfor %}
+
 {% assign assignment_viewer = "" %}
 {% assign submission_type = "code" %}
 
@@ -174,6 +186,23 @@
   <meta property="grading-type" content="{{grading_type}}">
   <meta property="due" content="{% if include.data.due %}{{include.data.due}}{% else %}{{include.due}}{% endif %}">
   <meta property="clr" content="{% if include.data.clr %}{{include.data.clr}}{% else %}{{include.clr}}{% endif %}">
+  <meta property="due-dates" content='{
+    {% capture due_hour %}{% if include.due_hour < 10 %}0{% endif %}{{include.due_hour}}{% endcapture %}
+    {% if include.due_week %}
+      {% assign week = datetimes.start_week | plus: include.due_week | minus: 1 %}
+    {% else %}
+      {% assign week = datetimes.start_week | plus: include.week_number | plus: include.due_offset | minus: 1 %}
+    {% endif %}
+    {% for section in datetimes.sections %}
+      {% if include.due_offset %}
+        {% assign due_hour = section.start_time %}
+      {% else %}
+        {% assign due_hour = section.end_time %}
+      {% endif %}
+      "{{section.title}}": "{{{{datetimes.year}}-W{% if week < 10 %}0{% endif %}{{week}}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{% if due_hour < 10 %}0{% endif %}{{due_hour}}:00{% endif %}"
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  }'>
 </a>
 
 {% if include.data.url contains "github.com" %}
