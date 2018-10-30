@@ -1,10 +1,5 @@
 <div class="slide-interactive grid grid-stretch">
   <div class="unit [ xs-1 ] slide-code island unit-content-distribute">
-    {% if include.data.before %}
-      <div class="wrapper slide-code-before">
-        {{include.data.before | markdownify}}
-      </div>
-    {% endif %}
     <div class="content-fill">
       {% include slides/code-inner.html data=include.data %}
     </div>

@@ -1,3 +1,8 @@
+{% if include.data.before %}
+  <div class="slide-code-before wrapper exa">
+    {{include.data.before | markdownify}}
+  </div>
+{% endif %}
 {% if include.data.url %}
   <span class="slide-code-label">URL</span>
   <pre><code>{{include.data.url}}</code></pre>
