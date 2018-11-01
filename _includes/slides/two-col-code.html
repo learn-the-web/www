@@ -2,21 +2,11 @@
   {% if include.data.heading %}<h2>{{include.data.heading}}</h2>{% endif %}
   <div class="grid grid-stretch giga">
     <div class="unit [ xs-1 s-1 l-1-2 ] gutter-1-4 unit-content-distribute">
-      {% if include.data.col1.before %}
-        <div class="slide-code-before">
-          {{include.data.col1.before | markdownify}}
-        </div>
-      {% endif %}
       <div class="content-fill">
         {% include slides/code-inner.html data=include.data.col1 %}
       </div>
     </div>
     <div class="unit [ xs-1 s-1 l-1-2 ] gutter-1-4 unit-content-distribute">
-      {% if include.data.col2.before %}
-        <div class="slide-code-before">
-          {{include.data.col2.before | markdownify}}
-        </div>
-      {% endif %}
       <div class="content-fill">
         {% include slides/code-inner.html data=include.data.col2 %}
       </div>
