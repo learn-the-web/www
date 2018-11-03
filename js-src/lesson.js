@@ -57,20 +57,24 @@
 (function () {
   'use strict';
 
-  var imageStepsForm = document.querySelector('.image-steps-form');
+  var imageStepsForms = document.querySelectorAll('.image-steps-form');
   var startingActiveId;
   var makeActive = function (id) {
     document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps-label-active');
   };
 
-  if (!imageStepsForm) return;
+  if (!imageStepsForms) return;
 
-  startingActiveId = document.querySelector('.image-step-control:checked').id;
-  makeActive(startingActiveId);
+  [].forEach.call(document.querySelectorAll('.image-step-control:checked'), function (elem) {
+    makeActive(elem.id);
+  });
 
-  imageStepsForm.addEventListener('change', function (e) {
-    document.querySelector('.image-steps-label-active').classList.remove('image-steps-label-active');
-    makeActive(e.target.id);
+  [].forEach.call(imageStepsForms, function (elem) {
+    elem.addEventListener('change', function (e) {
+      var stepId = e.currentTarget.dataset.imageSteps;
+      document.querySelector('[data-image-steps-controls="' + stepId + '"] label.image-steps-label-active').classList.remove('image-steps-label-active');
+      makeActive(e.target.id);
+    });
   });
 }());
 

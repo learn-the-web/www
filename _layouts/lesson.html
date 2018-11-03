@@ -286,6 +286,37 @@ skip_links: |
                   <iframe class="embed-item" src="https://www.youtube.com/embed/{{step.video}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
               {% endif %}
+              {% if step.image_steps %}
+                <div class="lesson-body-image-steps push-2">
+                  <form class="image-steps-form" data-image-steps="step-{{step_count}}">
+                    {% for img in step.image_steps %}
+                      <div class="image-step">
+                        <input class="image-step-control" type="radio" id="step-{{step_count}}-image-{{forloop.index}}" name="step-{{step_count}}-image-steps" {% if forloop.first %}checked{% endif %}>
+                        <img class="image-step-img" src="{{img.url}}" alt="">
+                        <label class="image-step-btn" for="step-{{step_count}}-image-{{forloop.index}}">{{forloop.index}}</label>
+                        <label class="image-step-prev" for="step-{{step_count}}-image-{{forloop.index | minus:1}}">
+                          <i class="icon i-48"><svg><use xlink:href="#icon-left"/></svg></i>
+                          <span class="visually-hidden">{{forloop.index | minus:1}}</span>
+                        </label>
+                        <label class="image-step-next" for="step-{{step_count}}-image-{{forloop.index | plus:1}}">
+                          <i class="icon i-48"><svg><use xlink:href="#icon-right"/></svg></i>
+                          <span class="visually-hidden">{{forloop.index | plus:1}}</span>
+                        </label>
+                      </div>
+                    {% endfor %}
+                  </form>
+                </div>
+                <div class="mega gutter-1-4 lesson-body-text">
+                  <ol class="image-steps" data-image-steps-controls="step-{{step_count}}">
+                    {% for img in step.image_steps %}
+                      <li><label class="image-steps-label" for="step-{{step_count}}-image-{{forloop.index}}">{{img.text | markdownify}}</label></li>
+                    {% endfor %}
+                  </ol>
+                </div>
+              {% endif %}
+              {% if step.image_steps_after %}
+                <div class="mega gutter-1-4 lesson-body-text">{{step.image_steps_after | markdownify}}</div>
+              {% endif %}
               {% if step.folders %}
                 <div class="mega gutter-1-4 lesson-body-text">
                   <ol class="list-group folders pad-t-1-2 pad-b-1-2 milli">
@@ -339,34 +370,6 @@ skip_links: |
               {% endif %}
               {% if step.code %}
                 {% include lesson/code.html code=step.code code_file=step.code_file code_lang=step.code_lang code_before=step.code_before code_can_copy=step.code_can_copy lines=step.lines %}
-              {% endif %}
-              {% if step.image_steps %}
-                <div class="lesson-body-image-steps push-2">
-                  <form class="image-steps-form">
-                    {% for img in step.image_steps %}
-                      <div class="image-step">
-                        <input class="image-step-control" type="radio" id="step-{{step_count}}-image-{{forloop.index}}" name="step-{{step_count}}-image-steps" {% if forloop.first %}checked{% endif %}>
-                        <img class="image-step-img" src="{{img.url}}" alt="">
-                        <label class="image-step-btn" for="step-{{step_count}}-image-{{forloop.index}}">{{forloop.index}}</label>
-                        <label class="image-step-prev" for="step-{{step_count}}-image-{{forloop.index | minus:1}}">
-                          <i class="icon i-48"><svg><use xlink:href="#icon-left"/></svg></i>
-                          <span class="visually-hidden">{{forloop.index | minus:1}}</span>
-                        </label>
-                        <label class="image-step-next" for="step-{{step_count}}-image-{{forloop.index | plus:1}}">
-                          <i class="icon i-48"><svg><use xlink:href="#icon-right"/></svg></i>
-                          <span class="visually-hidden">{{forloop.index | plus:1}}</span>
-                        </label>
-                      </div>
-                    {% endfor %}
-                  </form>
-                </div>
-                <div class="mega gutter-1-4 lesson-body-text">
-                  <ol class="image-steps">
-                    {% for img in step.image_steps %}
-                      <li><label class="image-steps-label" for="step-{{step_count}}-image-{{forloop.index}}">{{img.text | markdownify}}</label></li>
-                    {% endfor %}
-                  </ol>
-                </div>
               {% endif %}
               {% if step.tasks %}
                 <div class="mega gutter-1-4 lesson-body-text">
