@@ -20,7 +20,7 @@
     "js_course": "js-src/fullscreen.js js-src/week-times.js",
     "js_slide-deck": "vendor/prism.js js-src/syntax.js js-src/slide-deck.js js-src/prism-workarounds.js",
     "js_lesson": "vendor/prism.js js-src/swiper.js js-src/syntax.js js-src/lesson.js js-src/prism-workarounds.js",
-    "js_assignment_viewer": "vendor/fetch.js vendor/js-yaml.min.js vendor/marked.min.js js-src/assignment-viewer.js"
+    "js_assignment_viewer": "vendor/cookie.js vendor/fetch.js vendor/js-yaml.min.js vendor/marked.min.js js-src/assignment-viewer.js"
   },
   "scripts": {
     "start": "npm-run-all --parallel start-server watch-*",

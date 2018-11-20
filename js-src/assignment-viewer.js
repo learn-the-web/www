@@ -38,15 +38,64 @@
     show: document.querySelector('[property="assignment-show"]').getAttribute('content'),
   }
 
+  // https://stackoverflow.com/questions/16590500/javascript-calculate-date-from-week-number
+  var getDateOfISOWeek = function (w, y, d) {
+    var simple = new Date(y, 0, 1 + (w - 1) * 7);
+    var dow = simple.getDay();
+    var ISOweekStart = simple;
+
+    if (dow <= 4) {
+      ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    } else {
+      ISOweekStart.setDate(simple.getDate() + 8 - simple.getDay());
+    }
+
+    return ISOweekStart;
+  };
+
+  var formatDate = function (date) {
+    var formatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Toronto',
+      hour12: true,
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+
+    return formatter.format(date);
+  };
+
   var getButtonLabel = function (type) {
     return labels[type];
   };
 
   var populateInitialDetails = function (details) {
+    var courseSection = Cookies.get('ltw-course-section');
+    var dueDates = false;
+
+    try {
+      dueDates = JSON.parse(details.dueDates);
+    } catch (e) {}
+
     $title.innerHTML = details.title;
     $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', details.icon);
-    $due.innerHTML = details.due;
     $worth.innerHTML = details.worth;
+
+    if (dueDates && courseSection && courseSection.indexOf(details.course) > -1) {
+      var section = courseSection.replace(details.course, '').replace(/[^\d]*/, '');
+
+      if (section && dueDates[section]) {
+        var weekStart = getDateOfISOWeek(dueDates[section].substr(6, 2), dueDates[section].substr(0, 4));
+        var dueTime = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() * parseInt(dueDates[section].substr(9, 1), 10), dueDates[section].substr(11, 2), dueDates[section].substr(14, 2));
+        $due.innerHTML = formatDate(dueTime);
+      } else {
+        $due.innerHTML = details.due;
+      }
+    } else {
+      $due.innerHTML = details.due;
+    }
 
     if (details.worth <= 0) {
       $gradingTypeWrap.setAttribute('hidden', true);
@@ -454,7 +503,9 @@
     populateInitialDetails({
       title: elem.querySelector('.card-title').innerHTML,
       icon: elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
+      course: elem.querySelector('meta[property="course"]').getAttribute('content'),
       due: elem.querySelector('meta[property="due"]').getAttribute('content'),
+      dueDates: elem.querySelector('meta[property="due-dates"]').getAttribute('content'),
       worth: elem.querySelector('meta[property="worth"]').getAttribute('content'),
       gradingType: elem.querySelector('meta[property="grading-type"]').getAttribute('content'),
       satisfies: 'CLRs ' + elem.querySelector('meta[property="clr"]').getAttribute('content'),

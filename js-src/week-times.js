@@ -16,7 +16,7 @@
     }
 
     return ISOweekStart;
-  }
+  };
 
   var formatDate = function (date) {
     var formatter = new Intl.DateTimeFormat('en-CA', {
