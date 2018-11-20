@@ -30,8 +30,13 @@
     page-break-before: always;
   }
 
-  .cheat-section:first-of-type {
-    page-break-before: auto;
+  .cheat-section > h2 {
+    page-break-after: avoid;
+  }
+
+  .cheat-list {
+    page-break-before: avoid;
+    page-break-inside: auto;
   }
 
   .cheat-list .unit {
