@@ -1,0 +1,53 @@
+{% assign url_prefix = "" %}
+{% unless include.url contains "http" %}
+  {% assign url_prefix = "https://learn-the-web.algonquindesign.ca" %}
+{% endunless %}
+
+{% capture url %}{{url_prefix}}{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}{% endcapture %}
+
+{% case include.group %}
+  {% when 'activity' %}
+    {% assign uri_group='activities' %}
+    {% assign exercise_type = 'activity' %}
+    {% capture vevent_desc %}Finish “{{include.title}}” for grading.{% endcapture %}
+  {% when 'video' %}
+    {% assign uri_group='videos' %}
+    {% assign exercise_type = 'video' %}
+    {% capture vevent_desc %}Watch “{{include.title}}” videos before class.{% endcapture %}
+  {% when 'lesson' %}
+    {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'lesson' %}
+    {% capture vevent_desc %}Finish “{{include.title}}” for grading.{% endcapture %}
+  {% when 'project' %}
+    {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'project' %}
+    {% capture vevent_desc %}Finish “{{include.title}}” for grading.{% endcapture %}
+  {% else %}
+    {% assign uri_group='exercises' %}
+    {% assign exercise_type = 'exercise' %}
+    {% capture vevent_desc %}Finish “{{include.title}}” for grading.{% endcapture %}
+{% endcase %}
+
+{% for section in include.datetimes.sections %}
+  {% unless section.title == page.section %}
+    {% capture due_hour %}{% unless include.due_offset == "0" %}{% if section.start_time < 10 %}0{% endif %}{{section.start_time}}{% else %}{% if section.end_time < 10 %}0{% endif %}{{section.end_time}}{% endunless %}{% endcapture %}
+    {% capture dtstart %}{{include.datetimes.year}}-W{{include.week_number | plus: include.due_offset }}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{{due_hour}}:00{% endif %}{% endcapture %}
+  {% endunless %}
+{% endfor %}
+
+BEGIN:VEVENT
+ORGANIZER;CN=Thomas J Bradley:MAILTO:bradlet@algonquincollege.com
+DTSTAMP;TZID=America/Toronto:{{site.time | date:'%Y%m%dT%H%M%S'}}
+DTSTART;TZID=America/Toronto:{{dtstart}}
+DURATION:PT15M
+UID:ca.learn-the-web.{{uri_group}}.{{include.markbot_slug}}
+URL:{{url}}
+SUMMARY:“{{include.title}}” due
+DESCRIPTION:{{vevent_desc}}
+LOCATION:Ottawa
+BEGIN:VALARM
+TRIGGER:-PT1D
+ACTION:DISPLAY
+DESCRIPTION:“{{include.title}}” due soon
+END:VALARM
+END:VEVENT
