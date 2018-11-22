@@ -24,7 +24,7 @@
 {% endcase %}
 
 {% if include.first == false %},{% endif %}{
-  "uri": "ca.learn-the-web.{{uri_group}}.{{include.markbot_slug}}",
+  "uri": "ca.learn-the-web.{{uri_group}}.{{include.id}}",
   "id": "{{include.markbot_slug}}",
   "course": "{{include.course}}",
   "name": "{{include.title}}",
