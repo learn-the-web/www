@@ -15,6 +15,7 @@ exclude:
   - "_*/README.md"
   - "*.lock"
   - "Gemfile*"
+  - "scripts"
 
 collections:
   topics:
