@@ -1,5 +1,8 @@
 {% assign page_data = site.collections | where: "label", page.collection | first %}
 {% assign found_projects = "" %}
+{% assign datetimes = false %}
+{% assign week_count = -1 %}
+{% assign course_details = false %}
 
 {% for doc in page_data.docs %}
   {% if doc.slug == "index" %}
@@ -13,10 +16,9 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//learn-the-web.algonquindesign.ca//courses//{{page.collection}}
-X-WR-CALNAME:{{course_details.title}} Due Dates, Section {{page.section}}
+X-WR-CALNAME:{{course_details.title}} Dates, Section {{page.section}}
 X-PUBLISHED-TTL:PT1D
 CALSCALE:GREGORIAN
-
 
 BEGIN:VTIMEZONE
 TZID:America/Toronto
@@ -38,48 +40,69 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 
-{% for doc in page_data.docs %}
-  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
+{% if course_details.datetimes.sections %}
+  {% for section in course_details.datetimes.sections %}
+    {% unless section.title == page.section %}{% continue %}{% endunless %}
+    {% assign section_info = section %}
 
-  {% assign week_count = week_count | plus:1 %}
-  {% assign week_number = datetimes.start_week | plus:week_count %}
+    {% for doc in page_data.docs %}
+      {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
 
-  {% for tut in doc.video_tutorials %}
-    {% if tut.videos %}
-      {% capture url %}/topics/{{tut.url}}/{% endcapture %}
-      {% include ical-feed-vevent.ics title=tut.title group="video" url=url datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url %}
-    {% endif %}
+      {% assign week_count = week_count | plus:1 %}
+      {% assign week_number = datetimes.start_week | plus:week_count %}
+
+      {% include ical-feed-class.ics course_details=course_details collection=page.collection section=page.section section_info=section_info week=week_count week_number=week_number %}
+
+      {% for hours in course_details.prof.hours %}
+        {% include ical-feed-office-hours.ics course_details=course_details collection=page.collection hours_info=hours week=week_count week_number=week_number hours_number=forloop.index %}
+      {% endfor %}
+
+      {% for lab in course_details.datetimes.labs %}
+        {% include ical-feed-lab.ics course_details=course_details collection=page.collection lab_info=lab week=week_count week_number=week_number lab_number=forloop.index %}
+      {% endfor %}
+
+      {% for lab in course_details.datetimes.worklabs %}
+        {% include ical-feed-lab.ics course_details=course_details collection=page.collection lab_info=lab week=week_count week_number=week_number lab_number=forloop.index %}
+      {% endfor %}
+
+      {% for tut in doc.video_tutorials %}
+        {% if tut.videos %}
+          {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+          {% include ical-feed-assignment.ics title=tut.title group="video" url=url datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url %}
+        {% endif %}
+      {% endfor %}
+
+      {% for exercise in doc.tasks %}
+        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+        {% unless found_projects contains exercise.graded-as %}
+          {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+          {% if exercise.due_week %}
+            {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+          {% else %}
+            {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
+          {% endif %}
+          {% if exercise.due_time %}
+            {% assign due_time = exercise.due_time %}
+          {% endif %}
+          {% if exercise.url contains "github.com" %}
+            {% assign slug = exercise.url | split: "/" | unique | last %}
+            {% assign markbot_slug = slug %}
+            {% assign url = doc.url %}
+          {% elsif exercise.url contains "http" or exercise.url contains "/" %}
+            {% assign slug = "" %}
+            {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
+            {% assign url = exercise.url %}
+          {% else %}
+            {% assign slug = "" %}
+            {% assign markbot_slug = exercise.url %}
+            {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
+          {% endif %}
+          {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
+          {% include ical-feed-assignment.ics title=exercise.title group=exercise_type url=url slug=slug markbot_slug=markbot_slug datetimes=datetimes week_number=week_number due_offset=due_offset due_time=due_time course=page.collection %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
   {% endfor %}
-
-  {% for exercise in doc.tasks %}
-    {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
-    {% unless found_projects contains exercise.graded-as %}
-      {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
-      {% if exercise.due_week %}
-        {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
-      {% else %}
-        {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
-      {% endif %}
-      {% if exercise.due_time %}
-        {% assign due_time = exercise.due_time %}
-      {% endif %}
-      {% if exercise.url contains "github.com" %}
-        {% assign slug = exercise.url | split: "/" | unique | last %}
-        {% assign markbot_slug = slug %}
-        {% assign url = doc.url %}
-      {% elsif exercise.url contains "http" or exercise.url contains "/" %}
-        {% assign slug = "" %}
-        {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
-        {% assign url = exercise.url %}
-      {% else %}
-        {% assign slug = "" %}
-        {% assign markbot_slug = exercise.url %}
-        {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
-      {% endif %}
-      {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
-      {% include ical-feed-vevent.ics title=exercise.title group=exercise_type url=url slug=slug markbot_slug=markbot_slug datetimes=datetimes week_number=week_number due_offset=due_offset due_time=due_time course=page.collection %}
-    {% endunless %}
-  {% endfor %}
-{% endfor %}
+{% endif %}
 
 END:VCALENDAR
