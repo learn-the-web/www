@@ -229,7 +229,12 @@ skip_links: |
 
   <div class="class class-outside unit [ xs-1 l-2-5 ] gutter-1-4 pad-b-1-4 unit-content-distribute">
     <h2 class="class-heading gutter-1-4 pad-t-1-2 push-1-4 relative" tabindex="0" id="outside-class">
-      <span>{% if page.outside_class %}{{page.outside_class}}{% else %}{% if layout.outside_class %}{{layout.outside_class}}{% else %}Outside class{% endif %}{% endif %}</span>
+      <span class="push-r-1-8">{% if page.outside_class %}{{page.outside_class}}{% else %}{% if layout.outside_class %}{{layout.outside_class}}{% else %}Outside class{% endif %}{% endif %}</span>
+      {% if course_data.datetimes.sections %}
+        <a class="icon icon-feed i-1-2 link-box-no-mark color-black" href="/courses/calendar-feeds/" title="Calendar feed" aria-label="Calendar feed">
+          <svg><use xlink:href="#icon-feed"></use></svg>
+        </a>
+      {% endif %}
       <span class="absolute pin-br pad-b-1-4 gutter-1-4">
         <a href="/get-help/" class="inline-block kilo icon-link italic">
           <i class="icon i-20 push-r-1-8"><svg><use xlink:href="#icon-help"></use></svg></i>

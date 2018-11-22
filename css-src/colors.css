@@ -40,6 +40,10 @@
   color: var(--color-brand-dark);
 }
 
+.color-black {
+  color: #333;
+}
+
 .color-grey {
   color: var(--color-grey);
 }
@@ -77,12 +81,30 @@
   color: #fff;
 }
 
-.section-brand-dark-semi-lightened a {
-  border-color: rgba(255, 255, 255, .5);
-  color: #fff;
+.incremental-section-1 {
+  background-color: var(--color-code-light);
 }
 
-.section-brand-dark-semi-lightened a:hover,
-.section-brand-dark-semi-lightened a:focus {
-  border-color: #fff;
+.incremental-section-2 {
+  background-color: var(--color-code);
+}
+
+.incremental-section-3 {
+  background-color: var(--color-code-dark);
+}
+
+.incremental-section-4 {
+  background-color: var(--color-code-dark-darker-mid);
+}
+
+.incremental-section-5 {
+  background-color: var(--color-code-darker);
+}
+
+.incremental-section-6 {
+  background-color: var(--color-code-darker-darkest-mid);
+}
+
+.incremental-section-7 {
+  background-color: var(--color-code-darkest);
 }

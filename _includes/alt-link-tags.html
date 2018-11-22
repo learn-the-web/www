@@ -1,0 +1,15 @@
+{% if page.url contains "/courses" %}
+  {% assign page_data = site.collections | where: "label", page.collection | first %}
+  {% assign course_details = false %}
+
+  {% for doc in page_data.docs %}
+    {% if doc.slug == "index" %}
+      {% assign course_details = doc %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% for section in course_details.datetimes.sections %}
+    <link rel="alternate" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/calendar-feed-{{section.title}}.ics" type="text/calendar">
+  {% endfor %}
+{% endif %}

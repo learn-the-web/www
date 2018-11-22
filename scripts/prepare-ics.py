@@ -1,29 +1,29 @@
 import pendulum
 
 ics_files = (
-  '_site/courses/web-dev-1/due-dates-010.ics',
-  '_site/courses/web-dev-1/due-dates-020.ics',
-  '_site/courses/web-dev-1/due-dates-030.ics',
-  '_site/courses/web-dev-1/due-dates-040.ics',
+  '_site/courses/web-dev-1/calendar-feed-010.ics',
+  '_site/courses/web-dev-1/calendar-feed-020.ics',
+  '_site/courses/web-dev-1/calendar-feed-030.ics',
+  '_site/courses/web-dev-1/calendar-feed-040.ics',
 
-  '_site/courses/web-dev-2/due-dates-010.ics',
-  '_site/courses/web-dev-2/due-dates-020.ics',
-  '_site/courses/web-dev-2/due-dates-030.ics',
-  '_site/courses/web-dev-2/due-dates-040.ics',
+  '_site/courses/web-dev-2/calendar-feed-010.ics',
+  '_site/courses/web-dev-2/calendar-feed-020.ics',
+  '_site/courses/web-dev-2/calendar-feed-030.ics',
+  '_site/courses/web-dev-2/calendar-feed-040.ics',
 
-  '_site/courses/web-dev-3/due-dates-010.ics',
-  '_site/courses/web-dev-3/due-dates-020.ics',
-  '_site/courses/web-dev-3/due-dates-030.ics',
+  '_site/courses/web-dev-3/calendar-feed-010.ics',
+  '_site/courses/web-dev-3/calendar-feed-020.ics',
+  '_site/courses/web-dev-3/calendar-feed-030.ics',
 
-  '_site/courses/web-dev-4/due-dates-010.ics',
-  '_site/courses/web-dev-4/due-dates-020.ics',
-  '_site/courses/web-dev-4/due-dates-030.ics',
+  '_site/courses/web-dev-4/calendar-feed-010.ics',
+  '_site/courses/web-dev-4/calendar-feed-020.ics',
+  '_site/courses/web-dev-4/calendar-feed-030.ics',
 
-  '_site/courses/web-dev-5/due-dates-010.ics',
-  '_site/courses/web-dev-5/due-dates-020.ics',
+  '_site/courses/web-dev-5/calendar-feed-010.ics',
+  '_site/courses/web-dev-5/calendar-feed-020.ics',
 
-  '_site/courses/web-dev-6/due-dates-010.ics',
-  '_site/courses/web-dev-6/due-dates-020.ics',
+  '_site/courses/web-dev-6/calendar-feed-010.ics',
+  '_site/courses/web-dev-6/calendar-feed-020.ics',
 )
 
 def fix_line_dt(line):

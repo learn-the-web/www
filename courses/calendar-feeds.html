@@ -1,0 +1,71 @@
+---
+layout: basic-inside
+title: "Class calendar feeds"
+desc: "Subscribe to these calendar feeds, for the currently running courses, to get class times, lab times & due dates in your personal calendar."
+priority: 0.1
+hide_markbot: true
+hide_algonquin: true
+---
+
+<div class="pad-t">
+  <div class="wrapper gutter-1-2">
+    <p class="giga">Copy the URL for your section and subscribe to it in your own personal calendar program. <strong>All your class times, lab times, office hours &amp; due dates will be added as events—with alarms.</strong></p>
+  </div>
+
+  {% for collection_id in site.collections_courses %}
+    {% assign loop_max = 0 %}
+    {% assign collection = site.collections | where: "label", collection_id | first %}
+
+    {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
+
+    {% if collection.disabled %}
+      {% assign link = false %}
+    {% else %}
+      {% assign link = true %}
+    {% endif %}
+
+    {% assign data = collection.docs | where: "layout", "course" | first %}
+
+    {% if data.datetimes.sections %}
+      <section class="incremental-section-{{forloop.index}} pad-t pad-b">
+        <div class="wrapper gutter-1-2">
+          <h2>{{data.title}} calendar feeds</h2>
+          {% for section in data.datetimes.sections %}
+            <div class="push">
+              <h3 class="push-0">Section {{section.title}}</h3>
+              <input readonly value="https://learn-the-web.algonquindesign.ca/courses/{{collection_id}}/calendar-feed-{{section.title}}.ics">
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+    {% assign loop_max = forloop.index %}
+  {% endfor %}
+
+  <section class="incremental-section-{{loop_max | plus:1}} pad-t pad-b">
+    <div class="wrapper gutter-1-2">
+      <h2 class="push-0">Instructions</h2>
+      <p>Follow these simple instructions for some common calendar applications.</p>
+      <h3 class="giga push-0">MacOS Calendar</h3>
+      <ol>
+        <li>Go to the “File” menu and press “New Calendar Subscription…”</li>
+        <li>Paste the URL you copied above.</li>
+      </ol>
+      <h3 class="giga push-0">iOS Calendar</h3>
+      <ol>
+        <li>Open the “Settings” app.</li>
+        <li>Go to “Passwords &amp; Accounts”,</li>
+        <li>Then “Add Account”,</li>
+        <li>Then “Other”,</li>
+        <li>Then “Add Subscribed Calendar”.</li>
+        <li>Paste the URL you copied above.</li>
+      </ol>
+      <h3 class="giga push-0">Google Calendar</h3>
+      <ol>
+        <li>Right above your list of calendars, press the “+” button.</li>
+        <li>Select “From URL”.</li>
+        <li>Paste the URL you copied above.</li>
+      </ol>
+    </div>
+  </section>
+</div>

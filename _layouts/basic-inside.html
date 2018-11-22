@@ -7,7 +7,14 @@ layout: default
 <main class="relative" role="main">
   <div class="header">
     <div class="wrapper gutter-1-2 pad-b-1-2">
-      <h1 class="push-1-4 yotta" tabindex="0">{{page.title}}</h1>
+      <div class="relative">
+        <h1 class="push-1-4 yotta" tabindex="0">{{page.title}}</h1>
+        {% if page.layout == "course" and page.datetimes.sections %}
+          <a class="icon icon-feed i-3-4 pin-rc link-box-no-mark color-black" href="/courses/calendar-feeds/" title="Calendar feed" aria-label="Calendar feed">
+            <svg><use xlink:href="#icon-feed"></use></svg>
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
   <div class="header header-light">
