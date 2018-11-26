@@ -39,8 +39,8 @@
   }
 
   // https://stackoverflow.com/questions/16590500/javascript-calculate-date-from-week-number
-  var getDateOfISOWeek = function (w, y, d) {
-    var simple = new Date(y, 0, 1 + (w - 1) * 7);
+  var getDateOfISOWeek = function (w, y) {
+    var simple = new Date(parseInt(y, 10), 0, 1 + (parseInt(w, 10) - 1) * 7);
     var dow = simple.getDay();
     var ISOweekStart = simple;
 
