@@ -33,7 +33,7 @@
   <script>{% include source-code-pro-observer.min.js %}</script>
   <script src="/js/course.min.js?v={{package.version}}"></script>
   {% if page.layout contains "week" %}
-    <script src="/js/assignment-viewer.min.js" async></script>
+    <script src="/js/assignment-viewer.min.js?v={{package.version}}" async></script>
   {% endif %}
 
   <script type="application/ld+json">{% include metadata/main.json %}</script>
