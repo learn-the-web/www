@@ -10,7 +10,7 @@ DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{includ
 DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{include.week_number}}-{{section_info.day}}T{% if section_info.end_time < 10 %}0{% endif %}{{section_info.end_time}}:00:00
 UID:ca.learn-the-web.courses.{{include.collection}}.{{include.section}}.week-{{week}}
 URL:https://learn-the-web.algonquindesign.ca/courses/{{include.collection}}/week-{{week}}/
-SUMMARY:{{include.course_details.title}} class, week {{week}}
-DESCRIPTION:{{include.course_details.title}} class time for week {{week}}
+SUMMARY:{{include.course_details.title}} class, week {{week}}: “{{include.week_data.topic}}”
+DESCRIPTION:{{include.week_data.desc}}
 LOCATION:{{include.section_info.room}}
 END:VEVENT
