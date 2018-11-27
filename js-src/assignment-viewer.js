@@ -40,7 +40,7 @@
 
   // https://stackoverflow.com/questions/16590500/javascript-calculate-date-from-week-number
   var getDateOfISOWeek = function (w, y) {
-    var simple = new Date(parseInt(y, 10), 0, 1 + (parseInt(w, 10) - 1) * 7);
+    var simple = new Date(y, 0, 1 + (w - 1) * 7);
     var dow = simple.getDay();
     var ISOweekStart = simple;
 
@@ -87,8 +87,8 @@
       var section = courseSection.replace(details.course, '').replace(/[^\d]*/, '');
 
       if (section && dueDates[section]) {
-        var weekStart = getDateOfISOWeek(dueDates[section].substr(6, 2), dueDates[section].substr(0, 4));
-        var dueTime = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() * parseInt(dueDates[section].substr(9, 1), 10), dueDates[section].substr(11, 2), dueDates[section].substr(14, 2));
+        var weekStart = getDateOfISOWeek(parseInt(dueDates[section].substr(6, 2), 10), parseInt(dueDates[section].substr(0, 4), 10));
+        var dueTime = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + parseInt(dueDates[section].substr(9, 1), 10) - 1, dueDates[section].substr(11, 2), dueDates[section].substr(14, 2));
         $due.innerHTML = formatDate(dueTime);
       } else {
         $due.innerHTML = details.due;
