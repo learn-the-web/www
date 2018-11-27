@@ -83,7 +83,7 @@
     $icon.setAttributeNS('http://www.w3.org/1999/xlink', 'href', details.icon);
     $worth.innerHTML = details.worth;
 
-    if (dueDates && courseSection && courseSection.indexOf(details.course) > -1) {
+    if (dueDates && typeof dueDates === 'object' && courseSection && courseSection.indexOf(details.course) > -1) {
       var section = courseSection.replace(details.course, '').replace(/[^\d]*/, '');
 
       if (section && dueDates[section]) {
@@ -505,7 +505,7 @@
       icon: elem.querySelector('.card-icon').getAttributeNS('http://www.w3.org/1999/xlink', 'href'),
       course: elem.querySelector('meta[property="course"]').getAttribute('content'),
       due: elem.querySelector('meta[property="due"]').getAttribute('content'),
-      dueDates: elem.querySelector('meta[property="due-dates"]').getAttribute('content'),
+      dueDates: elem.querySelector('script[class="assessment-due-dates"]').innerHTML,
       worth: elem.querySelector('meta[property="worth"]').getAttribute('content'),
       gradingType: elem.querySelector('meta[property="grading-type"]').getAttribute('content'),
       satisfies: 'CLRs ' + elem.querySelector('meta[property="clr"]').getAttribute('content'),
