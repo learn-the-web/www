@@ -13,6 +13,7 @@
 
   document.documentElement.addEventListener('keydown', function (e) {
     var btn;
+    e.preventDefault();
 
     switch (e.keyCode) {
       case 39: // right
@@ -207,7 +208,7 @@
   if (!fullScreenBubble) return;
 
   fullScreenBubble.addEventListener('animationend', function (e) {
-    fullScreenBubble.parentNode.removeChild(fullScreenBubble);
+    if (fullScreenBubble.parentNode) fullScreenBubble.parentNode.removeChild(fullScreenBubble);
   });
 }());
 
