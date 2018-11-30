@@ -1,7 +1,7 @@
 {
   "name": "learn-the-web",
   "private": true,
-  "version": "1.16.4",
+  "version": "1.16.5",
   "devDependencies": {
     "cssnano": "^3.7.3",
     "html-minifier": "^3.5.3",
