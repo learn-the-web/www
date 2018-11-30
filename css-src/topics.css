@@ -369,7 +369,6 @@
 
 .search-input {
   display: block;
-  padding: 0.2em 0.4em 0.2em 1.4em;
   width: 100%;
 
   background: none 0.2em center / auto 70% no-repeat rgba(255,255,255,0.7);
@@ -378,6 +377,11 @@
   border-radius: 8px;
 
   font-family: inherit;
+}
+
+.search-input[type] {
+  /* Override Modulifier specificity */
+  padding-left: 1.4em;
 }
 
 .search-input:focus {
