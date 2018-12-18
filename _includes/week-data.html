@@ -41,6 +41,30 @@
   {% endif %}
 {% endif %}
 
+{% if include.data.multi_profs %}
+  <h3 class="mega push-0" tabindex="0">Office hours</h3>
+  <div class="push-1-2">
+    {% for prof in include.data.multi_profs %}
+      <div>
+        <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}@&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+        {% if prof.hours %}
+          {% if include.no_office_hours %}
+            <span class="valign-top"><em>No office hours this week.</em></span>
+          {% else %}
+            <ol class="hours list-group push-0 ib valign-top">
+              {% for hour in prof.hours %}
+                <li>{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %} – {% include 24-hour-to-12.html time=hour.end_time %}</li>
+              {% endfor %}
+            </ol>
+          {% endif %}
+        {% else %}
+          <span class="valign-top"><em>By appointment only.</em></span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
 {% if include.data.datetimes %}
   <h3 class="mega push-0" tabindex="0">Class times <em class="normal">— {{include.data.title}}</em></h3>
   {% if include.data.datetimes.sections %}
