@@ -3,11 +3,19 @@
   {% capture week %}0{{week}}{% endcapture %}
 {% endif %}
 
+{% capture week_number_string %}{{include.week_number}}{% endcapture %}
+{% assign week_number_size = week_number_string | size %}
+{% if week_number_size < 2 %}
+  {% capture week_number %}0{{week_number_string}}{% endcapture %}
+{% else %}
+  {% assign week_number = include.week_number %}
+{% endif %}
+
 BEGIN:VEVENT
 ORGANIZER;CN=Thomas J Bradley:MAILTO:bradlet@algonquincollege.com
 DTSTAMP;TZID=America/Toronto:{{site.time | date:'%Y%m%dT%H%M%S'}}
-DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{include.week_number}}-{{include.lab_info.day}}T{% if lab_info.start_time < 10 %}0{% endif %}{{include.lab_info.start_time}}:00:00
-DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{include.week_number}}-{{include.lab_info.day}}T{% if lab_info.end_time < 10 %}0{% endif %}{{include.lab_info.end_time}}:00:00
+DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{include.lab_info.day}}T{% if lab_info.start_time < 10 %}0{% endif %}{{include.lab_info.start_time}}:00:00
+DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{include.lab_info.day}}T{% if lab_info.end_time < 10 %}0{% endif %}{{include.lab_info.end_time}}:00:00
 UID:ca.learn-the-web.courses.{{include.collection}}.lab-0{{include.lab_number}}.week-{{week}}
 URL:https://learn-the-web.algonquindesign.ca/courses/{{include.collection}}/week-{{week}}/
 SUMMARY:{{include.course_details.title}} open lab time, week {{week}}

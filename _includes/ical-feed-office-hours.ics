@@ -3,13 +3,21 @@
   {% capture week %}0{{week}}{% endcapture %}
 {% endif %}
 
+{% capture week_number_string %}{{include.week_number}}{% endcapture %}
+{% assign week_number_size = week_number_string | size %}
+{% if week_number_size < 2 %}
+  {% capture week_number %}0{{week_number_string}}{% endcapture %}
+{% else %}
+  {% assign week_number = include.week_number %}
+{% endif %}
+
 BEGIN:VEVENT
 ORGANIZER;CN=Thomas J Bradley:MAILTO:bradlet@algonquincollege.com
 DTSTAMP;TZID=America/Toronto:{{site.time | date:'%Y%m%dT%H%M%S'}}
-DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{include.week_number}}-{{include.hours_info.day}}T{% if hours_info.start_time < 10 %}0{% endif %}{{include.hours_info.start_time}}:00:00
-DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{include.week_number}}-{{include.hours_info.day}}T{% if hours_info.end_time < 10 %}0{% endif %}{{include.hours_info.end_time}}:00:00
-UID:ca.learn-the-web.profs.{{include.course_details.prof.github}}.office-hours-0{{include.hours_number}}.week-{{week}}
-SUMMARY:Office hours with {{include.course_details.prof.name}} {{include.course_details.prof.family_name}}
-DESCRIPTION:Open office hours & help time with {{include.course_details.prof.name}} {{include.course_details.prof.family_name}}
-LOCATION:{{include.course_details.prof.office}}
+DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{include.hours_info.day}}T{% if hours_info.start_time < 10 %}0{% endif %}{{include.hours_info.start_time}}:00:00
+DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{include.hours_info.day}}T{% if hours_info.end_time < 10 %}0{% endif %}{{include.hours_info.end_time}}:00:00
+UID:ca.learn-the-web.profs.{{include.prof.github}}.office-hours-0{{include.hours_number}}.week-{{week}}
+SUMMARY:Office hours with {{include.prof.name}} {{include.prof.family_name}}
+DESCRIPTION:Open office hours & help time with {{include.prof.name}} {{include.prof.family_name}}
+LOCATION:{{include.prof.office}}
 END:VEVENT

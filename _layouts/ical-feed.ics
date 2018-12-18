@@ -54,8 +54,16 @@ END:VTIMEZONE
       {% include ical-feed-class.ics week_data=doc course_details=course_details collection=page.collection section=page.section section_info=section_info week=week_count week_number=week_number %}
 
       {% for hours in course_details.prof.hours %}
-        {% include ical-feed-office-hours.ics course_details=course_details collection=page.collection hours_info=hours week=week_count week_number=week_number hours_number=forloop.index %}
+        {% include ical-feed-office-hours.ics course_details=course_details prof=course_details.prof collection=page.collection hours_info=hours week=week_count week_number=week_number hours_number=forloop.index %}
       {% endfor %}
+
+      {% if course_details.multi_profs %}
+        {% for prof in course_details.multi_profs %}
+          {% for hours in prof.hours %}
+            {% include ical-feed-office-hours.ics course_details=course_details prof=prof collection=page.collection hours_info=hours week=week_count week_number=week_number hours_number=forloop.index %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
 
       {% for lab in course_details.datetimes.labs %}
         {% include ical-feed-lab.ics course_details=course_details collection=page.collection lab_info=lab week=week_count week_number=week_number lab_number=forloop.index %}
