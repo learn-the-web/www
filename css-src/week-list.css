@@ -37,6 +37,11 @@
   text-align: center;
 }
 
+.week-list-tasks > .week-list-task-no-sep::after {
+  content: none;
+  display: none;
+}
+
 .week-list-tasks + .week-list-tasks-outside > li:first-child::before {
   content: "—";
   display: inline-block;
