@@ -6,7 +6,7 @@
     "cssnano": "^3.7.3",
     "html-minifier": "^3.5.3",
     "npm-run-all": "^4.0.2",
-    "onchange": "^2.5.0",
+    "onchange": "^5.2.0",
     "postcss-assets": "^4.1.0",
     "postcss-cli": "^2.5.2",
     "postcss-cssnext": "^2.7.0",
