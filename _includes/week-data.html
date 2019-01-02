@@ -82,7 +82,7 @@
   {% endif %}
 {% endif %}
 
-{% if include.data.prof %}
+{% if include.data.prof or include.data.multi_profs %}
   <h3 class="mega push-0" tabindex="0">
     <span>Get help</span> <span class="normal">—</span>
     <a class="link-body-color icon-link not-bold" href="/topics/troubleshooting-checklist/">
@@ -90,7 +90,7 @@
       <span class="icon-label">Troubleshooting checklist</span>
     </a>
   </h3>
-  <p class="push-0">Create a new Issue in your repo and tag <kbd>@{{include.data.prof.github}}</kbd></p>
+  <p class="push-0">Create a new Issue in your repo and tag {% if include.data.prof %}<kbd>@{{include.data.prof.github}}</kbd>{% else %}your teacher.{% endif %}</p>
   <ul class="list-group-inline micro push-0">
     <li><a class="link-body-color" href="/courses/web-dev-1/create-tagged-issue/">How to create a tagged Issue</a></li>
     <li role="presentation" aria-hidden="true">•</li>
