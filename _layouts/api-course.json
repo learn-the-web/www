@@ -33,23 +33,49 @@
   "course_code": "{{course_details.course_code}}",
   "year": {% if course_details.datetimes.year %}{{course_details.datetimes.year}}{% else %}{{site.time | date:'%Y'}}{% endif %},
   "start_week": {% if course_details.datetimes.start_week %}{{course_details.datetimes.start_week}}{% else %}1{% endif %},
-  "professor": {
-    "name": "{{course_details.prof.name}}",
-    "email": "{{course_details.prof.email}}",
-    "url": "{{course_details.prof.url}}",
-    "github": "{{course_details.prof.github}}",
-    "office": {% if course_details.prof.office %}"{{course_details.prof.office}}"{% else %}false{% endif %},
-    "office_hours": [
-      {% for hour in course_details.prof.hours %}
+  "professors": [
+    {% if course_details.prof %}
+      {
+        "name": "{{course_details.prof.name}} {{course_details.prof.family_name}}",
+        "email": "{{course_details.prof.email}}",
+        "url": "{{course_details.prof.url}}",
+        "github": "{{course_details.prof.github}}",
+        "office": {% if course_details.prof.office %}"{{course_details.prof.office}}"{% else %}false{% endif %},
+        "office_hours": [
+          {% for hour in course_details.prof.hours %}
+            {
+              "day": {{hour.day}},
+              "start_time": {{hour.start_time}},
+              "end_time": {{hour.end_time}}
+            }
+            {% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+    {% endif %}
+    {% if course_details.prof and course_details.multi_profs %},{% endif %}
+    {% if course_details.multi_profs %}
+      {% for prof in course_details.multi_profs %}
         {
-          "day": {{hour.day}},
-          "start_time": {{hour.start_time}},
-          "end_time": {{hour.end_time}}
-        }
-        {% unless forloop.last %},{% endunless %}
+          "name": "{{prof.name}} {{prof.family_name}}",
+          "email": "{{prof.email}}",
+          "url": "{{prof.url}}",
+          "github": "{{prof.github}}",
+          "office": {% if prof.office %}"{{prof.office}}"{% else %}false{% endif %},
+          "office_hours": [
+            {% for hour in prof.hours %}
+              {
+                "day": {{hour.day}},
+                "start_time": {{hour.start_time}},
+                "end_time": {{hour.end_time}}
+              }
+              {% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ]
+        }{% unless forloop.last %},{% endunless %}
       {% endfor %}
-    ]
-  },
+    {% endif %}
+  ],
   "grading_scheme": {
     "activities": 10,
     "activities_plus_lessons": 10,
@@ -68,6 +94,17 @@
     "videos": 0
     {% endif %}
   },
+  "sections": [
+    {% for section in course_details.datetimes.sections %}
+      {
+        "title": "{{section.title}}",
+        "room": "{{section.room}}",
+        "day": {{section.day}},
+        "start_time": {{section.start_time}},
+        "end_time": {{section.end_time}}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
   "assessments": [
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
