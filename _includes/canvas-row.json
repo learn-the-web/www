@@ -7,6 +7,8 @@
 
 {% if include.first == false %},{% endif %}
 
+{% assign week_number = include.week_number | plus: include.due_offset %}
+
 {
   "name": "{{include.title}}",
   "description": "<h2><a href=\"{{url}}\">{{url}}</a></h2>",
@@ -22,7 +24,7 @@
       {% capture due_hour %}{% unless include.due_offset == "0" %}{% if section.start_time < 10 %}0{% endif %}{{section.start_time}}{% else %}{% if section.end_time < 10 %}0{% endif %}{{section.end_time}}{% endunless %}{% endcapture %}
       {
         "course_section_id": "{{section.canvas_id}}",
-        "due_at": "{{include.datetimes.year}}-W{{include.week_number | plus: include.due_offset }}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{{due_hour}}:00{% endif %}"
+        "due_at": "{{include.datetimes.year}}-W{% if week_number < 10 %}0{% endif %}{{week_number}}-{{section.day}}T{% if include.due_time %}{{include.due_time}}{% else %}{{due_hour}}:00{% endif %}"
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]
