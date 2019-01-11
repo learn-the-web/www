@@ -5,7 +5,8 @@
   .downloads,
   .tutorial-nav,
   .play-btn,
-  .footer-wrap {
+  .footer-wrap,
+  #extra-practice {
     display: none;
   }
 
@@ -27,16 +28,20 @@
 
   .cheat-section {
     clear: both;
-    page-break-before: always;
+    /*page-break-inside: avoid;*/
   }
 
   .cheat-section > h2 {
-    page-break-after: avoid;
+    /*page-break-after: avoid;*/
+  }
+
+  .cheat-list > li {
+    /*page-break-inside: avoid;*/
   }
 
   .cheat-list {
-    page-break-before: avoid;
-    page-break-inside: auto;
+    /*page-break-before: avoid;*/
+    /*page-break-inside: auto;*/
   }
 
   .cheat-list .unit {
