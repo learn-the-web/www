@@ -392,6 +392,8 @@
     if (readme.download && $btn.dataset.submissionType == 'download-markbot') $btn.href = readme.download;
     if (readme.download && $btn.dataset.submissionType !== 'download-markbot') showDownloadButton(readme.download);
 
+    if (!readme.submit && $btn.dataset.submissionType == 'online') disableButton();
+
     showContent(readme.html);
     if (screenshots) showScreenshot(screenshots);
     showInteractionVideo();
