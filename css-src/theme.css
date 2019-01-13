@@ -197,7 +197,8 @@ nav a:focus {
   border-bottom: 0;
 }
 
-.week-video-checked {
+.week-video-checked,
+.week-topic-required {
   cursor: help;
 }
 
