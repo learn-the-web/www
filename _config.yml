@@ -1,4 +1,5 @@
 permalink: pretty
+port: 4002
 highlighter: none
 
 exclude:
