@@ -32,7 +32,7 @@
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
-    {% if tut.videos %}
+    {% if tut.videos or tut.required %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
     {% endif %}
   {% endfor %}
@@ -81,7 +81,7 @@
       {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
       {% if weight_videos > 0 %}
         {% for tut in doc.video_tutorials %}
-          {% if tut.videos %}
+          {% if tut.videos or tut.required %}
             {% include comms/assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr %}
           {% endif %}
         {% endfor %}

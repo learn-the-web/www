@@ -17,7 +17,7 @@
   <td>
     {% if videos_per > 0 %}
       {% for tut in doc.video_tutorials %}
-        {% if tut.videos %}
+        {% if tut.videos or tut.required %}
           {% include comms/schedule-assessment.html prefix="Videos" title=tut.title value=videos_per %}
         {% endif %}
       {% endfor %}

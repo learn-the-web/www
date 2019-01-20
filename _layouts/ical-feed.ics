@@ -76,7 +76,7 @@ END:VTIMEZONE
       {% endfor %}
 
       {% for tut in doc.video_tutorials %}
-        {% if tut.videos %}
+        {% if tut.videos or tut.required %}
           {% capture url %}/topics/{{tut.url}}/{% endcapture %}
           {% include ical-feed-assignment.ics title=tut.title group="video" url=url datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url %}
         {% endif %}

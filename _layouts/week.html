@@ -34,7 +34,7 @@ skip_links: |
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
-    {% if tut.videos %}
+    {% if tut.videos or tut.required %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
     {% endif %}
   {% endfor %}

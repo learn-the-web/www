@@ -113,7 +113,7 @@
   {% assign week_number = datetimes.start_week | plus:week_count %}
 
   {% for tut in doc.video_tutorials %}
-    {% if tut.videos %}
+    {% if tut.videos or tut.required %}
       {% capture url %}/topics/{{tut.url}}/{% endcapture %}
       {% include api-course-row.json title=tut.title group="video" id=tut.url grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url course=page.collection %}
       {% assign first_entry = false %}

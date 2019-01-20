@@ -18,8 +18,10 @@ skip_links: |
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
   {% for tut in doc.video_tutorials %}
-    {% if tut.videos and page.grades.videos %}
-      {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+    {% if tut.videos or tut.required %}
+      {% if page.grades.videos %}
+        {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
+      {% endif %}
     {% endif %}
   {% endfor %}
   {% for exercise in doc.tasks %}
@@ -175,11 +177,13 @@ skip_links: |
             {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
             {% capture week_count %}{{week_count | plus: 1}}{% endcapture %}
             {% for tut in doc.video_tutorials %}
-              {% if tut.videos and page.grades.videos %}
-                {% capture count %}{{count | plus: 1}}{% endcapture %}
-                {% capture url %}/topics/{{tut.url}}/{% endcapture %}
-                {% assign count_videos = count_videos | plus:1 %}
-                {% include assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr week=doc.title url=url %}
+              {% if tut.videos or tut.required %}
+                {% if page.grades.videos %}
+                  {% capture count %}{{count | plus: 1}}{% endcapture %}
+                  {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+                  {% assign count_videos = count_videos | plus:1 %}
+                  {% include assessments-row.html prefix="Videos" title=tut.title value=videos_per clrs=doc.clr week=doc.title url=url %}
+                {% endif %}
               {% endif %}
             {% endfor %}
             {% for exercise in doc.tasks %}
