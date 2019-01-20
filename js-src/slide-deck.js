@@ -13,18 +13,19 @@
 
   document.documentElement.addEventListener('keydown', function (e) {
     var btn;
-    e.preventDefault();
 
     switch (e.keyCode) {
       case 39: // right
       case 40: // down
       case 74: // j
+        e.preventDefault();
         btn = document.querySelector('.slide:target .slide-nav-next');
         if (btn) btn.click();
         break;
       case 37: // left
       case 38: // up
       case 75: // k
+        e.preventDefault();
         btn = document.querySelector('.slide:target .slide-nav-prev');
         if (btn) btn.click();
         break;
