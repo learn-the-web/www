@@ -96,8 +96,20 @@ hr {
   border-color: var(--color-code-darkest);
 }
 
+.hr-brand {
+  border-color: var(--color-brand);
+}
+
 .hr-brand-light {
   border-color: var(--color-brand-light);
+}
+
+.hr-brand-muted {
+  border-color: rgba(0, 103, 90, .3);
+}
+
+.hr-thin {
+  border-width: 2px;
 }
 
 .hr-full {

@@ -130,6 +130,66 @@ skip_links: |
           </tbody>
         </table>
       </div>
+      {% if page.datetimes.sections %}
+        <div class="unit [ xs-1 ] pad-t-1-2">
+          <hr class="hr-thin hr-brand-muted push-1-2">
+          <dl class="course-hours-group list-group-inline push-0">
+            {% if page.datetimes.sections %}
+              <dt class="bold">Class times</dt>
+              <dd class="push-0">
+                <ol class="hours list-group-inline push-0">
+                  {% for class in page.datetimes.sections %}
+                    <li class="push-r-1-2">{% include day-number-to-text.html day=class.day %} {% include 24-hour-to-12.html time=class.start_time %} – {% include 24-hour-to-12.html time=class.end_time %} @&nbsp;{{class.room}}</li>
+                  {% endfor %}
+                </ol>
+              </dd>
+            {% endif %}
+            {% if page.datetimes.labs %}
+              <dt class="bold">Lab times</dt>
+              <dd class="push-0">
+                <ol class="hours list-group-inline push-0">
+                  {% for lab in page.datetimes.labs %}
+                    <li class="push-r-1-2">{% include day-number-to-text.html day=lab.day %} {% include 24-hour-to-12.html time=lab.start_time %} – {% include 24-hour-to-12.html time=lab.end_time %} @&nbsp;{{lab.room}}</li>
+                  {% endfor %}
+                </ol>
+              </dd>
+            {% endif %}
+            {% if page.prof or page.multi_profs %}
+              <dt class="bold">Office hours</dt>
+              <dd class="push-0">
+                {% if page.prof %}
+                  {% if page.prof.hours %}
+                    <em class="normal valign-top">{% if page.prof.email %}<a class="link-body-color" href="mailto:{{page.prof.email}}">{% endif %}{{page.prof.name}} {% if page.prof.office %}@&nbsp;{{page.prof.office}}{% endif %}{% if page.prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+                    <ol class="hours list-group-inline push-0 ib valign-top">
+                      {% for hour in page.prof.hours %}
+                        <li class="push-r-1-2">{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %} – {% include 24-hour-to-12.html time=hour.end_time %}</li>
+                      {% endfor %}
+                    </ol>
+                  {% else %}
+                    <p class="push-1-2"><em>By appointment only.</em></p>
+                  {% endif %}
+                {% endif %}
+                {% if page.multi_profs %}
+                  {% for prof in page.multi_profs %}
+                    <div>
+                      <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}@&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+                      {% if prof.hours %}
+                        <ol class="hours list-group-inline push-0 ib valign-top">
+                          {% for hour in prof.hours %}
+                            <li class="push-r-1-2">{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %} – {% include 24-hour-to-12.html time=hour.end_time %}</li>
+                          {% endfor %}
+                        </ol>
+                      {% else %}
+                        <span class="valign-top"><em>By appointment only.</em></span>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              </dd>
+            {% endif %}
+          </dl>
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>
