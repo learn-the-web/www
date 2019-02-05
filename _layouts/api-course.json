@@ -111,11 +111,12 @@
 
   {% assign week_count = week_count | plus:1 %}
   {% assign week_number = datetimes.start_week | plus:week_count %}
+  {% capture week_number_freeze %}{{week_number}}{% endcapture %}
 
   {% for tut in doc.video_tutorials %}
     {% if tut.videos or tut.required %}
       {% capture url %}/topics/{{tut.url}}/{% endcapture %}
-      {% include api-course-row.json title=tut.title group="video" id=tut.url grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number due_offset=0 markbot_slug=tut.url course=page.collection %}
+      {% include api-course-row.json title=tut.title group="video" id=tut.url grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number_freeze due_offset=0 markbot_slug=tut.url course=page.collection %}
       {% assign first_entry = false %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
     {% endif %}
@@ -131,7 +132,7 @@
         {% assign markbot_slug = slug %}
         {% assign disabled = true %}
         {% if exercise.url %}{% assign disabled = false %}{% endif %}
-        {% include api-course-row.json title=exercise.title group="project" id=markbot_slug grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=exercise.due_time course=page.collection %}
+        {% include api-course-row.json title=exercise.title group="project" id=markbot_slug grading_type="letter_grade" points=100 url=doc.url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number_freeze due_offset=due_offset due_time=exercise.due_time course=page.collection %}
         {% assign first_entry = false %}
       {% endunless %}
     {% else %}
@@ -170,7 +171,7 @@
       {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
       {% assign progressinator_id = markbot_slug %}
       {% if exercise.progressinator_id %}{% assign progressinator_id = exercise.progressinator_id %}{% endif %}
-      {% include api-course-row.json title=exercise.title group=exercise_type id=progressinator_id grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number due_offset=due_offset due_time=due_time course=page.collection %}
+      {% include api-course-row.json title=exercise.title group=exercise_type id=progressinator_id grading_type="pass_fail" points=1 url=url slug=slug markbot_slug=markbot_slug first=first_entry datetimes=datetimes week_number=week_number_freeze due_offset=due_offset due_time=due_time course=page.collection %}
       {% assign first_entry = false %}
     {% endif %}
 
