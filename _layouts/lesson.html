@@ -396,56 +396,54 @@ skip_links: |
             </div>
           </div>
           <div class="lesson-notes unit [ xs-1 m-1-3 ] {% if forloop.last and page.hide_markbot %}lesson-notes-last{% endif %} {% if forloop.last and page.markbot_submit %}lesson-notes-last{% endif %} {% if forloop.last and page.quiz %}lesson-notes-last{% endif %}">
-            {% if step.notes or step.lines or step.multi_code[0].lines or step.multi_code[1].lines %}
-              {% assign has_text_notes = false %}
+            {% assign has_text_notes = false %}
 
-              {% unless step.notes %}
-                {% for line in step.lines %}
-                  {% if line.fade %}{% continue %}{% endif %}
-                  {% assign has_text_notes = true %}
+            {% unless step.notes %}
+              {% for line in step.lines %}
+                {% if line.fade %}{% continue %}{% endif %}
+                {% assign has_text_notes = true %}
+              {% endfor %}
+              {% if step.multi_code %}
+                {% for block in step.multi_code %}
+                  {% if block.lines %}
+                    {% for line in block.lines %}
+                      {% if line.fade %}{% continue %}{% endif %}
+                      {% assign has_text_notes = true %}
+                    {% endfor %}
+                  {% endif %}
                 {% endfor %}
+              {% endif %}
+            {% else %}
+              {% assign has_text_notes = true %}
+            {% endunless %}
+
+            {% if has_text_notes %}
+              <ol class="lesson-note-list list-group">
+                {% for note in step.notes %}
+                  <li class="lesson-note">
+                    <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
+                    <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
+                  </li>
+                {% endfor %}
+                {% if step.lines %}
+                  {% for line in step.lines %}
+                    {% if line.text %}
+                      {% include lesson/code-line.html line=line %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
                 {% if step.multi_code %}
                   {% for block in step.multi_code %}
                     {% if block.lines %}
                       {% for line in block.lines %}
-                        {% if line.fade %}{% continue %}{% endif %}
-                        {% assign has_text_notes = true %}
+                        {% if line.text %}
+                          {% include lesson/code-line.html line=line prefix=block.code_file %}
+                        {% endif %}
                       {% endfor %}
                     {% endif %}
                   {% endfor %}
                 {% endif %}
-              {% else %}
-                {% assign has_text_notes = true %}
-              {% endunless %}
-
-              {% if has_text_notes %}
-                <ol class="lesson-note-list list-group">
-                  {% for note in step.notes %}
-                    <li class="lesson-note">
-                      <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{{note.label}}</h3>
-                      <div class="gutter-1-2 italic">{{note.text | markdownify}}</div>
-                    </li>
-                  {% endfor %}
-                  {% if step.lines %}
-                    {% for line in step.lines %}
-                      {% if line.text %}
-                        {% include lesson/code-line.html line=line %}
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %}
-                  {% if step.multi_code %}
-                    {% for block in step.multi_code %}
-                      {% if block.lines %}
-                        {% for line in block.lines %}
-                          {% if line.text %}
-                            {% include lesson/code-line.html line=line prefix=block.code_file %}
-                          {% endif %}
-                        {% endfor %}
-                      {% endif %}
-                    {% endfor %}
-                  {% endif %}
-                </ol>
-              {% endif %}
+              </ol>
             {% endif %}
           </div>
         </section>
