@@ -98,7 +98,7 @@
 
 .code-continue-from-above::after,
 .code-big-down-arrow::after {
-  content: "Continuing code from earlier in this lesson…";
+  content: "Continuing code from earlier…";
   display: inline-block;
   margin-left: .5rem;
   padding: 0 .7em;
@@ -115,7 +115,7 @@
 }
 
 .code-continue-from-above:last-of-type:not(:first-of-type)::after {
-  content: "Code completed earlier in this lesson…";
+  content: "Code completed earlier…";
 }
 
 .code-big-down-arrow::after {
