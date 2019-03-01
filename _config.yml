@@ -52,7 +52,7 @@ collections:
     output: true
     permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
-    max_weeks: 9
+    max_weeks: 10
   shared:
     output: true
     permalink: /courses/shared/:path/
