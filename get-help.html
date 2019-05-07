@@ -223,7 +223,9 @@ hide_worklabs: true
             {% endif %}
           {% endfor %}
         {% endfor %}
-
+        {% if duplicate_detector == "" %}
+          <p><em>The term is not currently running so there are no defined office hours.</em></p>
+        {% endif %}
         <p><em>Email unlisted professors to make an appointment.</em></p>
       </div>
     </div>
@@ -244,11 +246,12 @@ hide_worklabs: true
       <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
         <h3 class="mega push-0">This term’s tutors:</h3>
         <!-- <p><em>Still in the process of being hired…</em></p> -->
-        <ul>
+        <p><em>Terms are not currently running.</em></p>
+<!--         <ul>
           <li><a href="mailto:baba0029@algonquinlive.com">Nila Babaei</a></li>
           <li><a href="mailto:sand0274@algonquinlive.com">Aaron Sander</a></li>
         </ul>
-      </div>
+ -->      </div>
     </div>
     <div class="gutter-1-4"><hr></div>
   </section>
