@@ -115,8 +115,19 @@
 
   {% for tut in doc.video_tutorials %}
     {% if tut.videos or tut.required %}
-      {% capture url %}/topics/{{tut.url}}/{% endcapture %}
-      {% include api-course-row.json title=tut.title group="video" id=tut.url grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number_freeze due_offset=0 markbot_slug=tut.url course=page.collection %}
+      {% if tut.url contains "/" %}
+        {% capture url %}{{tut.url}}{% endcapture %}
+        {% if tut.url contains "#" %}
+          {% assign fixed_url = tut.url | replace: '/#', '-' %}
+          {% assign markbot_slug = fixed_url | split: "/" | unique | last %}
+        {% else %}
+          {% assign markbot_slug = tut.url | split: "/" | unique | last %}
+        {% endif %}
+      {% else %}
+        {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+        {% assign markbot_slug = tut.url %}
+      {% endif %}
+      {% include api-course-row.json title=tut.title group="video" id=markbot_slug grading_type="pass_fail" points=1 url=url first=first_entry datetimes=datetimes week_number=week_number_freeze due_offset=0 markbot_slug=markbot_slug course=page.collection %}
       {% assign first_entry = false %}
       {% capture total_videos %}{{total_videos | plus:1}}{% endcapture %}
     {% endif %}
