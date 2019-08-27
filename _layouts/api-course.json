@@ -105,6 +105,16 @@
       }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ],
+  "labs": [
+    {% for lab in course_details.datetimes.labs %}
+      {
+        "room": "{{lab.room}}",
+        "day": {{lab.day}},
+        "start_time": {{lab.start_time}},
+        "end_time": {{lab.end_time}}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
   "assessments": [
 {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
@@ -189,6 +199,114 @@
   {% endfor %}
 {% endfor %}
 ],
+"weeks": {
+  {% assign week_count = 0 %}
+  {% assign first_week = true %}
+  {% for doc in page_data.docs %}
+  {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
+
+  {% assign week_count = week_count | plus:1 %}
+  {% assign week_number = datetimes.start_week | plus:week_count %}
+  {% capture week_number_freeze %}{{week_number}}{% endcapture %}
+  {% unless first_week %},{% endunless %}"{{week_count}}": {
+    "week_number": {{week_count}},
+    "title": "{{doc.topic}}",
+    "desc": "{{doc.desc}}",
+    "clrs": "{{doc.clr}}",
+    "videos": [
+      {% assign first_entry = true %}
+      {% for tut in doc.video_tutorials %}
+        {% if tut.videos or tut.required %}
+          {% if tut.url contains "/" %}
+            {% capture url %}{{tut.url}}{% endcapture %}
+            {% if tut.url contains "#" %}
+              {% assign fixed_url = tut.url | replace: '/#', '-' %}
+              {% assign markbot_slug = fixed_url | split: "/" | unique | last %}
+            {% else %}
+              {% assign markbot_slug = tut.url | split: "/" | unique | last %}
+            {% endif %}
+          {% else %}
+            {% capture url %}/topics/{{tut.url}}/{% endcapture %}
+            {% assign markbot_slug = tut.url %}
+          {% endif %}
+          {% unless first_entry %},{% endunless %}{
+            "title": "{{tut.title}}",
+            "url": "{{url}}"
+          }
+          {% assign first_entry = false %}
+        {% endif %}
+      {% endfor %}
+    ],
+    "assessments": [
+      {% assign first_entry = true %}
+      {% for exercise in doc.tasks %}
+        {% if exercise.graded-as %}
+          {% unless found_projects contains exercise.graded-as %}
+            {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
+            {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
+            {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+            {% assign slug = exercise.url | split: "/" | unique | last %}
+            {% assign markbot_slug = slug %}
+            {% assign disabled = true %}
+            {% if exercise.url %}{% assign disabled = false %}{% endif %}
+            {% capture final_url %}{{url_prefix}}{{doc.url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
+            {% unless first_entry %},{% endunless %}{
+              "title": "{{exercise.title}}",
+              "type": "project",
+              "url": "{{final_url}}"
+            }
+            {% assign first_entry = false %}
+          {% endunless %}
+        {% else %}
+          {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+          {% if exercise.due_week %}
+            {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
+          {% else %}
+            {% capture due_offset %}{% if forloop.index <= 3 %}0{% else %}1{% endif %}{% endcapture %}
+          {% endif %}
+          {% if exercise.due_time %}
+            {% assign due_time = exercise.due_time %}
+          {% endif %}
+          {% if exercise.url contains "github.com" %}
+            {% assign slug = exercise.url | split: "/" | unique | last %}
+            {% assign markbot_slug = slug %}
+            {% assign url = doc.url %}
+          {% elsif exercise.url contains "http" or exercise.url contains "/" %}
+            {% assign slug = "" %}
+            {% assign markbot_slug = exercise.url | split: "/" | unique | last %}
+            {% assign url = exercise.url %}
+          {% else %}
+            {% assign slug = "" %}
+            {% assign markbot_slug = exercise.url %}
+            {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
+          {% endif %}
+          {% case exercise.type %}
+            {% when "activity" %}
+              {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
+            {% when "lesson" %}
+              {% capture total_lessons %}{{total_lessons | plus:1}}{% endcapture %}
+            {% else %}
+              {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
+          {% endcase %}
+          {% assign disabled = true %}
+          {% if exercise.url %}{% assign disabled = false %}{% endif %}
+          {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
+          {% assign progressinator_id = markbot_slug %}
+          {% if exercise.progressinator_id %}{% assign progressinator_id = exercise.progressinator_id %}{% endif %}
+          {% capture final_url %}{{url_prefix}}{{url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
+          {% unless first_entry %},{% endunless %}{
+            "title": "{{exercise.title}}",
+            "type": "{{exercise_type}}",
+            "url": "{{final_url}}"
+          }
+          {% assign first_entry = false %}
+        {% endif %}
+      {% endfor %}
+    ]
+  }
+  {% assign first_week = false %}
+{% endfor %}
+},
 "totals": {
   "weeks": {{week_count | plus:1}},
   "hours": {{course_details.hours}},
