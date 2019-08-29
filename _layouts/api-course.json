@@ -200,16 +200,16 @@
 {% endfor %}
 ],
 "weeks": {
-  {% assign week_count = 0 %}
+  {% assign weeks_week_count = 0 %}
   {% assign first_week = true %}
   {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
 
-  {% assign week_count = week_count | plus:1 %}
-  {% assign week_number = datetimes.start_week | plus:week_count %}
+  {% assign weeks_week_count = weeks_week_count | plus:1 %}
+  {% assign week_number = datetimes.start_week | plus:weeks_week_count %}
   {% capture week_number_freeze %}{{week_number}}{% endcapture %}
-  {% unless first_week %},{% endunless %}"{{week_count}}": {
-    "week_number": {{week_count}},
+  {% unless first_week %},{% endunless %}"{{weeks_week_count}}": {
+    "week_number": {{weeks_week_count}},
     "title": "{{doc.topic}}",
     "desc": "{{doc.desc}}",
     "clrs": "{{doc.clr}}",
