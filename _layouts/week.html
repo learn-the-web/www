@@ -168,6 +168,15 @@ skip_links: |
             </ul>
           {% endif %}
 
+          {% if page.notes %}
+            <h3 class="mega push-1-4" tabindex="0">Notes</h3>
+            <ul>
+              {% for note in page.notes %}
+                <li>{{note}}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
           {% if page.next_week_notes %}
             <h3 class="mega push-1-4" tabindex="0">Notes for next week</h3>
             <ul class="italic milli">
