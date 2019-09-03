@@ -18,8 +18,8 @@
     "js_topics": "js-src/fuzzy-match.js js-src/topic-search.js js-src/topics-visited.js",
     "js_article": "vendor/prism.js js-src/syntax.js js-src/article-nav.js js-src/section-links.js js-src/video.js vendor/fetch.js js-src/watch-stats.js",
     "js_course": "js-src/fullscreen.js js-src/week-times.js",
-    "js_slide-deck": "vendor/prism.js js-src/syntax.js js-src/slide-deck.js js-src/prism-workarounds.js",
-    "js_lesson": "vendor/prism.js js-src/swiper.js js-src/syntax.js js-src/lesson.js js-src/prism-workarounds.js",
+    "js_slide-deck": "vendor/prism.js js-src/syntax.js js-src/slide-deck.js js-src/prism-workarounds.js js-src/task-lists.js",
+    "js_lesson": "vendor/prism.js js-src/swiper.js js-src/syntax.js js-src/lesson.js js-src/prism-workarounds.js js-src/task-lists.js",
     "js_assignment_viewer": "vendor/cookie.js vendor/fetch.js vendor/js-yaml.min.js vendor/marked.min.js js-src/assignment-viewer.js"
   },
   "scripts": {

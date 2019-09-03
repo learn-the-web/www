@@ -80,6 +80,11 @@
   line-height: 2.1;
 }
 
+.lesson-body .task-list-item label::before {
+  font-size: 60%;
+  border-width: .15em;
+}
+
 .line-faded {
   background-color: rgba(245, 242, 240, .6);
 }

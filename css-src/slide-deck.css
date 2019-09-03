@@ -227,6 +227,11 @@ iframe {
   line-height: 1;
 }
 
+.slide .task-list-item label::before {
+  font-size: 60%;
+  border-width: .15em;
+}
+
 @media only screen and (min-width: 60em) {
 
   .slide .slide-countdown {
