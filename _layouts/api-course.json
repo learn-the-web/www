@@ -201,6 +201,7 @@
 ],
 "weeks": {
   {% assign weeks_week_count = 0 %}
+  {% assign found_projects = "" %}
   {% assign first_week = true %}
   {% for doc in page_data.docs %}
   {% unless doc.layout contains "week" %}{% continue %}{% endunless %}
@@ -231,7 +232,8 @@
           {% endif %}
           {% unless first_entry %},{% endunless %}{
             "title": "{{tut.title}}",
-            "url": "{{url}}"
+            "url": "{{url}}",
+            "uri": "ca.learn-the-web.videos.{{markbot_slug}}"
           }
           {% assign first_entry = false %}
         {% endif %}
@@ -249,11 +251,12 @@
             {% assign markbot_slug = slug %}
             {% assign disabled = true %}
             {% if exercise.url %}{% assign disabled = false %}{% endif %}
-            {% capture final_url %}{{url_prefix}}{{doc.url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
+            {% capture final_url %}{{doc.url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
             {% unless first_entry %},{% endunless %}{
               "title": "{{exercise.title}}",
               "type": "project",
-              "url": "{{final_url}}"
+              "url": "{{final_url}}",
+              "uri": "ca.learn-the-web.projects.{{slug}}"
             }
             {% assign first_entry = false %}
           {% endunless %}
@@ -288,16 +291,33 @@
             {% else %}
               {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
           {% endcase %}
+          {% case exercise.type %}
+            {% when 'activity' %}
+              {% assign uri_group='activities' %}
+              {% assign exercise_type = 'activity' %}
+            {% when 'video' %}
+              {% assign uri_group='videos' %}
+              {% assign exercise_type = 'video' %}
+            {% when 'lesson' %}
+              {% assign uri_group='exercises' %}
+              {% assign exercise_type = 'lesson' %}
+            {% when 'project' %}
+              {% assign uri_group='exercises' %}
+              {% assign exercise_type = 'project' %}
+            {% else %}
+              {% assign uri_group='exercises' %}
+              {% assign exercise_type = 'exercise' %}
+          {% endcase %}
           {% assign disabled = true %}
           {% if exercise.url %}{% assign disabled = false %}{% endif %}
-          {% if exercise.type %}{% assign exercise_type = exercise.type %}{% else %}{% assign exercise_type = "exercise" %}{% endif %}
           {% assign progressinator_id = markbot_slug %}
           {% if exercise.progressinator_id %}{% assign progressinator_id = exercise.progressinator_id %}{% endif %}
-          {% capture final_url %}{{url_prefix}}{{url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
+          {% capture final_url %}{{url}}{% if slug and slug != "" %}#{{slug}}{% endif %}{% endcapture %}
           {% unless first_entry %},{% endunless %}{
             "title": "{{exercise.title}}",
             "type": "{{exercise_type}}",
-            "url": "{{final_url}}"
+            "url": "{{final_url}}",
+            "uri": "ca.learn-the-web.{{uri_group}}.{{progressinator_id}}"
           }
           {% assign first_entry = false %}
         {% endif %}
