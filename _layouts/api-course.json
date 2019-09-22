@@ -245,7 +245,6 @@
         {% if exercise.graded-as %}
           {% unless found_projects contains exercise.graded-as %}
             {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
-            {% capture total_projects %}{{total_projects | plus:1}}{% endcapture %}
             {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
             {% assign slug = exercise.url | split: "/" | unique | last %}
             {% assign markbot_slug = slug %}
@@ -283,14 +282,6 @@
             {% assign markbot_slug = exercise.url %}
             {% capture url %}/courses/{{page.collection}}/{{exercise.url}}/{% endcapture %}
           {% endif %}
-          {% case exercise.type %}
-            {% when "activity" %}
-              {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
-            {% when "lesson" %}
-              {% capture total_lessons %}{{total_lessons | plus:1}}{% endcapture %}
-            {% else %}
-              {% capture total_exercises %}{{total_exercises | plus:1}}{% endcapture %}
-          {% endcase %}
           {% case exercise.type %}
             {% when 'activity' %}
               {% assign uri_group='activities' %}
