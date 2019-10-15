@@ -48,6 +48,27 @@
   user-select: none;
 }
 
+.code-can-copy {
+  position: relative;
+}
+
+.code-can-copy::after {
+  content: "You can copy & paste this!";
+  right: .6rem;
+  padding: 0 .4em;
+  position: absolute;
+  top: -.9rem;
+
+  background-color: var(--color-warning-light);
+  border: .2em solid var(--color-warning);
+  border-radius: 4px;
+
+  color: var(--color-warning-dark);
+  font-size: 60%;
+  font-weight: bold;
+  line-height: 2.1;
+}
+
 .lesson-body-code pre,
 .lesson-body-code code {
   margin-left: 0;
