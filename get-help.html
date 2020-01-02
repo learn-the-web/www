@@ -203,7 +203,7 @@ hide_worklabs: true
         {% for collection in site.collections %}
           {% for doc in collection.docs %}
             {% if doc.slug == "index" %}
-              {% if doc.prof and doc.prof.hours %}
+              {% if doc.prof.hours or doc.prof.hours_form %}
                 {% unless duplicate_detector contains doc.prof.email %}
                   {% capture duplicate_detector %}{{duplicate_detector}}|{{doc.prof.email}}{% endcapture %}
                   <h3 class="mega push-0">{{doc.prof.name}} {% if doc.prof.office %}@ {{doc.prof.office}}{% endif %}</h3>
@@ -214,7 +214,11 @@ hide_worklabs: true
                       {% endfor %}
                     </ol>
                   {% else %}
-                    <p><em>By appointment only.</em></p>
+                    {% if doc.prof.hours_form %}
+                      <p><em><a href="{{doc.prof.hours_form}}" rel="external">Book an appointment</a></em></p>
+                    {% else %}
+                      <p><em>By appointment only.</em></p>
+                    {% endif %}
                   {% endif %}
                 {% endunless %}
               {% endif %}

@@ -37,7 +37,11 @@
       </ol>
     {% endif %}
   {% else %}
-    <p class="push-1-2"><em>By appointment only.</em></p>
+    {% if include.data.prof.hours_form %}
+      <p class="push-1-2"><em><a href="{{include.data.prof.hours_form}}" rel="external">Book an appointment</a></em></p>
+    {% else %}
+      <p class="push-1-2"><em>By appointment only.</em></p>
+    {% endif %}
   {% endif %}
 {% endif %}
 
