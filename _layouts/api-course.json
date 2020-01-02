@@ -41,6 +41,7 @@
         "url": "{{course_details.prof.url}}",
         "github": "{{course_details.prof.github}}",
         "office": {% if course_details.prof.office %}"{{course_details.prof.office}}"{% else %}false{% endif %},
+        {% if course_details.prof.hours_form %}"office_hours_form": "{{course_details.prof.hours_form}}",{% endif %}
         "office_hours": [
           {% for hour in course_details.prof.hours %}
             {
