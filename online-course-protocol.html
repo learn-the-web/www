@@ -13,7 +13,7 @@ hide_algonquin: true
     <ol class="push-0 mega">
       <li><a href="#class-time">Participate in class time over live streams & chats</a></li>
       <li><a href="#lab-time">Participate in open lab time over live chats</a></li>
-      <li><a href="#asking-questions">Ask questions over email, chat, Issues & video</a></li>
+      <li><a href="#asking-questions">Ask questions over chat, Issues & video</a></li>
       <li><a href="#submit-work">Submit work via Markbot or Issue</a></li>
       <li><a href="#grades">Grades on Progressinator</a></li>
       <li><a href="#tips">Quick tips</a></li>
@@ -38,11 +38,56 @@ hide_algonquin: true
           <li>Then answering questions in the stream asked by class members in the live chat.</li>
         </ul>
         <p>If you regularly have a TA in your in-person class time you will continue to have TA in the live-chat so there will be more than one person answering questions.</p>
+        <h3>Attendance mandatory</h3>
+        <p><em>This may be an online course but it doesn’t mean you should slack off. You should be more attentive & more involved.</em></p>
+        <p>It’s much more difficult for teachers to get a sense of who’s participating in the live stream—so we’ll be performing a roll call: <strong>When you enter the chat declare your presence, which will be logged as your attendance.</strong></p>
         <p><em>You’re welcome—and encouraged—to participate in any of the different sections—or more than one.</em> <strong>The live broadcast will not be recorded or saved for later playback.</strong></p>
       </div>
     </div>
     <h3 class="gutter-1-4">Pre-scheduled live broadcasts</h3>
     <div class="gutter-1-4">
+      <table>
+        <caption class="push-0">Web Dev 2 live broadcast times & links.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Week</th>
+            <th scope="col">Section 010</th>
+            <th scope="col">Section 020</th>
+            <th scope="col">Section 030</th>
+            <th scope="col">Section 040</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Week 12: Mar. 23–27</td>
+            <td>YouTube Live: Th. 11–3</td>
+            <td>YouTube Live: Th. 3–6</td>
+            <td>YouTube Live: We. 8–11</td>
+            <td>YouTube Live: We. 3–6</td>
+          </tr>
+          <tr>
+            <td>Week 13: Mar. 30–Apr. 2</td>
+            <td>YouTube Live: Th. 11–3</td>
+            <td>YouTube Live: Th. 3–6</td>
+            <td>YouTube Live: We. 8–11</td>
+            <td>YouTube Live: We. 3–6</td>
+          </tr>
+          <tr>
+            <td>Week 14: Apr. 6–10</td>
+            <td>YouTube Live: Th. 11–3</td>
+            <td>YouTube Live: Th. 3–6</td>
+            <td>YouTube Live: We. 8–11</td>
+            <td>YouTube Live: We. 3–6</td>
+          </tr>
+          <tr>
+            <td>Week 15: Apr. 13–17</td>
+            <td>YouTube Live: Th. 11–3</td>
+            <td>YouTube Live: Th. 3–6</td>
+            <td>YouTube Live: We. 8–11</td>
+            <td>YouTube Live: We. 3–6</td>
+          </tr>
+        </tbody>
+      </table>
       <table>
         <caption class="push-0">Web Dev 4 live broadcast times & links.</caption>
         <thead>
@@ -55,25 +100,25 @@ hide_algonquin: true
         </thead>
         <tbody>
           <tr>
-            <td>Mar. 23–27</td>
+            <td>Week 12: Mar. 23–27</td>
+            <td><a href="https://youtu.be/b8VKM1qfBc0" rel="external">YouTube Live: Mo. 8–11</a></td>
+            <td><a href="https://youtu.be/v_YIuX2tSL0" rel="external">YouTube Live: Tu. 2–5</a></td>
+            <td><a href="https://youtu.be/HvLTD-cRFBk" rel="external">YouTube Live: Fr. 2–5</a></td>
+          </tr>
+          <tr>
+            <td>Week 13: Mar. 30–Apr. 2</td>
             <td>YouTube Live: Mo. 8–11</td>
             <td>YouTube Live: Tu. 2–5</td>
             <td>YouTube Live: Fr. 2–5</td>
           </tr>
           <tr>
-            <td>Mar. 30–Apr. 2</td>
+            <td>Week 14: Apr. 6–10</td>
             <td>YouTube Live: Mo. 8–11</td>
             <td>YouTube Live: Tu. 2–5</td>
             <td>YouTube Live: Fr. 2–5</td>
           </tr>
           <tr>
-            <td>Apr. 6–10</td>
-            <td>YouTube Live: Mo. 8–11</td>
-            <td>YouTube Live: Tu. 2–5</td>
-            <td>YouTube Live: Fr. 2–5</td>
-          </tr>
-          <tr>
-            <td>Apr. 13–17</td>
+            <td>Week 15: Apr. 13–17</td>
             <td>YouTube Live: Mo. 8–11</td>
             <td>YouTube Live: Tu. 2–5</td>
             <td>YouTube Live: Fr. 2–5</td>
@@ -116,25 +161,19 @@ hide_algonquin: true
       </div>
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
         <h3>Is it a general question?</h3>
-        <p>Send an email to your teacher. Or send them a direct message on <a href="https://gitter.im/learn-the-web/Lobby" rel="external">Gitter</a> (or Slack). Grades will not be checked over email & anything code related will not be dealt with over email.</p>
+        <p>Direct message your teacher on <a href="https://gitter.im/learn-the-web/Lobby" rel="external">Gitter</a> (or Slack [or email is also okay]).</p>
+        <p><em>Nothing code related will not be dealt with over DM.</em></p>
       </div>
       <div class="unit [ xs-1 l-1-4 ] gutter-1-4">
-        <h3 class="mega push-0">Emails:</h3>
+        <h3 class="mega push-0">Gitter:</h3>
         <ul>
-          {% assign duplicate_detector = "" %}
-          {% for collection in site.collections %}
-            {% for doc in collection.docs %}
-              {% if doc.slug == "index" %}
-                {% if doc.prof.email %}
-                  {% unless duplicate_detector contains doc.prof.email %}
-                    {% capture duplicate_detector %}{{duplicate_detector}}|{{doc.prof.email}}{% endcapture %}
-                    <li><a href="mailto:{{doc.prof.email}}">{{doc.prof.name}}</a></li>
-                  {% endunless %}
-                {% endif %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
+          <li><a href="https://gitter.im/learn-the-web/web-dev-2" rel="external">Gitter: Web Dev 2</a></li>
+          <li><a href="https://gitter.im/learn-the-web/web-dev-4" rel="external">Gitter: Web Dev 4</a></li>
+        </ul>
+        <h3 class="mega push-0">Slack:</h3>
+        <ul>
+          <li><a href="https://join.slack.com/t/2022graphicde-wu69873/shared_invite/zt-crlvp4tc-olmVUudBP3iCKBOEleiYSA" rel="external">Slack: Web Dev 2</a></li>
+          <li><a href="https://join.slack.com/t/2021graphicde-aj91229/shared_invite/zt-crnoi6qt-UAuqrwg9GKg8e9RNmBCeHQ" rel="external">Slack: Web Dev 4</a></li>
         </ul>
       </div>
       <div class="unit [ xs-1 l-3-4 ] gutter-1-4">
