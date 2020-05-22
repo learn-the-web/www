@@ -70,7 +70,7 @@ The Progressinator application uses your GitHub credentials as the authenticatio
 
 ### Teacher & TA area
 
-User login information will be provided by one of our administrators. No personal information will be tracked or stored for access to the secure area beyond a *username* & *password*.
+User login information will be provided by one of our administrators. No personal information will be tracked or stored for access to the secure area beyond a _username_ & _password_.
 
 - [**NearlyFreeSpeech**](https://www.nearlyfreespeech.net/) — hosts the secure area and the user access information is protected by the host.
 
@@ -89,7 +89,7 @@ In order to remember who you are and prevent security problems, the Progressinat
 - `sessionid` — Tracks that you are signed into your Progressinator account
 - `csrftoken` — Helps with security by providing a unique token for every single request
 
-*These cookies are available to all our pages, even outside Progressinator, to facilitate progress tracking and grading of different activities and exercises.*
+_These cookies are available to all our pages, even outside Progressinator, to facilitate progress tracking and grading of different activities and exercises._
 
 **These cookies cannot be opted out of and are required for operation of Progressinator application.**
 
@@ -105,6 +105,7 @@ Some external service providers, used by the website, will create cookies on you
   <br>YouTube will set a bunch of cookies related to viewing embedded videos and functionality of the YouTube API. These cookies will only be stored after starting to play a YouTube video—user initiation is required to trigger YouTube cookies.
   <br>[Refer to YouTube’s privacy policy for detailed information.](https://policies.google.com/privacy)
   <br>We use the YouTube API to read video progress. If you have a Progressinator account this information will be sent to track your video watching progress. If you are not signed into a Progressinator account we will only store the progress information on your personal computer.
+  <br>[Refer to YouTube’s API Client Terms of Use & Privacy Policy for detailed information.](https://www.youtube.com/t/terms)
 
 **These cookies cannot be opted out of and are required for operation of the website.**
 
@@ -134,10 +135,10 @@ Some of our hosting providers track pieces of data when you access pages:
   <br>Tracks: country, requested page, date & time.
   <br>IP addresses are anonymized.
 
-- [**NearlyFreeSpeech**](https://www.nearlyfreespeech.net/) — *secure area website host*
+- [**NearlyFreeSpeech**](https://www.nearlyfreespeech.net/) — _secure area website host_
   <br>No tracking beyond maintaining a session for user access to the secure teacher area.
 
-- [**Heroku**](https://www.heroku.com/) — *Progressinator application host*
+- [**Heroku**](https://www.heroku.com/) — _Progressinator application host_
   <br>No tracking outside of what our applications capture.
 
 - [**YouTube**](https://www.youtube.com/) — *video hosting*
@@ -146,7 +147,7 @@ Some of our hosting providers track pieces of data when you access pages:
 
 - [**GitHub**](https://github.com/) — *assignment details & repository hosting*
   <br>[Refer to GitHub’s privacy policy for detailed information.](https://help.github.com/articles/github-privacy-statement/)
-  <br>We make requests to the *public* GitHub API without sending any personalized information to download the details for the assignments.
+  <br>We make requests to the _public_ GitHub API without sending any personalized information to download the details for the assignments.
 
 - [**Formspree**](https://formspree.io/) — *capture of feedback form data*
   <br>[Refer to Formspree’s privacy policy for detailed information.](http://docs.formspree.io/files/privacy.pdf)
@@ -170,26 +171,26 @@ Each assessment (videos, exercises, activities, etc.) stores the following infor
 - Whether or not the automated cheat detection systems were triggered;
 - Extra details pertaining to the specific assessment, e.g. completion time, teacher comments, number of commits, number of correct answers, etc.
 
-On your computer *only*, we store:
+On your computer _only_, we store:
 
 - The topic pages you’ve visited,
 - Whether to load the custom web fonts or not,
 - Cached versions of the assignments loaded from GitHub.
 
-*Clearing your local & session storage will completely remove this local information.*
+_Clearing your local & session storage will completely remove this local information._
 
 ### Without a Progressinator account
 
-We store information *on your computer* to track your progress, e.g. remember which pages you visited. *This information isn’t transmitted or stored on a server—it’s only available on your own machine.*
+We store information _on your computer_ to track your progress, e.g. remember which pages you visited. _This information isn’t transmitted or stored on a server—it’s only available on your own machine._
 
-On your computer *only*, we store:
+On your computer _only_, we store:
 
 - The topic pages you’ve visited,
 - The statistics on how much you’ve watched the video playlists,
 - Whether to load the custom web fonts or not,
 - Cached versions of the assignments loaded from GitHub.
 
-*Clearing your local & session storage will completely remove this local information.*
+_Clearing your local & session storage will completely remove this local information._
 
 ---
 
@@ -200,7 +201,7 @@ The desktop Markbot application stores the following personal information:
 - Your GitHub username
 - A unique API token assigned to you by the Progressinator application
 
-*These two pieces of information are sent to the Progressinator application, only over encrypted HTTPS, to record your assessment progress.* Markbot also sends other ancillary information, e.g. completion time, number of commits, automated cheat detection, etc. with every grade submission.
+_These two pieces of information are sent to the Progressinator application, only over encrypted HTTPS, to record your assessment progress._ Markbot also sends other ancillary information, e.g. completion time, number of commits, automated cheat detection, etc. with every grade submission.
 
 **These pieces of information must be sent by Markbot to facilitate application functionality.**
 
@@ -226,4 +227,4 @@ Thomas J Bradley
 
 ---
 
-Effective date: **October 8, 2018**
+Effective date: **May 22, 2020**
