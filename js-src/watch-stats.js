@@ -31,8 +31,7 @@
 
   var periodToSeconds = function (period) {
     var seconds = 0;
-    var timeBits = period.match(/^PT(\d+H)?(\d+M)?(\d+S)$/);
-
+    var timeBits = period.match(/^PT(\d+H)?(\d+M)?(\d+S)?$/);
     if (timeBits[1]) seconds += periodHoursToSeconds(timeBits[1]);
     if (timeBits[2]) seconds += periodMinutesToSeconds(timeBits[2]);
     if (timeBits[3]) seconds += periodSecondsToSeconds(timeBits[3]);
