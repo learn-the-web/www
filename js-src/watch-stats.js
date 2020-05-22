@@ -1,5 +1,5 @@
 (function (slug) {
-  'use strict';
+  "use strict";
 
   var player;
   var list;
@@ -10,23 +10,23 @@
   };
   var watchInterval;
 
-  var $watched = document.getElementById('playlist-watched');
-  var $watchedInitial = document.getElementById('playlist-watched-initial');
-  var $timeHours = document.getElementById('playlist-time-hours');
-  var $timeMinutes = document.getElementById('playlist-time-minutes');
-  var $timeSeconds = document.getElementById('playlist-time-seconds');
-  var $numVideos = document.getElementById('playlist-items');
+  var $watched = document.getElementById("playlist-watched");
+  var $watchedInitial = document.getElementById("playlist-watched-initial");
+  var $timeHours = document.getElementById("playlist-time-hours");
+  var $timeMinutes = document.getElementById("playlist-time-minutes");
+  var $timeSeconds = document.getElementById("playlist-time-seconds");
+  var $numVideos = document.getElementById("playlist-items");
 
   var periodHoursToSeconds = function (hours) {
-    return (parseInt(hours.replace('H', ''), 10) * 3600);
+    return parseInt(hours.replace("H", ""), 10) * 3600;
   };
 
   var periodMinutesToSeconds = function (minutes) {
-    return (parseInt(minutes.replace('M', ''), 10) * 60);
+    return parseInt(minutes.replace("M", ""), 10) * 60;
   };
 
   var periodSecondsToSeconds = function (seconds) {
-    return parseInt(seconds.replace('S', ''), 10);
+    return parseInt(seconds.replace("S", ""), 10);
   };
 
   var periodToSeconds = function (period) {
@@ -35,7 +35,6 @@
     if (timeBits[1]) seconds += periodHoursToSeconds(timeBits[1]);
     if (timeBits[2]) seconds += periodMinutesToSeconds(timeBits[2]);
     if (timeBits[3]) seconds += periodSecondsToSeconds(timeBits[3]);
-
     return seconds;
   };
 
@@ -44,9 +43,9 @@
       if (!watchStats.videos[key]) {
         watchStats.videos[key] = {
           videoLength: list[key],
-          stats: {}
+          stats: {},
         };
-      };
+      }
     });
   };
 
@@ -64,12 +63,12 @@
   };
 
   var cacheWatchStats = function (slug) {
-    localStorage.setItem(slug + '-watch-stats', JSON.stringify(watchStats));
+    localStorage.setItem(slug + "-watch-stats", JSON.stringify(watchStats));
   };
 
   var getCachedWatchStats = function (slug) {
-    if (localStorage.getItem(slug + '-watch-stats')) {
-      watchStats = JSON.parse(localStorage.getItem(slug + '-watch-stats'));
+    if (localStorage.getItem(slug + "-watch-stats")) {
+      watchStats = JSON.parse(localStorage.getItem(slug + "-watch-stats"));
     }
   };
 
@@ -85,17 +84,17 @@
 
   var fetchPlaylist = function (next) {
     var playlistItems = player.getPlaylist();
-
     list = {};
-
     if (playlistItems) {
-      fetch('https://www.googleapis.com/youtube/v3/videos?part=contentDetails&maxResults=50&id=' + playlistItems.join(',') + '&key=AIzaSyDAnE5i5GKC70E4ZbPVHwEV76j_LhtZ0aY')
-      .then(function(response) {
+      fetch(
+        "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&maxResults=50&id=" +
+          playlistItems.join(",") +
+          "&key=AIzaSyDHFJOi5Z8X6_wDGyvcF2ZS5htla0Vg_8Q"
+      ).then(function (response) {
         response.json().then(function (data) {
           data.items.forEach(function (video) {
             list[video.id] = periodToSeconds(video.contentDetails.duration);
           });
-
           cacheList(slug);
           next();
         });
@@ -108,11 +107,12 @@
   };
 
   var cacheList = function (slug) {
-    sessionStorage.setItem(slug + '-youtube-playlist', JSON.stringify(list));
+    sessionStorage.setItem(slug + "-youtube-playlist", JSON.stringify(list));
   };
 
   var getListCache = function (slug) {
-    if (sessionStorage.getItem(slug + '-youtube-playlist')) list = JSON.parse(sessionStorage.getItem(slug + '-youtube-playlist'));
+    if (sessionStorage.getItem(slug + "-youtube-playlist"))
+      list = JSON.parse(sessionStorage.getItem(slug + "-youtube-playlist"));
   };
 
   var renderPlaylistDetails = function () {
@@ -120,7 +120,7 @@
 
     $timeHours.innerHTML = date.getUTCHours();
     $timeMinutes.innerHTML = date.getUTCMinutes();
-    $timeSeconds.innerHTML = ('00' + date.getSeconds()).slice(-2);
+    $timeSeconds.innerHTML = ("00" + date.getSeconds()).slice(-2);
 
     $numVideos.innerHTML = Object.keys(list).length;
   };
@@ -152,7 +152,7 @@
   };
 
   var calculatePercentVideoWatched = function (stats, videoLength) {
-    return Object.keys(stats).length / parseInt((videoLength / 10), 10);
+    return Object.keys(stats).length / parseInt(videoLength / 10, 10);
   };
 
   var calculatePercentPlaylistWatched = function () {
@@ -161,8 +161,12 @@
     if (!watchStats.playlistLength) return 0;
 
     Object.keys(watchStats.videos).forEach(function (key) {
-      var vidPercent = calculatePercentVideoWatched(watchStats.videos[key].stats, watchStats.videos[key].videoLength);
-      var percentOfList = watchStats.videos[key].videoLength / watchStats.playlistLength;
+      var vidPercent = calculatePercentVideoWatched(
+        watchStats.videos[key].stats,
+        watchStats.videos[key].videoLength
+      );
+      var percentOfList =
+        watchStats.videos[key].videoLength / watchStats.playlistLength;
 
       totalPercent += percentOfList * vidPercent;
     });
@@ -178,10 +182,10 @@
   };
 
   var onYouTubeIframeAPIReady = function () {
-    player = new YT.Player('youtube-api', {
+    player = new YT.Player("youtube-api", {
       events: {
-        'onStateChange': onPlayerStateChange,
-      }
+        onStateChange: onPlayerStateChange,
+      },
     });
 
     getListCache(slug);
@@ -197,10 +201,10 @@
 
       watchInterval = setInterval(function () {
         timeElapsed = player.getCurrentTime();
-        watchStats.videos[id].stats[parseInt((timeElapsed / 10), 10)] = true;
+        watchStats.videos[id].stats[parseInt(timeElapsed / 10, 10)] = true;
         cacheWatchStats(slug);
         renderPercentWatched();
-       }, 5000);
+      }, 5000);
     } else {
       clearInterval(watchInterval);
     }
@@ -212,4 +216,4 @@
     getCachedWatchStats(slug);
     renderPercentWatched();
   }
-}(slug));
+})(slug);
