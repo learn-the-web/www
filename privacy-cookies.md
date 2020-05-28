@@ -105,7 +105,7 @@ Some external service providers, used by the website, will create cookies on you
   <br>YouTube will set a bunch of cookies related to viewing embedded videos and functionality of the YouTube API. These cookies will only be stored after starting to play a YouTube video—user initiation is required to trigger YouTube cookies.
   <br>[Refer to YouTube’s privacy policy for detailed information.](https://policies.google.com/privacy)
   <br>We use the YouTube API to read video progress. If you have a Progressinator account this information will be sent to track your video watching progress. If you are not signed into a Progressinator account we will only store the progress information on your personal computer.
-  <br>[Refer to YouTube’s API Client Terms of Use & Privacy Policy for detailed information.](https://www.youtube.com/t/terms)
+  <br>[Refer to YouTube’s Terms of Service for detailed information.](https://www.youtube.com/t/terms)
 
 **These cookies cannot be opted out of and are required for operation of the website.**
 
