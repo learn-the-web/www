@@ -1,11 +1,11 @@
 html {
   overflow-x: hidden;
   color: #333;
-  font-family: "Trebuchet MS",Arial,sans-serif;
+  font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
 .alegreya-loaded {
-  font-family: "Alegreya Sans","Trebuchet MS",Arial,sans-serif;
+  font-family: "Alegreya Sans", "Trebuchet MS", Arial, sans-serif;
 }
 
 body {
@@ -34,7 +34,7 @@ svg {
 
 a,
 .icon-link .icon-label {
-  border-bottom: 0.1em solid rgba(68, 132, 194, .4);
+  border-bottom: 0.1em solid rgba(68, 132, 194, 0.4);
 
   color: var(--color-link);
   text-decoration: none;
@@ -55,11 +55,11 @@ a:not([href]),
 .link-disabled {
   pointer-events: none;
 
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .link-subtle {
-  border-bottom: 0.1em solid rgba(99, 102, 106, .4);
+  border-bottom: 0.1em solid rgba(99, 102, 106, 0.4);
 
   color: currentColor;
 }
@@ -71,7 +71,7 @@ a:not([href]),
 
 .link-body-color,
 .link-body-color .icon-label {
-  border-color: rgba(51, 51, 51, .3);
+  border-color: rgba(51, 51, 51, 0.3);
   color: #333;
 }
 
@@ -79,7 +79,7 @@ a:not([href]),
 .link-body-color:hover .icon-label,
 .link-body-color:focus,
 .link-body-color:focus .icon-label {
-  border-color: rgba(51, 51, 51, .3);
+  border-color: rgba(51, 51, 51, 0.3);
   border-color: #333;
 }
 
@@ -105,7 +105,7 @@ hr {
 }
 
 .hr-brand-muted {
-  border-color: rgba(0, 103, 90, .3);
+  border-color: rgba(0, 103, 90, 0.3);
 }
 
 .hr-thin {
@@ -118,7 +118,7 @@ hr {
   width: 150vw;
 }
 
-.wrapper hr:last-child {
+.wrapper hr:last-child:not(:only-child) {
   display: none;
 }
 
@@ -126,7 +126,8 @@ table {
   table-layout: fixed;
 }
 
-td, th {
+td,
+th {
   border-color: var(--color-grey-medium);
 }
 
@@ -140,7 +141,7 @@ td, th {
 
 [data-state="disabled"] {
   cursor: no-drop;
-  opacity: .6;
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -219,15 +220,12 @@ nav a:focus {
 }
 
 @media only screen and (min-width: 38em) {
-
   .m-right {
     text-align: right;
   }
-
 }
 
 @media only screen and (min-width: 60em) {
-
   .wrapper {
     max-width: 50em;
   }
@@ -239,13 +237,10 @@ nav a:focus {
   .table-wrapper {
     overflow: visible;
   }
-
 }
 
 @media print {
-
   .table-wrapper table {
     min-width: 100%;
   }
-
 }

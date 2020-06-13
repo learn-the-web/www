@@ -1,7 +1,7 @@
 ---
 layout: basic-inside
 title: Web dev course curriculums
-desc: "The Algonquin Design web development stream includes four core courses and two culminating performance courses where students learn & demonstrate their knowledge—and filled with lots of self-directed learning opportunities."
+desc: "The Algonquin Design web design stream includes two core courses and two culminating performance courses where students learn & demonstrate their knowledge—and filled with lots of self-directed learning opportunities."
 priority: 1.0
 hide_markbot: true
 head: |
@@ -16,7 +16,7 @@ skip_links: |
 
 <div class="wrapper gutter-1-2 pad-t pad-b-1-2 push">
   <h2 class="zetta push-1-2" id="core-courses"><span tabindex="0">Core courses</span></h2>
-  <p class="mega max-length"><a href="http://algonquindesign.ca" rel="external">Algonquin College’s Graphic Design</a> program has six core web development courses—one each term lasting for up to fifteen weeks—exploring a range of topics from intro to HTML all the way to responsive, component-driven design systems.</p>
+  <p class="mega max-length"><a href="http://algonquindesign.ca" rel="external">Algonquin College’s Graphic Design</a> program has two core web development courses—one each term lasting for up to fifteen weeks—exploring a range of topics from intro to HTML all the way to responsive, component-driven design systems.</p>
 
   <hr>
 
@@ -32,14 +32,14 @@ skip_links: |
     {% endif %}
 
     {% assign data = collection.docs | where: "layout", "course" | first %}
-    {% include course-section.html number=forloop.index data=data link=link collection_id=collection_id %}
+    {% include course-section.html number=collection.course_number data=data link=link collection_id=collection_id %}
   {% endfor %}
 </div>
 
 <div class="section-muted pad-t-1-2">
   <div class="wrapper gutter-1-2 pad-t pad-b">
     <h2 class="zetta push-1-2" id="self-directed"><span tabindex="0">Self-directed courses</span></h2>
-    <p class="mega max-length">Outside the core Web Dev courses, Algonquin Graphic Design offers self-directed couses for enthusiastic students to explore more complex and in-depth materials with guidance on their own time.</p>
+    <p class="mega max-length">Outside the core Web Design courses, Algonquin Graphic Design offers self-directed couses for enthusiastic students to explore more complex and in-depth materials with guidance on their own time.</p>
 
     <hr class="hr-medium">
 
@@ -55,7 +55,7 @@ skip_links: |
       {% endif %}
 
       {% assign data = collection.docs | where: "layout", "course" | first %}
-      {% include course-section.html number="infinite" data=data link=link collection_id=collection_id hr_class="hr-medium" %}
+      {% include course-section.html number=collection.course_number data=data link=link collection_id=collection_id hr_class="hr-medium" %}
     {% endfor %}
   </div>
 </div>

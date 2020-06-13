@@ -20,17 +20,6 @@ skip_links: |
     {% assign collection = site.collections | where: "label", collection_id | first %}
     {% if collection.disabled %}{% continue %}{% endif %}
     {% if collection.relative_directory contains "posts" %}{% continue %}{% endif %}
-    {% assign the_number = forloop.index %}
-    {% capture the_slug %}web-dev-{{the_number}}{% endcapture %}
-
-    {% case collection_id %}
-      {% when "javascript" %}
-        {% assign the_number = "infinite" %}
-        {% assign the_slug = "javascript" %}
-      {% when "jekyll" %}
-        {% assign the_number = "infinite" %}
-        {% assign the_slug = "jekyll" %}
-    {% endcase %}
 
     {% if collection.disabled %}
       {% assign link = false %}
@@ -44,6 +33,6 @@ skip_links: |
       {% assign is_last = forloop.last %}
     {% endif %}
 
-    {% include activity-section.html slug=the_slug icon=the_number collection=collection is-last=is_last link=link %}
+    {% include activity-section.html slug=collection_id icon=collection.course_number collection=collection is-last=is_last link=link %}
   {% endfor %}
 </div>

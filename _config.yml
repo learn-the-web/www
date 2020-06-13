@@ -23,35 +23,53 @@ collections:
     output: true
     permalink: /topics/:path/
     title: "Web Dev Topics"
+  web-design-1:
+    output: true
+    permalink: /courses/web-design-1/:path/
+    title: "Web Design 1"
+    course_number: 1
+    max_weeks: 15
+  web-design-2:
+    output: true
+    permalink: /courses/web-design-2/:path/
+    title: "Web Design 2"
+    course_number: 2
+    max_weeks: 15
   web-dev-1:
     output: true
     permalink: /courses/web-dev-1/:path/
     title: "Web Dev 1"
+    course_number: 1
     max_weeks: 15
   web-dev-2:
     output: true
     permalink: /courses/web-dev-2/:path/
     title: "Web Dev 2"
+    course_number: 2
     max_weeks: 15
   web-dev-3:
     output: true
     permalink: /courses/web-dev-3/:path/
     title: "Web Dev 3"
+    course_number: 3
     max_weeks: 15
   web-dev-4:
     output: true
     permalink: /courses/web-dev-4/:path/
     title: "Web Dev 4"
+    course_number: 4
     max_weeks: 15
   web-dev-5:
     output: true
     permalink: /courses/web-dev-5/:path/
     title: "Web Dev 5"
+    course_number: 5
     max_weeks: 15
   web-dev-6:
     output: true
     permalink: /courses/web-dev-6/:path/
     title: "Web Dev 6"
+    course_number: 6
     max_weeks: 7
   shared:
     output: true
@@ -61,6 +79,7 @@ collections:
     output: true
     permalink: /courses/javascript/:path/
     title: "JavaScript"
+    course_number: infinite
     max_weeks: 8
   think-like-a-programmer:
     output: true
@@ -84,6 +103,16 @@ defaults:
       type: "topics"
     values:
       layout: article
+  - scope:
+      path: ""
+      type: "web-design-1"
+    values:
+      layout: week
+  - scope:
+      path: ""
+      type: "web-design-2"
+    values:
+      layout: week
   - scope:
       path: ""
       type: "web-dev-1"
@@ -125,14 +154,16 @@ defaults:
 ########################################
 
 collections_courses:
+  - web-design-1
+  - web-design-2
+
+collections_selfdirected:
   - web-dev-1
   - web-dev-2
   - web-dev-3
   - web-dev-4
   - web-dev-5
   - web-dev-6
-
-collections_selfdirected:
   - javascript
 
 collections_workshops:
