@@ -3,8 +3,8 @@
   "@type": "Course",
   "@id": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
   "courseCode": "{{page.course_code}}",
-  {% if include.pre %}
-    "coursePrerequisites": "https://learn-the-web.algonquindesign.ca/courses/web-dev-{{include.pre}}/",
+  {% if include.prereq %}
+    "coursePrerequisites": "https://learn-the-web.algonquindesign.ca/courses/{{include.prereq}}/",
   {% endif %}
   "accessMode": "textual, visual",
   "accessModeSufficient": "textual",
@@ -46,8 +46,8 @@
         {
           "@type": "CourseInstance",
           "courseMode": "blended",
-          "name": "Web Dev {{include.id}}, Section {{section.title}}",
-          "description": "Class time for Web Dev {{include.id}} section {{section.title}} in room {{section.room}}",
+          "name": "{{page.title}}, Section {{section.title}}",
+          "description": "Class time for {{page.title}} section {{section.title}} in room {{section.room}}",
           "startDate": "{{page.datetimes.year}}-W{{page.datetimes.start_week}}",
           "endDate": "{{page.datetimes.year}}-W{{page.datetimes.start_week | plus:14}}",
           "duration": "PT3H",

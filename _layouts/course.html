@@ -54,7 +54,7 @@ skip_links: |
 {% assign videos_per = page.grades.videos | divided_by: total_videos_float | round: 1 %}
 {% assign projects_per = page.grades.projects | divided_by: total_projects_float | round: 1 %}
 
-{% capture id %}{{page.collection | replace: "web-dev-", ""}}{% endcapture %}
+{% capture id %}{{page.collection | replace: "web-dev-", "" | replace: "web-design-", ""}}{% endcapture %}
 {% unless id == "6" %}
   {% capture next %}{{id | plus: 1}}{% endcapture %}
 {% else %}
@@ -103,9 +103,10 @@ skip_links: |
               <td colspan="7">{{page.course_code}}</td>
               <td colspan="8">
                 {% if page.prereq %}
-                  <a href="/courses/web-dev-{{page.prereq}}/">Web Dev {{page.prereq}}</a>
+                  {% assign collection = site.collections | where: "label", page.prereq | first %}
+                  <a href="/courses/{{page.prereq}}/">{{collection.title}}</a>
                 {% else %}
-                  {% if prev and prev != "-1" %}<a class="link-body-color" href="/courses/web-dev-{{prev}}/">Web Dev {{prev}}</a>{% else %}None{% endif %}
+                  None
                 {% endif %}
               </td>
             </tr>
@@ -710,4 +711,4 @@ skip_links: |
   </div>
 </nav>
 
-<script type="application/ld+json">{% include metadata/course.json id=id pre=prev %}</script>
+<script type="application/ld+json">{% include metadata/course.json id=id prereq=page.prereq %}</script>
