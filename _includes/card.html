@@ -164,9 +164,9 @@
   {% endif %}
 
   <div class="text-center push-1-4">
-    <i class="icon i-24"><svg xmlns:xlink="http://www.w3.org/1999/xlink"><use class="card-icon" xlink:href="#icon-{{icon}}" /></svg></i>
+    <i class="icon i-24"><svg xmlns:xlink="http://www.w3.org/1999/xlink"><use class="card-icon" xlink:href="#icon-{{icon}}"></use></svg></i>
     {% if include.data.pair %}
-      <i class="icon i-24"><svg><use xlink:href="#icon-pair" /></svg></i>
+      <i class="icon i-24"><svg><use xlink:href="#icon-pair"></use></svg></i>
     {% endif %}
   </div>
 
@@ -178,7 +178,7 @@
 
   <span class="card-btn btn btn-ghost content-shrink {% if include.data.no_button %}card-btn-invisible{% endif %}">
     <span class="icon-label">{{button}}</span>
-    <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
+    <i class="icon i-18"><svg><use xlink:href="#icon-right"></use></svg></i>
   </span>
 
   <meta property="course" content="{{page.collection}}">

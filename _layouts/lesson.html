@@ -67,7 +67,7 @@ skip_links: |
         <section class="lesson-step grid grid-stretch">
           <div class="lesson-body unit [ xs-1 m-2-3 ] pad-t-1-2 {% if page.important %}lesson-body-no-border{% endif %}">
             <h2 class="lesson-title zetta push-1-4" id="step-goal" data-step-jump="step-goal" tabindex="0">
-              <i class="lesson-step-num icon i-48"><svg><use xlink:href="#icon-victory" /></svg></i>
+              <i class="lesson-step-num icon i-48"><svg><use xlink:href="#icon-victory"></use></svg></i>
               Goal
             </h2>
             <div class="mega gutter-1-4 lesson-body-text">
@@ -110,7 +110,7 @@ skip_links: |
                     <ul class="list-group not-italic">
                       {% for legend in page.goal.person_legend %}
                         <li>
-                          <i class="icon i-32"><svg><use xlink:href="#icon-{{legend.icon}}" /></svg></i>
+                          <i class="icon i-32"><svg><use xlink:href="#icon-{{legend.icon}}"></use></svg></i>
                           <span class="icon-label bold">{{legend.label}}</span>
                           <p class="push-1-2 milli">{{legend.desc}}</p>
                         </li>
@@ -248,9 +248,9 @@ skip_links: |
                 <i class="lesson-step-num icon i-48">
                   {% if page.pair %}
                     {% if step_count_even == 0 %}
-                      <svg><use xlink:href="#icon-person-1" /></svg>
+                      <svg><use xlink:href="#icon-person-1"></use></svg>
                     {% else %}
-                      <svg><use xlink:href="#icon-person-2" /></svg>
+                      <svg><use xlink:href="#icon-person-2"></use></svg>
                     {% endif %}
                   {% else %}
                     <svg viewBox="0 0 256 256">
@@ -273,7 +273,7 @@ skip_links: |
               {% if step.person %}
                 <strong class="lesson-person absolute text-center" aria-label="Step should be completed by “{{step.person.label}}”">
                   <i class="icon i-32">
-                    <svg><use xlink:href="#icon-{{step.person.icon}}" /></svg>
+                    <svg><use xlink:href="#icon-{{step.person.icon}}"></use></svg>
                   </i>
                   <span class="block micro">{{step.person.label}}</span>
                 </strong>
@@ -326,11 +326,11 @@ skip_links: |
                       {% unless file.continue %}
                         <li>
                           <div class="relative {% if file.indent %}folder-indent-{{file.indent}}{% endif %} {% if file.fade %}folder-fade{% endif %}">
-                            <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                            <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}"></use></svg></i>
                             <span class="icon-label {% if file.type == 'folder' %}bold{% endif %}">{{file.label}}</span>
                             {% if file.rename %}
                               <span class="icon-label color-grey folder-rename" title="Rename the file to" aria-label="Rename the file to">&nbsp;&nbsp; ➔ &nbsp;&nbsp;</span>
-                              <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}" /></svg></i>
+                              <i class="icon i-18"><svg><use xlink:href="#icon-{{file_folder}}"></use></svg></i>
                               <span class="icon-label bold">{{file.rename}}</span>
                             {% endif %}
                             {% if file.notes %}<span class="icon-label kilo folder-notes italic">{{file.notes}}</span>{% endif %}
@@ -516,7 +516,7 @@ skip_links: |
                   <div class="push">
                     <a class="btn btn-light" href="{{page.quiz.url}}">
                       <span class="icon-label">Start the activity</span>
-                      <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
+                      <i class="icon i-18"><svg><use xlink:href="#icon-right"></use></svg></i>
                     </a>
                   </div>
                 </div>

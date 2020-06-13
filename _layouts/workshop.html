@@ -45,10 +45,10 @@ no_wrapper: true
                     {% endif %}
                   {% if link.highlight %}</strong>{% endif %}
                   {% if link.videos %}
-                    <span class="color-grey week-video-checked" title="These videos should be watched" aria-label="These videos should be watched">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play" /></svg></i>{% if link.video_percent %}&nbsp;&nbsp;(only {{link.video_percent}}% required){% endif %}</span>
+                    <span class="color-grey week-video-checked" title="These videos should be watched" aria-label="These videos should be watched">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-play"></use></svg></i>{% if link.video_percent %}&nbsp;&nbsp;(only {{link.video_percent}}% required){% endif %}</span>
                   {% endif %}
                   {% if link.required %}
-                    <span class="color-grey week-topic-required" title="This topic should be read" aria-label="This topic should be read">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-book" /></svg></i></span>
+                    <span class="color-grey week-topic-required" title="This topic should be read" aria-label="This topic should be read">&nbsp;<i class="icon i-16"><svg><use xlink:href="#icon-book"></use></svg></i></span>
                   {% endif %}
                   {% if link.notes %}
                     <span class="italic micro block text-disabled">({{link.notes}})</span>
@@ -83,7 +83,7 @@ no_wrapper: true
           <p class="push-1-2">{{page.related_course.desc}}</p>
           <a class="btn btn-ghost push-1-2" {% if page.related_course.url %}href="{{page.related_course.url}}"{% else %}data-state="disabled"{% endif %}>
             <span class="icon-label inline-block push-r-1-4">See the {{page.related_course.title}} curriculum</span>
-            <i class="icon i-18"><svg><use xlink:href="#icon-right" /></svg></i>
+            <i class="icon i-18"><svg><use xlink:href="#icon-right"></use></svg></i>
           </a>
         </div>
       </div>

@@ -203,11 +203,11 @@ skip_links: |
   <ul class="list-group-inline mega no-print" role="tablist" hidden aria-hidden="true">
     <li class="push-r relative" role="presentation">
       <button class="color-grey-dark btn btn-invisible mega bold" role="tab" aria-controls="week-view" aria-selected="true">Week view</button>
-      <span class="absolute w-1 text-center pin-tl pad-t"><i class="icon i-16"><svg><use xlink:href="#icon-down" /></svg></i></span>
+      <span class="absolute w-1 text-center pin-tl pad-t"><i class="icon i-16"><svg><use xlink:href="#icon-down"></use></svg></i></span>
     </li>
     <li class="push-r relative" role="presentation">
       <button class="color-grey-dark btn btn-invisible mega" role="tab" aria-controls="assessment-view">Assessment view</button>
-      <span class="absolute w-1 text-center pin-tl pad-t" hidden aria-hidden="true"><i class="icon i-16"><svg><use xlink:href="#icon-down" /></svg></i></span>
+      <span class="absolute w-1 text-center pin-tl pad-t" hidden aria-hidden="true"><i class="icon i-16"><svg><use xlink:href="#icon-down"></use></svg></i></span>
     </li>
   </ul>
   <hr>
@@ -687,14 +687,14 @@ skip_links: |
       {% if prev and page.self_directed != true %}
         <li class="controls-prev pad-t-1-4 pad-b-1-4">
           <a class="btn btn-muted" href="/courses/web-dev-{{prev}}/">
-            <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left" /></svg></i>
+            <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left"></use></svg></i>
             <span class="icon-label">Web Dev {{prev}}</span>
           </a>
         </li>
       {% endif %}
       <li class="controls-start pad-t-1-4 pad-b-1-4">
         <a class="btn btn-muted" href="/courses/">
-          <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-courses" /></svg></i>
+          <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-courses"></use></svg></i>
           <span class="icon-label">Courses</span>
         </a>
       </li>
@@ -702,7 +702,7 @@ skip_links: |
         <li class="controls-next pad-t-1-4 pad-b-1-4">
           <a class="btn btn-muted" href="/courses/web-dev-{{next}}/">
             <span class="icon-label">Web Dev {{next}}</span>
-            <i class="icon i-24 i-shift-right"><svg><use xlink:href="#icon-right" /></svg></i>
+            <i class="icon i-24 i-shift-right"><svg><use xlink:href="#icon-right"></use></svg></i>
           </a>
         </li>
       {% endif %}
