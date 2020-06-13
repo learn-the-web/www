@@ -12,7 +12,7 @@
 {% endif %}
 
 BEGIN:VEVENT
-ORGANIZER;CN=Thomas J Bradley:MAILTO:bradlet@algonquincollege.com
+ORGANIZER;CN=Thomas J Bradley:MAILTO:thomas@learntheweb.courses
 DTSTAMP;TZID=America/Toronto:{{site.time | date:'%Y%m%dT%H%M%S'}}
 DTSTART;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{section_info.day}}T{% if section_info.start_time < 10 %}0{% endif %}{{section_info.start_time}}:00:00
 DTEND;TZID=America/Toronto:{{include.course_details.datetimes.year}}-W{{week_number}}-{{section_info.day}}T{% if section_info.end_time < 10 %}0{% endif %}{{section_info.end_time}}:00:00

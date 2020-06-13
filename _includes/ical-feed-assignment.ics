@@ -38,7 +38,7 @@
 {% endfor %}
 
 BEGIN:VEVENT
-ORGANIZER;CN=Thomas J Bradley:MAILTO:bradlet@algonquincollege.com
+ORGANIZER;CN=Thomas J Bradley:MAILTO:thomas@learntheweb.courses
 DTSTAMP;TZID=America/Toronto:{{site.time | date:'%Y%m%dT%H%M%S'}}
 DTSTART;TZID=America/Toronto:{{dtstart}}
 DURATION:PT15M

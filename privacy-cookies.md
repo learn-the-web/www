@@ -220,7 +220,7 @@ We advise you to review this privacy policy periodically for any changes. Change
 If you have any comments, questions, ideas, or criticism of this document you may contact us.
 
 Thomas J Bradley
-<br>[bradlet@algonquincollege.com](mailto:bradlet@algonquincollege.com)
+<br>[thomas@learntheweb.courses](mailto:thomas@learntheweb.courses)
 <br>Ottawa, Ontario, Canada
 
 [Or better yet, you can contribute a commit on GitHub!](https://github.com/acgd-learn-the-web/www/blob/master/privacy-cookies.md)
