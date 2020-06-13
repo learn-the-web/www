@@ -55,17 +55,6 @@ skip_links: |
 {% assign projects_per = page.grades.projects | divided_by: total_projects_float | round: 1 %}
 
 {% capture id %}{{page.collection | replace: "web-dev-", "" | replace: "web-design-", ""}}{% endcapture %}
-{% unless id == "6" %}
-  {% capture next %}{{id | plus: 1}}{% endcapture %}
-{% else %}
-  {% assign next=false %}
-{% endunless %}
-
-{% unless id == "1" %}
-  {% capture prev %}{{id | minus: 1}}{% endcapture %}
-{% else %}
-  {% assign prev=false %}
-{% endunless %}
 
 <div class="header header-light" id="course-details">
   <div class="wrapper gutter-1-2 pad-b">
@@ -685,11 +674,12 @@ skip_links: |
 <nav class="section-muted-medium pad-t-1-2 pad-b-1-2 no-print">
   <div class="wrapper gutter-1-2">
     <ul class="list-group controls push-0">
-      {% if prev and page.self_directed != true %}
+      {% if page.course_prev %}
+        {% assign collection = site.collections | where: "label", page.course_prev | first %}
         <li class="controls-prev pad-t-1-4 pad-b-1-4">
-          <a class="btn btn-muted" href="/courses/web-dev-{{prev}}/">
+          <a class="btn btn-muted" href="/courses/{{page.course_prev}}/">
             <i class="icon i-24 i-shift-left"><svg><use xlink:href="#icon-left"></use></svg></i>
-            <span class="icon-label">Web Dev {{prev}}</span>
+            <span class="icon-label">{{collection.title}}</span>
           </a>
         </li>
       {% endif %}
@@ -699,10 +689,11 @@ skip_links: |
           <span class="icon-label">Courses</span>
         </a>
       </li>
-      {% if next and page.self_directed != true %}
+      {% if page.course_next %}
+        {% assign collection = site.collections | where: "label", page.course_next | first %}
         <li class="controls-next pad-t-1-4 pad-b-1-4">
-          <a class="btn btn-muted" href="/courses/web-dev-{{next}}/">
-            <span class="icon-label">Web Dev {{next}}</span>
+          <a class="btn btn-muted" href="/courses/{{page.course_next}}/">
+            <span class="icon-label">{{collection.title}}</span>
             <i class="icon i-24 i-shift-right"><svg><use xlink:href="#icon-right"></use></svg></i>
           </a>
         </li>
@@ -711,4 +702,4 @@ skip_links: |
   </div>
 </nav>
 
-<script type="application/ld+json">{% include metadata/course.json id=id prereq=page.prereq %}</script>
+<script type="application/ld+json">{% include metadata/course.json prereq=page.prereq %}</script>
