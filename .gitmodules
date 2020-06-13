@@ -34,3 +34,9 @@
 [submodule "_the-dom-i-kno"]
   path = _the-dom-i-kno
   url = git@github.com:acgd-webdev-workshops/the-dom-i-kno.git
+[submodule "_web-design-2"]
+	path = _web-design-2
+	url = git@github.com:acgd-webdesign-2/curriculum.git
+[submodule "_web-design-1"]
+	path = _web-design-1
+	url = git@github.com:acgd-webdesign-1/curriculum.git
