@@ -46,7 +46,7 @@
         {% assign first_entry = false %}
       {% endunless %}
     {% else %}
-      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
       {% if exercise.due_week %}
         {% capture due_offset %}{{exercise.due_week | minus:week_count | minus:1}}{% endcapture %}
       {% else %}

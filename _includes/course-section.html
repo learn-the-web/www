@@ -68,7 +68,7 @@
                 {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
               {% endunless %}
             {% else %}
-              {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+              {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
               {% case exercise.type %}
                 {% when "activity" %}
                   {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}

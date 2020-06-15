@@ -25,6 +25,7 @@
 {% assign button_print = "Print & draw" %}
 {% assign button_materials = "See materials" %}
 {% assign button_videos = "Watch videos" %}
+{% assign button_labs = "See lab times" %}
 {% assign button_online = "Submit online" %}
 {% assign button_ghissue = "Create Issue" %}
 {% assign button_code = "Write code" %}
@@ -72,6 +73,9 @@
   {% when "videos" %}
     {% assign icon = "play-reversed" %}
     {% assign button = button_videos %}
+  {% when "labs" %}
+    {% assign icon = "star" %}
+    {% assign button = button_labs %}
   {% when "download-markbot" %}
     {% assign icon = "code" %}
     {% assign submit = submit_code %}

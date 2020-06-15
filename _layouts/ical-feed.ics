@@ -81,7 +81,7 @@ END:VTIMEZONE
       {% endfor %}
 
       {% for exercise in doc.tasks %}
-        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
         {% unless found_projects contains exercise.graded-as %}
           {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
           {% if exercise.due_week %}

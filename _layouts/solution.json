@@ -11,7 +11,7 @@
       {% assign is_first = false %}
     {% endfor %}
     {% for exercise in doc.tasks %}
-      {% if exercise.graded-as == false or exercise.graded-as or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.graded-as or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
       {% if exercise.type == "activity" or exercise.type == "basic" %}{% continue %}{% endif %}
       {% if exercise.no-solution %}{% continue %}{% endif %}
       {% if exercise.disabled %}{% continue %}{% endif %}

@@ -45,7 +45,7 @@ skip_links: |
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
       {% endunless %}
     {% else %}
-      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
       {% case exercise.type %}
         {% when "lesson" %}
           {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
@@ -271,10 +271,13 @@ skip_links: |
         <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
           {% if page.tasks[3].type == "blank" %}
             {% include card.html data=site.no_exercises collection=page.collection %}
+          {% elsif page.tasks[3] and page.tasks[3].type == "attend-labs" %}
+            {% assign card_data=site.attend_labs %}
+            {% include card.html data=card_data collection=page.collection %}
           {% else %}
-            {% assign data = page.tasks[3] %}
+            {% assign card_data = page.tasks[3] %}
             {% assign card_num=card_num | plus:1 %}
-            {% include card.html data=data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr week_number=number due_offset=1 due_time=data.due_time due_week=data.due_week %}
+            {% include card.html data=card_data collection=page.collection num=card_num due="Before next class" exercises_per=exercises_per projects_per=projects_per clr=page.clr week_number=number due_offset=1 due_time=data.due_time due_week=data.due_week %}
           {% endif %}
         </li>
         <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
@@ -287,6 +290,8 @@ skip_links: |
               {% assign next_url=number | plus:1 %}
               {% if page.tasks[4] and page.tasks[4].type == "watch-videos" %}
                 {% assign card_data=site.watch_videos %}
+              {% elsif page.tasks[4] and page.tasks[4].type == "attend-labs" %}
+                {% assign card_data=site.attend_labs %}
               {% else %}
                 {% assign card_data=site.next_week %}
               {% endif %}

@@ -183,6 +183,13 @@ watch_videos:
   type: videos
   card_class: "card-subtle"
 
+attend_labs:
+  title: "Attend labs"
+  submit: "Attend labs for extra help."
+  type: labs
+  card_class: "card-subtle"
+  url: "/get-help/#attend-labs"
+
 no_activities:
   title: ""
   submit: "No activities or quizzes this week."

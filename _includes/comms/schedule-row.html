@@ -29,7 +29,7 @@
           {% include comms/schedule-assessment.html prefix="Project" title=exercise.title value=projects_per %}
         {% endunless %}
       {% else %}
-        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+        {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
         {% case exercise.type %}
           {% when "lesson" %}
             {% assign the_prefix = "Lesson" %}

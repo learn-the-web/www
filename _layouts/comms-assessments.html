@@ -43,7 +43,7 @@
         {% capture found_projects %}{{found_projects}}{{exercise.graded-as}}||{% endcapture %}
       {% endunless %}
     {% else %}
-      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+      {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
       {% case exercise.type %}
         {% when "lesson" %}
           {% capture total_activities %}{{total_activities | plus:1}}{% endcapture %}
@@ -93,7 +93,7 @@
             {% include comms/assessments-row.html prefix="Project" title=exercise.title value=projects_per clrs=doc.clr %}
           {% endunless %}
         {% else %}
-          {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" %}{% continue %}{% endif %}
+          {% if exercise.graded-as == false or exercise.type == "blank" or exercise.type == "watch-videos" or exercise.type == "attend-labs" %}{% continue %}{% endif %}
           {% case exercise.type %}
             {% when "lesson" %}
               {% assign the_prefix = "Lesson" %}
