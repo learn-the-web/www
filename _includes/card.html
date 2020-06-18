@@ -158,7 +158,7 @@
 {% endif %}
 
 <a class="link-box card {{include.data.card_class}} gutter-1-2 pad-t-1-2 pad-b-1-2 unit-content-distribute no-page-break-inside" {% if include.data.url or include.url %}href="{{url_prefix}}{{include.data.url}}{{include.url}}"{% else %}data-state="disabled" tabindex="-1"{% endif %} {% if include.data.disabled %}data-state="disabled" tabindex="-1"{% endif %} {{assignment_viewer}}>
-  {% if include.num %}
+  {% if include.num and include.data.card_class != "card-subtle" %}
     <i class="card-num icon i-32">
       <svg viewBox="0 0 256 256">
         <circle stroke-width="25" stroke="#fff" cx="128" cy="110" r="110" />
