@@ -96,7 +96,7 @@ skip_links: |
                     {% elsif link.url contains "/" %}
                       <a href="{{link.url}}">{{link.title}}</a>
                     {% else %}
-                      <a {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}>{{link.title}}</a>
+                      <a{% unless link.disabled %} {% if link.url %}href="/topics/{{link.url}}{% unless link.url contains "#" %}/{% endunless %}"{% endif %}{% endunless %}>{{link.title}}</a>
                     {% endif %}
                   {% if link.highlight %}</strong>{% endif %}
                   {% if link.videos %}
@@ -271,6 +271,15 @@ skip_links: |
         <li class="unit [ xs-1 s-1-2 m-1-2 ] gutter-1-4 pad-t pad-b-1-4 relative no-page-break-inside">
           {% if page.tasks[3].type == "blank" %}
             {% include card.html data=site.no_exercises collection=page.collection %}
+          {% elsif page.tasks[3] and page.tasks[3].type == "watch-videos" %}
+            {% assign card_data=site.watch_videos %}
+            {% assign next_url=number | plus:1 %}
+            {% if next_url <= 9 %}
+              {% capture next_url %}week-0{{next_url}}{% endcapture %}
+            {% else %}
+              {% capture next_url %}week-{{next_url}}{% endcapture %}
+            {% endif %}
+            {% include card.html data=card_data collection=page.collection url=next_url %}
           {% elsif page.tasks[3] and page.tasks[3].type == "attend-labs" %}
             {% assign card_data=site.attend_labs %}
             {% include card.html data=card_data collection=page.collection %}
