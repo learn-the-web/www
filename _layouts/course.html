@@ -478,14 +478,6 @@ skip_links: |
           </ul>
         </div>
         {% endif %}
-        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
-          <h3 class="push-0"><span tabindex="0">Exercises</span></h3>
-          <p class="mega"><strong>{{page.grades.exercises}}%</strong> — <em>{{total_exercises}} @ {{exercises_per}}% each</em></p>
-          <ul class="push-0">
-            <li>Complete/incomplete</li>
-            <li>Formative assessment</li>
-          </ul>
-        </div>
         {% if page.grades.videos %}
         <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
           <h3 class="push-0"><span tabindex="0">Videos</span></h3>
@@ -498,6 +490,15 @@ skip_links: |
         </div>
         {% endif %}
         <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
+          <h3 class="push-0"><span tabindex="0">Exercises</span></h3>
+          <p class="mega"><strong>{{page.grades.exercises}}%</strong> — <em>{{total_exercises}} @ {{exercises_per}}% each</em></p>
+          <ul class="push-0">
+            <li>Complete/incomplete</li>
+            <li>Formative assessment</li>
+          </ul>
+        </div>
+        {% if page.grades.projects %}
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
           <h3 class="push-0">
             <span class="icon-label" tabindex="0">Big projects</span>
             <i class="icon i-20"><svg><use xlink:href="#icon-star"></use></svg></i>
@@ -508,6 +509,7 @@ skip_links: |
             <li>Summative assessment</li>
           </ul>
         </div>
+        {% endif %}
       </div>
       <h2 class="gutter-1-4 exa push-0" data-control="details" data-controls="grading-system" tabindex="0">Grading system</h2>
       <div class="pad-t milli force-print" id="grading-system">
