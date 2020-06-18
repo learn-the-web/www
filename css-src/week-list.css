@@ -1,5 +1,4 @@
 .week-list {
-
 }
 
 .week-list > li {
@@ -10,7 +9,7 @@
 .week-list-icon {
   left: 0;
   position: absolute;
-  top: .3em;
+  top: 0.3em;
 }
 
 /*
@@ -32,7 +31,7 @@
 .week-list-tasks > li::after {
   content: "·";
   display: inline-block;
-  width: .8em;
+  width: 0.8em;
 
   text-align: center;
 }
@@ -56,10 +55,9 @@
 }
 
 @media only screen and (min-width: 60em) {
-
   .week-list-tasks-group {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
-
 }
