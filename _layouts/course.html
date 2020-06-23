@@ -460,7 +460,9 @@ skip_links: |
 
 {% unless page.hide-marking-scheme %}
   <div class="section-muted pad-t pad-b-1-2 gutter-1-4" id="marking-scheme">
-    {% if page.grades.videos or page.grades.activities %}
+    {% if page.grades.videos and page.grades.projects and page.grades.activities %}
+      {% assign column_width = "1-4" %}
+    {% elsif page.grades.videos or page.grades.activities %}
       {% assign column_width = "1-3" %}
     {% else %}
       {% assign column_width = "1-2" %}
@@ -469,7 +471,7 @@ skip_links: |
       <h2 class="gutter-1-4 exa push-1-2"><span tabindex="0">Marking scheme</span></h2>
       <div class="grid push-1-2">
         {% if page.grades.activities %}
-        <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
           <h3 class="push-0"><span tabindex="0">Activities & lessons</span></h3>
           <p class="mega"><strong>{{page.grades.activities}}%</strong> — <em>{{total_activities}} @ {{activities_per}}% each</em></p>
           <ul class="push-0">
@@ -479,7 +481,7 @@ skip_links: |
         </div>
         {% endif %}
         {% if page.grades.videos %}
-        <div class="unit [ xs-1 m-1-3 ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
+        <div class="unit [ xs-1 m-{{column_width}} ] pad-t-1-2 pad-b-1-2 gutter-1-4 no-page-break-inside">
           <h3 class="push-0"><span tabindex="0">Videos</span></h3>
           <p class="mega"><strong>{{page.grades.videos}}%</strong> — <em>{{total_videos}} @ {{videos_per}}% each</em></p>
           <ul class="push-0">
