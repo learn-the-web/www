@@ -24,14 +24,18 @@ skip_links: |
   </div>
 
   <div id="topics-list">
+    {% include topic-section.html class="topic-section-1" id="the-open-web" title="The Web" number="infinite" data=page.toc.the-open-web show_border=true %}
     {% include topic-section.html class="topic-section-1" id="set-up" title="Set up" number="0" data=page.toc.setup %}
-    {% include topic-section.html class="topic-section-2" id="web-dev-1" title="Web Dev" number="1" curriculum=true data=page.toc.web-dev-1 %}
-    {% include topic-section.html class="topic-section-3" id="web-dev-2" title="Web Dev" number="2" curriculum=true data=page.toc.web-dev-2 %}
-    {% include topic-section.html class="topic-section-4" id="web-dev-3" title="Web Dev" number="3" curriculum=true data=page.toc.web-dev-3 %}
-    {% include topic-section.html class="topic-section-5" id="web-dev-4" title="Web Dev" number="4" curriculum=true data=page.toc.web-dev-4 %}
-    {% include topic-section.html class="topic-section-6" id="web-dev-5" title="Web Dev" number="5" curriculum=true data=page.toc.web-dev-5 %}
-    {% include topic-section.html class="topic-section-7" id="web-dev-6" title="Web Dev" number="6" curriculum=true data=page.toc.web-dev-6 %}
-    {% include topic-section.html class="topic-section-8" id="js" title="JS" number="infinite" curriculum=true curriculum_title="JavaScript" curriculum_url="javascript" data=page.toc.javascript show_border=true %}
+    {% include topic-section.html class="topic-section-2" id="content" title="Content" number="1" data=page.toc.content %}
+    {% include topic-section.html class="topic-section-2" id="a11y" title="Accessibility" number="2" data=page.toc.a11y %}
+    {% include topic-section.html class="topic-section-3" id="typography" title="Type" number="3" data=page.toc.typography %}
+    {% include topic-section.html class="topic-section-3" id="layout" title="Layout" number="4" data=page.toc.layout %}
+    {% include topic-section.html class="topic-section-4" id="images" title="Images" number="5" data=page.toc.images %}
+    {% include topic-section.html class="topic-section-5" id="many-screens" title="Many screens" number="6" data=page.toc.many-screens %}
+    {% include topic-section.html class="topic-section-6" id="libraries" title="Libraries" number="7" data=page.toc.libraries %}
+    {% include topic-section.html class="topic-section-6" id="design-systems" title="Design systems" number="8" data=page.toc.design-systems %}
+    {% include topic-section.html class="topic-section-7" id="teams" title="Teams" number="9" data=page.toc.teams %}
+    {% include topic-section.html class="topic-section-8" id="js" title="JS" number="infinite" curriculum_title="JavaScript" data=page.toc.javascript show_border=true %}
     {% include topic-section.html class="topic-section-8" id="whats-next" title="What’s next?" number="infinite" data=page.toc.whats-next %}
   </div>
 

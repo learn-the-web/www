@@ -48,7 +48,8 @@
 }
 
 .page-nav .nav-label {
-  transition: background-color 100ms linear, color 100ms linear, border-color 100ms linear;
+  transition: background-color 100ms linear, color 100ms linear,
+    border-color 100ms linear;
 }
 
 .page-nav .nav-check:checked ~ .nav-label {
@@ -122,7 +123,7 @@
 
 .topics > li:target {
   border-radius: 3px;
-  background-color: hsla(24,7%,70%,0.3);
+  background-color: hsla(24, 7%, 70%, 0.3);
 }
 
 .topics a[data-visited] {
@@ -153,9 +154,9 @@
   top: -0.1em;
 
   border-radius: 3px;
-  background-color: hsla(24,7%,70%,0.3);
+  background-color: hsla(24, 7%, 70%, 0.3);
 
-  color: rgba(0,0,0,0.4);
+  color: rgba(0, 0, 0, 0.4);
   font-size: 0.6em;
   text-transform: uppercase;
 }
@@ -201,11 +202,17 @@
 
 .topic-text:focus .topic-text-content,
 .topic-text:hover .topic-text-content {
-  background-image: linear-gradient(to top, currentcolor 0, currentcolor .1em, transparent .101em, transparent 100%);
+  background-image: linear-gradient(
+    to top,
+    currentcolor 0,
+    currentcolor 0.1em,
+    transparent 0.101em,
+    transparent 100%
+  );
 }
 
 .topic-disabled {
-  color: rgba(0,0,0,0.2);
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .topic-text::before {
@@ -307,8 +314,15 @@
   background-image: inline("../images-embed/topics-circle-6.svg");
 }
 
+.topic-section-1 + .topic-section-1,
+.topic-section-2 + .topic-section-2,
+.topic-section-3 + .topic-section-3,
+.topic-section-4 + .topic-section-4,
+.topic-section-5 + .topic-section-5,
+.topic-section-6 + .topic-section-6,
+.topic-section-7 + .topic-section-7,
 .topic-section-8 + .topic-section-8 {
-  border-top: 3px solid rgba(0, 0, 0, .05);
+  border-top: 3px solid rgba(0, 0, 0, 0.05);
 }
 
 .topics .indent1,
@@ -356,7 +370,7 @@
 
 .topic-section-border {
   border-color: #cecece;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .search {
@@ -371,7 +385,7 @@
   display: block;
   width: 100%;
 
-  background: none 0.2em center / auto 70% no-repeat rgba(255,255,255,0.7);
+  background: none 0.2em center / auto 70% no-repeat rgba(255, 255, 255, 0.7);
   background-image: inline("../images-embed/search.svg");
   border: 2px solid var(--color-brand);
   border-radius: 8px;
@@ -391,15 +405,15 @@
 }
 
 ::-webkit-input-placeholder {
-   color: var(--color-grey);
+  color: var(--color-grey);
 }
 
 ::-moz-placeholder {
-   color: var(--color-grey);
+  color: var(--color-grey);
 }
 
 :-ms-input-placeholder {
-   color: var(--color-grey);
+  color: var(--color-grey);
 }
 
 .course-btn-wrap {
@@ -442,16 +456,12 @@
   margin-bottom: 0;
 }
 
-.cheat-sheet-checklist-list {
-
-}
-
-.cheat-sheet-checklist-list :last-child{
+.cheat-sheet-checklist-list :last-child {
   margin-bottom: 0;
 }
 
 .cheat-sheet-checklist-tags {
-  padding-left: calc(32px + .2em);
+  padding-left: calc(32px + 0.2em);
 }
 
 .cheat-sheet-checklist-tasks > li {
@@ -459,7 +469,6 @@
 }
 
 @media only screen and (min-width: 38em) {
-
   .topic-wrap {
     padding-left: 6rem;
   }
@@ -493,7 +502,6 @@
 
   .topic-text-content {
     display: inline;
-    width: auto;
   }
 
   .topic-flag::after {
@@ -505,14 +513,11 @@
     padding-top: 0;
     width: inherit;
   }
-
 }
 
 @media only screen and (min-width: 60em) {
-
   .topics a[data-visited]::after {
     height: 14px;
     width: 14px;
   }
-
 }
