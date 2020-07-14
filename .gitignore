@@ -3,6 +3,7 @@ npm-debug.log
 _site
 tmp
 .jekyll-metadata
+.jekyll-cache
 css
 js
 large-assets
