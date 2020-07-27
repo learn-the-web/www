@@ -37,7 +37,6 @@
     {% assign icon = "steps" %}
     {% assign submit = submit_show %}
     {% assign submission_type = "show" %}
-
     {% if include.data.pair %}
       {% assign button = button_pair %}
     {% else %}
@@ -81,6 +80,11 @@
     {% assign submit = submit_code %}
     {% assign submission_type = "download-markbot" %}
     {% assign button = button_code %}
+  {% when "fork" %}
+    {% assign icon = "code" %}
+    {% assign submit = submit_code %}
+    {% assign submission_type = "code" %}
+    {% assign button = button_code %}
   {% else %}
     {% assign icon = "code" %}
     {% assign submit = submit_code %}
@@ -110,6 +114,9 @@
     {% when "canvas" or "online" %}
       {% assign submit = submit_online %}
       {% assign submission_type = "online" %}
+    {% when "gh-issue" %}
+      {% assign submit = submit_ghissue %}
+      {% assign submission_type = "fork" %}
     {% else %}
       {% assign submit = include.data.submit %}
   {% endcase %}
@@ -168,7 +175,7 @@
   {% endif %}
 
   <div class="text-center push-1-4">
-    <i class="icon i-24"><svg xmlns:xlink="http://www.w3.org/1999/xlink"><use class="card-icon" xlink:href="#icon-{{icon}}"></use></svg></i>
+    <i class="icon i-24"><svg><use class="card-icon" xlink:href="#icon-{{icon}}"></use></svg></i>
     {% if include.data.pair %}
       <i class="icon i-24"><svg><use xlink:href="#icon-pair"></use></svg></i>
     {% endif %}
