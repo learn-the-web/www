@@ -8,7 +8,7 @@
   width: 100vw;
   z-index: 5000;
 
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -61,7 +61,7 @@
 
   font-size: 2rem;
   font-weight: bold;
-  line-height: .7em;
+  line-height: 0.7em;
 }
 
 .assignment-btn-disabled {
@@ -74,7 +74,7 @@
 
 .assignment-download-btn {
   height: 2.5em;
-  margin-right: -.2em;
+  margin-right: -0.2em;
   padding: 0;
   position: relative;
   width: 2.5em;
@@ -93,7 +93,7 @@
 }
 
 .assignment-download-plus {
-  width: .8em;
+  width: 0.8em;
 
   line-height: 1px;
   text-align: center;
@@ -145,7 +145,7 @@
 .assignment-content ul label {
   padding-left: 2.2em;
   position: relative;
-  margin-bottom: .7em;
+  margin-bottom: 0.7em;
 }
 
 .assignment-content ul [type="checkbox"] + label::before {
@@ -176,12 +176,12 @@
 }
 
 .assignment-viewer-swatch-wrap {
-  padding-left: calc(18px + .7em);
+  padding-left: calc(18px + 0.7em);
   position: relative;
 }
 
 .assignment-viewer-swatch {
-  left: .4em;
+  left: 0.4em;
   position: absolute;
   top: 50%;
 
@@ -196,22 +196,26 @@
 .assignment-content ul label::before {
   height: 1.2em;
   width: 1.2em;
-  top: .1em;
+  top: 0.1em;
 }
 
 .assignment-scroll-down {
-  bottom: .75rem;
+  bottom: 0.75rem;
   position: absolute;
-  right: .75rem;
+  right: 0.75rem;
 
-  opacity: .3;
+  opacity: 0.3;
+}
+
+.assignment-viewer audio {
+  width: 100%;
 }
 
 .default-state {
   animation: pulse 2s linear infinite alternate;
   background-color: var(--color-grey);
   cursor: default;
-  opacity: .5;
+  opacity: 0.5;
   user-select: none;
 
   color: var(--color-grey);
@@ -239,11 +243,11 @@
 
 @keyframes pulse {
   0% {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   100% {
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
@@ -257,7 +261,6 @@
 }
 
 @media only screen and (min-width: 60em) {
-
   .assignment-close-btn {
     height: 3rem;
     width: 3rem;
@@ -270,5 +273,4 @@
   .assignment-viewer-table-wrapper {
     overflow: visible;
   }
-
 }
