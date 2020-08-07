@@ -1,0 +1,12 @@
+<div class="slide-interactive grid grid-stretch">
+  {% if include.data.heading %}<h2>{{include.data.heading}}</h2>{% endif %}
+  <div class="unit [ xs-1 s-1 l-1-2 ] island peta">
+    {% if include.data.content %}
+      {{include.data.content | markdownify}}
+    {% endif %}
+    {{include.data.raw}}
+  </div>
+  <div class="unit [ xs-1 s-1 l-1-2 ] slide-code island">
+    {% include slides/code-inner.html data=include.data %}
+  </div>
+</div>
