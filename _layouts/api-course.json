@@ -88,7 +88,11 @@
     "activities": {{weight_activities}},
     "activities_plus_lessons": {{weight_activities}},
     "exercises": {{weight_exercises}},
+    {% if weight_projects > 0 %}
     "projects": {{weight_projects}},
+    {% else %}
+    "projects": 0,
+    {% endif %}
     {% if weight_videos > 0 %}
     "videos": {{weight_videos}}
     {% else %}
