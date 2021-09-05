@@ -1,0 +1,14 @@
+  <h3 class="mega push-0">{{include.prof.name}} {% if include.prof.office %}§&nbsp;{{include.prof.office}}{% endif %}</h3>
+  {% if include.prof.hours %}
+    <ol class="hours list-group">
+      {% for hour in include.prof.hours %}
+        <li>{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %}–{% include 24-hour-to-12.html time=hour.end_time %}</li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    {% if include.prof.hours_form %}
+      <p><em><a href="{{include.prof.hours_form}}" rel="external">Book an appointment</a></em></p>
+    {% else %}
+      <p><em>By appointment only.</em></p>
+    {% endif %}
+  {% endif %}

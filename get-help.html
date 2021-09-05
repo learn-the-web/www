@@ -169,6 +169,15 @@ hide_worklabs: true
                   <div class="push-1-4"><code>@{{doc.prof.github}}</code></div>
                 {% endunless %}
               {% endif %}
+              {% if doc.multi_profs %}
+                {% for prof in doc.multi_profs %}
+                  {% unless duplicate_detector contains prof.email %}
+                    {% capture duplicate_detector %}{{duplicate_detector}}|{{prof.email}}{% endcapture %}
+                    <h3 class="mega push-0">{{prof.name}}</h3>
+                    <div class="push-1-4"><code>@{{prof.github}}</code></div>
+                  {% endunless %}
+                {% endfor %}
+              {% endif %}
 
               {% break %}
             {% endif %}
@@ -200,23 +209,18 @@ hide_worklabs: true
           {% for doc in collection.docs %}
             {% if doc.slug == "index" %}
               {% if doc.prof.hours or doc.prof.hours_form %}
-                {% unless duplicate_detector contains doc.prof.email %}
-                  {% capture duplicate_detector %}{{duplicate_detector}}|{{doc.prof.email}}{% endcapture %}
-                  <h3 class="mega push-0">{{doc.prof.name}} {% if doc.prof.office %}@ {{doc.prof.office}}{% endif %}</h3>
-                  {% if doc.prof.hours %}
-                    <ol class="hours list-group">
-                      {% for hour in doc.prof.hours %}
-                        <li>{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %}–{% include 24-hour-to-12.html time=hour.end_time %}</li>
-                      {% endfor %}
-                    </ol>
-                  {% else %}
-                    {% if doc.prof.hours_form %}
-                      <p><em><a href="{{doc.prof.hours_form}}" rel="external">Book an appointment</a></em></p>
-                    {% else %}
-                      <p><em>By appointment only.</em></p>
-                    {% endif %}
-                  {% endif %}
+                {% unless duplicate_detector contains include.prof.email %}
+                  {% capture duplicate_detector %}{{duplicate_detector}}|{{include.prof.email}}{% endcapture %}
+                  {% include get-help-prof-office-hours.html prof=doc.prof %}
                 {% endunless %}
+              {% endif %}
+              {% if doc.multi_profs %}
+                {% for prof in doc.multi_profs %}
+                  {% unless duplicate_detector contains include.prof.email %}
+                    {% capture duplicate_detector %}{{duplicate_detector}}|{{include.prof.email}}{% endcapture %}
+                    {% include get-help-prof-office-hours.html prof=prof %}
+                  {% endunless %}
+                {% endfor %}
               {% endif %}
 
               {% break %}
@@ -281,7 +285,15 @@ hide_worklabs: true
                     <li><a href="mailto:{{doc.prof.email}}">{{doc.prof.name}}</a></li>
                   {% endunless %}
                 {% endif %}
-
+                {% if doc.multi_profs %}
+                  {% for prof in doc.multi_profs %}
+                    {% unless duplicate_detector contains prof.email %}
+                      {% capture duplicate_detector %}{{duplicate_detector}}|{{prof.email}}{% endcapture %}
+                      <li><a href="mailto:{{prof.email}}">{{prof.name}}</a></li>
+                    {% endunless %}
+                  {% endfor %}
+                {% endif %}
+                
                 {% break %}
               {% endif %}
             {% endfor %}

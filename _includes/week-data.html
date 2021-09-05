@@ -25,7 +25,7 @@
 {% endif %}
 
 {% if include.data.prof %}
-  <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a class="link-body-color" href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}@&nbsp;{{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
+  <h3 class="mega push-0" tabindex="0">Office hours <em class="normal">— {% if include.data.prof.email %}<a class="link-body-color" href="mailto:{{include.data.prof.email}}">{% endif %}{{include.data.prof.name}} {% if include.data.prof.office %}§&nbsp;{{include.data.prof.office}}{% endif %}{% if include.data.prof.email %}</a>{% endif %}</em></h3>
   {% if include.data.prof.hours %}
     {% if include.no_office_hours %}
       <p class="push-1-2"><em>No office hours this week.</em></p>
@@ -50,7 +50,7 @@
   <div class="push-1-2">
     {% for prof in include.data.multi_profs %}
       <div>
-        <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}@&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+        <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}§&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> {% if prof.github %}· <a href="https://github.com/{{prof.github}}" rel="external">@{{prof.github}}</a>{% endif %} <span class="valign-top">—</span>
         {% if prof.hours %}
           {% if include.no_office_hours %}
             <span class="valign-top"><em>No office hours this week.</em></span>

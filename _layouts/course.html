@@ -149,7 +149,7 @@ skip_links: |
               <dd class="push-0">
                 {% if page.prof %}
                   {% if page.prof.hours %}
-                    <em class="normal valign-top">{% if page.prof.email %}<a class="link-body-color" href="mailto:{{page.prof.email}}">{% endif %}{{page.prof.name}} {% if page.prof.office %}@&nbsp;{{page.prof.office}}{% endif %}{% if page.prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+                    <em class="normal valign-top">{% if page.prof.email %}<a class="link-body-color" href="mailto:{{page.prof.email}}">{% endif %}{{page.prof.name}} {% if page.prof.office %}§&nbsp;{{page.prof.office}}{% endif %}{% if page.prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
                     <ol class="hours list-group-inline push-0 ib valign-top">
                       {% for hour in page.prof.hours %}
                         <li class="push-r-1-2">{% include day-number-to-text.html day=hour.day %} {% include 24-hour-to-12.html time=hour.start_time %} – {% include 24-hour-to-12.html time=hour.end_time %}</li>
@@ -166,7 +166,7 @@ skip_links: |
                 {% if page.multi_profs %}
                   {% for prof in page.multi_profs %}
                     <div>
-                      <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}@&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> <span class="valign-top">—</span>
+                      <em class="normal valign-top">{% if prof.email %}<a class="link-body-color" href="mailto:{{prof.email}}">{% endif %}{{prof.name}} {% if prof.office %}§&nbsp;{{prof.office}}{% endif %}{% if prof.email %}</a>{% endif %}</em> {% if prof.github %}· <a href="https://github.com/{{prof.github}}" rel="external">@{{prof.github}}</a>{% endif %} <span class="valign-top">—</span>
                       {% if prof.hours %}
                         <ol class="hours list-group-inline push-0 ib valign-top">
                           {% for hour in prof.hours %}
