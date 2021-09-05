@@ -1,1 +1,1 @@
-{% if include.time > 12 %}{{include.time | minus:12}}{% else %}{{include.time}}{% endif %}
+{% if include.time > 12 %}{{include.time|minus:12|replace:'.',':'}}{% else %}{{include.time|replace:'.',':'}}{% endif %}
