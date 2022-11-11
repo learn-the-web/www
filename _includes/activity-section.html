@@ -21,7 +21,7 @@
                 {% capture count %}{{count | plus:1 }}{% endcapture %}
                 <li class="push-r-1-2 push-1-4">
                   <a class="link-box link-box-no-mark icon-link {% unless task.url %}link-disabled{% endunless %} {% if task.disabled %}link-disabled{% endif %}" href="{{task.url}}">
-                    <img class="icon i-32" src="{% unless task.disabled %}{% if task.url and task.url contains "activities.learn-the-web" %}{{task.url}}icon.svg{% else %}/images/activity-default.svg{% endif %}{% else %}/images/activity-default.svg{% endunless %}" alt="">
+                    <img class="icon i-32" src="{% unless task.disabled %}{% if task.url and task.url contains "activities.learntheweb" %}{{task.url}}icon.svg{% else %}/images/activity-default.svg{% endif %}{% else %}/images/activity-default.svg{% endunless %}" alt="">
                     <span class="icon-label">{{task.title}}</span>
                   </a>
                 </li>
