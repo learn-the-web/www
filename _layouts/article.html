@@ -32,13 +32,13 @@ skip_links: |
   <meta itemprop="educationalUse" content="Reference">
   <meta itemprop="interactivityType" content="expositive">
   <meta itemprop="learningResourceType" content="Reference">
-  <meta itemprop="image" content="https://learn-the-web.algonquindesign.ca/images/article-thumbnail.png">
+  <meta itemprop="image" content="https://learntheweb.courses/images/article-thumbnail.png">
 
   <div class="header push no-print" id="video">
     <div class="wrapper gutter-1-2 relative" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">
       <meta itemprop="name" content="{{page.title}}">
       <meta itemprop="description" content="{{page.desc}}">
-      <meta itemprop="thumbnailUrl" content="https://learn-the-web.algonquindesign.ca/images/video-thumbnail.png">
+      <meta itemprop="thumbnailUrl" content="https://learntheweb.courses/images/video-thumbnail.png">
       <meta itemprop="uploadDate" content="{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}">
       <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
@@ -107,7 +107,7 @@ skip_links: |
         {% endcomment %}
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
-            <a class="btn btn-ghost" href="{% unless page.livewebsite contains 'http://' or page.livewebsite contains 'https://' %}https://demos.learn-the-web.algonquindesign.ca/{{page.livewebsite}}/{% else %}{{page.livewebsite}}{% endunless %}" rel="nofollow">
+            <a class="btn btn-ghost" href="{% unless page.livewebsite contains 'http://' or page.livewebsite contains 'https://' %}https://demos.learntheweb.courses/{{page.livewebsite}}/{% else %}{{page.livewebsite}}{% endunless %}" rel="nofollow">
               <i class="icon i-24 push-r-1-4"><svg><use xlink:href="#icon-star"/></svg></i>
               <span class="icon-label">Visit website</span>
             </a>
@@ -261,7 +261,7 @@ skip_links: |
             <ul class="list-group push-0 pad-t-1-4">
               {% for item in page.extra_practice.activities %}
                 <li class="pad-t-1-4 pad-b-1-4">
-                  <a class="btn btn-ghost milli" href="https://activities.learn-the-web.algonquindesign.ca/{{item.url}}/">
+                  <a class="btn btn-ghost milli" href="https://activities.learntheweb.courses/{{item.url}}/">
                     <i class="icon i-16 push-r-1-4"><svg><use xlink:href="#icon-victory"></use></svg></i>
                     <span class="icon-label">{{item.title}}</span>
                     <i class="icon i-16"><svg><use xlink:href="#icon-right"></use></svg></i>

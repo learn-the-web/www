@@ -1,6 +1,6 @@
 {% assign url_prefix = "" %}
 {% unless include.url contains "http" %}
-  {% assign url_prefix = "https://learn-the-web.algonquindesign.ca" %}
+  {% assign url_prefix = "https://learntheweb.courses" %}
 {% endunless %}
 
 {% capture url %}{{url_prefix}}{{include.url}}{% if include.slug and include.slug != "" %}#{{include.slug}}{% endif %}{% endcapture %}

@@ -1,10 +1,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Course",
-  "@id": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "@id": "https://learntheweb.courses{{page.url | replace: 'index.html', ''}}",
   "courseCode": "{{page.course_code}}",
   {% if include.prereq %}
-    "coursePrerequisites": "https://learn-the-web.algonquindesign.ca/courses/{{include.prereq}}/",
+    "coursePrerequisites": "https://learntheweb.courses/courses/{{include.prereq}}/",
   {% endif %}
   "accessMode": "textual, visual",
   "accessModeSufficient": "textual",
@@ -19,7 +19,7 @@
     "@id": "#thomasjbradley"
   },
   "provider": {
-    "@id": "#algonquin"
+    "@id": "#learntheweb"
   },
   "copyrightYear": "{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date:'%Y' }}",
   "dateModified": "{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}",
@@ -34,7 +34,7 @@
   "timeRequired": "PT{{page.hours | plus:45}}H",
   "description": "{{page.desc}}",
   "name": "{{page.title}}",
-  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "url": "https://learntheweb.courses{{page.url | replace: 'index.html', ''}}",
   "audience": {
     "@type": "Audience",
     "audienceType": "public"
@@ -53,7 +53,7 @@
           "duration": "PT3H",
           "isAccessibleForFree": false,
           "location": {
-            "@id": "#algonquin-address"
+            "@id": "#learntheweb-address"
           },
           "instructor": {
             "@id": "#{{page.prof.github}}"

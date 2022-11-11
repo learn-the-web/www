@@ -4,7 +4,6 @@ title: "Class calendar feeds"
 desc: "Subscribe to these calendar feeds, for the currently running courses, to get class times, lab times & due dates in your personal calendar."
 priority: 0.1
 hide_markbot: true
-hide_algonquin: true
 ---
 
 <div class="pad-t">
@@ -33,7 +32,7 @@ hide_algonquin: true
           {% for section in data.datetimes.sections %}
             <div class="push">
               <h3 class="push-0">Section {{section.title}}</h3>
-              <input readonly value="https://learn-the-web.algonquindesign.ca/courses/{{collection_id}}/calendar-feed-{{section.title}}.ics">
+              <input readonly value="https://learntheweb.courses/courses/{{collection_id}}/calendar-feed-{{section.title}}.ics">
             </div>
           {% endfor %}
         </div>

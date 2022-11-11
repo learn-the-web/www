@@ -33,9 +33,9 @@
   "timeRequired": "PT15M",
   "description": "{{page.desc}}",
   "name": "{{page.title}}",
-  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "url": "https://learntheweb.courses{{page.url | replace: 'index.html', ''}}",
   "isPartOf": {
-    "@id": "https://learn-the-web.algonquindesign.ca/{{url_chunk}}/{{page.collection}}/"
+    "@id": "https://learntheweb.courses/{{url_chunk}}/{{page.collection}}/"
   },
   "audience": {
     "@type": "Audience",

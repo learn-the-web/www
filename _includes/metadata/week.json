@@ -24,12 +24,12 @@
   "interactivityType": "mixed",
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "isPartOf": {
-    "@id": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/"
+    "@id": "https://learntheweb.courses/courses/{{page.collection}}/"
   },
   "timeRequired": "PT5H",
   "description": "{{page.desc}}",
   "name": "{{page.title}} · {{data.title}}",
-  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "url": "https://learntheweb.courses{{page.url | replace: 'index.html', ''}}",
   "audience": {
     "@type": "Audience",
     "audienceType": "public"

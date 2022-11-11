@@ -5,7 +5,6 @@ tags: "privacy cookies policy term service gdpr"
 desc: "Learn the Web’s privacy & cookie policies. Read and understand the information Learn the Web collects & tracks."
 priority: 0.1
 hide_markbot: true
-hide_algonquin: true
 hide_labs: true
 hide_worklabs: true
 narrow: true
@@ -17,7 +16,7 @@ narrow: true
 
 ## Definitions
 
-We’re going to use some shorthand to make this easier to read. When we say “site” or “website”, we mean [learn-the-web.algonquindesign.ca](https://learn-the-web.algonquindesign.ca/) and the services offered through that site. When we say “we,” “us,” or “our,” we mean Learn the Web (Thomas J Bradley), an Ontario business.
+We’re going to use some shorthand to make this easier to read. When we say “site” or “website”, we mean [learntheweb.courses](https://learntheweb.courses/) and the services offered through that site. When we say “we,” “us,” or “our,” we mean Learn the Web (Thomas J Bradley), an Ontario business.
 
 ---
 
@@ -29,7 +28,7 @@ We’re going to use some shorthand to make this easier to read. When we say “
 
 ## Personal information
 
-**Without creating an [account to track your progress](https://progress.learn-the-web.algonquindesign.ca/), we do not collect personal information or use any personal information.**
+**Without creating an [account to track your progress](https://progress.learntheweb.courses/), we do not collect personal information or use any personal information.**
 
 ### Progressinator & personal information
 
@@ -39,14 +38,14 @@ When signing up for a Progressinator account we receive the following informatio
 - Your GitHub username
 - Your private email address, as specified on your GitHub profile
 
-- [**GitHub**](https://github.com/) — *full name, username & email address*
+- [**GitHub**](https://github.com/) — *full name, username & email address*
   <br>[Refer to GitHub’s privacy policy for detailed information.](https://help.github.com/articles/github-privacy-statement/)
 
 **This information is never transmitted beyond our local databases & web servers. Nor is it ever transmitted without HTTPS encryption.**
 
 ### Feedback forms & personal information
 
-We have two feedback forms: an [anonymous course feedback form](https://learn-the-web.algonquindesign.ca/feedback/) & a [team project reflection form](https://learn-the-web.algonquindesign.ca/courses/shared/team-reflection/). Both forms are submitted using Formspree.
+We have two feedback forms: an [anonymous course feedback form](https://learntheweb.courses/feedback/) & a [team project reflection form](https://learntheweb.courses/courses/shared/team-reflection/). Both forms are submitted using Formspree.
 
 - [**Formspree**](https://formspree.io/)
   <br>[Refer to Formspree’s privacy policy for detailed information](http://docs.formspree.io/files/privacy.pdf)
@@ -66,7 +65,7 @@ We have two feedback forms: an [anonymous course feedback form](https://learn-th
 
 The Progressinator application uses your GitHub credentials as the authentication method. **We never receive your GitHub password.** All communication with GitHub’s servers is encrypted with HTTPS.
 
-- [**GitHub**](https://github.com/) — social authentication for Progressinator application—we never get access to your GitHub password.
+- [**GitHub**](https://github.com/) — social authentication for Progressinator application—we never get access to your GitHub password.
 
 ### Teacher & TA area
 
@@ -74,20 +73,20 @@ User login information will be provided by one of our administrators. No persona
 
 - [**NearlyFreeSpeech**](https://www.nearlyfreespeech.net/) — hosts the secure area and the user access information is protected by the host.
 
-- [**KeyCDN**](https://www.keycdn.com/) — holds the downloadable solutions and only allows access with an encryption key provided by the application hosted on NearlyFreeSpeech.
+- [**KeyCDN**](https://www.keycdn.com/) — holds the downloadable solutions and only allows access with an encryption key provided by the application hosted on NearlyFreeSpeech.
 
 ---
 
 ## Cookies
 
-**Without creating an [account to track your progress](https://progress.learn-the-web.algonquindesign.ca/), we do not store cookies on your computer nor track your movements with analytics.**
+**Without creating an [account to track your progress](https://progress.learntheweb.courses/), we do not store cookies on your computer nor track your movements with analytics.**
 
 ### Progressinator & cookies
 
 In order to remember who you are and prevent security problems, the Progressinator application will create the following cookies:
 
 - `sessionid` — Tracks that you are signed into your Progressinator account
-- `csrftoken` — Helps with security by providing a unique token for every single request
+- `csrftoken` — Helps with security by providing a unique token for every single request
 
 _These cookies are available to all our pages, even outside Progressinator, to facilitate progress tracking and grading of different activities and exercises._
 
@@ -127,11 +126,11 @@ Some of our hosting providers track pieces of data when you access pages:
 
 #### Hosting providers
 
-- [**KeyCDN**](https://www.keycdn.com/) — *primary website host*
+- [**KeyCDN**](https://www.keycdn.com/) — *primary website host*
   <br>Tracks: country, requested page, date & time.
   <br>IP addresses are anonymized.
 
-- [**CloudFlare**](https://www.cloudflare.com/) — *DNS, security, performance*
+- [**CloudFlare**](https://www.cloudflare.com/) — *DNS, security, performance*
   <br>Tracks: country, requested page, date & time.
   <br>IP addresses are anonymized.
 
@@ -141,15 +140,15 @@ Some of our hosting providers track pieces of data when you access pages:
 - [**Heroku**](https://www.heroku.com/) — _Progressinator application host_
   <br>No tracking outside of what our applications capture.
 
-- [**YouTube**](https://www.youtube.com/) — *video hosting*
+- [**YouTube**](https://www.youtube.com/) — *video hosting*
   <br>[Refer to YouTube’s privacy policy for detailed information.](https://policies.google.com/privacy)
   <br>YouTube videos (and therefore cookies & analytics) are not loaded automatically, you must press the play button, at which point YouTube’s cookies and analytics will be loaded.
 
-- [**GitHub**](https://github.com/) — *assignment details & repository hosting*
+- [**GitHub**](https://github.com/) — *assignment details & repository hosting*
   <br>[Refer to GitHub’s privacy policy for detailed information.](https://help.github.com/articles/github-privacy-statement/)
   <br>We make requests to the _public_ GitHub API without sending any personalized information to download the details for the assignments.
 
-- [**Formspree**](https://formspree.io/) — *capture of feedback form data*
+- [**Formspree**](https://formspree.io/) — *capture of feedback form data*
   <br>[Refer to Formspree’s privacy policy for detailed information.](http://docs.formspree.io/files/privacy.pdf)
   <br>Information submitted through email forms is retained by Formspree servers for one month & transmitted through email to our accounts.
 
@@ -223,7 +222,7 @@ Thomas J Bradley
 <br>[thomas@learntheweb.courses](mailto:thomas@learntheweb.courses)
 <br>Ottawa, Ontario, Canada
 
-[Or better yet, you can contribute a commit on GitHub!](https://github.com/acgd-learn-the-web/www/blob/master/privacy-cookies.md)
+[Or better yet, you can contribute a commit on GitHub!](https://github.com/ltw-learn-the-web/www/blob/master/privacy-cookies.md)
 
 ---
 

@@ -1,38 +1,22 @@
 [data-control] > * {
-  pointer-events: none
+  pointer-events: none;
 }
 
-.algonquin {
-  background-color: #0f663f;
-
-  color: #fff;
-}
-
-.algonquin--inner {
-  background-color: var(--color-code-darkest);
-
-  color: #333;
-}
-
-.acgd-logo {
+.ltw-logo {
   margin-bottom: 1.5rem;
   max-width: 200px;
 }
 
-.alg-blurb {
-
-}
-
 .btn-alg {
   background-color: #0f663f;
-  border-color: #94C947;
-  color: #94C947;
+  border-color: #94c947;
+  color: #94c947;
 }
 
 .btn-alg:focus,
 .btn-alg:hover {
-  background-color: #94C947;
-  border-color: #94C947;
+  background-color: #94c947;
+  border-color: #94c947;
 }
 
 .btn-alg-dark {
@@ -53,7 +37,7 @@
   margin-left: 0.2em;
   width: 0.7em;
 
-  color: rgba(255, 255, 255, .4);
+  color: rgba(255, 255, 255, 0.4);
   text-align: center;
 }
 
@@ -63,7 +47,7 @@
 }
 
 .markbot-link {
-  border-bottom: .1em solid  rgba(255, 255, 255, .2);
+  border-bottom: 0.1em solid rgba(255, 255, 255, 0.2);
   color: #9e99c8;
 }
 
@@ -87,7 +71,6 @@
 }
 
 @media only screen and (min-width: 60em) {
-
   .markbot-icon {
     text-align: center;
   }
@@ -95,5 +78,4 @@
   .markbot-btn {
     text-align: right;
   }
-
 }

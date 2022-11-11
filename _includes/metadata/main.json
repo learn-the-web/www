@@ -4,14 +4,14 @@
     "@type": "WebSite",
     "name": "Learn The Web",
     "description": "A complete and logical web development series of tutorials and videos for graphic designers.",
-    "url": "https://learn-the-web.algonquindesign.ca",
-    "image": "https://learn-the-web.algonquindesign.ca/favicon-152.png",
+    "url": "https://learntheweb.courses",
+    "image": "https://learntheweb.courses/favicon-152.png",
     "video": {
       "@type": "VideoObject",
       "name": "Introduction to Learn the Web",
       "description": "A quick introduction to the website, its content & features, provided by Professor of the Open Web Thomas J Bradley",
       "uploadDate": "2015-04-22",
-      "thumbnailURL": "https://learn-the-web.algonquindesign.ca/images/channel-intro-video.jpg",
+      "thumbnailURL": "https://learntheweb.courses/images/channel-intro-video.jpg",
       "embedUrl": "https://www.youtube.com/embed/c26Wbq99Ebw"
     },
     "copyrightYear": "{{site.time | date:'%Y'}}",
@@ -23,55 +23,39 @@
   {
     "@context": "https://schema.org",
     "@type": "PostalAddress",
-    "@id": "#algonquin-address",
-    "name": "Algonquin College",
-    "url": "https://algonquincollege.com",
-    "streetAddress": "1385 Woodroffe Ave.",
+    "@id": "#learntheweb-address",
+    "name": "Learn the Web",
+    "url": "https://learntheweb.courses",
     "addressLocality": "Ottawa",
     "addressRegion": "ON",
-    "postalCode": "K2G 1V8",
     "addressCountry": "CA"
   },
   {
     "@context": "https://schema.org",
-    "@type": "CollegeOrUniversity",
-    "name": "Algonquin College Graphic Design",
-    "image": "https://algonquindesign.ca/favicon-152.png",
-    "logo": "https://algonquindesign.ca/favicon-152.png",
-    "url": "https://algonquindesign.ca",
+    "@type": "Shool",
+    "name": "Learn the Web",
+    "image": "https://learntheweb.courses/favicon-152.png",
+    "logo": "https://learntheweb.courses/favicon-152.png",
+    "url": "https://learntheweb.courses",
     "description": "Ontario college graphic design diploma program teaching students up-to-date courses in print, mobile, web & motion.",
     "address": {
-      "@id": "#algonquin-address"
+      "@id": "#learntheweb-address"
     },
-    "sameAs": [
-      "https://www.facebook.com/algonquindesign",
-      "https://twitter.com/algonquindesign",
-      "https://youtube.com/algonquindesignca",
-      "https://www.behance.net/algonquindesign",
-      "http://www.linkedin.com/groups?gid=7434225",
-      "https://algonquindesign.github.io/"
-    ]
+    "sameAs": ["https://github.com/ltw-learn-the-web"]
   },
   {
     "@context": "https://schema.org",
-    "@type": "CollegeOrUniversity",
-    "@id": "#algonquin",
-    "name": "Algonquin College Graphic Design",
-    "image": "https://algonquindesign.ca/favicon-152.png",
-    "logo": "https://algonquindesign.ca/favicon-152.png",
-    "url": "https://algonquindesign.ca",
+    "@type": "School",
+    "@id": "#learntheweb",
+    "name": "Learn the Web",
+    "image": "https://learntheweb.courses/favicon-152.png",
+    "logo": "https://learntheweb.courses/favicon-152.png",
+    "url": "https://learntheweb.courses",
     "description": "Ontario college graphic design diploma program teaching students up-to-date courses in print, mobile, web & motion.",
     "address": {
-      "@id": "#algonquin-address"
+      "@id": "#learntheweb-address"
     },
-    "sameAs": [
-      "https://www.facebook.com/algonquindesign",
-      "https://twitter.com/algonquindesign",
-      "https://youtube.com/algonquindesignca",
-      "https://www.behance.net/algonquindesign",
-      "http://www.linkedin.com/groups?gid=7434225",
-      "https://algonquindesign.github.io/"
-    ]
+    "sameAs": ["https://github.com/ltw-learn-the-web"]
   },
   {
     "@context": "https://schema.org",

@@ -14,7 +14,6 @@
 }
 
 .title-wrap {
-
 }
 
 .title {
@@ -132,7 +131,6 @@
 }
 
 @media only screen and (min-width: 25em) {
-
   .logo {
     margin-left: 0;
     margin-right: 0;
@@ -150,11 +148,9 @@
   .photo {
     background-position: calc(100% + 40px) top;
   }
-
 }
 
 @media only screen and (min-width: 38em) {
-
   .header-home {
     padding: 3rem 0;
   }
@@ -181,13 +177,9 @@
     display: none;
   }
 
-  .acgd-logo {
+  .ltw-logo {
     margin-bottom: 0;
     max-width: none;
-  }
-
-  .alg-blurb {
-    padding-left: 3rem;
   }
 
   .open {
@@ -198,19 +190,15 @@
   .photo {
     background-position: right top;
   }
-
 }
 
 @media only screen and (min-width: 48em) {
-
   .random {
     background: url("../images/random.svg") 93% center no-repeat;
   }
-
 }
 
 @media only screen and (min-width: 60em) {
-
   .logo {
     width: 300px;
   }
@@ -218,5 +206,4 @@
   .topics {
     max-width: none;
   }
-
 }

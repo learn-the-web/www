@@ -25,9 +25,9 @@
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "timeRequired": "PT15M",
   "name": "{{include.title}}",
-  "url": "https://learn-the-web.algonquindesign.ca/workshops/{{page.collection}}/{{include.url}}/",
+  "url": "https://learntheweb.courses/workshops/{{page.collection}}/{{include.url}}/",
   "isPartOf": {
-    "@id": "https://learn-the-web.algonquindesign.ca/workshops/{{page.collection}}/"
+    "@id": "https://learntheweb.courses/workshops/{{page.collection}}/"
   },
   "audience": {
     "@type": "Audience",

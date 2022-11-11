@@ -1,5 +1,5 @@
 {% if page.layout == "course" %}
-  <link rel="index" href="https://learn-the-web.algonquindesign.ca/courses/">
+  <link rel="index" href="https://learntheweb.courses/courses/">
   {% capture id %}{{page.collection | replace: "web-dev-", ""}}{% endcapture %}
   {% unless id == "6" %}
     {% capture next %}{{id | plus: 1}}{% endcapture %}
@@ -11,18 +11,18 @@
   {% else %}
     {% assign prev=false %}
   {% endunless %}
-  <link rel="first" href="https://learn-the-web.algonquindesign.ca/courses/web-dev-1/">
+  <link rel="first" href="https://learntheweb.courses/courses/web-dev-1/">
   {% if prev and page.self_directed != true %}
-    <link rel="prev" href="https://learn-the-web.algonquindesign.ca/courses/web-dev-{{prev}}/">
+    <link rel="prev" href="https://learntheweb.courses/courses/web-dev-{{prev}}/">
   {% endif %}
   {% if next and page.self_directed != true %}
-    <link rel="next" href="https://learn-the-web.algonquindesign.ca/courses/web-dev-{{next}}/">
+    <link rel="next" href="https://learntheweb.courses/courses/web-dev-{{next}}/">
   {% endif %}
-  <link rel="last" href="https://learn-the-web.algonquindesign.ca/courses/web-dev-6/">
+  <link rel="last" href="https://learntheweb.courses/courses/web-dev-6/">
 {% endif %}
 
 {% if page.layout contains "week" %}
-  <link rel="index" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/">
+  <link rel="index" href="https://learntheweb.courses/courses/{{page.collection}}/">
   {% capture prev %}{{number | minus:1}}{% endcapture %}
   {% capture prev_size %}{{prev | size}}{% endcapture %}
   {% capture prev_link %}{% if prev_size == "1" %}0{% endif %}{{prev}}{% endcapture %}
@@ -33,12 +33,12 @@
   {% capture max_weeks_compare %}{{page_data.max_weeks | plus:1}}{% endcapture %}
   {% capture max_weeks_size %}{{max_weeks | size}}{% endcapture %}
   {% capture max_weeks_link %}{% if max_weeks_size == "1" %}0{% endif %}{{max_weeks}}{% endcapture %}
-  <link rel="first" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/week-01/">
+  <link rel="first" href="https://learntheweb.courses/courses/{{page.collection}}/week-01/">
   {% if next != max_weeks_compare %}
-    <link rel="next" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/week-{{next_link}}/">
+    <link rel="next" href="https://learntheweb.courses/courses/{{page.collection}}/week-{{next_link}}/">
   {% endif %}
   {% if prev != "0" %}
-    <link rel="prev" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/week-{{prev_link}}/">
+    <link rel="prev" href="https://learntheweb.courses/courses/{{page.collection}}/week-{{prev_link}}/">
   {% endif %}
-  <link rel="last" href="https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/week-{{max_weeks_link}}/">
+  <link rel="last" href="https://learntheweb.courses/courses/{{page.collection}}/week-{{max_weeks_link}}/">
 {% endif %}

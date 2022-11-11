@@ -15,7 +15,7 @@
 
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//learn-the-web.algonquindesign.ca//courses//{{page.collection}}
+PRODID:-//learntheweb.courses//courses//{{page.collection}}
 X-WR-CALNAME:{{course_details.title}} Dates, Section {{page.section}}
 X-PUBLISHED-TTL:PT1D
 CALSCALE:GREGORIAN

@@ -75,7 +75,7 @@ skip_links: |
         Week {{number_leading_zero}}
         {% if course_data.datetimes.sections %}
           {% capture week_time %}{{course_data.datetimes.year}}-W{{course_data.datetimes.start_week | plus: number | minus: 1}}{% endcapture %}
-          — <time class="week-times" datetime="{{week_time}}" hidden aria-hidden="true">{{week_time}}</time>
+          — <time class="week-times" datetime="{{week_time}}" hidden aria-hidden="true">{{week_time}}</time>
         {% endif %}
       </span>
     </h2>

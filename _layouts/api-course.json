@@ -29,7 +29,7 @@
   "title": "{{course_details.title}}",
   {% if course_details.short_title %}"short_title": "{{course_details.short_title}}",{% endif %}
   "description": "{{course_details.desc}}",
-  "url": "https://learn-the-web.algonquindesign.ca/courses/{{page.collection}}/",
+  "url": "https://learntheweb.courses/courses/{{page.collection}}/",
   "course_code": "{{course_details.course_code}}",
   "year": {% if course_details.datetimes.year %}{{course_details.datetimes.year}}{% else %}{{site.time | date:'%Y'}}{% endif %},
   "start_week": {% if course_details.datetimes.start_week %}{{course_details.datetimes.start_week}}{% else %}1{% endif %},

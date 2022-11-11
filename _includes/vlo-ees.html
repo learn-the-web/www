@@ -11,7 +11,7 @@
     <tbody>
       {% for item in include.data %}
         <tr>
-          <th class="normal" scope="row" colspan="15">{{forloop.index}} — {{item}}</span></th>
+          <th class="normal" scope="row" colspan="15">{{forloop.index}} — {{item}}</span></th>
           <td scope="col" colspan="3">
             {% if include.values[forloop.index0] contains "t" %}
               <i class="icon i-24" aria-label="Yes">

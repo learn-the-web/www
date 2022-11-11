@@ -3,7 +3,7 @@
     <div class="topic-wrap">
       <h2 class="topic-heading">
         {% if include.link == true %}
-          <a class="link-box link-box-no-mark" href="https://solutions.learn-the-web.algonquindesign.ca/{{include.slug}}/">
+          <a class="link-box link-box-no-mark" href="https://solutions.learntheweb.courses/{{include.slug}}/">
         {% endif %}
           <i class="icon i-48 push-1-4"><svg><use xlink:href="#icon-topic-{{include.number}}"/></svg></i>
           <span class="mega topic-heading-text">{% if include.title_short %}{{include.title_short}}{% else %}{{include.title}}{% endif %}</span>
@@ -12,7 +12,7 @@
         {% endif %}
       </h2>
       {% if include.link == true %}
-      <a class="exa bold" href="https://solutions.learn-the-web.algonquindesign.ca/{{include.slug}}/">{{include.title}}</a>
+      <a class="exa bold" href="https://solutions.learntheweb.courses/{{include.slug}}/">{{include.title}}</a>
       <p class="push-0">Solutions for all homework exercises & assignments are available for all teachers & teaching assistants. <em>Do not share this information with students or teaching assistants who are not as far in the program.</em></p>
       {% else %}
       <strong class="exa text-disabled">{{include.title}}</strong>

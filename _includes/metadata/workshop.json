@@ -26,7 +26,7 @@
   "timeRequired": "PT3H",
   "description": "{{page.desc}}",
   "name": "{{page.title}}",
-  "url": "https://learn-the-web.algonquindesign.ca{{page.url | replace: 'index.html', ''}}",
+  "url": "https://learntheweb.courses{{page.url | replace: 'index.html', ''}}",
   "audience": {
     "@type": "Audience",
     "audienceType": "public"

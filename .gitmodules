@@ -1,42 +1,42 @@
 [submodule "_topics"]
   path = _topics
-  url = https://github.com/acgd-learn-the-web/topics.git
+  url = https://github.com/ltw-learn-the-web/topics.git
 [submodule "_web-dev-1"]
   path = _web-dev-1
-  url = git@github.com:acgd-webdev-1/curriculum.git
+  url = git@github.com:ltw-webdev-1/curriculum.git
 [submodule "_web-dev-2"]
   path = _web-dev-2
-  url = git@github.com:acgd-webdev-2/curriculum.git
+  url = git@github.com:ltw-webdev-2/curriculum.git
 [submodule "_web-dev-3"]
   path = _web-dev-3
-  url = git@github.com:acgd-webdev-3/curriculum.git
+  url = git@github.com:ltw-webdev-3/curriculum.git
 [submodule "_web-dev-4"]
   path = _web-dev-4
-  url = git@github.com:acgd-webdev-4/curriculum.git
+  url = git@github.com:ltw-webdev-4/curriculum.git
 [submodule "_web-dev-5"]
   path = _web-dev-5
-  url = git@github.com:acgd-webdev-5/curriculum.git
+  url = git@github.com:ltw-webdev-5/curriculum.git
 [submodule "_web-dev-6"]
   path = _web-dev-6
-  url = git@github.com:acgd-webdev-6/curriculum.git
+  url = git@github.com:ltw-webdev-6/curriculum.git
 [submodule "_javascript"]
   path = _javascript
-  url = git@github.com:acgd-webdev-javascript/curriculum.git
+  url = git@github.com:ltw-webdev-javascript/curriculum.git
 [submodule "_think-like-a-programmer"]
   path = _think-like-a-programmer
-  url = git@github.com:acgd-webdev-workshops/think-like-a-programmer.git
+  url = git@github.com:ltw-webdev-workshops/think-like-a-programmer.git
 [submodule "_jquery-jq-what"]
   path = _jquery-jq-what
-  url = git@github.com:acgd-webdev-workshops/jquery-jq-what.git
+  url = git@github.com:ltw-webdev-workshops/jquery-jq-what.git
 [submodule "_shared"]
   path = _shared
-  url = git@github.com:acgd-webdev-shared/curriculum.git
+  url = git@github.com:ltw-webdev-shared/curriculum.git
 [submodule "_the-dom-i-kno"]
   path = _the-dom-i-kno
-  url = git@github.com:acgd-webdev-workshops/the-dom-i-kno.git
+  url = git@github.com:ltw-webdev-workshops/the-dom-i-kno.git
 [submodule "_web-design-2"]
 	path = _web-design-2
-	url = git@github.com:acgd-webdesign-2/curriculum.git
+	url = git@github.com:ltw-webdesign-2/curriculum.git
 [submodule "_web-design-1"]
 	path = _web-design-1
-	url = git@github.com:acgd-webdesign-1/curriculum.git
+	url = git@github.com:ltw-webdesign-1/curriculum.git

@@ -1,4 +1,4 @@
 <li class="lesson-note">
-  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{% if include.prefix %}{{include.prefix}} — {% endif %}Line{% if include.line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=include.line.num %}</h3>
+  <h3 class="lesson-note-label kilo push-0 inline-block gutter-1-2">{% if include.prefix %}{{include.prefix}} — {% endif %}Line{% if include.line.num contains "-" %}s{% endif %} {% include line-num-to-letter.html lines=include.line.num %}</h3>
   <div class="gutter-1-2 italic">{{include.line.text | markdownify}}</div>
 </li>
