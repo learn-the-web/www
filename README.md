@@ -4,7 +4,7 @@
 
 The wrapper and templates for the website.
 
-- The tutorials are in the [topics sub module](https://github.com/ltw-learn-the-web/topics)
+- The tutorials are in the [topics sub module](https://github.com/learn-the-web/topics)
 - The course weekly curriculums are in their own sub modules:
   - [Web Dev 1](https://github.com/ltw-webdev-1/curriculum)
   - [Web Dev 2](https://github.com/ltw-webdev-2/curriculum)
@@ -18,7 +18,7 @@ The wrapper and templates for the website.
   - [think == programmer](https://github.com/ltw-webdev-workshops/think-like-a-programmer)
   - [jQuery, jQ-what‽](https://github.com/ltw-webdev-workshops/jquery-jq-what)
   - [The DOM-I-(k)no’](https://github.com/ltw-webdev-workshops/the-dom-i-kno)
-- Check out all the activites and quizzes in the [activities repo](https://github.com/ltw-learn-the-web/activities)
+- Check out all the activites and quizzes in the [activities repo](https://github.com/learn-the-web/activities)
 
 ---
 

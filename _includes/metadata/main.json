@@ -41,7 +41,7 @@
     "address": {
       "@id": "#learntheweb-address"
     },
-    "sameAs": ["https://github.com/ltw-learn-the-web"]
+    "sameAs": ["https://github.com/learn-the-web"]
   },
   {
     "@context": "https://schema.org",
@@ -55,7 +55,7 @@
     "address": {
       "@id": "#learntheweb-address"
     },
-    "sameAs": ["https://github.com/ltw-learn-the-web"]
+    "sameAs": ["https://github.com/learn-the-web"]
   },
   {
     "@context": "https://schema.org",

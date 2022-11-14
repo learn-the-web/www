@@ -1,6 +1,6 @@
 [submodule "_topics"]
   path = _topics
-  url = https://github.com/ltw-learn-the-web/topics.git
+  url = https://github.com/learn-the-web/topics.git
 [submodule "_web-dev-1"]
   path = _web-dev-1
   url = git@github.com:ltw-webdev-1/curriculum.git

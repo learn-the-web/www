@@ -43,23 +43,25 @@ skip_links: |
       <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
       {% if page.video %}
-        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/watch?v={{page.video}}" data-video="{{page.video}}"  itemprop="embedUrl">
+        <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.video}}" data-video="{{page.video}}"  itemprop="embedUrl">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
           <strong class="giga icon-label play-icon-text">Watch the video</strong>
         </a>
       {% endif %}
       {% if page.playlist %}
-        <a class="play-btn link-box link-box-no-mark" href="https://www.youtube.com/playlist?list={{page.playlist}}" data-playlist="{{page.playlist}}" itemprop="embedUrl">
+        <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.playlist}}" data-playlist="{{page.playlist}}" itemprop="embedUrl">
           <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
           <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
         </a>
       {% endif %}
+{% comment %}
       {% if page.video or page.playlist %}
         <dl class="video-stats-default push-0 text-right gutter-1-2">
           <dt class="micro text-upper">Watched</dt>
           <dd class="yotta bold"><span id="playlist-watched-initial">0</span><sup class="milli">%</sup></dd>
         </dl>
       {% endif %}
+{% endcomment %}
       <div class="embed embed--4by1 video-embed"></div>
     </div>
     {% if page.video or page.playlist %}
