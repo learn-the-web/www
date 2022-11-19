@@ -1,19 +1,19 @@
 (function () {
   "use strict";
 
-  const iframeVideo =
+  var iframeVideo =
     '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://videos.learntheweb.courses/playlists/{playlist}/embed.html#{id}" frameborder="0" allowfullscreen></iframe>';
-  const iframePlaylist =
+  var iframePlaylist =
     '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://videos.learntheweb.courses/playlists/{id}/embed.html" frameborder="0" allowfullscreen></iframe>';
-  const playBtn = document.querySelector(".play-btn");
+  var playBtn = document.querySelector(".play-btn");
 
   if (!playBtn) {
     return;
   }
 
   playBtn.addEventListener("click", function (e) {
-    const videoEmbed = document.querySelector(".video-embed");
-    let videoId, iframe, embedItem;
+    var videoEmbed = document.querySelector(".video-embed");
+    var videoId, playlistId, iframe, embedItem;
     e.preventDefault();
     if (this.hasAttribute("data-video")) {
       videoId = this.getAttribute("data-video");
