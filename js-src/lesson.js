@@ -5,9 +5,9 @@
 */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var stepJumpElems = document.querySelectorAll('[data-step-jump]');
+  var stepJumpElems = document.querySelectorAll("[data-step-jump]");
   var stepJumpIds = [];
   var totalSteps = 0;
   var currentJumpLocation = -1;
@@ -18,8 +18,11 @@
 
   totalSteps = stepJumpIds.length - 1;
 
-  document.documentElement.addEventListener('keydown', function (e) {
-    if (window.location.hash) currentJumpLocation = stepJumpIds.indexOf(window.location.hash.replace(/#/, ''));
+  document.documentElement.addEventListener("keydown", function (e) {
+    if (window.location.hash)
+      currentJumpLocation = stepJumpIds.indexOf(
+        window.location.hash.replace(/#/, "")
+      );
 
     switch (e.keyCode) {
       case 39: // right
@@ -46,7 +49,7 @@
         break;
     }
   });
-}());
+})();
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
@@ -55,28 +58,39 @@
 */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var imageStepsForms = document.querySelectorAll('.image-steps-form');
+  var imageStepsForms = document.querySelectorAll(".image-steps-form");
   var startingActiveId;
   var makeActive = function (id) {
-    document.querySelector('.image-steps label[for="' + id + '"]').classList.add('image-steps-label-active');
+    document
+      .querySelector('.image-steps label[for="' + id + '"]')
+      .classList.add("image-steps-label-active");
   };
 
   if (!imageStepsForms) return;
 
-  [].forEach.call(document.querySelectorAll('.image-step-control:checked'), function (elem) {
-    makeActive(elem.id);
-  });
+  [].forEach.call(
+    document.querySelectorAll(".image-step-control:checked"),
+    function (elem) {
+      makeActive(elem.id);
+    }
+  );
 
   [].forEach.call(imageStepsForms, function (elem) {
-    elem.addEventListener('change', function (e) {
+    elem.addEventListener("change", function (e) {
       var stepId = e.currentTarget.dataset.imageSteps;
-      document.querySelector('[data-image-steps-controls="' + stepId + '"] label.image-steps-label-active').classList.remove('image-steps-label-active');
+      document
+        .querySelector(
+          '[data-image-steps-controls="' +
+            stepId +
+            '"] label.image-steps-label-active'
+        )
+        .classList.remove("image-steps-label-active");
       makeActive(e.target.id);
     });
   });
-}());
+})();
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
@@ -85,42 +99,44 @@
 */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var iframeVideo = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/{id}?autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>';
-  var iframePlaylist = '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://www.youtube.com/embed/videoseries?list={id}&autoplay=1&color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe>';
-  var playBtn = document.querySelector('.play-btn');
+  var iframeVideo =
+    '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://videos.learntheweb.courses/playlists/{playlist}/embed.html#{id}" frameborder="0" allowfullscreen></iframe>';
+  var iframePlaylist =
+    '<iframe class="embed-item video-embed-item video-embed-item-loading" src="https://videos.learntheweb.courses/playlists/{id}/embed.html" frameborder="0" allowfullscreen></iframe>';
+  var playBtn = document.querySelector(".play-btn");
 
-  if (!playBtn) return;
+  if (!playBtn) {
+    return;
+  }
 
-  playBtn.addEventListener('click', function (e) {
-    var videoId, iframe;
-    var videoEmbed = document.querySelector('.video-embed');
-    var embedItem;
-
+  playBtn.addEventListener("click", function (e) {
+    var videoEmbed = document.querySelector(".video-embed");
+    var videoId, playlistId, iframe, embedItem;
     e.preventDefault();
-
-    if (this.hasAttribute('data-video')) {
-      videoId = this.getAttribute('data-video');
-      iframe = iframeVideo.replace('{id}', videoId);
+    if (this.hasAttribute("data-video")) {
+      videoId = this.getAttribute("data-video");
+      playlistId = this.getAttribute("data-playlist");
+      iframe = iframeVideo
+        .replace("{playlist}", playlistId)
+        .replace("{id}", videoId);
     } else {
-      videoId = this.getAttribute('data-playlist');
-      iframe = iframePlaylist.replace('{id}', videoId);
+      videoId = this.getAttribute("data-playlist");
+      iframe = iframePlaylist.replace("{id}", videoId);
     }
-
-    videoEmbed.classList.add('is-loading');
-    videoEmbed.classList.add('embed--16by9');
-    videoEmbed.classList.remove('embed--3by1', 'embed--4by1', 'embed--5by1');
+    videoEmbed.classList.add("is-loading");
+    videoEmbed.classList.add("embed--16by9");
+    videoEmbed.classList.remove("embed--3by1", "embed--4by1", "embed--5by1");
     videoEmbed.innerHTML = iframe;
-    embedItem = document.querySelector('.video-embed-item');
-    document.querySelector('h1').classList.add('is-playing');
+    embedItem = document.querySelector(".video-embed-item");
+    document.querySelector("h1").classList.add("is-playing");
     this.parentNode.removeChild(this);
-
-    videoEmbed.addEventListener('transitionend', function () {
-      embedItem.classList.remove('video-embed-item-loading');
+    videoEmbed.addEventListener("transitionend", function () {
+      embedItem.classList.remove("video-embed-item-loading");
     });
   });
-}());
+})();
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
@@ -129,42 +145,43 @@
 */
 
 (function () {
-  'use strict';
-  var lists = document.querySelectorAll('.lesson-body-text ul');
+  "use strict";
+  var lists = document.querySelectorAll(".lesson-body-text ul");
 
   if (!lists) return;
 
   [].forEach.call(lists, function (list, textIndex) {
     [].forEach.call(list.children, function (li, liIndex) {
-      var newLabel, newInput, id = 'text-' + textIndex + '-' + liIndex;
+      var newLabel,
+        newInput,
+        id = "text-" + textIndex + "-" + liIndex;
 
       if (li.textContent.trim().match(/^\[[ x]\]/)) {
         if (liIndex == 0) {
-          li.parentNode.classList.add('list-group');
-          li.parentNode.classList.add('cheat-list');
+          li.parentNode.classList.add("list-group");
+          li.parentNode.classList.add("cheat-list");
         }
 
-        newLabel = document.createElement('label');
-        newLabel.textContent = li.textContent.trim().replace(/^\[[ x]\]/, '');
-        newLabel.setAttribute('for', id);
-        newLabel.classList.add('check-label');
-        newInput = document.createElement('input');
-        newInput.type = 'checkbox';
+        newLabel = document.createElement("label");
+        newLabel.textContent = li.textContent.trim().replace(/^\[[ x]\]/, "");
+        newLabel.setAttribute("for", id);
+        newLabel.classList.add("check-label");
+        newInput = document.createElement("input");
+        newInput.type = "checkbox";
         newInput.id = id;
-        newInput.classList.add('check-box');
-        newInput.classList.add('visually-hidden');
+        newInput.classList.add("check-box");
+        newInput.classList.add("visually-hidden");
 
         if (li.textContent.trim().match(/^\[[x]\]/)) newInput.checked = true;
 
-        li.textContent = '';
-        li.classList.add('check-list-details')
+        li.textContent = "";
+        li.classList.add("check-list-details");
         li.appendChild(newInput);
         li.appendChild(newLabel);
       }
     });
   });
-}());
-
+})();
 
 /*
  ++++++++++++++++++++++++++++++++++++++++++
@@ -173,9 +190,9 @@
 */
 
 (function () {
-  'use strict';
+  "use strict";
 
-  var imageSteps = document.querySelectorAll('.image-step');
+  var imageSteps = document.querySelectorAll(".image-step");
 
   if (!imageSteps) return;
 
@@ -183,13 +200,13 @@
     swiper(elem, function (opts) {
       var btnToClick;
 
-      if (opts.direction == 'right') {
-        btnToClick = opts.target.querySelector('.image-step-prev');
+      if (opts.direction == "right") {
+        btnToClick = opts.target.querySelector(".image-step-prev");
         btnToClick.click();
       } else {
-        btnToClick = opts.target.querySelector('.image-step-next');
+        btnToClick = opts.target.querySelector(".image-step-next");
         btnToClick.click();
       }
     });
   });
-}());
+})();

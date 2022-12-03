@@ -385,12 +385,10 @@
 
     [].forEach.call(allLis, function (li) {
       if (/^watch.*video.*interacts/i.test(li.textContent.trim())) {
-        var theUrl = li.querySelector("a").href;
-        var theVideoId = theUrl.trim().replace(/\/$/, "").split("/").pop();
+        var theUrl = li.querySelector("a").href.trim();
         var videoEmbedSource =
-          '<div class="embed embed-16by9 push"><iframe class="embed-item" src="https://www.youtube.com/embed/{{id}}?color=white&theme=light&rel=0" frameborder="0" allowfullscreen></iframe></div>';
-        var videoEmbed = videoEmbedSource.replace(/\{\{id\}\}/, theVideoId);
-
+          '<div class="embed embed-16by9 push"><video class="embed-item" src="{{url}}" controls muted loop preload="metadata" playsinline></div>';
+        var videoEmbed = videoEmbedSource.replace(/\{\{url\}\}/, theUrl);
         li.parentNode.insertAdjacentHTML("afterend", videoEmbed);
       }
     });
