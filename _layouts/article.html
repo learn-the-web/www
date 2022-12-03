@@ -42,17 +42,18 @@ skip_links: |
       <meta itemprop="uploadDate" content="{% capture lastmod_date %}{% last_modified {{ page.path }} %}{% endcapture %}{{ lastmod_date | date_to_xmlschema }}">
       <meta itemprop="author" itemscope itemtype="http://schema.org/Person" itemref="thomasjbradley">
 
-      {% if page.video %}
-        <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.video}}" data-video="{{page.video}}"  itemprop="embedUrl">
-          <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-          <strong class="giga icon-label play-icon-text">Watch the video</strong>
-        </a>
-      {% endif %}
-      {% if page.playlist %}
-        <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.playlist}}" data-playlist="{{page.playlist}}" itemprop="embedUrl">
-          <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
-          <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
-        </a>
+      {% if page.video or page.playlist %}
+        {% if page.video %}
+          <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.playlist}}/#{{page.video}}" data-playlist="{{page.playlist}}" data-video="{{page.video}}"  itemprop="embedUrl">
+            <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+            <strong class="giga icon-label play-icon-text">Watch the video</strong>
+          </a>
+        {% else %}
+          <a class="play-btn link-box link-box-no-mark" href="https://videos.learntheweb.courses/playlists/{{page.playlist}}" data-playlist="{{page.playlist}}" itemprop="embedUrl">
+            <i class="icon play-icon"><svg><use xlink:href="#icon-play"/></svg></i>
+            <strong class="giga icon-label play-icon-text">Watch the video playlist</strong>
+          </a>
+        {% endif %}
       {% endif %}
 {% comment %}
       {% if page.video or page.playlist %}
