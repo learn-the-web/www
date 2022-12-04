@@ -98,7 +98,6 @@ skip_links: |
   <div class="grid wrapper relative gutter-1-2">
     <div class="unit [ xs-1 s-1 m-1 l-1-4 ] {% unless page.livewebsite or page.download or page.github or page.tool or page.checklist or page.cheatsheet %}pad-t-1-2{% endunless %} push">
       <ul class="downloads list-group grid push-1-2" id="resources">
-        {% comment %}
         {% if page.extra_practice %}
           <li class="push-1-2 unit [ xs-1 ]">
             <a class="btn btn-light" href="#extra-practice">
@@ -107,7 +106,6 @@ skip_links: |
             </a>
           </li>
         {% endif %}
-        {% endcomment %}
         {% if page.livewebsite %}
           <li class="push-1-2 unit [ xs-1 ]">
             <a class="btn btn-ghost" href="{% unless page.livewebsite contains 'http://' or page.livewebsite contains 'https://' %}https://demos.learntheweb.courses/{{page.livewebsite}}/{% else %}{{page.livewebsite}}{% endunless %}" rel="nofollow">
@@ -197,7 +195,6 @@ skip_links: |
   </div>
 </main>
 
-{% comment %}
 {% if page.extra_practice %}
   <aside class="section-lightest" id="extra-practice">
     <div class="wrapper gutter-1-2 pad-t pad-b ">
@@ -296,6 +293,5 @@ skip_links: |
     {% endif %}
   </aside>
 {% endif %}
-{% endcomment %}
 
 {% include prev-next-nav.html data=toc_pages theslug=slug %}
