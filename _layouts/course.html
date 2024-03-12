@@ -357,7 +357,7 @@ skip_links: |
                       {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                     {% endif %}
                     <li>
-                      <a class="href-no-print" {% if deck.url %}href="{{url_prefix}}{{deck.url}}"{% else %}data-state="disabled"{% endif %} {% if deck.disabled %}data-state="disabled"{% endif %}>{{deck.title}} slide deck</a>
+                      <a class="href-no-print" {% if deck.url %}href="{{url_prefix}}{{deck.url}}{% unless deck.url contains "#" %}/{% endunless %}"{% else %}data-state="disabled"{% endif %} {% if deck.disabled %}data-state="disabled"{% endif %}>{{deck.title}} slide deck</a>
                     </li>
                   {% endfor %}
                   {% for activity in week.group_activities %}
@@ -367,7 +367,7 @@ skip_links: |
                       {% capture url_prefix %}/courses/{{page.collection}}/{% endcapture %}
                     {% endif %}
                     <li>
-                      <a class="href-no-print" {% if activity.url %}href="{{url_prefix}}{{activity.url}}"{% else %}data-state="disabled"{% endif %} {% if activity.disabled %}data-state="disabled"{% endif %}>{{activity.title}}</a>
+                      <a class="href-no-print" {% if activity.url %}href="{{url_prefix}}{{activity.url}}{% unless activity.url contains "#" %}/{% endunless %}"{% else %}data-state="disabled"{% endif %} {% if activity.disabled %}data-state="disabled"{% endif %}>{{activity.title}}</a>
                     </li>
                   {% endfor %}
                 </ol>
@@ -376,7 +376,7 @@ skip_links: |
                 {% for task in week.video_tutorials %}
                   {% if task.videos %}
                     <li>
-                      <a class="href-no-print" {% if task.url %}href="/topics/{{task.url}}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}} videos</a>
+                      <a class="href-no-print" {% if task.url %}href="/topics/{{task.url}}{% unless task.url contains "#" %}/{% endunless %}"{% else %}data-state="disabled"{% endif %} {% if task.disabled %}data-state="disabled"{% endif %}>{{task.title}} videos</a>
                     </li>
                   {% endif %}
                 {% endfor %}
